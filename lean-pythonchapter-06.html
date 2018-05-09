@@ -1,82 +1,106 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/BlogPosting"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/BlogPosting"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/BlogPosting"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" class="no-js" prefix="og: http://ogp.me/ns#" itemscope itemtype="http://schema.org/BlogPosting"> <!--<![endif]-->
+<html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Lean Python(Chapter 06)</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Object Orientation 创建对象 类的定义 类是对象的模板 from datetime import datetime class person(object): "Person Class" def __init__(self, name, age, parent = None): self.name =name self.age = age self.created = datetime.today() self.parent = parent self.children = [] print('Created', self.name, 'age', self.age) def setName(self, name): self.name = name …">
-<link rel="shortcut icon" href="http://littlecaptain.net/assets/images/avatar.jpg" type="">
-<meta name="author" content="Little Captain">
-<meta name="copyright" content="Little Captain">
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@" />
-<meta property="og:site_name" content="Little Captain's Blog" />
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-<meta property="og:title" content="Lean python(chapter 06)" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://littlecaptain.net/lean-pythonchapter-06.html" />
-<meta name="twitter:title" content="Lean python(chapter 06)" />
-<meta name="twitter:url" content="http://littlecaptain.net/lean-pythonchapter-06.html" />
-<meta itemprop="url" content="http://littlecaptain.net/lean-pythonchapter-06.html" />
-<meta property="og:description" content="Object Orientation 创建对象 类的定义 类是对象的模板 from datetime import datetime class person(object): &#34;Person Class&#34; def __init__(self, name, age, parent = None): self.name =name self.age = age self.created = datetime.today() self.parent = parent self.children = [] print(&#39;Created&#39;, self.name, &#39;age&#39;, self.age) def setName(self, name): self.name = name …" />
-<meta name="twitter:description" content="Object Orientation 创建对象 类的定义 类是对象的模板 from datetime import datetime class person(object): &#34;Person Class&#34; def __init__(self, name, age, parent = None): self.name =name self.age = age self.created = datetime.today() self.parent = parent self.children = [] print(&#39;Created&#39;, self.name, &#39;age&#39;, self.age) def setName(self, name): self.name = name …" />
-<meta property="og:article:published_time" content="2017-09-23" />
-<meta property="og:article:author" content="Little Captain" >
+        <title>Little Captain's Blog</title>
 
-<link href="http://littlecaptain.net/None" type="application/atom+xml" rel="alternate" title="Little Captain's Blog ATOM Feed"/>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:800italic' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/2.15.0/css/uikit.min.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/uikit/2.15.0/css/components/search.min.css">
-<link rel="stylesheet" href="/theme/css/tipuesearch.css">
-<link rel="stylesheet" href="/theme/css/solarized.css">
-<link rel="stylesheet" href="/theme/css/main.css">
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-</head>
-<body>
-<!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <!-- Bootstrap Core CSS -->
+        <link href="http://littlecaptain.net/theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="http://littlecaptain.net/theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="http://littlecaptain.net/theme/css/code_blocks/monokai.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-<header class=" mg-header uk-navbar uk-navbar-attached">
 
-    <div class="uk-container uk-container-center">
-        <div class="uk-grid" data-uk-grid-margin>
 
-            <a class="mg-brand uk-navbar-brand uk-hidden-small" href="http://littlecaptain.net">Little Captain's Blog</a>
-            <div class="mg-tagline uk-navbar-content uk-hidden-small"></div>
-            <a class="uk-navbar-toggle uk-visible-small" href="#mg-offcanvas" data-uk-offcanvas></a>
-            <a class="mg-brand uk-navbar-brand uk-navbar-center uk-visible-small" href="http://littlecaptain.net">Little Captain's Blog</a>
 
+
+
+			<meta property="og:locale" content="en">
+		<meta property="og:site_name" content="Little Captain's Blog">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="http://littlecaptain.net/lean-pythonchapter-06.html">
+	<meta property="og:title" content="Lean Python(Chapter 06)">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="http://littlecaptain.net/">
+	<meta property="article:published_time" content="2017-09-23 14:25:36+08:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="http://littlecaptain.net/">Little Captain's Blog</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-    </div>
-</header>
+        <!-- /.container -->
+    </nav>
 
-<main class="mg-main">
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('http://littlecaptain.net/theme/images/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Lean Python(Chapter 06)</h1>
+                        <span class="meta">Posted by
+                                <a href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+                             on Sat 23 September 2017
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<div class="uk-container uk-container-center">
-
-    <div class="uk-grid" data-uk-grid-margin>
-        
-<div class="mg-container-social uk-width-medium-1-10 uk-hidden-small">
-
-
-</div>
-
-<div class="uk-width-medium-7-10">
-
-    <article class="uk-article">
-        <h1 class="uk-heading-large uk-article-title" itemprop="name">Lean Python(Chapter 06)</h1>
-        <p class="uk-article-meta"><time datetime="2017-09-23" itemprop="datePublished">Sat 23 September 2017</time> in <a href="http://littlecaptain.net/category/python.html">Python</a></p>
-
-
-        <p class="uk-article-lead" itemprop="description">Object Orientation 创建对象 类的定义 类是对象的模板 from datetime import datetime class person(object): "Person Class" def __init__(self, name, age, parent = None): self.name =name self.age = age self.created = datetime.today() self.parent = parent self.children = [] print('Created', self.name, 'age', self.age) def setName(self, name): self.name = name …</p>
-        <section itemprop="articleBody"><blockquote>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <blockquote>
 <p>Object Orientation</p>
 </blockquote>
 <h1>创建对象</h1>
@@ -146,108 +170,64 @@
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">joekids</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">j</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="s1">&#39;attributes&#39;</span><span class="p">)</span>
     <span class="k">print</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
-</pre></div></section>
-        <hr class="uk-article-divider">
+</pre></div>
     </article>
 
+    <hr>
 
-</div>
- 
-    
-        <div class="uk-width-medium-1-5 uk-hidden-small">
-            
-            <div class="uk-panel uk-panel-box">
-                <form class="uk-search" action="search.html" data-uk-search>
-                    <input class="uk-search-field tipue_search" type="search" name="q" id="tipue_search_input" autocomplete="off" placeholder="Search...">
-                </form>
             </div>
-
-            <div class="uk-panel uk-panel-box">
-                <ul class="uk-nav uk-nav-side">
-                    <li class="uk-nav-header">Categories</li>
-                    <li class="uk-active"><a href="http://littlecaptain.net/category/python.html">Python</a></li>
-                    <li ><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
-                    <li class="uk-nav-header">Pages</li>
-                    
-                    
-
-                    <li class="uk-nav-divider"></li>
-                    <li ><a href="http://littlecaptain.net/archives.html">Archives</a></li>
-                </ul>
-            </div>
-
-            <div class="uk-panel uk-panel-box">
-                <h3 class="uk-panel-title">Receive Updates</h3>
-                <a rel="alternate" type="application/atom+xml" href="http://littlecaptain.net/None" class="mg-feed"><i class="uk-icon-rss uk-icon-medium"></i> ATOM</a>
-            </div>
-            
-
         </div>
-
     </div>
 
-</div>
+    <hr>
 
-</main>
-
-<footer class="mg-footer">
-    <div class="uk-container uk-container-center uk-text-center">
-
-        <div class="mg-icons-small uk-subnav uk-visible-small">
-            <li><a rel="alternate" type="application/atom+xml" href="http://littlecaptain.net/None" class="uk-icon-button uk-icon-rss"></a></li>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Little-Captain">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
         </div>
+    </footer>
 
-        <div class="mg-author uk-panel">
-            <p></p>
+    <!-- jQuery -->
+    <script src="http://littlecaptain.net/theme/js/jquery.js"></script>
 
-            <p>Powered by <a href="http://blog.getpelican.com">Pelican</a>.<br class="uk-visible-small"> Theme <a href="https://github.com/lucachr/pelican-mg">mg</a> by <a href="https://github.com/lucachr">Luca Chiricozzi</a>.</p>
-        </div>
-    </div> 
-</footer>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="http://littlecaptain.net/theme/js/bootstrap.min.js"></script>
 
-<div id="mg-offcanvas" class="uk-offcanvas">
-    <div class="uk-offcanvas-bar">
-
-        <form class="uk-search" action="search.html" data-uk-search>
-            <input class="uk-search-field" type="search" name="q" id="tipue_search_input" autocomplete="off" placeholder="Search...">
-        </form>
-
-        <ul class="uk-nav uk-nav-offcanvas" data-uk-nav>
-            <li class="uk-nav-header">Categories</li>
-            <li class="uk-active"><a href="http://littlecaptain.net/category/python.html">Python</a></li>
-            <li ><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
-            <li class="uk-nav-header">Pages</li>        
-                    
-
-            <li class="uk-nav-divider"></li>
-            <li><a href="http://littlecaptain.net/">Archives</a></li>
-        </ul>
-    </div>
-</div>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/uikit/2.15.0/js/uikit.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/uikit/2.15.0/js/components/search.min.js"></script>
-<script src="/theme/js/jquery.sticky-kit.js"></script>
-<script src="/theme/js/tipuesearch_set.js"></script>
-<script src="/theme/js/tipuesearch.js"></script>
-<script src="/theme/js/plugins.js"></script>
-<script src="/theme/js/main.js"></script>
-
-<script type="text/javascript">
-/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-var disqus_shortname = ''; // required: replace example with your forum shortname
-
-/* * * DON'T EDIT BELOW THIS LINE * * */
-(function () {
- var s = document.createElement('script'); s.async = true;
- s.type = 'text/javascript';
- s.src = '//' + disqus_shortname + '.disqus.com/count.js';
- (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
- }());
-</script>
-
+    <!-- Custom Theme JavaScript -->
+    <script src="http://littlecaptain.net/theme/js/clean-blog.min.js"></script>
 
 </body>
+
 </html>
