@@ -58,6 +58,53 @@
  
 
     <div class='article'>
+        <a href="http://littlecaptain.net/lean-pythonchapter-08.html"><h2>Lean Python(Chapter 08)</h2></a>
+        <div class= "well small"> Sat 23 September 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>Testing Your Code</p>
+</blockquote>
+<h1>模块化编程与代码测试</h1>
+<ul>
+<li>模块化编程是测试更为容易</li>
+</ul>
+<h1>测试驱动的开发(TDD)</h1>
+<blockquote>
+<ol>
+<li>开发代码前先写测试</li>
+<li>运行测试, 观察失败, 然后添加和修正代码, 使测试通过</li>
+<li>当测试通过后, 寻求改进代码设计的机会</li>
+</ol>
+</blockquote>
+<ul>
+<li>对于大型项目, TDD 能够最好的模块化你的代码</li>
+</ul>
+<h1>单元测试框架 : unittest</h1>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">op</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">&#39;+-/*&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;Operator must be +-/*&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+        <span class="k">else …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-08.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://littlecaptain.net/lean-pythonchapter-07.html"><h2>Lean Python(Chapter 07)</h2></a>
         <div class= "well small"> Sat 23 September 2017
 
@@ -488,48 +535,6 @@ expr <span class="m">5</span> <span class="se">\*</span> <span class="m">2</span
 <li>bash …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/shell-shu-xue-yun-suan.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/shell-jiao-ben-bian-cheng-ji-chu.html"><h2>shell 脚本编程基础</h2></a>
-        <div class= "well small"> Sat 12 August 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><h1>基础</h1>
-<ul>
-<li>同<code>一行多个命令</code>顺序执行, 使用<code>;</code></li>
-</ul>
-<div class="highlight"><pre><span></span>data<span class="p">;</span>who
-</pre></div>
-
-
-<ul>
-<li>创建shell脚本文件</li>
-<li>在文件的<code>第一行指定</code>要使用的<code>shell</code></li>
-</ul>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-</pre></div>
-
-
-<ul>
-<li>显示消息</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="nb">echo</span> This is a <span class="nb">test</span>
-<span class="nb">echo</span> Let<span class="se">\&#39;</span>s see <span class="k">if</span> <span class="s2">&quot;this&#39;ll&quot;</span> work
-<span class="nb">echo</span> <span class="s2">&quot;Let&#39;s see if this&#39;ll work&quot;</span>
-<span class="nb">echo</span> <span class="s1">&#39;Rich says &quot;scripting is easy&quot;.&#39;</span>
-<span class="c1"># -n : 不输出末尾的 newline 字符</span>
-<span class="nb">echo</span> -n <span class="s2">&quot;The time …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/shell-jiao-ben-bian-cheng-ji-chu.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev"><a href="http://littlecaptain.net/author/little-captain5.html">&larr; Previous</a></li>
@@ -574,9 +579,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
                 Categories
                 </li>
                 
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
                 <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
                 <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
                 <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
                 <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
                    
             </ul>
@@ -599,7 +606,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2017</p>
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2018</p>
 </footer>
 
 </div> <!-- /container -->

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - git 基本操作</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>git 基本操作</h1>
+Mon 08 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+        </div>
+	
+        <div><h1>常用单命令操作</h1>
+<ul>
+<li><code>git init</code>: 初始化本地仓库</li>
+<li><code>git status</code>: 查看文件状态</li>
+<li><code>git add .</code>: 添加文件到暂缓区</li>
+<li><code>git commit -m "注释"</code>: 从暂缓区提交文件到本地代码仓库</li>
+<li>
+<p><code>git tag -a '标签' -m "注释"</code>: 打标签</p>
+</li>
+<li>
+<p><code>git tag</code>: 查看标签</p>
+</li>
+<li><code>git tag -d '标签名称'</code>: 删除标签</li>
+<li><code>git remote add origin 远程仓库地址</code>: 给本地仓库添加远程仓库关联地址</li>
+<li><code>git push origin master</code>: 上传本地代码到远程仓库</li>
+<li><code>git push --tags</code>: 上传标签到远程仓库</li>
+<li><code>git push origin :标签</code>: 从远程仓库删除标签</li>
+</ul>
+<h1>常用多命令操作</h1>
+<h2>忽略已跟踪文件</h2>
+<ul>
+<li>如果某些文件已经被跟踪了， 再放入到.gitinore可能会失效</li>
+<li>忽略: <code>git update-index --assume-unchanged filename</code></li>
+<li>撤销: <code>git update-index --no-assume-unchanged filename</code></li>
+<li>正确步骤</li>
+<li>将该文件从跟踪文件中移除: <code>git rm --cached 文件名</code></li>
+<li>修改gitignore文件: 添加要被忽略的文件</li>
+<li><code>git add .</code>: 添加变化</li>
+<li><code>git commit</code>: 提交</li>
+</ul></div>
+	
+        <hr>
+
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2018</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

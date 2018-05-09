@@ -58,6 +58,330 @@
  
 
     <div class='article'>
+        <a href="http://littlecaptain.net/shell-jiao-ben-bian-cheng-ji-chu.html"><h2>shell 脚本编程基础</h2></a>
+        <div class= "well small"> Sat 12 August 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>基础</h1>
+<ul>
+<li>同<code>一行多个命令</code>顺序执行, 使用<code>;</code></li>
+</ul>
+<div class="highlight"><pre><span></span>data<span class="p">;</span>who
+</pre></div>
+
+
+<ul>
+<li>创建shell脚本文件</li>
+<li>在文件的<code>第一行指定</code>要使用的<code>shell</code></li>
+</ul>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+</pre></div>
+
+
+<ul>
+<li>显示消息</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nb">echo</span> This is a <span class="nb">test</span>
+<span class="nb">echo</span> Let<span class="se">\&#39;</span>s see <span class="k">if</span> <span class="s2">&quot;this&#39;ll&quot;</span> work
+<span class="nb">echo</span> <span class="s2">&quot;Let&#39;s see if this&#39;ll work&quot;</span>
+<span class="nb">echo</span> <span class="s1">&#39;Rich says &quot;scripting is easy&quot;.&#39;</span>
+<span class="c1"># -n : 不输出末尾的 newline 字符</span>
+<span class="nb">echo</span> -n <span class="s2">&quot;The time …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/shell-jiao-ben-bian-cheng-ji-chu.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/git-shi-yong-jing-yan-ji-jin.html"><h2>git 使用经验集锦</h2></a>
+        <div class= "well small"> Mon 31 July 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h2>修改 Git 的默认编辑器</h2>
+<div class="highlight"><pre><span></span><span class="c1"># 1. subl 是可以在终端中直接启动的一个文本编辑器</span>
+<span class="c1"># 2. -w 的意思是: 让 git 等待文本编辑结束. 当用户编辑完成后, 关闭文本就表示结束</span>
+git config --global core.editor <span class="s2">&quot;subl -w&quot;</span>
+</pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/git-shi-yong-jing-yan-ji-jin.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/svn-ji-ben-cao-zuo.html"><h2>SVN 基本操作</h2></a>
+        <div class= "well small"> Tue 16 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><em>基本操作原理图</em></p>
+<p><img alt="" src="../assets/images/SVN/基本操作.png"></p>
+<p><em>SVN版本管理架构模式</em></p>
+<p><img alt="" src="../assets/images/SVN/SVN架构示意图.png"></p>
+<h1>SVN客户端常用命令</h1>
+<div class="highlight"><pre><span></span><span class="c1"># 下载服务器的代码到本地 （简写svn co）</span>
+svn checkout
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 将改动的文件提交到服务器（简写svn ci）</span>
+svn commit
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 更新服务器的代码到本地 （简写svn up）</span>
+svn update
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 向本地的版本控制库中添加新文件</span>
+svn add
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 从本地的版本控制库中删除文件（简写svn del、svn rm）</span>
+svn delete
+svn remove
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 移动文件或者目录或文件更名</span>
+svn move
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 创建纳入版本控制下的新目录</span>
+svn mkdir
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 撤销之前的一切修改</span>
+svn revert
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 将两个版本之间的差异合并到当前文件</span>
+svn merge
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 查看文件的详细信息</span>
+svn info
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 查看不同版本的区别</span>
+svn diff
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 查看日志信息</span>
+svn …</pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/svn-ji-ben-cao-zuo.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/git-ji-ben-cao-zuo.html"><h2>git 基本操作</h2></a>
+        <div class= "well small"> Mon 08 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>常用单命令操作</h1>
+<ul>
+<li><code>git init</code>: 初始化本地仓库</li>
+<li><code>git status</code>: 查看文件状态</li>
+<li><code>git add .</code>: 添加文件到暂缓区</li>
+<li><code>git commit -m "注释"</code>: 从暂缓区提交文件到本地代码仓库</li>
+<li>
+<p><code>git tag -a '标签' -m "注释"</code>: 打标签</p>
+</li>
+<li>
+<p><code>git tag</code>: 查看标签</p>
+</li>
+<li><code>git tag -d '标签名称'</code>: 删除标签</li>
+<li><code>git remote add origin 远程仓库地址</code>: 给本地仓库添加远程仓库关联地址</li>
+<li><code>git push origin master</code>: 上传本地代码到远程仓库</li>
+<li><code>git push --tags</code>: 上传标签到远程仓库</li>
+<li><code>git push origin :标签</code>: 从远程仓库删除标签 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/git-ji-ben-cao-zuo.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/da-jian-git-fu-wu-qi.html"><h2>搭建 git 服务器</h2></a>
+        <div class= "well small"> Sun 07 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h2>准备篇</h2>
+<h3>服务器</h3>
+<ul>
+<li>创建git专用账户git</li>
+</ul>
+<div class="highlight"><pre><span></span>sudo adduser --system --shell /bin/bash --user-group git <span class="c1"># CentOS</span>
+sudo adduser git ssh
+sudo passwd git  
+</pre></div>
+
+
+<ul>
+<li>修改git账户的home目录(有需求才改)</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># 当然可以直接修改/etc/passwd文件</span>
+usermod -d /tmp git
+</pre></div>
+
+
+<ul>
+<li>安装相关软件(在任何账户都可)</li>
+</ul>
+<div class="highlight"><pre><span></span>sudo apt-get update
+sudo apt-get install git-core openssh-server openssh-client
+sudo apt-get install python-setuptools
+</pre></div>
+
+
+<ul>
+<li>
+<p>进入<code>git账户</code>, 安装gitosis</p>
+</li>
+<li>
+<p>1.获取</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>git clone …</pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/da-jian-git-fu-wu-qi.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/fen-bu-shi-git-gong-zuo-liu-cheng.html"><h2>分布式 git - 工作流程</h2></a>
+        <div class= "well small"> Sun 07 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h3>集中式工作流</h3>
+<ul>
+<li>
+<p>集中式系统中通常使用的是单点协作模型 - 集中式工作流。 一个中心集线器，或者说仓库，可以接受代码，所有人将自己的工作与之同步。 若干个开发者则作为节点 - 也就是中心仓库的消费者 - 并且与其进行同步。</p>
+</li>
+<li>
+<p>如果两个开发者从中心仓库克隆代码下来，同时作了一些修改，那么只有第一个开发者可以顺利地把数据推送回共享服务器。 第二个开发者在推送修改之前，必须先将第一个人的工作合并进来，这样才不会覆盖第一个人的修改。 这和 Subversion (或任何 CVCS)中的概念一样，而且这个模式也可以很好地运用到 Git 中。</p>
+</li>
+</ul>
+<p><img alt="" src="../assets/images/git/git常用命令-09.png"></p>
+<h3>集成管理者工作流</h3>
+<ul>
+<li>每个开发者拥有自己仓库的写权限和其他所有人仓库的读权限。 这种情形下通常会有个代表“官方”项目的权威的仓库。 要为这个项目做贡献，你需要从该项目克隆出一个自己的公开仓库，然后将自己的修改推送上去。 接着你可以请求官方仓库的维护者拉取更新合并到主项目。 维护者可以将你的仓库作为远程仓库添加进来，在本地测试你的变更，将其合并入他们的分支并推送回官方仓库。 整个流程看起来是这样的: </li>
+<li>项目维护者推送到主仓库。</li>
+<li>贡献者克隆此仓库，做出修改。</li>
+<li>贡献者将数据推送到自己的公开仓库。</li>
+<li>贡献者给维护者发送邮件，请求拉取自己的更新。</li>
+<li>维护者在自己本地的仓库中，将贡献者的仓库加为远程仓库并合并修改。</li>
+<li>维护者将合并后的修改推送到主仓库。</li>
+</ul>
+<blockquote>
+<p>这是 GitHub 和 GitLab …</p></blockquote> <a class="btn btn-info xsmall" href="http://littlecaptain.net/fen-bu-shi-git-gong-zuo-liu-cheng.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/git-chang-yong-ming-ling.html"><h2>git 常用命令</h2></a>
+        <div class= "well small"> Sun 07 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><em>git核心命令工作示意图</em></p>
+<p><img alt="" src="../assets/images/git/git常用命令-01.png"></p>
+<p><img alt="" src="../assets/images/git/git常用命令-02.png"></p>
+<p><img alt="" src="../assets/images/git/git常用命令-03.png"></p>
+<ul>
+<li>git帮助</li>
+</ul>
+<div class="highlight"><pre><span></span>git <span class="nb">help</span> &lt;verb&gt;
+git &lt;verb&gt; --help
+man git-&lt;verb&gt;
+git <span class="nb">help</span>
+git <span class="nb">help</span> 其他指令
+</pre></div>
+
+
+<ul>
+<li>初始化一个本地仓库，生成一个.git目录，用于维护版本信息</li>
+</ul>
+<div class="highlight"><pre><span></span># 初始化可以在一个空文件执行, 也可以在一个非空文件执行
+git init
+git init 仓库路径
+# 初始化共享仓库, 共享仓库不能直接操作, 必须clone到本地
+git init --bare
+# Git 会自动修改该仓库目录的组权限为可写
+git init --bare --shared
+</pre></div>
+
+
+<ul>
+<li>克隆远程仓库到本地</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># 下载远程仓库到当前路径</span>
+git clone 仓库的URL
+<span class="c1"># 下载远程仓库到特定路径</span>
+git clone 仓库的URL 存放仓库的路径
+<span class="c1"># 克隆时 …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/git-chang-yong-ming-ling.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://littlecaptain.net/hello-blog.html"><h2>Hello Blog</h2></a>
         <div class= "well small"> Sat 06 May 2017
 
@@ -125,9 +449,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
                 Categories
                 </li>
                 
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
                 <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
                 <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
                 <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
                 <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
                    
             </ul>
@@ -150,7 +476,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2017</p>
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2018</p>
 </footer>
 
 </div> <!-- /container -->

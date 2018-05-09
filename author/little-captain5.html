@@ -58,6 +58,49 @@
  
 
     <div class='article'>
+        <a href="http://littlecaptain.net/pyqtchapter-07.html"><h2>PyQt(Chapter 07)</h2></a>
+        <div class= "well small"> Wed 11 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>PyQt</p>
+</blockquote>
+<h1>窗口和对话框</h1>
+<ul>
+<li>对话框包括两类: modal、modeless</li>
+<li>modal: 禁止用户与程序的其他部分交互</li>
+<li>modeless: 与 modal 相对, 用户可以自由的与应用程序的其他部分交互</li>
+</ul>
+<h1>创建应用程序</h1>
+<ul>
+<li>通过简单的纯文本编辑器创建</li>
+<li>使用 Qt Designer</li>
+</ul>
+<h1>使用 Code 创建 GUI 程序</h1>
+<ul>
+<li>这是针对 Qt4 的代码, Qt5 运行要不起来</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># 导入需要的模块</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtGui</span><span class="p">,</span> <span class="n">QtCore</span>
+<span class="c1"># QWidget 是所有的交互对象的基类</span>
+<span class="k">class</span> <span class="nc">demowind</span><span class="p">(</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="c1"># 构造函数</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="n">QtGui</span><span class="o">.</span><span class="n">QWidget</span><span class="o">.</span><span class="fm">__init__ …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-07.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://littlecaptain.net/pyqtchapter-06.html"><h2>PyQt(Chapter 06)</h2></a>
         <div class= "well small"> Tue 10 October 2017
 
@@ -454,53 +497,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Requesting …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-09.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/lean-pythonchapter-08.html"><h2>Lean Python(Chapter 08)</h2></a>
-        <div class= "well small"> Sat 23 September 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><blockquote>
-<p>Testing Your Code</p>
-</blockquote>
-<h1>模块化编程与代码测试</h1>
-<ul>
-<li>模块化编程是测试更为容易</li>
-</ul>
-<h1>测试驱动的开发(TDD)</h1>
-<blockquote>
-<ol>
-<li>开发代码前先写测试</li>
-<li>运行测试, 观察失败, 然后添加和修正代码, 使测试通过</li>
-<li>当测试通过后, 寻求改进代码设计的机会</li>
-</ol>
-</blockquote>
-<ul>
-<li>对于大型项目, TDD 能够最好的模块化你的代码</li>
-</ul>
-<h1>单元测试框架 : unittest</h1>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">op</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">&#39;+-/*&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;Operator must be +-/*&#39;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
-        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
-        <span class="k">else …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-08.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev"><a href="http://littlecaptain.net/author/little-captain4.html">&larr; Previous</a></li>
@@ -545,9 +541,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
                 Categories
                 </li>
                 
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
                 <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
                 <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
                 <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
                 <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
                    
             </ul>
@@ -570,7 +568,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2017</p>
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2018</p>
 </footer>
 
 </div> <!-- /container -->
