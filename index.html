@@ -1,48 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Brown Stone  
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20100928
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-        <title>Little Captain's Blog</title>
-        <meta charset="utf-8" />
-
-        <link rel="stylesheet" href="http://littlecaptain.net/theme/css/rdark.css" />
-	<link rel="stylesheet" type="text/css" href="http://littlecaptain.net/theme/css/main.css" />
-        <link href="http://littlecaptain.net/" type="application/atom+xml" rel="alternate" title="Little Captain's Blog ATOM Feed" /><!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	
-<!-- Using MathJax, with the delimiters $ -->
-<!-- Conflict with pygments for the .mo and .mi -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-  "HTML-CSS": {
-  styles: {
-  ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
-  },
-  tex2jax: {inlineMath: [['$','$'], ['\\\\(','\\\\)']],processEscapes: true}
-  });
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Little Captain's Blog</title>
+<link href="http://littlecaptain.net/theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="http://littlecaptain.net/" type="application/atom+xml" rel="alternate" title="Little Captain's Blog ATOM Feed" />
 </head>
-</head>
-
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="http://littlecaptain.net/">Little Captain's Blog <strong></strong></a></h1>
-        </header><!-- /#banner -->
-        <nav id="menu"><ul>
-        </ul></nav><!-- /#menu -->
-<section id="content">
-<h2>All articles</h2>
-
-<ol id="post-list">
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="http://littlecaptain.net/lean-pythonchapter-11.html" rel="bookmark" title="Permalink to Lean Python(Chapter 11)">Lean Python(Chapter 11)</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2017-09-24T13:00:07+08:00"> Sun 24 September 2017 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <blockquote>
+<body>
+<div id="wrapper">
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+ 
+        
+				<div id="content">
+					<div class="post">
+						<h2 class="title"><a href="http://littlecaptain.net/lean-pythonchapter-11.html">Lean Python(Chapter 11)</a></h2>
+						<p class="meta"><span class="date">Le  </span><span class="posted">Par <a href="#">Little Captain</a></span><span>&nbsp; | Catégorie : <a href="http://littlecaptain.net/category/python.html">Python</a></span></p>
+					<p class="meta">Tags : </p>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <blockquote>
 <p>Databases</p>
 </blockquote>
 <h1>SQLite</h1>
@@ -74,17 +65,73 @@
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
 
-<span class="n">schema …</span></pre></div> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="http://littlecaptain.net/lean-pythonchapter-10.html" rel="bookmark" title="Permalink to Lean Python(Chapter 10)">Lean Python(Chapter 10)</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2017-09-23T17:46:49+08:00"> Sat 23 September 2017 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <h1>字符串搜索</h1>
+<span class="n">schema</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;create table person (</span>
+<span class="s2">  id integer primary key autoincrement not null,</span>
+<span class="s2">  name text not null,</span>
+<span class="s2">  dob date,</span>
+<span class="s2">  nationality text,</span>
+<span class="s2">  gender text)</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+
+<span class="n">people</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;insert into person (name, dob, nationality, gender)</span>
+<span class="s2">values (&#39;Fred Bloggs&#39;, &#39;1965-12-25&#39;,&#39;British&#39;,&#39;Male&#39;);</span>
+<span class="s2">insert into person (name, dob,nationality,gender)</span>
+<span class="s2">values (&#39;Santa Claus&#39;, &#39;968-01-01&#39;,&#39;Lap&#39;,&#39;Male&#39;);</span>
+<span class="s2">insert into person (name, dob,nationality,gender)</span>
+<span class="s2">values (&#39;Tooth Fairy&#39;, &#39;1931-03-31&#39;,&#39;American&#39;,&#39;Female&#39;);</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select id, name, dob, nationality, gender from person&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
+    <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span> <span class="o">=</span> <span class="n">row</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%3d</span><span class="s2"> </span><span class="si">%15s</span><span class="s2"> </span><span class="si">%12s</span><span class="s2"> </span><span class="si">%10s</span><span class="s2"> </span><span class="si">%6s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span><span class="p">))</span>
+
+<span class="c1"># 省略了 name 字段, 使其抛出一个异常</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dupe</span><span class="o">=</span><span class="s2">&quot;insert into person (id, dob,nationality,gender) </span><span class="se">\</span>
+<span class="s2">    values (1,&#39;1931-03-31&#39;,&#39;American&#39;,&#39;Female&#39;);&quot;</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">dupe</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Cannot insert record&#39;</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># update</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">db_filename</span> <span class="o">=</span> <span class="s1">&#39;mydatabase.db&#39;</span>
+<span class="n">inid</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">innat</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;update person set nationality = :nat where id = :id&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="n">inid</span><span class="p">,</span> <span class="s1">&#39;nat&#39;</span><span class="p">:</span><span class="n">innat</span><span class="p">})</span>
+
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select id, name, dob,nationality,gender from person&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
+    <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span> <span class="o">=</span> <span class="n">row</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%3d</span><span class="s2"> </span><span class="si">%15s</span><span class="s2"> </span><span class="si">%12s</span><span class="s2"> </span><span class="si">%10s</span><span class="s2"> </span><span class="si">%6s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span><span class="p">))</span>
+</pre></div>	
+						</div>
+					</div>
+	
+			                <div class="post">
+			                        <h2 class="title">Autres articles</h2>
+			                </div>
+        
+ 
+			                <div class="post summary">
+						<h2 class="title"><a href="http://littlecaptain.net/lean-pythonchapter-10.html">Lean Python(Chapter 10)</a></h2>
+						<p class="meta"><span class="date">Le Sat 23 September 2017</span><span class="posted">Par <a href="#">Little Captain</a></span></p>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <h1>字符串搜索</h1>
 <ul>
 <li>find 返回字符串出现的字符位置, 如果没有找到就返回 -1</li>
 </ul>
@@ -103,17 +150,18 @@
 
 <span class="n">regex</span> <span class="o">=</span> <span class="s1">&#39;\s[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}[\s]&#39;</span>
 <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;This is some text with x@y.z embedded e-mails</span>
-<span class="s2">that we …</span></pre></div> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="http://littlecaptain.net/lean-pythonchapter-09.html" rel="bookmark" title="Permalink to Lean Python(Chapter 09)">Lean Python(Chapter 09)</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2017-09-23T17:21:57+08:00"> Sat 23 September 2017 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <blockquote>
+<span class="s2">that we …</span></pre></div>	
+						 <a class="readmore" href="http://littlecaptain.net/lean-pythonchapter-10.html">Lire la suite …</a>
+						</div>
+					</div>
+        
+ 
+			                <div class="post summary">
+						<h2 class="title"><a href="http://littlecaptain.net/lean-pythonchapter-09.html">Lean Python(Chapter 09)</a></h2>
+						<p class="meta"><span class="date">Le Sat 23 September 2017</span><span class="posted">Par <a href="#">Little Captain</a></span></p>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <blockquote>
 <p>Accessing the Web</p>
 </blockquote>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
@@ -130,17 +178,18 @@
 
 <span class="n">save</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Save downloaded page to disk [y/n]?&#39;</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Requesting …</span></pre></div> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="http://littlecaptain.net/lean-pythonchapter-08.html" rel="bookmark" title="Permalink to Lean Python(Chapter 08)">Lean Python(Chapter 08)</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2017-09-23T16:42:57+08:00"> Sat 23 September 2017 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <blockquote>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Requesting …</span></pre></div>	
+						 <a class="readmore" href="http://littlecaptain.net/lean-pythonchapter-09.html">Lire la suite …</a>
+						</div>
+					</div>
+        
+ 
+			                <div class="post summary">
+						<h2 class="title"><a href="http://littlecaptain.net/lean-pythonchapter-08.html">Lean Python(Chapter 08)</a></h2>
+						<p class="meta"><span class="date">Le Sat 23 September 2017</span><span class="posted">Par <a href="#">Little Captain</a></span></p>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <blockquote>
 <p>Testing Your Code</p>
 </blockquote>
 <!--more-->
@@ -171,17 +220,18 @@
             <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
         <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
-        <span class="k">else …</span></pre></div> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="http://littlecaptain.net/lean-pythonchapter-07.html" rel="bookmark" title="Permalink to Lean Python(Chapter 07)">Lean Python(Chapter 07)</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2017-09-23T15:39:49+08:00"> Sat 23 September 2017 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <blockquote>
+        <span class="k">else …</span></pre></div>	
+						 <a class="readmore" href="http://littlecaptain.net/lean-pythonchapter-08.html">Lire la suite …</a>
+						</div>
+					</div>
+        
+ 
+			                <div class="post summary">
+						<h2 class="title"><a href="http://littlecaptain.net/lean-pythonchapter-07.html">Lean Python(Chapter 07)</a></h2>
+						<p class="meta"><span class="date">Le Sat 23 September 2017</span><span class="posted">Par <a href="#">Little Captain</a></span></p>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <blockquote>
 <p>Exception and Error Handling</p>
 </blockquote>
 <!-- more -->
@@ -199,17 +249,18 @@
 </pre></div>
 
 
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Input two numbers. the first will be divided by the …</span></pre></div> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="http://littlecaptain.net/lean-pythonchapter-06.html" rel="bookmark" title="Permalink to Lean Python(Chapter 06)">Lean Python(Chapter 06)</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2017-09-23T14:25:36+08:00"> Sat 23 September 2017 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <blockquote>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Input two numbers. the first will be divided by the …</span></pre></div>	
+						 <a class="readmore" href="http://littlecaptain.net/lean-pythonchapter-07.html">Lire la suite …</a>
+						</div>
+					</div>
+        
+ 
+			                <div class="post summary">
+						<h2 class="title"><a href="http://littlecaptain.net/lean-pythonchapter-06.html">Lean Python(Chapter 06)</a></h2>
+						<p class="meta"><span class="date">Le Sat 23 September 2017</span><span class="posted">Par <a href="#">Little Captain</a></span></p>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <blockquote>
 <p>Object Orientation</p>
 </blockquote>
 <h1>创建对象</h1>
@@ -232,17 +283,18 @@
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Created&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">setName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name …</span></pre></div> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="http://littlecaptain.net/lean-pythonchapter-05.html" rel="bookmark" title="Permalink to Lean Python(Chapter 05)">Lean Python(Chapter 05)</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2017-09-22T13:53:15+08:00"> Fri 22 September 2017 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <blockquote>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name …</span></pre></div>	
+						 <a class="readmore" href="http://littlecaptain.net/lean-pythonchapter-06.html">Lire la suite …</a>
+						</div>
+					</div>
+        
+ 
+			                <div class="post summary">
+						<h2 class="title"><a href="http://littlecaptain.net/lean-pythonchapter-05.html">Lean Python(Chapter 05)</a></h2>
+						<p class="meta"><span class="date">Le Fri 22 September 2017</span><span class="posted">Par <a href="#">Little Captain</a></span></p>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <blockquote>
 <p>Module</p>
 </blockquote>
 <!-- more -->
@@ -269,17 +321,18 @@
 </ul>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span>
-</pre></div> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="http://littlecaptain.net/lean-pythonchapter-04.html" rel="bookmark" title="Permalink to Lean Python(Chapter 04)">Lean Python(Chapter 04)</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2017-09-21T23:39:04+08:00"> Thu 21 September 2017 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <blockquote>
+</pre></div>	
+						 <a class="readmore" href="http://littlecaptain.net/lean-pythonchapter-05.html">Lire la suite …</a>
+						</div>
+					</div>
+        
+ 
+			                <div class="post summary">
+						<h2 class="title"><a href="http://littlecaptain.net/lean-pythonchapter-04.html">Lean Python(Chapter 04)</a></h2>
+						<p class="meta"><span class="date">Le Thu 21 September 2017</span><span class="posted">Par <a href="#">Little Captain</a></span></p>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <blockquote>
 <p>Input and Output</p>
 </blockquote>
 <h1>显示输出</h1>
@@ -315,17 +368,18 @@
 <div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter a number: &#39;</span><span class="p">)</span>
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">count</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="nb">int …</span></pre></div> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="http://littlecaptain.net/lean-pythonchapter-03.html" rel="bookmark" title="Permalink to Lean Python(Chapter 03)">Lean Python(Chapter 03)</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2017-09-21T21:26:45+08:00"> Thu 21 September 2017 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <blockquote>
+        <span class="n">count</span> <span class="o">=</span> <span class="nb">int …</span></pre></div>	
+						 <a class="readmore" href="http://littlecaptain.net/lean-pythonchapter-04.html">Lire la suite …</a>
+						</div>
+					</div>
+        
+ 
+			                <div class="post summary">
+						<h2 class="title"><a href="http://littlecaptain.net/lean-pythonchapter-03.html">Lean Python(Chapter 03)</a></h2>
+						<p class="meta"><span class="date">Le Thu 21 September 2017</span><span class="posted">Par <a href="#">Little Captain</a></span></p>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <blockquote>
 <p>Program Structure</p>
 </blockquote>
 <h1>做决定</h1>
@@ -362,17 +416,18 @@
     <span class="n">DoThis</span><span class="p">()</span>
 <span class="k">elif</span> <span class="n">test2</span><span class="p">:</span>
     <span class="n">DoThat</span><span class="p">()</span>
-<span class="c1"># else 不是严格必须, 但是加上, 通过使用 pass …</span></pre></div> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="http://littlecaptain.net/lean-pythonchapter-02.html" rel="bookmark" title="Permalink to Lean Python(Chapter 02)">Lean Python(Chapter 02)</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2017-09-19T18:42:46+08:00"> Tue 19 September 2017 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <blockquote>
+<span class="c1"># else 不是严格必须, 但是加上, 通过使用 pass …</span></pre></div>	
+						 <a class="readmore" href="http://littlecaptain.net/lean-pythonchapter-03.html">Lire la suite …</a>
+						</div>
+					</div>
+        
+ 
+			                <div class="post summary">
+						<h2 class="title"><a href="http://littlecaptain.net/lean-pythonchapter-02.html">Lean Python(Chapter 02)</a></h2>
+						<p class="meta"><span class="date">Le Tue 19 September 2017</span><span class="posted">Par <a href="#">Little Captain</a></span></p>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <blockquote>
 <p>Everything is Object</p>
 </blockquote>
 <!--more-->
@@ -398,19 +453,140 @@
 <h1>数</h1>
 <div class="highlight"><pre><span></span><span class="mi">12345678901234567890</span>
 <span class="mi">1</span> <span class="o">/</span> <span class="mf">7.0</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mf">1E20 …</span></pre></div> </div><!-- /.entry-content -->
-        </article></li>
-</ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 2
-        <a href="http://littlecaptain.net/index2.html">&raquo;</a>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">1E20 …</span></pre></div>	
+						 <a class="readmore" href="http://littlecaptain.net/lean-pythonchapter-02.html">Lire la suite …</a>
+						</div>
+					</div>
+        
+ 
+			                <div class="post summary">
+						<h2 class="title"><a href="http://littlecaptain.net/lean-pythonchapter-01.html">Lean Python(Chapter 01)</a></h2>
+						<p class="meta"><span class="date">Le Tue 19 September 2017</span><span class="posted">Par <a href="#">Little Captain</a></span></p>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <blockquote>
+<p>Foundation</p>
+</blockquote>
+<h1>解释器</h1>
+<h2>交互模式</h2>
+<ul>
+<li>dir : 列出一个对象的所有属性</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
+</pre></div>
+
+
+<!--more-->
+
+<ul>
+<li>help : 查看内建关键字和方法的帮助文档</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">open</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>命令行模式</h2>
+<ul>
+<li>通过在命令行中加载 python 程序执行</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">myprogram</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+
+
+<h1>注释、代码块、缩进</h1>
+<ul>
+<li>使用 <code>#</code> 进行注释</li>
+<li>使用相同的<code>缩进</code>区分代码块</li>
+<li><code>:</code> 用在 if、elif、else、while、for、函数定义中, 区分首行和下面的具体代码块, 具体代码块需要缩进</li>
+<li>使用 <code>\</code> 连接多行代码</li>
+</ul>
+<h1>变量</h1>
+<ul>
+<li>赋值</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="n">expression</span>
+<span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">var3</span> <span class="o">=</span> <span class="n">expression</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+
+
+<ul>
+<li>关键字 …</li></ul>	
+						 <a class="readmore" href="http://littlecaptain.net/lean-pythonchapter-01.html">Lire la suite …</a>
+						</div>
+					</div>
+        
+ 
+			                <div class="post summary">
+						<h2 class="title"><a href="http://littlecaptain.net/hello-blog.html">Hello Blog</a></h2>
+						<p class="meta"><span class="date">Le Sat 06 May 2017</span><span class="posted">Par <a href="#">Little Captain</a></span></p>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <h1>拿来说说</h1>
+<p>在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。</p>
+<!-- more -->
+
+<h1>用到了什么</h1>
+<ul>
+<li><code>Pelican</code><ul>
+<li>简单易用</li>
+</ul>
+</li>
+<li><code>github page</code><ul>
+<li>方便, github 仓库直接管理</li>
+</ul>
+</li>
+</ul>	
+						 <a class="readmore" href="http://littlecaptain.net/hello-blog.html">Lire la suite …</a>
+						</div>
+					</div>
+					<div style="clear: both;">&nbsp;</div>
+				</div>
+				<div id="sidebar">
+					<div id="logo">
+						<h1><a href="http://littlecaptain.net">Little Captain's Blog</a></h1>
+					</div>
+					<div id="menu">
+						<ul>
+							<li class="current_page_item"><a href="http://littlecaptain.net">Home</a></li>
+							<li ><a href="http://littlecaptain.net/archives.html">Archives</a></li>
+						</ul>
+					</div>
+					<ul>
+						<li>
+							<h2>Catégories</h2>
+							<ul>
+								 <li ><a href="http://littlecaptain.net/category/python.html">Python</a></li>
+								 <li ><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+							</ul>
+						</li>
+						<li>
+							<h2>Blogroll</h2>
+							<ul>
+                                                            <li><a href="https://github.com/Little-Captain">Github</a></li>
+							</ul>
+						</li>
+						<li>
+						        <h2>Tags</h2>
+						        <ul>
+						        </ul>
+						</li>
+						
+						
+					</ul>
+				</div>
+				<!-- end #sidebar -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+
+<div id="footer">
+	<p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">CSS Templates</a>.</p>
+	<p>Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
 </p>
-</section><!-- /#content -->
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-        </footer><!-- /#contentinfo -->
+</div>
+<!-- end #footer -->
 </body>
 </html>
