@@ -1,548 +1,48 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+        <title>Little Captain's Blog</title>
+        <meta charset="utf-8" />
 
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  
-  <title>Little Captain's Blog</title>
-<link href="http://littlecaptain.net/theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="http://littlecaptain.net/" type="application/atom+xml" rel="alternate" title="Little Captain's Blog ATOM Feed" />
-  
-  <!--[if IE]>
-  <style type="text/css"> 
-  .twoColFixRtHdr #mainContent { zoom: 1; }
-  </style>
-  <![endif]-->
+        <link rel="stylesheet" href="http://littlecaptain.net/theme/css/rdark.css" />
+	<link rel="stylesheet" type="text/css" href="http://littlecaptain.net/theme/css/main.css" />
+        <link href="http://littlecaptain.net/" type="application/atom+xml" rel="alternate" title="Little Captain's Blog ATOM Feed" /><!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	
+<!-- Using MathJax, with the delimiters $ -->
+<!-- Conflict with pygments for the .mo and .mi -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  "HTML-CSS": {
+  styles: {
+  ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+  },
+  tex2jax: {inlineMath: [['$','$'], ['\\\\(','\\\\)']],processEscapes: true}
+  });
+</script>
 
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
 </head>
 
-<body>
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://littlecaptain.net/">Little Captain's Blog <strong></strong></a></h1>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+        </ul></nav><!-- /#menu -->
+<section id="content">
+<h2>All articles</h2>
 
-<div id="container">
-
-  <div id="header">
-  <h1><a href="http://littlecaptain.net">Little Captain's Blog</h1>
-  
-  </div><!-- end #header -->
-  
-  <div id="topMenu">
-  
-    <ul>
-    	<li><a href="http://littlecaptain.net">Home</a></li>
-        <li>&ndash;</li>
-        <li><a href="http://littlecaptain.net/archives.html">Archives</a></li>
-        
-    </ul>
-  
-  </div><!-- end #topMenu -->
-
-  <div id="sidebar">
-	<h3>Pages</h3>
-	<ul>
-	</ul>
-    <h3>Categories</h3>
-    <ul>
-		 <li ><a href="http://littlecaptain.net/category/python.html">Python</a></li>
-		 <li ><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
-	</ul>
-	<li>
-		<h3>Blogroll</h3>
-		<ul>
-                    <li><a href="https://github.com/Little-Captain">Github</a></li>
-		</ul>
-	</li>
-<li>
-        <h3>Tags</h3>
-        <ul>
-        </ul>
-</li>
-    
-  
-  </div><!-- end #sidebar -->
-
-  <div id="mainContent">
-  	
- 
-        
-  	
-    <div class="blogItem">
-    
-      <h2><a href="http://littlecaptain.net/lean-pythonchapter-11.html">Lean Python(Chapter 11)</a></h2>
-      <h3>Le Sun 24 September 2017</h3>
-      
-      <blockquote>
-<p>Databases</p>
-</blockquote>
-<h1>SQLite</h1>
-<h2>数据库函数</h2>
-<div class="highlight"><pre><span></span><span class="c1"># 打开连接数据库</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="c1"># 执行 SQL</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
-<span class="c1"># 返回游标</span>
-<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-<span class="c1"># 执行查询操作, 返回数据</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
-<span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-</pre></div>
-
-
-<!--more-->
-
-<h2>连接和导入数据 (SQLite)</h2>
-<div class="highlight"><pre><span></span><span class="c1"># insert</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sqlite3</span>
-
-<span class="n">db_filename</span><span class="o">=</span><span class="s1">&#39;mydatabase.db&#39;</span>
-
-<span class="n">exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">exists</span><span class="p">:</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
-
-<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
-
-<span class="n">schema</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;create table person (</span>
-<span class="s2">  id integer primary key autoincrement not null,</span>
-<span class="s2">  name text not null,</span>
-<span class="s2">  dob date,</span>
-<span class="s2">  nationality text,</span>
-<span class="s2">  gender text)</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
-
-<span class="n">people</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;insert into person (name, dob, nationality, gender)</span>
-<span class="s2">values (&#39;Fred Bloggs&#39;, &#39;1965-12-25&#39;,&#39;British&#39;,&#39;Male&#39;);</span>
-<span class="s2">insert into person (name, dob,nationality,gender)</span>
-<span class="s2">values (&#39;Santa Claus&#39;, &#39;968-01-01&#39;,&#39;Lap&#39;,&#39;Male&#39;);</span>
-<span class="s2">insert into person (name, dob,nationality,gender)</span>
-<span class="s2">values (&#39;Tooth Fairy&#39;, &#39;1931-03-31&#39;,&#39;American&#39;,&#39;Female&#39;);</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
-
-<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select id, name, dob, nationality, gender from person&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span> <span class="o">=</span> <span class="n">row</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%3d</span><span class="s2"> </span><span class="si">%15s</span><span class="s2"> </span><span class="si">%12s</span><span class="s2"> </span><span class="si">%10s</span><span class="s2"> </span><span class="si">%6s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span><span class="p">))</span>
-
-<span class="c1"># 省略了 name 字段, 使其抛出一个异常</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">dupe</span><span class="o">=</span><span class="s2">&quot;insert into person (id, dob,nationality,gender) </span><span class="se">\</span>
-<span class="s2">    values (1,&#39;1931-03-31&#39;,&#39;American&#39;,&#39;Female&#39;);&quot;</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">dupe</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Cannot insert record&#39;</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="c1"># update</span>
-<span class="kn">import</span> <span class="nn">sqlite3</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-
-<span class="n">db_filename</span> <span class="o">=</span> <span class="s1">&#39;mydatabase.db&#39;</span>
-<span class="n">inid</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">innat</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-
-<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
-<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-
-<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;update person set nationality = :nat where id = :id&quot;</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="n">inid</span><span class="p">,</span> <span class="s1">&#39;nat&#39;</span><span class="p">:</span><span class="n">innat</span><span class="p">})</span>
-
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select id, name, dob,nationality,gender from person&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span> <span class="o">=</span> <span class="n">row</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%3d</span><span class="s2"> </span><span class="si">%15s</span><span class="s2"> </span><span class="si">%12s</span><span class="s2"> </span><span class="si">%10s</span><span class="s2"> </span><span class="si">%6s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span><span class="p">))</span>
-</pre></div>	
-
-      
-      <h3 class="blogMeta">Par <a href="#">Little Captain</a>, Catégorie : <a href="http://littlecaptain.net/category/python.html">Python</a></h3>
-	<h3 class="blogMeta">Tags : </h3>
-    
-    </div><!-- end #blogItem -->
-	
-        <div class="blogItem">
-                <h2>Autres articles</h2>
-        </div>
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="http://littlecaptain.net/lean-pythonchapter-10.html">Lean Python(Chapter 10)</a></h2>
-      <h3>Le Sat 23 September 2017</h3>
-      
-      <h1>字符串搜索</h1>
-<ul>
-<li>find 返回字符串出现的字符位置, 如果没有找到就返回 -1</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">txt</span><span class="o">=</span><span class="s2">&quot;The quick brown fox jumps over the lazy dog&quot;</span>
-<span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;jump&#39;</span><span class="p">)</span>
-<span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
-<span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<!-- more -->
-
-<h1>正则表达式</h1>
-<div class="highlight"><pre><span></span><span class="c1"># 匹配邮箱</span>
-<span class="kn">import</span> <span class="nn">re</span>
-
-<span class="n">regex</span> <span class="o">=</span> <span class="s1">&#39;\s[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}[\s]&#39;</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;This is some text with x@y.z embedded e-mails</span>
-<span class="s2">that we …</span></pre></div>	
-<h3 class="blogMeta">Par <a href="#">Little Captain</a>, Catégorie : <a href="http://littlecaptain.net/category/python.html">Python</a></h3>
-	<a href="http://littlecaptain.net/lean-pythonchapter-10.html">Lire la suite …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="http://littlecaptain.net/lean-pythonchapter-09.html">Lean Python(Chapter 09)</a></h2>
-      <h3>Le Sat 23 September 2017</h3>
-      
-      <blockquote>
-<p>Accessing the Web</p>
-</blockquote>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Web url to fetch:&#39;</span><span class="p">)</span>
-<span class="n">urlparts</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">urlparts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s1">&#39;http://&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">))</span>
-
-<span class="n">qstring</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter query string:&#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">qstring</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;?&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">url</span><span class="p">,</span> <span class="n">qstring</span><span class="p">))</span>
-
-<span class="n">save</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Save downloaded page to disk [y/n]?&#39;</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Requesting …</span></pre></div>	
-<h3 class="blogMeta">Par <a href="#">Little Captain</a>, Catégorie : <a href="http://littlecaptain.net/category/python.html">Python</a></h3>
-	<a href="http://littlecaptain.net/lean-pythonchapter-09.html">Lire la suite …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="http://littlecaptain.net/lean-pythonchapter-08.html">Lean Python(Chapter 08)</a></h2>
-      <h3>Le Sat 23 September 2017</h3>
-      
-      <blockquote>
-<p>Testing Your Code</p>
-</blockquote>
-<!--more-->
-
-<h1>模块化编程与代码测试</h1>
-<ul>
-<li>模块化编程是测试更为容易</li>
-</ul>
-<h1>测试驱动的开发(TDD)</h1>
-<blockquote>
-<ol>
-<li>开发代码前先写测试</li>
-<li>运行测试, 观察失败, 然后添加和修正代码, 使测试通过</li>
-<li>当测试通过后, 寻求改进代码设计的机会</li>
-</ol>
-</blockquote>
-<ul>
-<li>对于大型项目, TDD 能够最好的模块化你的代码</li>
-</ul>
-<h1>单元测试框架 : unittest</h1>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">op</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">&#39;+-/*&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;Operator must be +-/*&#39;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
-        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
-        <span class="k">else …</span></pre></div>	
-<h3 class="blogMeta">Par <a href="#">Little Captain</a>, Catégorie : <a href="http://littlecaptain.net/category/python.html">Python</a></h3>
-	<a href="http://littlecaptain.net/lean-pythonchapter-08.html">Lire la suite …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="http://littlecaptain.net/lean-pythonchapter-07.html">Lean Python(Chapter 07)</a></h2>
-      <h3>Le Sat 23 September 2017</h3>
-      
-      <blockquote>
-<p>Exception and Error Handling</p>
-</blockquote>
-<!-- more -->
-
-<h1>异常和错误的处理</h1>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Input two numbers. the first will be divided by the second&#39;</span><span class="p">)</span>
-
-<span class="n">afirst</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;first number:&#39;</span><span class="p">)</span>
-<span class="n">first</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">afirst</span><span class="p">)</span>
-<span class="n">asecond</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;second number:&#39;</span><span class="p">)</span>
-<span class="n">second</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">asecond</span><span class="p">)</span>
-
-<span class="n">quotient</span> <span class="o">=</span> <span class="n">first</span> <span class="o">/</span> <span class="n">second</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Quotient first/second = &#39;</span><span class="p">,</span><span class="n">quotient</span><span class="p">)</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Input two numbers. the first will be divided by the …</span></pre></div>	
-<h3 class="blogMeta">Par <a href="#">Little Captain</a>, Catégorie : <a href="http://littlecaptain.net/category/python.html">Python</a></h3>
-	<a href="http://littlecaptain.net/lean-pythonchapter-07.html">Lire la suite …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="http://littlecaptain.net/lean-pythonchapter-06.html">Lean Python(Chapter 06)</a></h2>
-      <h3>Le Sat 23 September 2017</h3>
-      
-      <blockquote>
-<p>Object Orientation</p>
-</blockquote>
-<h1>创建对象</h1>
-<h2>类的定义</h2>
-<ul>
-<li>类是对象的模板</li>
-</ul>
-<!--more-->
-
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-
-<span class="k">class</span> <span class="nc">person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="s2">&quot;Person Class&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">parent</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span><span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">created</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Created&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">setName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name …</span></pre></div>	
-<h3 class="blogMeta">Par <a href="#">Little Captain</a>, Catégorie : <a href="http://littlecaptain.net/category/python.html">Python</a></h3>
-	<a href="http://littlecaptain.net/lean-pythonchapter-06.html">Lire la suite …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="http://littlecaptain.net/lean-pythonchapter-05.html">Lean Python(Chapter 05)</a></h2>
-      <h3>Le Fri 22 September 2017</h3>
-      
-      <blockquote>
-<p>Module</p>
-</blockquote>
-<!-- more -->
-
-<h1>导入模块</h1>
-<ul>
-<li>一个<code>文件</code>就是一个<code>模块</code>, <code>模块名</code>就是<code>文件名</code></li>
-</ul>
-<div class="highlight"><pre><span></span><span class="c1"># as 使用自定义的名字引用这个模块</span>
-<span class="kn">import</span> <span class="nn">modulename</span> <span class="p">[</span><span class="k">as</span> <span class="n">name</span><span class="p">]</span>
-<span class="c1"># 从模块中引入指定的函数、类、变量等</span>
-<span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="n">function1</span><span class="p">,</span> <span class="n">function2</span><span class="o">...</span>
-<span class="c1"># 从模块中引入所有的内容, 这时直接使用, 而不需要使用 . 引用</span>
-<span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="o">*</span>
-</pre></div>
-
-
-<ul>
-<li>注意 : 通常, 导入模块的需要内容和功能, 而要避免使用 <code>import *</code></li>
-</ul>
-<h2>Python 自带模块</h2>
-<ul>
-<li>查看 Python 环境 Path</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span>
-</pre></div>	
-<h3 class="blogMeta">Par <a href="#">Little Captain</a>, Catégorie : <a href="http://littlecaptain.net/category/python.html">Python</a></h3>
-	<a href="http://littlecaptain.net/lean-pythonchapter-05.html">Lire la suite …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="http://littlecaptain.net/lean-pythonchapter-04.html">Lean Python(Chapter 04)</a></h2>
-      <h3>Le Thu 21 September 2017</h3>
-      
-      <blockquote>
-<p>Input and Output</p>
-</blockquote>
-<h1>显示输出</h1>
-<div class="highlight"><pre><span></span><span class="c1"># 格式</span>
-<span class="k">print</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="n">arg2</span><span class="p">,</span><span class="n">arg3</span><span class="o">...</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<!--more-->
-
-<ul>
-<li>使用格式输出</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> plus </span><span class="si">%d</span><span class="s1"> makes </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-</pre></div>
-
-
-<ul>
-<li>抑制最后的空行输出</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;one...&#39;</span><span class="p">,</span><span class="s1">&#39;two...&#39;</span><span class="p">,</span><span class="s1">&#39;three&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<h1>获取用户输入</h1>
-<div class="highlight"><pre><span></span><span class="n">yourName</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter your name: &#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<ul>
-<li>接收的输入都是字符串, 所以要用户输入数字等需要自行解析</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter a number: &#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">count</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="nb">int …</span></pre></div>	
-<h3 class="blogMeta">Par <a href="#">Little Captain</a>, Catégorie : <a href="http://littlecaptain.net/category/python.html">Python</a></h3>
-	<a href="http://littlecaptain.net/lean-pythonchapter-04.html">Lire la suite …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="http://littlecaptain.net/lean-pythonchapter-03.html">Lean Python(Chapter 03)</a></h2>
-      <h3>Le Thu 21 September 2017</h3>
-      
-      <blockquote>
-<p>Program Structure</p>
-</blockquote>
-<h1>做决定</h1>
-<h2>if 语句</h2>
-<!--more-->
-
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">test</span><span class="p">:</span>
-    <span class="n">statement1</span> <span class="c1"># 如果条件为真, 这三条语句都将执行</span>
-    <span class="n">statement2</span>
-    <span class="n">statement3</span>
-<span class="c1"># if else</span>
-<span class="k">if</span> <span class="n">test</span><span class="p">:</span>
-    <span class="n">DoThis</span><span class="p">()</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">DoThat</span><span class="p">()</span>
-<span class="c1"># if elif else</span>
-<span class="k">if</span> <span class="n">test1</span><span class="p">:</span>
-    <span class="n">DoThis</span><span class="p">()</span>
-<span class="k">elif</span> <span class="n">test2</span><span class="p">:</span>
-    <span class="n">DoThat</span><span class="p">()</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">DoOther</span><span class="p">()</span>
-</pre></div>
-
-
-<ul>
-<li>同一语句中的 <code>if</code> <code>elif</code> <code>else</code> 的缩进必须保持一致</li>
-</ul>
-<h2>pass 语句</h2>
-<ul>
-<li>pass 语句就是什么都不做</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">test1</span><span class="p">:</span>
-    <span class="n">DoThis</span><span class="p">()</span>
-<span class="k">elif</span> <span class="n">test2</span><span class="p">:</span>
-    <span class="n">DoThat</span><span class="p">()</span>
-<span class="c1"># else 不是严格必须, 但是加上, 通过使用 pass …</span></pre></div>	
-<h3 class="blogMeta">Par <a href="#">Little Captain</a>, Catégorie : <a href="http://littlecaptain.net/category/python.html">Python</a></h3>
-	<a href="http://littlecaptain.net/lean-pythonchapter-03.html">Lire la suite …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="http://littlecaptain.net/lean-pythonchapter-02.html">Lean Python(Chapter 02)</a></h2>
-      <h3>Le Tue 19 September 2017</h3>
-      
-      <blockquote>
-<p>Everything is Object</p>
-</blockquote>
-<!--more-->
-
-<h1>对象类型</h1>
-<div class="highlight"><pre><span></span><span class="c1"># 使用 type 查看对象类型</span>
-<span class="nb">type</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
-</pre></div>
-
-
-<blockquote>
-<p>类型有 : int str list class function file bool(True、False) NoneType(None) long</p>
-</blockquote>
-<h1>工厂方法</h1>
-<div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>
-<span class="nb">str</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="nb">tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="nb">dict</span><span class="p">(</span><span class="n">one</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-
-
-<h1>数</h1>
-<div class="highlight"><pre><span></span><span class="mi">12345678901234567890</span>
-<span class="mi">1</span> <span class="o">/</span> <span class="mf">7.0</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mf">1E20 …</span></pre></div>	
-<h3 class="blogMeta">Par <a href="#">Little Captain</a>, Catégorie : <a href="http://littlecaptain.net/category/python.html">Python</a></h3>
-	<a href="http://littlecaptain.net/lean-pythonchapter-02.html">Lire la suite …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="http://littlecaptain.net/lean-pythonchapter-01.html">Lean Python(Chapter 01)</a></h2>
-      <h3>Le Tue 19 September 2017</h3>
-      
-      <blockquote>
+<ol id="post-list">
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="http://littlecaptain.net/lean-pythonchapter-01.html" rel="bookmark" title="Permalink to Lean Python(Chapter 01)">Lean Python(Chapter 01)</a></h2> </header>
+                <footer class="post-info">
+                    <time class="published" datetime="2017-09-19T12:40:08+08:00"> Tue 19 September 2017 </time>
+                    <address class="vcard author">By
+                        <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <blockquote>
 <p>Foundation</p>
 </blockquote>
 <h1>解释器</h1>
@@ -589,22 +89,17 @@
 
 
 <ul>
-<li>关键字 …</li></ul>	
-<h3 class="blogMeta">Par <a href="#">Little Captain</a>, Catégorie : <a href="http://littlecaptain.net/category/python.html">Python</a></h3>
-	<a href="http://littlecaptain.net/lean-pythonchapter-01.html">Lire la suite …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-        
-    
-    <div class="blogItem">
-    
-      <h2><a href="http://littlecaptain.net/hello-blog.html">Hello Blog</a></h2>
-      <h3>Le Sat 06 May 2017</h3>
-      
-      <h1>拿来说说</h1>
+<li>关键字 …</li></ul> </div><!-- /.entry-content -->
+        </article></li>
+        <li><article class="hentry">
+                <header> <h2 class="entry-title"><a href="http://littlecaptain.net/hello-blog.html" rel="bookmark" title="Permalink to Hello Blog">Hello Blog</a></h2> </header>
+                <footer class="post-info">
+                    <time class="published" datetime="2017-05-06T11:20:00+08:00"> Sat 06 May 2017 </time>
+                    <address class="vcard author">By
+                        <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+                    </address>
+                </footer><!-- /.post-info -->
+                <div class="entry-content"> <h1>拿来说说</h1>
 <p>在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。</p>
 <!-- more -->
 
@@ -618,25 +113,19 @@
 <li>方便, github 仓库直接管理</li>
 </ul>
 </li>
-</ul>	
-<h3 class="blogMeta">Par <a href="#">Little Captain</a>, Catégorie : <a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></h3>
-	<a href="http://littlecaptain.net/hello-blog.html">Lire la suite …</a>
-      
-      
-	
-    
-    </div><!-- end #blogItem -->
-  
-  </div><!-- end #mainContent -->
-
-<div class="clearfloat"></div>
-
-  <div id="footer">
-  
-    <p><a href="http://css4free.com/" title="free CSS web site designs">Free CSS Gallery</a></p>
-    <p>Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
-  </div><!-- end #footer -->
-
-</div><!-- end #container -->
+</ul> </div><!-- /.entry-content -->
+        </article></li>
+</ol><!-- /#posts-list -->
+<p class="paginator">
+        <a href="http://littlecaptain.net/index.html">&laquo;</a>
+    Page 2 / 2
+</p>
+</section><!-- /#content -->
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+        </footer><!-- /#contentinfo -->
 </body>
 </html>
