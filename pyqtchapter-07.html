@@ -65,18 +65,18 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div><blockquote>
 <p>PyQt</p>
 </blockquote>
-<h1>窗口和对话框</h1>
+<h1 id="chuang-kou-he-dui-hua-kuang">窗口和对话框</h1>
 <ul>
 <li>对话框包括两类: modal、modeless</li>
 <li>modal: 禁止用户与程序的其他部分交互</li>
 <li>modeless: 与 modal 相对, 用户可以自由的与应用程序的其他部分交互</li>
 </ul>
-<h1>创建应用程序</h1>
+<h1 id="chuang-jian-ying-yong-cheng-xu">创建应用程序</h1>
 <ul>
 <li>通过简单的纯文本编辑器创建</li>
 <li>使用 Qt Designer</li>
 </ul>
-<h1>使用 Code 创建 GUI 程序</h1>
+<h1 id="shi-yong-code-chuang-jian-gui-cheng-xu">使用 Code 创建 GUI 程序</h1>
 <ul>
 <li>这是针对 Qt4 的代码, Qt5 运行要不起来</li>
 </ul>
@@ -113,7 +113,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="c1"># exec_ 有 _ 是因为 exec 被 Python 关键字占用了</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-<h1>使用 Qt Designer</h1>
+<h1 id="shi-yong-qt-designer">使用 Qt Designer</h1>
 <ul>
 <li>预定义的 UI 模板</li>
 <li>Dialog with buttons at the bottom : OK 和 Cancel 按钮被放置在底部的对话框</li>
@@ -126,7 +126,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p>When creating a GUI application, you need to specify a <code>top-level widget</code>, which is usually <code>QDialog</code>, <code>QWidget</code>, or <code>QMainWindow</code>. If you create an application based on the <code>Dialog template</code>, the top-level widget or the first class that you inherit is <code>QDialog</code>. Similarly, if the application is based on the <code>Main Window template</code>, the top-level widget will be <code>QMainWindow</code>, and if you use the <code>Widget template</code> for your application, the top-level widget will be <code>QWidget</code>. The widgets that you use for the user interface are then treated as child widgets of the classes.</p>
 <p>The <code>main component</code> used for creating a user interface is <code>widgets</code>. <code>Button</code>, <code>menus</code>, and <code>scrollbars</code> are examples of widgets and are not only used for receiving user input but also for displaying data and status information. <code>Widgets</code> can be <code>nested</code> inside another in a parent-child relationship. A widget that has <code>no parent widget</code> is called a <code>window</code>. The class for widgets, <code>QWidget</code>, provides methods to render them on screen, receive user input, and handle different events. <code>All UI elements that Qt provides are subclasses of QWidget</code>. Qt Designer displays a list of widgets in a Widget Box displayed on the left side.</p>
 </blockquote>
-<h2>Widget Box</h2>
+<h2 id="widget-box">Widget Box</h2>
 <ul>
 <li>Widget Box 用于分类显示 widget 的列表, 相似功能的 widget 放入一个分类中</li>
 <li>类别</li>
@@ -500,8 +500,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<h1>基本控件</h1>
-<h2>Displaying Text</h2>
+<h1 id="ji-ben-kong-jian_2">基本控件</h1>
+<h2 id="displaying-text">Displaying Text</h2>
 <blockquote>
 <p>To display non-editable text or an image, Label widgets are used; a Label is an instance of the <code>QLabel</code> class. A Label widget is a very popular widget for displaying messages or information to the user.</p>
 </blockquote>
@@ -531,7 +531,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<h2>Entering Single-Line Data</h2>
+<h2 id="entering-single-line-data">Entering Single-Line Data</h2>
 <blockquote>
 <p>To allow the user to enter or edit single-line data, you use the Line Edit widget, which is an instance of <code>QLineEdit</code>. The widget <code>supports</code> simple editing mechanisms such as <code>undo</code>, <code>redo</code>, <code>cut</code>, and <code>paste</code>.</p>
 </blockquote>
@@ -606,7 +606,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<h2>Displaying Buttons</h2>
+<h2 id="displaying-buttons">Displaying Buttons</h2>
 <blockquote>
 <p>To display pushbuttons (usually command buttons) in an application, you need to create an instance of the <code>QPushButton</code> class. When assigning text to buttons, you can create <code>shortcut</code> keys by preceding any character in the text with an <code>ampersand</code>.</p>
 </blockquote>
@@ -628,7 +628,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<h1>Event Handling in PyQt</h1>
+<h1 id="event-handling-in-pyqt_1">Event Handling in PyQt</h1>
 <blockquote>
 <p>In PyQt, the <code>event-handling mechanism</code> is also known as <code>signals and slots</code>. Every widget emits signals when its state changes. Whenever a signal is emitted, it is simply thrown. To perform a task in response to a signal, the signal has to be connected to a slot. A slot refers to the method containing the code that you want to be executed on occurrence of a signal. Most widgets have predefined slots, you don&rsquo;t have to write code for connecting a predefined signal to a predefined slot. To respond to the signals emitted, you identify the <code>QObject</code> and the signal it emits and invoke the associated method. You can use Qt Designer for connecting signals with built-in slots.</p>
 </blockquote></div>

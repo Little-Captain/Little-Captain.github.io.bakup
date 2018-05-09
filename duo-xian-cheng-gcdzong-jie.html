@@ -62,12 +62,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h1>简介</h1>
+        <div><h1 id="jian-jie">简介</h1>
 <ul>
 <li>全称是Grand Central Dispatch，可译为&ldquo;宏大的中枢调度器&rdquo;</li>
 <li>纯C语言，提供了非常多强大的函数</li>
 </ul>
-<h2>GCD的优势</h2>
+<h2 id="gcdde-you-shi">GCD的优势</h2>
 <ul>
 <li>苹果公司为多核的并行运算提出的解决方案</li>
 <li>自动利用更多的CPU内核</li>
@@ -79,12 +79,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </li>
 <li>使用方便 : 程序员只需要告诉GCD想要执行什么任务，不需要编写任何线程管理代码</li>
 </ul>
-<h1>核心概念</h1>
-<h2>任务</h2>
+<h1 id="he-xin-gai-nian_1">核心概念</h1>
+<h2 id="ren-wu">任务</h2>
 <ul>
 <li>执行什么操作</li>
 </ul>
-<h2>队列</h2>
+<h2 id="dui-lie">队列</h2>
 <ul>
 <li>用来存放任务</li>
 </ul>
@@ -104,7 +104,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>同步和异步</h2>
+<h2 id="tong-bu-he-yi-bu_1">同步和异步</h2>
 <ul>
 <li>同步<ul>
 <li>只能在当前线程中执行任务</li>
@@ -117,20 +117,20 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h1>容易混淆的术语</h1>
+<h1 id="rong-yi-hun-yao-de-zhu-yu_1">容易混淆的术语</h1>
 <ul>
 <li>同步和异步 : 主要影响能不能开启新的线程</li>
 <li>并发和串行 : 主要影响任务的执行方式</li>
 </ul>
-<h1>使用步骤</h1>
-<h2>定制任务</h2>
+<h1 id="shi-yong-bu-zou">使用步骤</h1>
+<h2 id="ding-zhi-ren-wu">定制任务</h2>
 <ul>
 <li>任务 : 确定想做的事情</li>
 <li>将任务添加到队列中</li>
 <li>GCD会自动将队列中的任务取出，放到对应的线程中执行</li>
 <li>任务的取出遵循队列的FIFO原则：先进先出，后进后出</li>
 </ul>
-<h2>执行任务</h2>
+<h2 id="zhi-xing-ren-wu">执行任务</h2>
 <ul>
 <li>GCD中有2个用来执行任务的常用函数<ul>
 <li>用同步的方式执行任务 : dispatch_sync</li>
@@ -145,8 +145,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h1>具体使用</h1>
-<h2>创建队列</h2>
+<h1 id="ju-ti-shi-yong_1">具体使用</h1>
+<h2 id="chuang-jian-dui-lie">创建队列</h2>
 <ul>
 <li>dispatch_queue_create</li>
 <li>参数<ul>
@@ -165,7 +165,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>各种队列的执行效果</h2>
+<h2 id="ge-chong-dui-lie-de-zhi-xing-xiao-guo">各种队列的执行效果</h2>
 <p><img alt="" src="../assets/images/多线程/函数+队列组合.png"/></p>
 <ul>
 <li>异步+串行队列 : 只会开启一条线程</li>
@@ -180,30 +180,30 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>线程间通信</h2>
+<h2 id="xian-cheng-jian-tong-xin_1">线程间通信</h2>
 <ul>
 <li>直接进行dispatch函数的嵌套即可</li>
 <li>嵌套时, 通过控制队列, 来实现线程间的通信</li>
 </ul>
-<h1>GCD其他应用</h1>
-<h2>延时执行</h2>
+<h1 id="gcdqi-ta-ying-yong_1">GCD其他应用</h1>
+<h2 id="yan-shi-zhi-xing">延时执行</h2>
 <ul>
 <li>调用NSObject的方法 : performSelector</li>
 <li>使用GCD函数 : <br/>dispatch_after<br/>可以控制代码执行的队列<br/>更精确</li>
 <li>使用NSTimer : scheduledTimerWithTimeInterval</li>
 </ul>
-<h2>一次性代码</h2>
+<h2 id="yi-ci-xing-dai-ma">一次性代码</h2>
 <ul>
 <li>使用dispatch_once函数能保证某段代码在程序运行过程中只被执行1次</li>
 <li>线程安全</li>
 <li>dispatch_once</li>
 </ul>
-<h2>快速迭代</h2>
+<h2 id="kuai-su-die-dai">快速迭代</h2>
 <ul>
 <li>dispatch_apply : 遍历时, 顺序不确定</li>
 <li>快速迭代遍历</li>
 </ul>
-<h2>队列组</h2>
+<h2 id="dui-lie-zu">队列组</h2>
 <h3 id="xu-qiu">需求</h3>
 <ul>
 <li>首先, 分别异步执行2个耗时的操作</li>
@@ -215,7 +215,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>dispatch_group_notify : 异步的被执行</li>
 <li>dispatch_group_wait : 同步等待, 然后执行</li>
 </ul>
-<h2>单例模式</h2>
+<h2 id="dan-li-mo-shi_1">单例模式</h2>
 <h3 id="zuo-yong">作用</h3>
 <ul>
 <li>可以保证在程序运行过程，一个类只有一个实例，而且该实例易于供外界访问</li>

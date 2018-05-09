@@ -85,7 +85,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>执行文件操作(读、写、更新)</li>
 <li>关闭文件</li>
 </ul>
-<h1>打开文件</h1>
+<h1 id="da-kai-wen-jian">打开文件</h1>
 <div class="highlight"><pre><span></span><span class="c1"># file_name 文件名</span>
 <span class="c1"># mode 打开文件的目的</span>
 <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="c1"># 返回 file handler 对象</span>
@@ -101,7 +101,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">w</span><span class="o">+</span> <span class="c1"># 创建一个文件用于读写. 如果文件已存在, 文件的原始内容将被覆盖</span>
 <span class="n">a</span><span class="o">+</span> <span class="c1"># 打开文件追加和读取, 如果文件不存在, 就创建新文件</span>
 </pre></div>
-<h1>文件操作</h1>
+<h1 id="wen-jian-cao-zuo">文件操作</h1>
 <ul>
 <li>open</li>
 </ul>
@@ -320,7 +320,7 @@ Return current stream position.</p>
 <blockquote>
 <p>A blank line carries a newline character <code>\n</code> and is considered a string of length <code>1</code>.</p>
 </blockquote>
-<h2>文件信息</h2>
+<h2 id="wen-jian-xin-xi">文件信息</h2>
 <ul>
 <li>
 <p>通过文件对象(file handler)获取</p>
@@ -360,7 +360,7 @@ Return whether this is an 'interactive' stream.</p>
 <span class="k">print</span><span class="p">(</span><span class="s2">"File number descriptor is:"</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
-<h2>读取文件</h2>
+<h2 id="du-qu-wen-jian">读取文件</h2>
 <div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'aboutbook.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
 <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
@@ -379,7 +379,7 @@ Return whether this is an 'interactive' stream.</p>
 <ul>
 <li><code>stdin</code> <code>stdout</code> <code>stderr</code> 标准输入输出流对象, 使用它们可以更好的控制流</li>
 </ul>
-<h2>向文件中追加内容</h2>
+<h2 id="xiang-wen-jian-zhong-zhui-jia-nei-rong">向文件中追加内容</h2>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">matter2</span> <span class="o">=</span> <span class="s1">''' Its very hot today</span>
 <span class="s1">Lets have a Cold drink '''</span>
@@ -393,7 +393,7 @@ Return whether this is an 'interactive' stream.</p>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
-<h2>复制文件</h2>
+<h2 id="fu-zhi-wen-jian">复制文件</h2>
 <div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'aboutbook.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
 <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -406,7 +406,7 @@ Return whether this is an 'interactive' stream.</p>
 <span class="k">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
 <span class="n">g</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
-<h2>从文件中删除内容</h2>
+<h2 id="cong-wen-jian-zhong-shan-chu-nei-rong">从文件中删除内容</h2>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'aboutbook.txt'</span><span class="p">,</span> <span class="s1">'r'</span> <span class="p">)</span>
 <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
@@ -424,7 +424,7 @@ Return whether this is an 'interactive' stream.</p>
 <span class="k">print</span> <span class="p">(</span><span class="n">lines</span><span class="p">)</span>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
-<h2>更新文件的内容</h2>
+<h2 id="geng-xin-wen-jian-de-nei-rong">更新文件的内容</h2>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'aboutbook.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
 <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
@@ -447,7 +447,7 @@ Return whether this is an 'interactive' stream.</p>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">print</span> <span class="p">(</span><span class="s2">"The line number"</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">"is not found in the file"</span> <span class="p">)</span>
 </pre></div>
-<h2>从文件的任意位置读入内容</h2>
+<h2 id="cong-wen-jian-de-ren-yi-wei-zhi-du-ru-nei-rong">从文件的任意位置读入内容</h2>
 <div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'aboutbook.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
 <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">'A line from file is:'</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
@@ -459,7 +459,7 @@ Return whether this is an 'interactive' stream.</p>
 <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">'The fifteen characters starting at location 12 are as:'</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
 </pre></div>
-<h2>访问文件中指定的内容</h2>
+<h2 id="fang-wen-wen-jian-zhong-zhi-ding-de-nei-rong">访问文件中指定的内容</h2>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">linecache</span>
 <span class="n">line</span> <span class="o">=</span> <span class="n">linecache</span><span class="o">.</span><span class="n">getline</span><span class="p">(</span><span class="s1">'aboutbook.txt'</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">'The content of the third line is:'</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
@@ -481,7 +481,7 @@ Return whether this is an 'interactive' stream.</p>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
     <span class="k">print</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
-<h2>创建二进制文件</h2>
+<h2 id="chuang-jian-er-jin-zhi-wen-jian">创建二进制文件</h2>
 <div class="highlight"><pre><span></span><span class="nb">str</span> <span class="o">=</span> <span class="s1">'Hello World!'</span>
 <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"filebinary.bin"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span>
 <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">))</span>
@@ -492,7 +492,7 @@ Return whether this is an 'interactive' stream.</p>
 <span class="k">print</span><span class="p">(</span><span class="s1">'The content in the file is:'</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">fcontent</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">))</span>
 </pre></div>
-<h2>序列化(Pickling)</h2>
+<h2 id="xu-lie-hua-pickling">序列化(Pickling)</h2>
 <ul>
 <li>Pickling : 一个将结构化数据转换为数据流的过程</li>
 <li>通过 <code>Pickling</code>, 可以将 <code>list</code> <code>tuple</code> <code>function</code> <code>class</code> 通过使用 <code>ASCII</code> 字符存储在文件中</li>
@@ -552,13 +552,13 @@ Return whether this is an 'interactive' stream.</p>
         <span class="n">usrobj</span><span class="o">.</span><span class="n">dispuser</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
-<h1>异常处理</h1>
+<h1 id="yi-chang-chu-li_1">异常处理</h1>
 <ul>
 <li>异常处理的两种形式</li>
 <li>try/except : 至少要有一个 <code>except</code> 语句与 <code>try</code> 语句配对</li>
 <li>try/finally : 不管异常出现与否, <code>finally</code> 语句总是被执行. </li>
 </ul>
-<h2>try/except</h2>
+<h2 id="tryexcept">try/except</h2>
 <div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="k">except</span> <span class="n">SomeException</span><span class="p">:</span> <span class="c1"># except 的数量无限制, 每一个 except 表达式就是一个异常处理器(exception handler)</span>
@@ -593,7 +593,7 @@ Return whether this is an 'interactive' stream.</p>
 <span class="ne">ValueError</span> <span class="c1"># 使用了不适当的参数值</span>
 <span class="ne">ZeroDivisionError</span> <span class="c1"># 除零异常 ( / %)</span>
 </pre></div>
-<h2>try/finally</h2>
+<h2 id="tryfinally">try/finally</h2>
 <ul>
 <li>异常出现后, 后续代码就会停止执行并退出程序</li>
 <li>无论异常出现与否, 一些确定的都需要被执行, 包括释放内存、关闭文件, 这时就可以使用 finally 代码块</li>
@@ -615,7 +615,7 @@ Return whether this is an 'interactive' stream.</p>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
 </pre></div>
-<h2>抛出异常</h2>
+<h2 id="pao-chu-yi-chang">抛出异常</h2>
 <ul>
 <li>可以在 try/except 中使用 <code>raise</code> 语句抛出确定的异常</li>
 </ul>
@@ -641,7 +641,7 @@ Return whether this is an 'interactive' stream.</p>
 <span class="k">else</span><span class="p">:</span>
     <span class="k">print</span> <span class="p">(</span><span class="s1">'No exception raised.'</span><span class="p">)</span>
 </pre></div>
-<h2>使用断言</h2>
+<h2 id="shi-yong-duan-yan">使用断言</h2>
 <ul>
 <li>当断言失败时, 会抛出 <code>AssertionError</code> 异常</li>
 </ul>

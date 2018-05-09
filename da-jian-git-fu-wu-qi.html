@@ -62,7 +62,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h2>准备篇</h2>
+        <div><h2 id="zhun-bei-pian">准备篇</h2>
 <h3 id="fu-wu-qi">服务器</h3>
 <ul>
 <li>创建git专用账户git</li>
@@ -120,7 +120,7 @@ ssh-keygen -t rsa -P <span class="s1">''</span>
 </ul>
 <div class="highlight"><pre><span></span>scp .ssh/gitHost.pub git@192.168.11.116:~/gitHost.pub
 </pre></div>
-<h2>服务器上安装gitosis(git账户下)</h2>
+<h2 id="fu-wu-qi-shang-an-zhuang-gitosisgitzhang-hu-xia_1">服务器上安装gitosis(git账户下)</h2>
 <ul>
 <li>使用本地主机上传的公钥来对gitosis初始化</li>
 </ul>
@@ -137,7 +137,7 @@ ssh-keygen -t rsa -P <span class="s1">''</span>
 <blockquote>
 <p>初始化完后, 默认的仓库在<code>~/repositories</code>目录下, <code>gitosis-admin.git</code>仓库就是我们管理仓库的专用仓库.</p>
 </blockquote>
-<h2>管理员配置仓库<span id="3"></span></h2>
+<h2 id="guan-li-yuan-pei-zhi-cang-ku">管理员配置仓库<span id="3"></span></h2>
 <ul>
 <li>在管理员主机上clone gitosis-admin.git</li>
 </ul>
@@ -164,7 +164,7 @@ ssh-keygen -t rsa -P <span class="s1">''</span>
 <span class="nv">members</span> <span class="o">=</span>lisi <span class="c1">#组用户</span>
 <span class="nv">readonly</span><span class="o">=</span> mytestproject <span class="c1">#只读项目仓库名</span>
 </pre></div>
-<h2>管理员新建仓库</h2>
+<h2 id="guan-li-yuan-xin-jian-cang-ku">管理员新建仓库</h2>
 <ul>
 <li>1.配置管理员仓库的gitosis.conf文件</li>
 </ul>
@@ -217,7 +217,7 @@ git branch -a
   remotes/origin/HEAD -&gt; origin/master
   remotes/origin/master
 </pre></div>
-<h2>使用GitWeb</h2>
+<h2 id="shi-yong-gitweb">使用GitWeb</h2>
 <blockquote>
 <p>在本地, 如果你对项目有读写权限或只读权限，你可能需要建立起一个基于网页的简易查看器。 Git 提供了一个叫做 Git Web 的 CGI 脚本来做这项工作。</p>
 </blockquote>
@@ -230,7 +230,7 @@ git instaweb --httpd<span class="o">=</span>webrick --stop
 <ul>
 <li>服务器上新建项目仓库. 新建的这个仓库暂时还是空的，不能被客户端clone，还需要对gitosis进行一些配置操作. <a href="#3">参见</a></li>
 </ul>
-<h2>坑</h2>
+<h2 id="keng">坑</h2>
 <p><em>git is not in the sudoers file. This incident will be reported的解决方法</em></p>
 <div class="highlight"><pre><span></span><span class="c1"># 方法1, 修改git ALL=(ALL) ALL</span>
 vim /etc/sudoers

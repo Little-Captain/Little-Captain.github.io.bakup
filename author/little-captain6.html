@@ -66,7 +66,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>字符串搜索</h1>
+        <div class="summary"><h1 id="zi-fu-chuan-sou-suo">字符串搜索</h1>
 <ul>
 <li>find 返回字符串出现的字符位置, 如果没有找到就返回 -1</li>
 </ul>
@@ -75,7 +75,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'z'</span><span class="p">)</span>
 <span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">'green'</span><span class="p">)</span>
 </pre></div>
-<h1>正则表达式</h1>
+<h1 id="zheng-ze-biao-da-shi">正则表达式</h1>
 <div class="highlight"><pre><span></span><span class="c1"># 匹配邮箱</span>
 <span class="kn">import</span> <span class="nn">re</span>
 
@@ -137,11 +137,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Testing Your Code</p>
 </blockquote>
-<h1>模块化编程与代码测试</h1>
+<h1 id="mo-kuai-hua-bian-cheng-yu-dai-ma-ce-shi">模块化编程与代码测试</h1>
 <ul>
 <li>模块化编程是测试更为容易</li>
 </ul>
-<h1>测试驱动的开发(TDD)</h1>
+<h1 id="ce-shi-qu-dong-de-kai-fa-tdd">测试驱动的开发(TDD)</h1>
 <blockquote>
 <ol>
 <li>开发代码前先写测试</li>
@@ -152,7 +152,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <ul>
 <li>对于大型项目, TDD 能够最好的模块化你的代码</li>
 </ul>
-<h1>单元测试框架 : unittest</h1>
+<h1 id="dan-yuan-ce-shi-kuang-jia-unittest">单元测试框架 : unittest</h1>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">op</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">'+-/*'</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">'Operator must be +-/*'</span>
@@ -184,7 +184,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Exception and Error Handling</p>
 </blockquote>
-<h1>异常和错误的处理</h1>
+<h1 id="yi-chang-he-cuo-wu-de-chu-li">异常和错误的处理</h1>
 <div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'Input two numbers. the first will be divided by the second'</span><span class="p">)</span>
 
 <span class="n">afirst</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'first number:'</span><span class="p">)</span>
@@ -216,8 +216,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Object Orientation</p>
 </blockquote>
-<h1>创建对象</h1>
-<h2>类的定义</h2>
+<h1 id="chuang-jian-dui-xiang">创建对象</h1>
+<h2 id="lei-de-ding-yi">类的定义</h2>
 <ul>
 <li>类是对象的模板</li>
 </ul>
@@ -255,7 +255,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Module</p>
 </blockquote>
-<h1>导入模块</h1>
+<h1 id="dao-ru-mo-kuai">导入模块</h1>
 <ul>
 <li>一个<code>文件</code>就是一个<code>模块</code>, <code>模块名</code>就是<code>文件名</code></li>
 </ul>
@@ -269,7 +269,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <ul>
 <li>注意 : 通常, 导入模块的需要内容和功能, 而要避免使用 <code>import *</code></li>
 </ul>
-<h2>Python 自带模块</h2>
+<h2 id="python-zi-dai-mo-kuai">Python 自带模块</h2>
 <ul>
 <li>查看 Python 环境 Path</li>
 </ul>
@@ -296,7 +296,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Input and Output</p>
 </blockquote>
-<h1>显示输出</h1>
+<h1 id="xian-shi-shu-chu">显示输出</h1>
 <div class="highlight"><pre><span></span><span class="c1"># 格式</span>
 <span class="k">print</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="n">arg2</span><span class="p">,</span><span class="n">arg3</span><span class="o">...</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">' '</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
@@ -310,7 +310,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 <div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'one...'</span><span class="p">,</span><span class="s1">'two...'</span><span class="p">,</span><span class="s1">'three'</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
 </pre></div>
-<h1>获取用户输入</h1>
+<h1 id="huo-qu-yong-hu-shu-ru">获取用户输入</h1>
 <div class="highlight"><pre><span></span><span class="n">yourName</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Enter your name: '</span><span class="p">)</span>
 </pre></div>
 <ul>
@@ -340,8 +340,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Program Structure</p>
 </blockquote>
-<h1>做决定</h1>
-<h2>if 语句</h2>
+<h1 id="zuo-jue-ding">做决定</h1>
+<h2 id="if-yu-ju">if 语句</h2>
 <div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">test</span><span class="p">:</span>
     <span class="n">statement1</span> <span class="c1"># 如果条件为真, 这三条语句都将执行</span>
     <span class="n">statement2</span>
@@ -362,7 +362,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <ul>
 <li>同一语句中的 <code>if</code> <code>elif</code> <code>else</code> 的缩进必须保持一致</li>
 </ul>
-<h2>pass 语句</h2>
+<h2 id="pass-yu-ju">pass 语句</h2>
 <ul>
 <li>pass 语句就是什么都不做</li>
 </ul>
@@ -391,21 +391,21 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Everything is Object</p>
 </blockquote>
-<h1>对象类型</h1>
+<h1 id="dui-xiang-lei-xing">对象类型</h1>
 <div class="highlight"><pre><span></span><span class="c1"># 使用 type 查看对象类型</span>
 <span class="nb">type</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
 </pre></div>
 <blockquote>
 <p>类型有 : int str list class function file bool(True、False) NoneType(None) long</p>
 </blockquote>
-<h1>工厂方法</h1>
+<h1 id="gong-han-fang-fa">工厂方法</h1>
 <div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>
 <span class="nb">str</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="nb">tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="nb">dict</span><span class="p">(</span><span class="n">one</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
-<h1>数</h1>
+<h1 id="shu">数</h1>
 <div class="highlight"><pre><span></span><span class="mi">12345678901234567890</span>
 <span class="mi">1</span> <span class="o">/</span> <span class="mf">7.0</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mf">1E20 …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-02.html">read more</a></div>
@@ -429,8 +429,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Foundation</p>
 </blockquote>
-<h1>解释器</h1>
-<h2>交互模式</h2>
+<h1 id="jie-shi-qi">解释器</h1>
+<h2 id="jiao-hu-mo-shi">交互模式</h2>
 <ul>
 <li>dir : 列出一个对象的所有属性</li>
 </ul>
@@ -441,20 +441,20 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 <div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">open</span><span class="p">)</span>
 </pre></div>
-<h2>命令行模式</h2>
+<h2 id="ming-ling-xing-mo-shi">命令行模式</h2>
 <ul>
 <li>通过在命令行中加载 python 程序执行</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">myprogram</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
-<h1>注释、代码块、缩进</h1>
+<h1 id="zhu-shi-dai-ma-kuai-suo-jin_1">注释、代码块、缩进</h1>
 <ul>
 <li>使用 <code>#</code> 进行注释</li>
 <li>使用相同的<code>缩进</code>区分代码块</li>
 <li><code>:</code> 用在 if、elif、else、while、for、函数定义中, 区分首行和下面的具体代码块, 具体代码块需要缩进</li>
 <li>使用 <code>\</code> 连接多行代码</li>
 </ul>
-<h1>变量</h1>
+<h1 id="bian-liang">变量</h1>
 <ul>
 <li>赋值</li>
 </ul>

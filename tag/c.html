@@ -73,7 +73,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 可执行程序、静态库、动态库
 构建、工具集</p>
 </blockquote>
-<h1>编译、链接、打包、可执行程序、静态库、动态库</h1>
+<h1 id="bian-yi-lian-jie-da-bao-ke-zhi-xing-cheng-xu-jing-tai-ku-dong-tai-ku">编译、链接、打包、可执行程序、静态库、动态库</h1>
 <ul>
 <li>The three basic tools used to build C++ applications are the <code>compiler</code>, the <code>linker</code>, and the <code>archiver</code> (or librarian). A collection of these programs and possibly other tools is called a toolset.<ul>
 <li>The <code>compiler</code> takes C++ source files as input and produces <code>object files</code>, which <code>contain</code> a mixture of <code>machine-executable code</code> and <code>symbolic references to functions and data</code>. </li>
@@ -123,14 +123,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<h1>构建、工具集</h1>
-<h2>构建</h2>
+<h1 id="gou-jian-gong-ju-ji">构建、工具集</h1>
+<h2 id="gou-jian">构建</h2>
 <ul>
 <li>A <code>build system</code> provides a text file format for describing a collection of source files and the binary files that should be generated from them, together with a build tool that reads these text files and generates the binary files by invoking the appropriate command-line tools. Typically, these text files are created and edited using a text editor, and the build tool is invoked from the command line. Some build systems, however, provide a graphical interface for editing the text files and invoking the build tool.</li>
 <li>The most common build tool is the <code>make</code> utility; the text files it relies on are called <code>makefiles</code>. While there are many versions of make, such as GNU make, the most powerful and portable make incarnation. <code>GNU make</code> is an extremely flexible tool that can be more than building C++ applications. It also has the advantage of being widely used and well-understood by developers. Unfortunately, getting GNU make to do exactly what you want it to do can be a <code>challenge</code>, especially with complex projects involving multiple toolsets. For that reason, I will also discuss Boost.Build, a powerful and extensible build system designed from the ground up for building C++ applications.</li>
 <li><code>Boost.Build</code> was developed by members of the Boost C++ Libraries project. It has been used by a large community of developers for several years, and is currently under active development. Boost.Build uses a build tool called <code>bjam</code> and text files called <code>Jamfiles</code>. Its greatest strength is the ease with which it allows you to manage complex projects involving multiple platforms and build configurations. Although Boost.Build started out as an extension of Perforce&rsquo;s Jam build system, it has since undergone extensive redesign.</li>
 </ul>
-<h2>工具集</h2>
+<h2 id="gong-ju-ji">工具集</h2>
 <p><strong>Names of command-line tools for various toolsets</strong></p>
 <table>
 <thead>
@@ -248,7 +248,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <ul>
 <li>Microsoft&rsquo;s toolset is the dominant toolset on the Windows platform. While several old versions are still in wide use, the most recent version is highly standards conforming. It is also capable of producing highly optimized code. Microsoft&rsquo;s tools are distributed with the Visual C++ and Visual Studio development environments. Visual C++ comes with a customized version of the Dinkumware C++ standard library implementation. Dinkumware&rsquo;s C++ standard library is among the most efficient and standards-conforming commercial implementation.</li>
 </ul>
-<h2>The Usage of GCC</h2>
+<h2 id="the-usage-of-gcc_1">The Usage of GCC</h2>
 <h3 id="building-a-simple-hello-world-application-from-the-command-line">Building a Simple &ldquo;Hello, World&rdquo; Application from the Command Line</h3>
 <div class="highlight"><pre><span></span><span class="c1"># Commands for compiling and linking hello.cpp in a single step</span>
 g++ -o hello hello.cpp
@@ -439,8 +439,8 @@ g++ -shared -o libgeorgeringo.dll -Wl,--out-implib,libgeorgeringo.a -W1,--export
 <ul>
 <li>If your application uses a dynamic variant of your toolset&rsquo;s runtime library, the runtime library must be available when your application is run and in a location where it will be found automatically by the operating system&rsquo;s dynamic loader. <code>Typically, this means that the dynamic runtime library must be placed either in the same directory as your application or in one of a list of system-specific directories.</code> This is more of a concern when developing for Windows than when developing for Unix, since on Unix the appropriate runtime libraries are often already installed in the correct locations.</li>
 </ul>
-<h1>Boost.Build</h1>
-<h2>Build process</h2>
+<h1 id="boostbuild_3">Boost.Build</h1>
+<h2 id="build-process">Build process</h2>
 <blockquote>
 <p><code>Jamfiles</code> and an interpreter called <code>b2</code></p>
 </blockquote>
@@ -538,7 +538,7 @@ g++ -shared -o libgeorgeringo.dll -Wl,--out-implib,libgeorgeringo.a -W1,--export
 </tr>
 </tbody>
 </table>
-<h2>Basic tasks</h2>
+<h2 id="basic-tasks">Basic tasks</h2>
 <blockquote>
 <p><code>Rules</code> and <code>features</code></p>
 </blockquote>
@@ -588,24 +588,24 @@ lib hello : hello.cpp : : &lt;link&gt;static &lt;link&gt;shared ;
 # 这是一个嵌套的函数调用, glob 规则的结果作为 exe 规则的第二个参数传入. 嵌套调用的时候使用 `[` `]`
 exe hello : [ glob *.cpp ] ; 
 </pre></div>
-<h2>Project management</h2>
+<h2 id="project-management">Project management</h2>
 <blockquote>
 <p>Multiple Jamfiles</p>
 </blockquote>
-<h2>Best practices</h2>
+<h2 id="best-practices">Best practices</h2>
 <blockquote>
 <p>How Boost.Build is used by others</p>
 </blockquote>
-<h2>Rule reference</h2>
+<h2 id="rule-reference">Rule reference</h2>
 <blockquote>
 <p>Building blocks for Jamfiles</p>
 </blockquote>
-<h2>Feature reference</h2>
+<h2 id="feature-reference">Feature reference</h2>
 <blockquote>
 <p>Configuration options for the build process</p>
 </blockquote>
 <p><a href="http://www.boost.org/build/doc/html/index.html">Boost.Build User Manual</a></p>
-<h1>GNU make</h1>
+<h1 id="gnu-make_1">GNU make</h1>
 <ul>
 <li>待续...</li>
 </ul></div>

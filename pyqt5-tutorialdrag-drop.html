@@ -67,11 +67,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p>Drag and drop is part of the graphical user interface. Drag and drop operations enable users to do complex things intuitively.</p>
 <p>Usually, we can drag and drop two things: data or some graphical objects.</p>
 </blockquote>
-<h1>QDrag</h1>
+<h1 id="qdrag">QDrag</h1>
 <ul>
 <li><code>QDrag</code> provides support for MIME-based drag and drop data transfer. It handles most of the details of a drag and drop operation. The transferred data is contained in a <code>QMimeData</code> object.</li>
 </ul>
-<h2>Simple drag and drop</h2>
+<h2 id="simple-drag-and-drop">Simple drag and drop</h2>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QPushButton</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span>
                              <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -129,7 +129,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="n">ex</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
 </pre></div>
-<h2>Drag and drop a button widget</h2>
+<h2 id="drag-and-drop-a-button-widget">Drag and drop a button widget</h2>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QApplication</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span><span class="p">,</span> <span class="n">QMimeData</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QDrag</span>

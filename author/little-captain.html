@@ -68,8 +68,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
         </div>
         
-        <div><h1>Git vs SVN</h1>
-<h2>系统的架构</h2>
+        <div><h1 id="git-vs-svn">Git vs SVN</h1>
+<h2 id="xi-tong-de-jia-gou">系统的架构</h2>
 <p><strong>SVN : 集中式</strong></p>
 <p><img align="center" src="../assets/images/git/SVN.png" width="100%"/></p>
 <p><strong>Git : 分布式</strong></p>
@@ -77,32 +77,32 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <blockquote>
 <p>分布式架构的好处, 近乎所有的操作都是本地操作. 具体体现在: 1. 离线可以工作; 2. 操作速度快</p>
 </blockquote>
-<h2>对待数据的方式</h2>
+<h2 id="dui-dai-shu-ju-de-fang-shi">对待数据的方式</h2>
 <p><strong>SVN : 差异比较</strong></p>
 <p><img align="center" src="../assets/images/git/SVN data deal.png" width="100%"/></p>
 <p><strong>Git : 文件快照</strong></p>
 <p><img align="center" src="../assets/images/git/Git data deal.png" width="100%"/></p>
-<h1>Git 中文件的三种状态</h1>
+<h1 id="git-zhong-wen-jian-de-san-chong-zhuang-tai_1">Git 中文件的三种状态</h1>
 <ul>
 <li>已提交(committed) : 数据已安全的保存在本地数据库中</li>
 <li>已修改(modified) : 修改了文件, 还没保存在数据库中</li>
 <li>已暂存(staged) : 对一个已修改的文件的当前版本做了标记, 使之包含在下次提交的快照中</li>
 </ul>
 <p><img align="center" src="../assets/images/git/Git workspace.png" width="100%"/></p>
-<h1>Git 的基本环境搭建</h1>
-<h2>安装 Git for Windows</h2>
+<h1 id="git-de-ji-ben-huan-jing-da-jian">Git 的基本环境搭建</h1>
+<h2 id="an-zhuang-git-for-windows">安装 Git for Windows</h2>
 <p><a href="https://github.com/git-for-windows/git/releases/tag/v2.13.3.windows.1">下载地址</a></p>
 <p>使用管理员权限运行, 选择安装目录后, 一直下一步即可!!!</p>
 <p>安装成功后, 以后每次都使用 Git Bash 这个程序即可. 打开后界面如下:</p>
 <p><img align="center" src="../assets/images/git/Git bash.png" width="100%"/></p>
-<h1>Git 的用户信息配置</h1>
+<h1 id="git-de-yong-hu-xin-xi-pei-zhi_1">Git 的用户信息配置</h1>
 <ul>
 <li>这个用户信息是用于指示提交是谁做的, 必须配置</li>
 </ul>
 <div class="highlight"><pre><span></span>git config --global user.name <span class="s1">'Little-Captain'</span>
 git config --global user.email <span class="s1">'littlecaptain@foxmail.com'</span>
 </pre></div>
-<h1>Git 核心命令</h1>
+<h1 id="git-he-xin-ming-ling">Git 核心命令</h1>
 <ul>
 <li>Git 帮助命令</li>
 </ul>
@@ -116,7 +116,7 @@ man git-&lt;verb&gt;
 <div class="highlight"><pre><span></span>git init
 </pre></div>
 <p><img align="center" src="../assets/images/git/Git command.png" width="100%"/></p>
-<h1>案例分析</h1>
+<h1 id="an-li-fen-xi">案例分析</h1>
 <p><img align="center" src="../assets/images/git/对已有的代码进行Git管理.png" width="100%"/></p></div>
         <hr />
     </div>
@@ -141,7 +141,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 可执行程序、静态库、动态库
 构建、工具集</p>
 </blockquote>
-<h1>编译、链接、打包、可执行程序、静态库、动态库</h1>
+<h1 id="bian-yi-lian-jie-da-bao-ke-zhi-xing-cheng-xu-jing-tai-ku-dong-tai-ku">编译、链接、打包、可执行程序、静态库、动态库</h1>
 <ul>
 <li>The three basic tools used to build C++ applications are the <code>compiler</code>, the <code>linker</code>, and the <code>archiver</code> (or librarian). A collection of these programs and possibly other tools is called a toolset.<ul>
 <li>The <code>compiler</code> takes C …</li></ul></li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/building-c-applications.html">read more</a></div>
@@ -224,7 +224,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Creating a computer game is a good way for enhancing programming skills.</p>
 </blockquote>
-<h1>The development</h1>
+<h1 id="the-development">The development</h1>
 <blockquote>
 <p>We do not have images for our Tetris game, we draw the tetrominoes using the drawing API available in the PyQt5 programming toolkit. Behind every computer game, there is a mathematical model. So it is in …</p></blockquote> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-tutorialthe-tetris-game.html">read more</a></div>
     </div>	
@@ -247,7 +247,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Custom widgets are created by using the drawing tools provided by the toolkit. There are two basic possibilities: a programmer can modify or enhance an existing widget or he can create a custom widget from scratch.</p>
 </blockquote>
-<h1>Burning widget</h1>
+<h1 id="burning-widget">Burning widget</h1>
 <blockquote>
 <p>This is a widget that we can see in Nero, K3B, or …</p></blockquote> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-tutorialcustom-widgets.html">read more</a></div>
     </div>	
@@ -305,7 +305,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>QPixmap</h1>
+        <div class="summary"><h1 id="qpixmap">QPixmap</h1>
 <ul>
 <li>A <code>QPixmap</code> is one of the widgets used to work with images. It is optimized for showing images on screen.</li>
 </ul>

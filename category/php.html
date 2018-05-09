@@ -68,29 +68,29 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
         </div>
         
-        <div><h1>App接口简介</h1>
-<h2>App接口介绍</h2>
+        <div><h1 id="appjie-kou-jian-jie">App接口简介</h1>
+<h2 id="appjie-kou-jie-shao">App接口介绍</h2>
 <ul>
 <li>App(通信)接口定义</li>
 <li>接口地址: url</li>
 <li>接口文件: 服务器php文件(处理一些业务逻辑) </li>
 <li>接口数据: 服务器返回的json、xml</li>
 </ul>
-<h2>App如何进行通信</h2>
+<h2 id="appru-he-jin-xing-tong-xin">App如何进行通信</h2>
 <p><img alt="" src="../assets/images/php/CS交互.png"/></p>
-<h2>通信格式区别(json、xml对比)</h2>
+<h2 id="tong-xin-ge-shi-qu-bie-json-xmldui-bi">通信格式区别(json、xml对比)</h2>
 <ul>
 <li>可读性方面: xml有更清晰的结构</li>
 <li>生成数据方面: json更简单易用</li>
 <li>传输速度方面: json更节省流量</li>
 </ul>
-<h2>App接口做的哪些事儿</h2>
+<h2 id="appjie-kou-zuo-de-na-xie-shi-er">App接口做的哪些事儿</h2>
 <ul>
 <li>获取数据: 从数据库中或缓存中获取数据, 然后通过接口数据返回给客户端</li>
 <li>提交数据: 通过接口提交数据给服务器, 然后服务器入库处理, 或其他处理</li>
 </ul>
-<h1>封装通信接口方法</h1>
-<h2>JSON方式封装接口数据方法</h2>
+<h1 id="feng-zhuang-tong-xin-jie-kou-fang-fa_1">封装通信接口方法</h1>
+<h2 id="jsonfang-shi-feng-zhuang-jie-kou-shu-ju-fang-fa">JSON方式封装接口数据方法</h2>
 <ul>
 <li>PHP生成JSON数据: json_encode(只接受 uft-8 编码)</li>
 <li>通信数据标准格式的必要字段<ul>
@@ -100,7 +100,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>XML方式封装接口数据方法</h2>
+<h2 id="xmlfang-shi-feng-zhuang-jie-kou-shu-ju-fang-fa">XML方式封装接口数据方法</h2>
 <ul>
 <li>PHP生成XML数据<ul>
 <li>方式1: 组装字符串</li>
@@ -113,9 +113,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>综合通信方式封装</h2>
-<h1>核心技术</h1>
-<h2>缓存技术</h2>
+<h2 id="zong-he-tong-xin-fang-shi-feng-zhuang">综合通信方式封装</h2>
+<h1 id="he-xin-ji-zhu_1">核心技术</h1>
+<h2 id="huan-cun-ji-zhu">缓存技术</h2>
 <p><img alt="" src="../assets/images/php/缓存流程.png"/></p>
 <ul>
 <li>目的: 减小服务器的压力</li>
@@ -140,7 +140,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>Memcache、redis</h2>
+<h2 id="memcache-redis">Memcache、redis</h2>
 <h3 id="ji-ben-liao-jie">基本了解</h3>
 <ul>
 <li>Memcache和Redis都是用来管理数据的</li>
@@ -223,7 +223,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ol>
 </li>
 </ul>
-<h2>定时任务</h2>
+<h2 id="ding-shi-ren-wu_1">定时任务</h2>
 <h3 id="ru-he-she-zhi-ding-shi-ren-wu-chang-yong-ming-ling">如何设置定时任务常用命令</h3>
 <p><img alt="" src="../assets/images/php/定时任务crontab格式.png"/></p>
 <ul>

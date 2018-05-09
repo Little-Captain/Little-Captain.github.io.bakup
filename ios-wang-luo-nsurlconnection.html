@@ -62,18 +62,18 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h1>作用</h1>
+        <div><h1 id="zuo-yong">作用</h1>
 <ul>
 <li>负责发送请求，建立客户端和服务器的连接</li>
 <li>发送数据给服务器，并收集来自服务器的响应数据</li>
 </ul>
-<h1>常用相关类</h1>
-<h2>NSURL</h2>
+<h1 id="chang-yong-xiang-guan-lei">常用相关类</h1>
+<h2 id="nsurl">NSURL</h2>
 <ul>
 <li>请求地址</li>
 <li>有时必须进行百分号转码, 使用方法stringByAddingPercentEscapesUsingEncoding</li>
 </ul>
-<h2>NSURLRequest</h2>
+<h2 id="nsurlrequest">NSURLRequest</h2>
 <ul>
 <li>一个NSURLRequest对象就代表一个请求</li>
 <li>包含的信息<ul>
@@ -86,7 +86,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>NSMutableURLRequest</h2>
+<h2 id="nsmutableurlrequest">NSMutableURLRequest</h2>
 <ul>
 <li>setTimeoutInterval<ul>
 <li>超过这个时间就算超时，请求失败</li>
@@ -107,12 +107,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h1>使用步骤</h1>
-<h2>1. 创建一个NSURL对象</h2>
+<h1 id="shi-yong-bu-zou_1">使用步骤</h1>
+<h2 id="1-chuang-jian-yi-ge-nsurldui-xiang">1. 创建一个NSURL对象</h2>
 <ul>
 <li>设置请求路径</li>
 </ul>
-<h2>2. 创建一个NSURLRequest对象</h2>
+<h2 id="2-chuang-jian-yi-ge-nsurlrequestdui-xiang">2. 创建一个NSURLRequest对象</h2>
 <ul>
 <li>设置<ul>
 <li>NSURL对象</li>
@@ -121,13 +121,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>3. 发送请求</h2>
+<h2 id="3-fa-song-qing-qiu">3. 发送请求</h2>
 <p>NSURLConnection常见的发送请求方法</p>
-<h2>同步请求</h2>
+<h2 id="tong-bu-qing-qiu">同步请求</h2>
 <ul>
 <li>sendSynchronousRequest</li>
 </ul>
-<h2>异步请求</h2>
+<h2 id="yi-bu-qing-qiu">异步请求</h2>
 <h3 id="gen-ju-dui-fu-wu-qi-fan-hui-shu-ju-de-chu-li-fang-shi-de-bu-tong-you-ke-yi-fen-wei-2chong">根据对服务器返回数据的处理方式的不同，又可以分为2种</h3>
 <h4 id="blockhui-diao">block回调</h4>
 <ul>

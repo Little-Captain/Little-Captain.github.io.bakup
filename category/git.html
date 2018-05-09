@@ -68,8 +68,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
         </div>
         
-        <div><h1>Git vs SVN</h1>
-<h2>系统的架构</h2>
+        <div><h1 id="git-vs-svn">Git vs SVN</h1>
+<h2 id="xi-tong-de-jia-gou">系统的架构</h2>
 <p><strong>SVN : 集中式</strong></p>
 <p><img align="center" src="../assets/images/git/SVN.png" width="100%"/></p>
 <p><strong>Git : 分布式</strong></p>
@@ -77,32 +77,32 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <blockquote>
 <p>分布式架构的好处, 近乎所有的操作都是本地操作. 具体体现在: 1. 离线可以工作; 2. 操作速度快</p>
 </blockquote>
-<h2>对待数据的方式</h2>
+<h2 id="dui-dai-shu-ju-de-fang-shi">对待数据的方式</h2>
 <p><strong>SVN : 差异比较</strong></p>
 <p><img align="center" src="../assets/images/git/SVN data deal.png" width="100%"/></p>
 <p><strong>Git : 文件快照</strong></p>
 <p><img align="center" src="../assets/images/git/Git data deal.png" width="100%"/></p>
-<h1>Git 中文件的三种状态</h1>
+<h1 id="git-zhong-wen-jian-de-san-chong-zhuang-tai_1">Git 中文件的三种状态</h1>
 <ul>
 <li>已提交(committed) : 数据已安全的保存在本地数据库中</li>
 <li>已修改(modified) : 修改了文件, 还没保存在数据库中</li>
 <li>已暂存(staged) : 对一个已修改的文件的当前版本做了标记, 使之包含在下次提交的快照中</li>
 </ul>
 <p><img align="center" src="../assets/images/git/Git workspace.png" width="100%"/></p>
-<h1>Git 的基本环境搭建</h1>
-<h2>安装 Git for Windows</h2>
+<h1 id="git-de-ji-ben-huan-jing-da-jian">Git 的基本环境搭建</h1>
+<h2 id="an-zhuang-git-for-windows">安装 Git for Windows</h2>
 <p><a href="https://github.com/git-for-windows/git/releases/tag/v2.13.3.windows.1">下载地址</a></p>
 <p>使用管理员权限运行, 选择安装目录后, 一直下一步即可!!!</p>
 <p>安装成功后, 以后每次都使用 Git Bash 这个程序即可. 打开后界面如下:</p>
 <p><img align="center" src="../assets/images/git/Git bash.png" width="100%"/></p>
-<h1>Git 的用户信息配置</h1>
+<h1 id="git-de-yong-hu-xin-xi-pei-zhi_1">Git 的用户信息配置</h1>
 <ul>
 <li>这个用户信息是用于指示提交是谁做的, 必须配置</li>
 </ul>
 <div class="highlight"><pre><span></span>git config --global user.name <span class="s1">'Little-Captain'</span>
 git config --global user.email <span class="s1">'littlecaptain@foxmail.com'</span>
 </pre></div>
-<h1>Git 核心命令</h1>
+<h1 id="git-he-xin-ming-ling">Git 核心命令</h1>
 <ul>
 <li>Git 帮助命令</li>
 </ul>
@@ -116,7 +116,7 @@ man git-&lt;verb&gt;
 <div class="highlight"><pre><span></span>git init
 </pre></div>
 <p><img align="center" src="../assets/images/git/Git command.png" width="100%"/></p>
-<h1>案例分析</h1>
+<h1 id="an-li-fen-xi">案例分析</h1>
 <p><img align="center" src="../assets/images/git/对已有的代码进行Git管理.png" width="100%"/></p></div>
         <hr />
     </div>
@@ -136,8 +136,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><p>[toc]</p>
-<h2>修改 Git 的默认编辑器</h2>
+        <div class="summary"><h2 id="xiu-gai-git-de-mo-ren-bian-ji-qi">修改 Git 的默认编辑器</h2>
 <div class="highlight"><pre><span></span><span class="c1"># 1. subl 是可以在终端中直接启动的一个文本编辑器</span>
 <span class="c1"># 2. -w 的意思是: 让 git 等待文本编辑结束. 当用户编辑完成后, 关闭文本就表示结束</span>
 git config --global core.editor <span class="s2">"subl -w"</span>
@@ -159,19 +158,19 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>准备</h1>
-<h2>Git 安装包</h2>
+        <div class="summary"><h1 id="zhun-bei">准备</h1>
+<h2 id="git-an-zhuang-bao">Git 安装包</h2>
 <p><a href="https://git-for-windows.github.io">官网</a></p>
-<h2>nssm Windows Windows 服务包装软件</h2>
+<h2 id="nssm-windows-windows-fu-wu-bao-zhuang-ruan-jian">nssm Windows Windows 服务包装软件</h2>
 <p><a href="http://nssm.cc">官网</a></p>
-<h2>gogs 二进制包</h2>
+<h2 id="gogs-er-jin-zhi-bao">gogs 二进制包</h2>
 <p><a href="https://gogs.io">官网</a></p>
-<h1>安装</h1>
-<h2>Git</h2>
+<h1 id="an-zhuang_1">安装</h1>
+<h2 id="git">Git</h2>
 <p>一直下一步就可以了</p>
-<h2>nssm</h2>
+<h2 id="nssm">nssm</h2>
 <p>这个不用安装, 解压后, 根据系统使用不同的程序. 要能够在命令行中使用, 必须要将它的路径加入环境变量中</p>
-<h2>gogs</h2>
+<h2 id="gogs">gogs</h2>
 <p>将压缩包解压, 然后启动 nssm 程序来包装 gogs, 包装流程<a href="https://gogs.io/docs/installation/run_as_windows_service">参见</a>. </p>
 <h3 id="fang-huo-qiang-pei-zhi">防火墙配置</h3>
 <ul>
@@ -182,7 +181,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p><strong> 高级设置 </strong></p>
 <p><img alt="" src="../assets/images/git/高级设置.png"/></p>
 <p>剩下的就是打开浏览器, 访问 gogs 服务了!</p>
-<h1>注意</h1>
+<h1 id="zhu-yi_2">注意</h1>
 <p>我们在 clone …</p> <a class="btn btn-info xsmall" href="http://littlecaptain.net/zai-windows-ping-tai-da-jian-gogs-fu-wu.html">read more</a></div>
     </div>	
 				
@@ -201,7 +200,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>常用单命令操作</h1>
+        <div class="summary"><h1 id="chang-yong-dan-ming-ling-cao-zuo">常用单命令操作</h1>
 <ul>
 <li><code>git init</code>: 初始化本地仓库</li>
 <li><code>git status</code>: 查看文件状态</li>
@@ -235,7 +234,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h2>准备篇</h2>
+        <div class="summary"><h2 id="zhun-bei-pian">准备篇</h2>
 <h3 id="fu-wu-qi">服务器</h3>
 <ul>
 <li>创建git专用账户git</li>

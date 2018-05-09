@@ -68,14 +68,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
         </div>
         
-        <div><h1>V8引擎</h1>
+        <div><h1 id="v8yin-qing">V8引擎</h1>
 <ul>
 <li>用于Chrome浏览器的 JS 解释部分</li>
 <li>没有历史包袱，没有同步I/O。不会出现一个同步I/O导致事件循环性能急剧降低的情况。</li>
 <li>V8性能足够好，远远比Python、Ruby等其他脚本语言的引擎快。</li>
 <li>JavaScript语言的闭包特性非常方便，比C中的回调函数好用。</li>
 </ul>
-<h1>总览</h1>
+<h1 id="zong-lan">总览</h1>
 <ul>
 <li>Node.js是一个让JavaScript运行在服务器端的开发平台</li>
 <li>Node就是一个js的执行环境</li>
@@ -84,8 +84,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>Node.js哲学，花最小的硬件成本，追求更高的并发，更高的处理性能。</li>
 <li>Node.js 没有 web 容器</li>
 </ul>
-<h1>特点</h1>
-<h2>Node.js如何解决服务器高性能瓶颈</h2>
+<h1 id="te-dian">特点</h1>
+<h2 id="nodejsru-he-jie-jue-fu-wu-qi-gao-xing-neng-ping-jing">Node.js如何解决服务器高性能瓶颈</h2>
 <h3 id="dan-xian-cheng">单线程</h3>
 <ul>
 <li>这是Node.js不健壮的原因, 只要这个线程崩溃了, 所有的用户都崩溃了。</li>
@@ -129,7 +129,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>事件机制，事件环，不管是新用户的请求，还是老用户的I/O完成，都将以事件方式加入事件环，等待调度。</li>
 <li>说是三个特点，实际上是一个特点，离开谁都不行，都玩儿不转了。Node.js很像抠门的餐厅老板，只聘请1个服务员，服务很多人。结果，比很多服务员效率还高。Node.js中所有的I/O都是异步的，回调函数，套回调函数。</li>
 </ul>
-<h1>适合业务</h1>
+<h1 id="gua-he-ye-wu_2">适合业务</h1>
 <h3 id="shan-chang-io-bu-shan-chang-ji-suan">擅长I/O, 不擅长计算</h3>
 <ul>
 <li>Node.js最擅长的就是任务调度，如果你的业务有很多的CPU计算，实际上也相当于这个计算阻塞了这个单线程，就不适合Node.js开发</li>
@@ -154,7 +154,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h1>Node.js与其他服务器平台重大区别</h1>
+<h1 id="nodejsyu-qi-ta-fu-wu-qi-ping-tai-zhong-da-qu-bie_1">Node.js与其他服务器平台重大区别</h1>
 <h3 id="mei-you-webrong-qi">没有web容器</h3>
 <ul>
 <li>也就是不存在根目录的概念, 没有任何文件夹的概念</li>
@@ -165,8 +165,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </li>
 <li>让Node.js提供一个静态服务都很难</li>
 </ul>
-<h1>写在最后</h1>
-<h2>Node.js的编程精髓</h2>
+<h1 id="xie-zai-zui-hou_1">写在最后</h1>
+<h2 id="nodejsde-bian-cheng-jing-sui">Node.js的编程精髓</h2>
 <ul>
 <li>所有的都是异步处理, 回调是 Node.js 编程的精髓</li>
 <li>内层函数的数据不是 return 返回的, 而是通过调用高层函数提供的回调函数实现数据的传递的. </li>

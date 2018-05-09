@@ -66,29 +66,29 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>App接口简介</h1>
-<h2>App接口介绍</h2>
+        <div class="summary"><h1 id="appjie-kou-jian-jie">App接口简介</h1>
+<h2 id="appjie-kou-jie-shao">App接口介绍</h2>
 <ul>
 <li>App(通信)接口定义</li>
 <li>接口地址: url</li>
 <li>接口文件: 服务器php文件(处理一些业务逻辑) </li>
 <li>接口数据: 服务器返回的json、xml</li>
 </ul>
-<h2>App如何进行通信</h2>
+<h2 id="appru-he-jin-xing-tong-xin">App如何进行通信</h2>
 <p><img alt="" src="../assets/images/php/CS交互.png"/></p>
-<h2>通信格式区别(json、xml对比)</h2>
+<h2 id="tong-xin-ge-shi-qu-bie-json-xmldui-bi">通信格式区别(json、xml对比)</h2>
 <ul>
 <li>可读性方面: xml有更清晰的结构</li>
 <li>生成数据方面: json更简单易用</li>
 <li>传输速度方面: json更节省流量</li>
 </ul>
-<h2>App接口做的哪些事儿</h2>
+<h2 id="appjie-kou-zuo-de-na-xie-shi-er">App接口做的哪些事儿</h2>
 <ul>
 <li>获取数据: 从数据库中或缓存中获取数据, 然后通过接口数据返回给客户端</li>
 <li>提交数据: 通过接口提交数据给服务器, 然后服务器入库处理, 或其他处理</li>
 </ul>
-<h1>封装通信接口方法</h1>
-<h2>JSON方式封装接口数据方法</h2>
+<h1 id="feng-zhuang-tong-xin-jie-kou-fang-fa_1">封装通信接口方法</h1>
+<h2 id="jsonfang-shi-feng-zhuang-jie-kou-shu-ju-fang-fa">JSON方式封装接口数据方法</h2>
 <ul>
 <li>PHP生成JSON数据: json_encode(只接受 uft-8 编码)</li>
 <li>通信数据标准格式的必要字段<ul>
@@ -98,7 +98,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>XML方式封装接口数据方法</h2>
+<h2 id="xmlfang-shi-feng-zhuang-jie-kou-shu-ju-fang-fa">XML方式封装接口数据方法</h2>
 <ul>
 <li>PHP生成XML数据<ul>
 <li>方式1 …</li></ul></li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/php-kai-fa-app-jie-kou.html">read more</a></div>
@@ -119,38 +119,38 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>OSI七层模型</h1>
-<h2>1. 应用层</h2>
+        <div class="summary"><h1 id="osiqi-ceng-mo-xing">OSI七层模型</h1>
+<h2 id="1-ying-yong-ceng">1. 应用层</h2>
 <ul>
 <li>数据单位: APDU</li>
 <li>作用: 针对用户(应用程序)</li>
 </ul>
-<h2>2. 表示层</h2>
+<h2 id="2-biao-shi-ceng">2. 表示层</h2>
 <ul>
 <li>数据单位: PPDU</li>
 <li>作用: 数据的编码、加密和解压缩等</li>
 </ul>
-<h2>3. 会话层</h2>
+<h2 id="3-hui-hua-ceng">3. 会话层</h2>
 <ul>
 <li>数据单位: SPDU</li>
 <li>作用: 确定数据是否向下传递</li>
 </ul>
-<h2>4. 传输层</h2>
+<h2 id="4-chuan-shu-ceng">4. 传输层</h2>
 <ul>
 <li>数据单位: TPDU</li>
 <li>作用: 确定数据是否可靠; 确定网络端口是否可靠; 查错、校验; 流量控制等等</li>
 </ul>
-<h2>5. 网络层</h2>
+<h2 id="5-wang-luo-ceng">5. 网络层</h2>
 <ul>
 <li>数据单位: 报文, 报文中有 IP 地址</li>
 <li>作用: 确定IP地址编码</li>
 </ul>
-<h2>6. 数据链路层</h2>
+<h2 id="6-shu-ju-lian-lu-ceng">6. 数据链路层</h2>
 <ul>
 <li>数据单位: 帧, 帧中最重要的数据就是MAC地址</li>
 <li>作用: MAC地址编码</li>
 </ul>
-<h2>7. 物理层</h2>
+<h2 id="7-wu-li-ceng">7. 物理层</h2>
 <ul>
 <li>数据单位 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/wang-luo-mo-xing.html">read more</a></div>
     </div>	
@@ -170,13 +170,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h2>物理地址</h2>
+        <div class="summary"><h2 id="wu-li-di-zhi">物理地址</h2>
 <ul>
 <li>又名: MAC地址, 网卡硬件地址</li>
 <li>作用: 用于局域网内的通信</li>
 <li>48位</li>
 </ul>
-<h2>IP地址</h2>
+<h2 id="ipdi-zhi">IP地址</h2>
 <ul>
 <li>IP 协议: Internet Protocol</li>
 <li>IP 协议版本: IPv4(不定长包头、解析耗时); IPv6(定长包头)</li>
@@ -195,7 +195,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 <p><img alt="" src="../assets/images/网络/子网掩码的使用.png"/></p>
 <p><img alt="" src="../assets/images/网络/变长子网掩码及子网规划.png"/></p>
-<h2>端口</h2>
+<h2 id="duan-kou">端口</h2>
 <ul>
 <li>属于传输层: 在传输层包头中(TCP头, UDP头)</li>
 <li>
@@ -269,7 +269,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h2>准备篇</h2>
+        <div class="summary"><h2 id="zhun-bei-pian">准备篇</h2>
 <h3 id="fu-wu-qi">服务器</h3>
 <ul>
 <li>创建git专用账户git</li>
@@ -405,7 +405,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h2>基本概念</h2>
+        <div class="summary"><h2 id="ji-ben-gai-nian">基本概念</h2>
 <ul>
 <li>Block 即<code>带有</code>自动变量(<code>局部变量</code>)的<code>匿名函数</code></li>
 <li>Block <code>提供</code>了类似由 C++ 和 Objective-C 类生成实例或对象来<code>保持变量值的能力</code></li>
@@ -431,9 +431,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>拿来说说</h1>
+        <div class="summary"><h1 id="na-lai-shuo-shuo">拿来说说</h1>
 <p>在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。</p>
-<h1>用到了什么</h1>
+<h1 id="yong-dao-liao-shi-yao">用到了什么</h1>
 <ul>
 <li><code>Pelican</code><ul>
 <li>简单易用</li>

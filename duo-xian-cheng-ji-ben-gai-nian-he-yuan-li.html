@@ -62,12 +62,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h1>进程</h1>
+        <div><h1 id="jin-cheng">进程</h1>
 <ul>
 <li>在操作系统中正在运行的一个应用程序</li>
 <li>每个进程之间是独立的，每个进程均运行在其专用且受保护的内存空间内</li>
 </ul>
-<h1>线程</h1>
+<h1 id="xian-cheng">线程</h1>
 <ul>
 <li>1个进程要想执行任务，必须得有线程</li>
 <li>每1个进程至少要有1条线程</li>
@@ -82,14 +82,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 <p><em>线程的状态</em></p>
 <p><img alt="" src="../assets/images/多线程/线程的状态.png"/></p>
-<h1>进程和线程的比较</h1>
+<h1 id="jin-cheng-he-xian-cheng-de-bi-jiao">进程和线程的比较</h1>
 <ol>
 <li>线程是CPU调用(执行任务)的最小单位</li>
 <li>进程是CPU分配资源和调度的单位</li>
 <li>一个程序可以对应多个进程，一个进程中可以有多个线程，但至少要有一个线程</li>
 <li>同一个进程内的线程共享进程的资源</li>
 </ol>
-<h1>多线程</h1>
+<h1 id="duo-xian-cheng">多线程</h1>
 <ul>
 <li>1个进程中可以开启多条线程，每条线程可以并行（同时）执行不同的任务</li>
 <li>
@@ -103,7 +103,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p>多线程技术可以提高程序的执行效率, 比如: 同时开启3条线程分别下载3个文件</p>
 </li>
 </ul>
-<h2>多线程的原理</h2>
+<h2 id="duo-xian-cheng-de-yuan-li">多线程的原理</h2>
 <ul>
 <li>同一时间，CPU只能处理1条线程，只有1条线程在工作（执行）</li>
 <li>多线程并发（同时）执行，其实是CPU快速地在多条线程之间调度（切换）</li>
@@ -114,7 +114,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>优缺点</h2>
+<h2 id="you-que-dian">优缺点</h2>
 <h3 id="you-dian">优点</h3>
 <ul>
 <li>能适当提高程序的执行效率</li>

@@ -68,12 +68,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
         </div>
         
-        <div><h1>问题描述</h1>
+        <div><h1 id="wen-ti-miao-shu">问题描述</h1>
 <ul>
 <li>将<code>图片</code>拖入 <code>iOS 工程</code>后, <code>Xcode</code> 会对其进行<code>特殊处理</code>, 导致图片能在 Apple 相关系统上正常显示, 其他系统都不能正常显示. </li>
 <li>之所以能在 Apple 相关系统上正常显示是因为苹果的底层方法实现就做了相应处理.</li>
 </ul>
-<h1>问题解决</h1>
+<h1 id="wen-ti-jie-jue">问题解决</h1>
 <ul>
 <li><code>通过苹果的方法把这些特殊图片读入系统, 然后重新保存为 PNG 图片即可</code>.</li>
 </ul>
@@ -156,7 +156,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">return</span> <span class="p">[</span><span class="n">imageData</span> <span class="nl">writeToFile</span><span class="p">:</span><span class="n">path</span> <span class="nl">atomically</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
 <span class="p">}</span>
 </pre></div>
-<h1>完善</h1>
+<h1 id="wan-shan">完善</h1>
 <ul>
 <li>同时集成正常化和压缩处理, 新建一个 shell 脚本文件(如 pngNormalizer.sh), 加入如下代码</li>
 </ul>
@@ -191,11 +191,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>步骤</h1>
-<h2>设置请求头</h2>
+        <div class="summary"><h1 id="bu-zou">步骤</h1>
+<h2 id="she-zhi-qing-qiu-tou">设置请求头</h2>
 <div class="highlight"><pre><span></span><span class="p">[</span><span class="n">request</span> <span class="nl">setValue</span><span class="p">:</span><span class="s">@"multipart/form-data; boundary=分割线"</span> <span class="nl">forHTTPHeaderField</span><span class="p">:</span><span class="s">@"Content-Type"</span><span class="p">];</span>
 </pre></div>
-<h2>设置请求体</h2>
+<h2 id="she-zhi-qing-qiu-ti">设置请求体</h2>
 <ul>
 <li>非文件参数</li>
 </ul>
@@ -236,13 +236,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>小文件</h1>
+        <div class="summary"><h1 id="xiao-wen-jian">小文件</h1>
 <ul>
 <li>利用NSURLConnection发送一个HTTP请求下载</li>
 <li>直接用NSData的 +dataWithContentsOfURL</li>
 <li>下载图片, 可以利用SDWebImage框架</li>
 </ul>
-<h1>大文件</h1>
+<h1 id="da-wen-jian">大文件</h1>
 <ul>
 <li>建议使用 NSURLSession 或者第三方框架</li>
 </ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ios-wen-jian-xia-zai.html">read more</a></div>

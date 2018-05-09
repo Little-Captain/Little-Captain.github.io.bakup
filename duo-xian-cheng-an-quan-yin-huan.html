@@ -62,16 +62,16 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h1>资源共享问题</h1>
+        <div><h1 id="zi-yuan-gong-xiang-wen-ti">资源共享问题</h1>
 <ul>
 <li>1块资源可能会被多个线程共享，也就是多个线程可能会访问同一块资源</li>
 <li>比如: 多个线程访问同一个对象、同一个变量、同一个文件</li>
 <li>当多个线程访问同一块资源时，很容易引发数据错乱和数据安全问题</li>
 </ul>
-<h1>问题分析与解决</h1>
-<h2>不加锁</h2>
+<h1 id="wen-ti-fen-xi-yu-jie-jue">问题分析与解决</h1>
+<h2 id="bu-jia-suo">不加锁</h2>
 <p><img alt="" src="../assets/images/多线程/不加锁.png"/></p>
-<h2>安全隐患解决</h2>
+<h2 id="an-quan-yin-huan-jie-jue">安全隐患解决</h2>
 <h3 id="jia-hu-chi-suo">加互斥锁</h3>
 <p><img alt="" src="../assets/images/多线程/加互斥锁.png"/></p>
 <h3 id="hu-chi-suo-shi-yong">互斥锁使用</h3>
@@ -100,18 +100,18 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>多条线程在同一条线上执行（按顺序地执行任务）</li>
 <li>互斥锁，就是使用了线程同步技术</li>
 </ul>
-<h1>原子和非原子属性</h1>
-<h2>atomic</h2>
+<h1 id="yuan-zi-he-fei-yuan-zi-shu-xing_2">原子和非原子属性</h1>
+<h2 id="atomic">atomic</h2>
 <ul>
 <li>原子属性</li>
 <li>为setter方法加锁（默认就是atomic）</li>
 </ul>
-<h2>nonatomic</h2>
+<h2 id="nonatomic">nonatomic</h2>
 <ul>
 <li>非原子属性</li>
 <li>不会为setter方法加锁</li>
 </ul>
-<h2>原子和非原子属性的选择</h2>
+<h2 id="yuan-zi-he-fei-yuan-zi-shu-xing-de-xuan-ze">原子和非原子属性的选择</h2>
 <h3 id="nonatomiche-atomicdui-bi">nonatomic和atomic对比</h3>
 <ul>
 <li>atomic<ul>

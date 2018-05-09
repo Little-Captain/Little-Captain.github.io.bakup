@@ -62,55 +62,55 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h1>OSI七层模型</h1>
-<h2>1. 应用层</h2>
+        <div><h1 id="osiqi-ceng-mo-xing">OSI七层模型</h1>
+<h2 id="1-ying-yong-ceng">1. 应用层</h2>
 <ul>
 <li>数据单位: APDU</li>
 <li>作用: 针对用户(应用程序)</li>
 </ul>
-<h2>2. 表示层</h2>
+<h2 id="2-biao-shi-ceng">2. 表示层</h2>
 <ul>
 <li>数据单位: PPDU</li>
 <li>作用: 数据的编码、加密和解压缩等</li>
 </ul>
-<h2>3. 会话层</h2>
+<h2 id="3-hui-hua-ceng">3. 会话层</h2>
 <ul>
 <li>数据单位: SPDU</li>
 <li>作用: 确定数据是否向下传递</li>
 </ul>
-<h2>4. 传输层</h2>
+<h2 id="4-chuan-shu-ceng">4. 传输层</h2>
 <ul>
 <li>数据单位: TPDU</li>
 <li>作用: 确定数据是否可靠; 确定网络端口是否可靠; 查错、校验; 流量控制等等</li>
 </ul>
-<h2>5. 网络层</h2>
+<h2 id="5-wang-luo-ceng">5. 网络层</h2>
 <ul>
 <li>数据单位: 报文, 报文中有 IP 地址</li>
 <li>作用: 确定IP地址编码</li>
 </ul>
-<h2>6. 数据链路层</h2>
+<h2 id="6-shu-ju-lian-lu-ceng">6. 数据链路层</h2>
 <ul>
 <li>数据单位: 帧, 帧中最重要的数据就是MAC地址</li>
 <li>作用: MAC地址编码</li>
 </ul>
-<h2>7. 物理层</h2>
+<h2 id="7-wu-li-ceng">7. 物理层</h2>
 <ul>
 <li>数据单位: 比特</li>
 <li>作用: 实际的数据传递     </li>
 </ul>
 <hr/>
-<h2>说明</h2>
+<h2 id="shuo-ming">说明</h2>
 <ul>
 <li>上3层给用户提供服务, 所有软件都会用(包括PPT这类不用联网就能用的软件)</li>
 <li>下4层为传送数据提供服务, 只有需要网络传输的软件才会用</li>
 </ul>
-<h1>TCP/IP 四层模型</h1>
-<h2>1. 应用层</h2>
+<h1 id="tcpip-si-ceng-mo-xing_1">TCP/IP 四层模型</h1>
+<h2 id="1-ying-yong-ceng_1">1. 应用层</h2>
 <ul>
 <li>对应七层模型: 应用层; 表示层; 会话层</li>
 <li>作用: 为用户提供各种具体服务(FTP, Telnet, DNS, SMTP)</li>
 </ul>
-<h2>2. 传输层</h2>
+<h2 id="2-chuan-shu-ceng">2. 传输层</h2>
 <ul>
 <li>对应七层模型: 传输层</li>
 <li>作用:     <ul>
@@ -157,7 +157,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p><img alt="" src="../assets/images/网络/UDP包头.png"/></p>
 </li>
 </ul>
-<h2>3. 网际互连层</h2>
+<h2 id="3-wang-ji-hu-lian-ceng">3. 网际互连层</h2>
 <ul>
 <li>对应七层模型: 网络层</li>
 <li>
@@ -180,7 +180,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p><img alt="" src="../assets/images/网络/IP包头.png"/></p>
 </li>
 </ul>
-<h2>4. 网络接口层</h2>
+<h2 id="4-wang-luo-jie-kou-ceng">4. 网络接口层</h2>
 <ul>
 <li>对应七层模型: 数据链路层; 物理层</li>
 <li>
@@ -195,14 +195,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p>网络层头: 主要是<code>MAC</code>, 又名<code>以太帧头</code></p>
 </li>
 </ul>
-<h1>七层模型与四层模型的比较</h1>
-<h2>共同点</h2>
+<h1 id="qi-ceng-mo-xing-yu-si-ceng-mo-xing-de-bi-jiao_1">七层模型与四层模型的比较</h1>
+<h2 id="gong-tong-dian">共同点</h2>
 <ul>
 <li>都采用了层次结构的概念</li>
 <li>分层设计</li>
 <li>都能够提供面向连接和无连接两种通信服务机制</li>
 </ul>
-<h2>不同点</h2>
+<h2 id="bu-tong-dian">不同点</h2>
 <ul>
 <li>一个七层一个四层</li>
 <li>对可靠性要求不同</li>

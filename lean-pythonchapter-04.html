@@ -65,7 +65,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div><blockquote>
 <p>Input and Output</p>
 </blockquote>
-<h1>显示输出</h1>
+<h1 id="xian-shi-shu-chu">显示输出</h1>
 <div class="highlight"><pre><span></span><span class="c1"># 格式</span>
 <span class="k">print</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="n">arg2</span><span class="p">,</span><span class="n">arg3</span><span class="o">...</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">' '</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
 </pre></div>
@@ -79,7 +79,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 <div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'one...'</span><span class="p">,</span><span class="s1">'two...'</span><span class="p">,</span><span class="s1">'three'</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
 </pre></div>
-<h1>获取用户输入</h1>
+<h1 id="huo-qu-yong-hu-shu-ru">获取用户输入</h1>
 <div class="highlight"><pre><span></span><span class="n">yourName</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Enter your name: '</span><span class="p">)</span>
 </pre></div>
 <ul>
@@ -91,8 +91,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
         <span class="k">print</span><span class="p">(</span><span class="n">count</span><span class="o">++</span><span class="p">)</span>
 </pre></div>
-<h1>读写文件</h1>
-<h2>打开文件</h2>
+<h1 id="du-xie-wen-jian">读写文件</h1>
+<h2 id="da-kai-wen-jian">打开文件</h2>
 <div class="highlight"><pre><span></span><span class="n">fileobj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
 </pre></div>
 <ul>
@@ -129,7 +129,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
 <span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">)</span>
 </pre></div>
-<h2>关闭文件</h2>
+<h2 id="guan-bi-wen-jian">关闭文件</h2>
 <ul>
 <li>一旦你完成文件操作, 就应该关闭文件</li>
 <li>文件的 open 和 close 操作, 总是成对使用</li>
@@ -139,7 +139,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="c1"># do something</span>
 <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
-<h2>读取文件</h2>
+<h2 id="du-qu-wen-jian">读取文件</h2>
 <ul>
 <li>read() 以<code>字符串</code>的形式<code>读取</code>文件的<code>全部内容</code></li>
 <li>可以将读取的内容以<code>换行符</code>('\n')进行<code>分隔</code></li>
@@ -169,7 +169,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">print</span><span class="p">(</span><span class="n">eachLine</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
 <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
-<h2>写入文件</h2>
+<h2 id="xie-ru-wen-jian">写入文件</h2>
 <ul>
 <li>标准写入函数 write()</li>
 <li>write() 函数, 不主动添加任何换行符</li>
@@ -194,7 +194,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <ul>
 <li>注意 : write() 和 writelines() 函数都不会在字符串末尾添加换行符(\n), 你必须自己添加</li>
 </ul>
-<h2>访问文件系统</h2>
+<h2 id="fang-wen-wen-jian-xi-tong">访问文件系统</h2>
 <ul>
 <li>os 模块中的一些常用函数</li>
 </ul>
@@ -223,7 +223,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="c1"># does path name exist and(且) is it is directory?</span>
 <span class="n">isdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
 </pre></div>
-<h1>命令行参数</h1>
+<h1 id="ming-ling-xing-can-shu_1">命令行参数</h1>
 <div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">mycopy</span><span class="o">.</span><span class="n">py</span> <span class="n">thisfile</span><span class="o">.</span><span class="n">txt</span> <span class="n">thatfile</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 <ul>

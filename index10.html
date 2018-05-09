@@ -127,7 +127,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><ul>
 <li>一个iOS程序运行后，默认会开启1条线程, 称为&ldquo;主线程&rdquo;或&ldquo;UI线程&rdquo;</li>
 </ul>
-<h2>主线程的主要作用</h2>
+<h2 id="zhu-xian-cheng-de-zhu-yao-zuo-yong">主线程的主要作用</h2>
 <ul>
 <li>显示 / 刷新UI界面</li>
 <li>处理UI事件<ul>
@@ -138,7 +138,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>主线程的使用注意</h2>
+<h2 id="zhu-xian-cheng-de-shi-yong-zhu-yi">主线程的使用注意</h2>
 <ul>
 <li>别将比较耗时的操作放到主线程中</li>
 <li>耗时操作会卡住主线程，严重影响UI的流畅度，给用户一种&ldquo;卡&rdquo;的坏体验</li>
@@ -165,12 +165,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>进程</h1>
+        <div class="summary"><h1 id="jin-cheng">进程</h1>
 <ul>
 <li>在操作系统中正在运行的一个应用程序</li>
 <li>每个进程之间是独立的，每个进程均运行在其专用且受保护的内存空间内</li>
 </ul>
-<h1>线程</h1>
+<h1 id="xian-cheng">线程</h1>
 <ul>
 <li>1个进程要想执行任务，必须得有线程</li>
 <li>每1个进程至少要有1条线程</li>
@@ -185,14 +185,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 <p><em>线程的状态</em></p>
 <p><img alt="" src="../assets/images/多线程/线程的状态.png"/></p>
-<h1>进程和线程的比较</h1>
+<h1 id="jin-cheng-he-xian-cheng-de-bi-jiao">进程和线程的比较</h1>
 <ol>
 <li>线程是CPU调用(执行任务)的最小单位</li>
 <li>进程是CPU分配资源和调度的单位</li>
 <li>一个程序可以对应多个进程，一个进程中可以有多个线程，但至少要有一个线程</li>
 <li>同一个进程内的线程共享进程的资源</li>
 </ol>
-<h1>多线程</h1>
+<h1 id="duo-xian-cheng">多线程</h1>
 <ul>
 <li>1个进程中可以开启多条线程，每条线程可以并行（同时）执行不同的任务</li>
 <li>
@@ -206,7 +206,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p>多线程技术可以提高程序的执行效率, 比如: 同时开启3条线程分别下载3个文件</p>
 </li>
 </ul>
-<h2>多线程的原理</h2>
+<h2 id="duo-xian-cheng-de-yuan-li">多线程的原理</h2>
 <ul>
 <li>同一时间，CPU只能处理1条线程，只有1条线程在工作（执行）</li>
 <li>多线程并发（同时）执行，其实是CPU快速地在多条线程之间调度 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-ji-ben-gai-nian-he-yuan-li.html">read more</a></div>
@@ -228,9 +228,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
  </div>
         <div class="summary"><p><a href="https://github.com/Little-Captain/LCNetworking">框架地址</a></p>
-<h1>AFNetworking 存在的问题</h1>
+<h1 id="afnetworking-cun-zai-de-wen-ti">AFNetworking 存在的问题</h1>
 <p>如果你的项目中使用了 AFNetworking, 就一定会出现内存泄漏的问题. 这个是我在用做测试的时候发现的.</p>
-<h2>问题重现</h2>
+<h2 id="wen-ti-zhong-xian">问题重现</h2>
 <ul>
 <li>安装 AFNetworking, 使用 AFNetworking 做网络请求</li>
 <li>使用 Debug Memory Graph 查看内存引用关系</li>
@@ -243,7 +243,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <ul>
 <li>使用 Instrument 测试得到类似结果</li>
 </ul>
-<h1>解决问题</h1>
+<h1 id="jie-jue-wen-ti_1">解决问题</h1>
 <p>失败的解决办法</p>
 <ul>
 <li>控制器退出时, 取消所有任务</li>
@@ -268,26 +268,26 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>重要性</h1>
+        <div class="summary"><h1 id="zhong-yao-xing">重要性</h1>
 <p>UITableView 是 iOS 开发中最常使用的控件之一, 在各类 App 中都充斥着各种表格. 表格展示的内容如果比较多, 比较复杂, 往往会影响界面的刷新帧率, 在用户的角度就是界面卡顿, 这时必须对 UITableView 进行性能优化.</p>
-<h1>表格为什么会卡?</h1>
+<h1 id="biao-ge-wei-shi-yao-hui-qia">表格为什么会卡?</h1>
 <p>iOS 设备的刷新帧率为 60Hz, 也就是一秒钟会有 60 帧图片绘制在屏幕上. 如果在下一帧图片绘制的时候, CPU正忙, 那么这一帧就会被跳过, 频繁出现这种情况, 界面就卡了.
 总结: 在两帧之间运算没有做完, 就会出现跳帧</p>
-<h1>优化方向</h1>
+<h1 id="you-hua-fang-xiang">优化方向</h1>
 <p>实施优化的准则: 测量(主要是使用Instrument看帧率), 而不是猜测</p>
-<h2>关于计算</h2>
+<h2 id="guan-yu-ji-suan">关于计算</h2>
 <ul>
 <li>尽量少计算, 所有需要的素材提前计算好!</li>
 </ul>
-<h2>关于圆角</h2>
+<h2 id="guan-yu-yuan-jiao">关于圆角</h2>
 <ul>
 <li>控件上不要设置圆角半径, 所有图像渲染的属性, 都要注意!</li>
 </ul>
-<h2>关于创建控件</h2>
+<h2 id="guan-yu-chuang-jian-kong-jian">关于创建控件</h2>
 <ul>
 <li>不要动态创建控件, 所有需要的控件, 都要提前创建好, 在显示的时候, 根据数据决定显示 / 隐藏</li>
 </ul>
-<h2>关于控件数量 …</h2> <a class="btn btn-info xsmall" href="http://littlecaptain.net/uitableview-de-xing-neng-you-hua.html">read more</a></div>
+<h2 id="guan-yu-kong-jian-shu-liang">关于控件数量 …</h2> <a class="btn btn-info xsmall" href="http://littlecaptain.net/uitableview-de-xing-neng-you-hua.html">read more</a></div>
     </div>	
 				
 
@@ -305,16 +305,16 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>内容提要</h1>
+        <div class="summary"><h1 id="nei-rong-ti-yao">内容提要</h1>
 <p>这篇博文, 聊的是软件架构, 主要是 iOS 中的 MVC 架构.</p>
-<h1>架构基础</h1>
-<h2>架构的目的</h2>
+<h1 id="jia-gou-ji-chu">架构基础</h1>
+<h2 id="jia-gou-de-mu-de">架构的目的</h2>
 <ul>
 <li>解耦.</li>
 <li>类之间, 模块之间, 要交互, 就会有耦合. 我们的目标就是将耦合降到最低</li>
 <li>问题来了, 为什么要解耦呢? 解耦后的好处是什么? 个人总结两点: 1. 方便类和模块的重用; 2. 清晰化类之间、模块之间的逻辑关系, 便于维护、扩展</li>
 </ul>
-<h2>一些基本设计模式</h2>
+<h2 id="yi-xie-ji-ben-she-ji-mo-shi">一些基本设计模式</h2>
 <p>在理解 MVC 这个复合设计模式之前, 有必要对下面的这些基本设计模式有一定的理解.</p>
 <ul>
 <li>代理(Delegate)</li>
@@ -323,7 +323,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>目标动作(Target-Action)</li>
 <li>...</li>
 </ul>
-<h1>MVC</h1>
+<h1 id="mvc_1">MVC</h1>
 <p>M : Model, 模型. 存放数据
 V : View, 视图. 用户所见, 能给与用户进行交互 …</p> <a class="btn btn-info xsmall" href="http://littlecaptain.net/liao-liao-ios-de-mvc-jia-gou.html">read more</a></div>
     </div>	
@@ -343,7 +343,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>相关环境变量</h1>
+        <div class="summary"><h1 id="xiang-guan-huan-jing-bian-liang">相关环境变量</h1>
 <p>有两个环境变量来控制命令提示符的格式</p>
 <ul>
 <li>PS1 : 控制默认命令提示符的格式</li>
@@ -375,11 +375,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>直面问题</h1>
+        <div class="summary"><h1 id="zhi-mian-wen-ti">直面问题</h1>
 <p>Swift 中有 optional 和 non-optional. 在 Objective-C 中没有这一概念.
 那么在 Swift 和 Objective-C 混合编程的时候, 编译器会统一使用 non-optional 处理, 这样处理往往并不是我们想要的结果.</p>
-<h1>苹果的解决方案</h1>
-<h2>引入三对关键字</h2>
+<h1 id="ping-guo-de-jie-jue-fang-an">苹果的解决方案</h1>
+<h2 id="yin-ru-san-dui-guan-jian-zi">引入三对关键字</h2>
 <ul>
 <li>__nullable 和 __nonnull</li>
 <li>_Nonnull 和 _Nullable</li>
@@ -388,7 +388,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>nullable: 对象可以是 NULL 或 nil</li>
 <li>三种写法本质上都是互通的，只是放的位置不同</li>
 </ul>
-<h2>使用总结</h2>
+<h2 id="shi-yong-zong-jie">使用总结</h2>
 <ul>
 <li>nonnull 和 nullable: 属性、方法返回值、方法参数</li>
 <li>_Nonnull 和 _Nullable:  C 函数的参数 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/nullablenonnull.html">read more</a></div>
@@ -409,16 +409,16 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>CocoaPods如何管理框架</h1>
-<h1><img alt="" src="../assets/images/CocoaPods/CocoaPods工作流.png"/></h1>
-<h1>框架的发布与安装</h1>
-<h1><img alt="" src="../assets/images/CocoaPods/CocoaPods如何管理框架.png"/></h1>
-<h1>发布流程</h1>
-<h2>1. 注册</h2>
+        <div class="summary"><h1 id="cocoapodsru-he-guan-li-kuang-jia">CocoaPods如何管理框架</h1>
+<h1 id="_1"><img alt="" src="../assets/images/CocoaPods/CocoaPods工作流.png"/></h1>
+<h1 id="kuang-jia-de-fa-bu-yu-an-zhuang">框架的发布与安装</h1>
+<h1 id="_2"><img alt="" src="../assets/images/CocoaPods/CocoaPods如何管理框架.png"/></h1>
+<h1 id="fa-bu-liu-cheng">发布流程</h1>
+<h2 id="1-zhu-ce">1. 注册</h2>
 <div class="highlight"><pre><span></span>pod trunk register email地址 yourname
 </pre></div>
 <p>执行上面的命令后, 你将收到一封邮件, <code>必须验证</code>才能进行后续操作</p>
-<h2>2. 查询用户信息</h2>
+<h2 id="2-cha-xun-yong-hu-xin-xi">2. 查询用户信息</h2>
 <div class="highlight"><pre><span></span>pod trunk me
 </pre></div>
 <p>这条命令将输出你的<code>个人相关信息</code></p>
@@ -450,7 +450,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>常用单命令操作</h1>
+        <div class="summary"><h1 id="chang-yong-dan-ming-ling-cao-zuo">常用单命令操作</h1>
 <ul>
 <li><code>git init</code>: 初始化本地仓库</li>
 <li><code>git status</code>: 查看文件状态</li>

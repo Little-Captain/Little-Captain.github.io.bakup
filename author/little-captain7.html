@@ -66,8 +66,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>配置本地推送通知</h1>
-<h2>Step 1</h2>
+        <div class="summary"><h1 id="pei-zhi-ben-di-tui-song-tong-zhi">配置本地推送通知</h1>
+<h2 id="step-1">Step 1</h2>
 <ul>
 <li>创建和配置包含通知具体内容的 <code>UNMutableNotificationContent</code> 对象</li>
 </ul>
@@ -76,7 +76,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">content</span><span class="p">.</span><span class="n">body</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSString</span> <span class="nl">localizedUserNotificationStringForKey</span><span class="p">:</span><span class="s">@"Rise and shine! It's morning time!"</span>
         <span class="nl">arguments</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
 </pre></div>
-<h2>Step 2</h2>
+<h2 id="step-2">Step 2</h2>
 <ul>
 <li>创建一个 <code>UNCalendarNotificationTrigger</code>, <code>UNTimeIntervalNotificationTrigger</code>, 或 <code>UNLocationNotificationTrigger</code> 对象来描述通知被递送的条件</li>
 </ul>
@@ -100,7 +100,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>请求用户授权</h1>
+        <div class="summary"><h1 id="qing-qiu-yong-hu-shou-quan">请求用户授权</h1>
 <div class="highlight"><pre><span></span><span class="n">UNUserNotificationCenter</span><span class="o">*</span> <span class="n">center</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNUserNotificationCenter</span> <span class="n">currentNotificationCenter</span><span class="p">];</span>
 <span class="p">[</span><span class="n">center</span> <span class="nl">requestAuthorizationWithOptions</span><span class="p">:(</span><span class="n">UNAuthorizationOptionAlert</span> <span class="o">+</span> <span class="n">UNAuthorizationOptionSound</span><span class="p">)</span>
    <span class="nl">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">granted</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
@@ -110,8 +110,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <ul>
 <li>获取准确的用户授权信息使用 <code>UNUserNotificationCenter</code> 对象的 <code>getNotificationSettingsWithCompletionHandler:</code> 方法</li>
 </ul>
-<h1>配置类别和可操作的通知</h1>
-<h2>针对 App 注册通知类别</h2>
+<h1 id="pei-zhi-lei-bie-he-ke-cao-zuo-de-tong-zhi">配置类别和可操作的通知</h1>
+<h2 id="zhen-dui-app-zhu-ce-tong-zhi-lei-bie">针对 App 注册通知类别</h2>
 <div class="highlight"><pre><span></span><span class="n">UNNotificationCategory</span><span class="o">*</span> <span class="n">generalCategory</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationCategory</span>
      <span class="nl">categoryWithIdentifier</span><span class="p">:</span><span class="s">@"GENERAL"</span>
      <span class="nl">actions</span><span class="p">:</span><span class="l">@[]</span>
@@ -122,7 +122,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">UNUserNotificationCenter</span><span class="o">*</span> <span class="n">center</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNUserNotificationCenter</span> <span class="n">currentNotificationCenter</span><span class="p">];</span>
 <span class="p">[</span><span class="n">center</span> <span class="nl">setNotificationCategories</span><span class="p">:[</span><span class="bp">NSSet</span> <span class="nl">setWithObjects</span><span class="p">:</span><span class="n">generalCategory</span><span class="p">,</span> <span class="nb">nil</span><span class="p">]];</span>
 </pre></div>
-<h2>将自定义操作添加到类别中</h2>
+<h2 id="jiang-zi-ding-yi-cao-zuo-tian-jia-dao-lei-bie-zhong">将自定义操作添加到类别中</h2>
 <div class="highlight"><pre><span></span><span class="n">UNNotificationCategory</span><span class="o">*</span> <span class="n">generalCategory</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationCategory</span>
       <span class="nl">categoryWithIdentifier …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/app-de-tong-zhi-zhi-chi.html">read more</a></div>
     </div>	
@@ -142,7 +142,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>if-then语句</h1>
+        <div class="summary"><h1 id="if-thenyu-ju">if-then语句</h1>
 <ul>
 <li>bash 的 if 语句会运行 if 行定义的那个命令. 如果命令的退出状态码是0, 位于 then 部分的命令会被执行</li>
 </ul>
@@ -155,7 +155,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
    commands
 <span class="k">fi</span>
 </pre></div>
-<h1>if-then-else语句</h1>
+<h1 id="if-then-elseyu-ju">if-then-else语句</h1>
 <div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">command</span>
 <span class="k">then</span>
    commands
@@ -163,7 +163,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
    commands
 <span class="k">fi</span>
 </pre></div>
-<h1>嵌套 if</h1>
+<h1 id="qian-tao-if">嵌套 if</h1>
 <div class="highlight"><pre><span></span><span class="k">if</span> command1
 <span class="k">then</span>
    commands
@@ -172,7 +172,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
    commands
 <span class="k">fi</span>
 </pre></div>
-<h1>test 命令</h1>
+<h1 id="test-ming-ling">test 命令</h1>
 <ul>
 <li>如果 test 命令中列出的条件成立, test 命令就会退出并返回状态码 0</li>
 </ul>
@@ -194,7 +194,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>expr 命令</h1>
+        <div class="summary"><h1 id="expr-ming-ling">expr 命令</h1>
 <ul>
 <li>expr 命令允许在命令行上处理数学表达式</li>
 </ul>
@@ -209,7 +209,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="c1"># 操作数和运算符之间必须要有空格</span>
 expr <span class="m">5</span> <span class="se">\*</span> <span class="m">2</span>
 </pre></div>
-<h1>使用方括号</h1>
+<h1 id="shi-yong-fang-gua-hao">使用方括号</h1>
 <ul>
 <li>在 bash 中, 在将一个数学运算结果赋给某个变量时, 可以用美元符合方括号( $[ operation ] )将数学表达式圈起来</li>
 <li>这比使用 expr 命令方便很多, 方括号里面的字符不会认为是 shell 中的特殊字符</li>
@@ -217,8 +217,8 @@ expr <span class="m">5</span> <span class="se">\*</span> <span class="m">2</span
 </ul>
 <div class="highlight"><pre><span></span><span class="nv">var1</span><span class="o">=</span>$<span class="o">[</span><span class="m">1</span> + <span class="m">5</span><span class="o">]</span>
 </pre></div>
-<h1>浮点解决方案</h1>
-<h2>bc</h2>
+<h1 id="fu-dian-jie-jue-fang-an">浮点解决方案</h1>
+<h2 id="bc">bc</h2>
 <ul>
 <li>bash 计算器允许你在命令行输入浮点表达式、解释表达式、计算并返回结果的一种编程语言.</li>
 <li>bash …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/shell-shu-xue-yun-suan.html">read more</a></div>
@@ -239,7 +239,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>基础</h1>
+        <div class="summary"><h1 id="ji-chu">基础</h1>
 <ul>
 <li>同<code>一行多个命令</code>顺序执行, 使用<code>;</code></li>
 </ul>
@@ -295,8 +295,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><p>[toc]</p>
-<h2>修改 Git 的默认编辑器</h2>
+        <div class="summary"><h2 id="xiu-gai-git-de-mo-ren-bian-ji-qi">修改 Git 的默认编辑器</h2>
 <div class="highlight"><pre><span></span><span class="c1"># 1. subl 是可以在终端中直接启动的一个文本编辑器</span>
 <span class="c1"># 2. -w 的意思是: 让 git 等待文本编辑结束. 当用户编辑完成后, 关闭文本就表示结束</span>
 git config --global core.editor <span class="s2">"subl -w"</span>
@@ -318,8 +317,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>分类</h1>
-<h2>基本数据类型</h2>
+        <div class="summary"><h1 id="fen-lei">分类</h1>
+<h2 id="ji-ben-shu-ju-lei-xing">基本数据类型</h2>
 <h3 id="byte">byte</h3>
 <ul>
 <li>字节型是一种 8 位有正负的二进制整数</li>
@@ -354,12 +353,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>问题描述</h1>
+        <div class="summary"><h1 id="wen-ti-miao-shu">问题描述</h1>
 <ul>
 <li>将<code>图片</code>拖入 <code>iOS 工程</code>后, <code>Xcode</code> 会对其进行<code>特殊处理</code>, 导致图片能在 Apple 相关系统上正常显示, 其他系统都不能正常显示. </li>
 <li>之所以能在 Apple 相关系统上正常显示是因为苹果的底层方法实现就做了相应处理.</li>
 </ul>
-<h1>问题解决</h1>
+<h1 id="wen-ti-jie-jue">问题解决</h1>
 <ul>
 <li><code>通过苹果的方法把这些特殊图片读入系统, 然后重新保存为 PNG 图片即可</code>.</li>
 </ul>
@@ -385,7 +384,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>排版</h1>
+        <div class="summary"><h1 id="pai-ban">排版</h1>
 <ul>
 <li>程序块要采用缩进风格编写，缩进的空格数为4个。对齐只使用空格键，不使用TAB键。</li>
 <li>相对独立的程序块之间、变量说明之后必须加空行。</li>

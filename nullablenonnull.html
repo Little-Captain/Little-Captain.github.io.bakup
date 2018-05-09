@@ -62,11 +62,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h1>直面问题</h1>
+        <div><h1 id="zhi-mian-wen-ti">直面问题</h1>
 <p>Swift 中有 optional 和 non-optional. 在 Objective-C 中没有这一概念.
 那么在 Swift 和 Objective-C 混合编程的时候, 编译器会统一使用 non-optional 处理, 这样处理往往并不是我们想要的结果.</p>
-<h1>苹果的解决方案</h1>
-<h2>引入三对关键字</h2>
+<h1 id="ping-guo-de-jie-jue-fang-an">苹果的解决方案</h1>
+<h2 id="yin-ru-san-dui-guan-jian-zi">引入三对关键字</h2>
 <ul>
 <li>__nullable 和 __nonnull</li>
 <li>_Nonnull 和 _Nullable</li>
@@ -75,18 +75,18 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>nullable: 对象可以是 NULL 或 nil</li>
 <li>三种写法本质上都是互通的，只是放的位置不同</li>
 </ul>
-<h2>使用总结</h2>
+<h2 id="shi-yong-zong-jie">使用总结</h2>
 <ul>
 <li>nonnull 和 nullable: 属性、方法返回值、方法参数</li>
 <li>_Nonnull 和 _Nullable:  C 函数的参数、Block 的参数、Block 的返回值</li>
 <li>__nonnull 和 __nullable: 不建议使用, 用法和 _Nonnull 和 _Nullable 一样</li>
 </ul>
-<h2>减小指定的工作量</h2>
+<h2 id="jian-xiao-zhi-ding-de-gong-zuo-liang">减小指定的工作量</h2>
 <ul>
 <li>宏: NS_ASSUME_NONNULL_BEGIN 和 NS_ASSUME_NONNULL_END</li>
 <li>作用: 在这两个宏之间的代码，所有简单指针对象(非多重指针)都被假定为 nonnull ，只需要去指定那些 nullable 指针对象</li>
 </ul>
-<h2>参考</h2>
+<h2 id="can-kao">参考</h2>
 <p><a href="https://developer.apple.com/swift/blog/?id=25">苹果官方Blog</a></p></div>
 	
         <hr>

@@ -68,30 +68,30 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
         </div>
         
-        <div><h1>重要性</h1>
+        <div><h1 id="zhong-yao-xing">重要性</h1>
 <p>UITableView 是 iOS 开发中最常使用的控件之一, 在各类 App 中都充斥着各种表格. 表格展示的内容如果比较多, 比较复杂, 往往会影响界面的刷新帧率, 在用户的角度就是界面卡顿, 这时必须对 UITableView 进行性能优化.</p>
-<h1>表格为什么会卡?</h1>
+<h1 id="biao-ge-wei-shi-yao-hui-qia">表格为什么会卡?</h1>
 <p>iOS 设备的刷新帧率为 60Hz, 也就是一秒钟会有 60 帧图片绘制在屏幕上. 如果在下一帧图片绘制的时候, CPU正忙, 那么这一帧就会被跳过, 频繁出现这种情况, 界面就卡了.
 总结: 在两帧之间运算没有做完, 就会出现跳帧</p>
-<h1>优化方向</h1>
+<h1 id="you-hua-fang-xiang">优化方向</h1>
 <p>实施优化的准则: 测量(主要是使用Instrument看帧率), 而不是猜测</p>
-<h2>关于计算</h2>
+<h2 id="guan-yu-ji-suan">关于计算</h2>
 <ul>
 <li>尽量少计算, 所有需要的素材提前计算好!</li>
 </ul>
-<h2>关于圆角</h2>
+<h2 id="guan-yu-yuan-jiao">关于圆角</h2>
 <ul>
 <li>控件上不要设置圆角半径, 所有图像渲染的属性, 都要注意!</li>
 </ul>
-<h2>关于创建控件</h2>
+<h2 id="guan-yu-chuang-jian-kong-jian">关于创建控件</h2>
 <ul>
 <li>不要动态创建控件, 所有需要的控件, 都要提前创建好, 在显示的时候, 根据数据决定显示 / 隐藏</li>
 </ul>
-<h2>关于控件数量</h2>
+<h2 id="guan-yu-kong-jian-shu-liang">关于控件数量</h2>
 <ul>
 <li>cell 中控件的层次越少越好, 数量越少越好!</li>
 </ul>
-<h2>行高一定要缓存</h2>
+<h2 id="xing-gao-yi-ding-yao-huan-cun">行高一定要缓存</h2>
 <ul>
 <li>表格性能优化中最重要的一环</li>
 <li>如果系统适配 iOS 8.0+, 推荐使用苹果的自动计算行高, 苹果本身的性能优化已经够好!</li>
@@ -113,7 +113,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">return</span> <span class="n">_cellHeight</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-<h2>高级优化</h2>
+<h2 id="gao-ji-you-hua">高级优化</h2>
 <ul>
 <li>离屏渲染, 启用异步绘制, 让视图在显示前尽量绘制好</li>
 </ul>

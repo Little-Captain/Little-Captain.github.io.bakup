@@ -68,16 +68,16 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
         </div>
         
-        <div><h1>内容提要</h1>
+        <div><h1 id="nei-rong-ti-yao">内容提要</h1>
 <p>这篇博文, 聊的是软件架构, 主要是 iOS 中的 MVC 架构.</p>
-<h1>架构基础</h1>
-<h2>架构的目的</h2>
+<h1 id="jia-gou-ji-chu">架构基础</h1>
+<h2 id="jia-gou-de-mu-de">架构的目的</h2>
 <ul>
 <li>解耦.</li>
 <li>类之间, 模块之间, 要交互, 就会有耦合. 我们的目标就是将耦合降到最低</li>
 <li>问题来了, 为什么要解耦呢? 解耦后的好处是什么? 个人总结两点: 1. 方便类和模块的重用; 2. 清晰化类之间、模块之间的逻辑关系, 便于维护、扩展</li>
 </ul>
-<h2>一些基本设计模式</h2>
+<h2 id="yi-xie-ji-ben-she-ji-mo-shi">一些基本设计模式</h2>
 <p>在理解 MVC 这个复合设计模式之前, 有必要对下面的这些基本设计模式有一定的理解.</p>
 <ul>
 <li>代理(Delegate)</li>
@@ -86,7 +86,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>目标动作(Target-Action)</li>
 <li>...</li>
 </ul>
-<h1>MVC</h1>
+<h1 id="mvc_1">MVC</h1>
 <p>M : Model, 模型. 存放数据
 V : View, 视图. 用户所见, 能给与用户进行交互
 C : Controller, 控制器. 处理用户的交互逻辑、处理网络相关逻辑、处理 Model 和 View 的通信逻辑...</p>

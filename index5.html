@@ -143,18 +143,18 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>PyQt</p>
 </blockquote>
-<h1>窗口和对话框</h1>
+<h1 id="chuang-kou-he-dui-hua-kuang">窗口和对话框</h1>
 <ul>
 <li>对话框包括两类: modal、modeless</li>
 <li>modal: 禁止用户与程序的其他部分交互</li>
 <li>modeless: 与 modal 相对, 用户可以自由的与应用程序的其他部分交互</li>
 </ul>
-<h1>创建应用程序</h1>
+<h1 id="chuang-jian-ying-yong-cheng-xu">创建应用程序</h1>
 <ul>
 <li>通过简单的纯文本编辑器创建</li>
 <li>使用 Qt Designer</li>
 </ul>
-<h1>使用 Code 创建 GUI 程序</h1>
+<h1 id="shi-yong-code-chuang-jian-gui-cheng-xu">使用 Code 创建 GUI 程序</h1>
 <ul>
 <li>这是针对 Qt4 的代码, Qt5 运行要不起来</li>
 </ul>
@@ -206,7 +206,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>执行文件操作(读、写、更新)</li>
 <li>关闭文件</li>
 </ul>
-<h1>打开文件</h1>
+<h1 id="da-kai-wen-jian">打开文件</h1>
 <div class="highlight"><pre><span></span><span class="c1"># file_name 文件名</span>
 <span class="c1"># mode 打开文件的目的</span>
 <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="c1"># 返回 file handler 对象</span>
@@ -236,7 +236,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Classes</p>
 </blockquote>
-<h1>类</h1>
+<h1 id="lei">类</h1>
 <ul>
 <li>类是数据和操作的模板</li>
 <li>通过类可以创建实例(对象)</li>
@@ -245,7 +245,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">class</span> <span class="nc">classname</span><span class="p">[(</span><span class="n">base</span><span class="o">-</span><span class="n">classes</span><span class="p">)]:</span>
     <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
-<h2>类对象的属性</h2>
+<h2 id="lei-dui-xiang-de-shu-xing">类对象的属性</h2>
 <ul>
 <li>类属性, 不需要实例对象, 使用类名引用</li>
 </ul>
@@ -282,25 +282,25 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>函数</h1>
+        <div class="summary"><h1 id="han-shu">函数</h1>
 <ul>
 <li>在 Python 中, <code>函数</code>别当做<code>对象</code></li>
 </ul>
-<h2>函数的定义</h2>
+<h2 id="han-shu-de-ding-yi">函数的定义</h2>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="o">-</span><span class="n">name</span><span class="p">(</span><span class="n">parameters</span><span class="p">):</span>
     <span class="n">statements</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
-<h2>返回语句</h2>
+<h2 id="fan-hui-yu-ju">返回语句</h2>
 <ul>
 <li>返回语句是可选的, 如果没有, 函数返回 None</li>
 </ul>
-<h2>默认参数值</h2>
+<h2 id="mo-ren-can-shu-zhi">默认参数值</h2>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 </pre></div>
-<h2>关键字参数</h2>
+<h2 id="guan-jian-zi-can-shu">关键字参数</h2>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">'l is'</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="s1">'and b is' …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-04.html">read more</a></div>
     </div>	
@@ -320,7 +320,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1>Sequence</h1>
+        <div class="summary"><h1 id="sequence">Sequence</h1>
 <ul>
 <li>有序</li>
 <li>通过索引定位</li>
@@ -357,7 +357,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Getting Wet in Python (深入巨蟒湿地)</p>
 </blockquote>
-<h1>算数操作符</h1>
+<h1 id="suan-shu-cao-zuo-fu">算数操作符</h1>
 <div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="c1"># Addition</span>
 <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="c1"># Subtraction</span>
 <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="c1"># Multiplication</span>
@@ -368,7 +368,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="err">&ndash;</span><span class="n">x</span> <span class="c1"># Unary minus</span>
 <span class="o">+</span><span class="n">x</span> <span class="c1"># Unary plus</span>
 </pre></div>
-<h2>除法操作符</h2>
+<h2 id="chu-fa-cao-zuo-fu">除法操作符</h2>
 <ul>
 <li><code>/</code> : 结果总是不会被截断, 结果总是浮点数</li>
 <li><code>//</code> : 不管有没有浮点操作数, 都将结果截断为整数. 但是如果一个操作数为浮点数, 结果就为浮点数 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-02.html">read more</a></div>
@@ -392,46 +392,46 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Python and Its Features</p>
 </blockquote>
-<h1>数据类型</h1>
-<h2>Integers</h2>
+<h1 id="shu-ju-lei-xing">数据类型</h1>
+<h2 id="integers">Integers</h2>
 <ul>
 <li>32 bits</li>
 <li>[-2<sup>32</sup> 2<sup>32</sup>-1]</li>
 </ul>
-<h2>Long Integers</h2>
+<h2 id="long-integers">Long Integers</h2>
 <ul>
 <li>无限精度, 受限于计算机内存</li>
 </ul>
-<h2>Floating Point Numbers</h2>
+<h2 id="floating-point-numbers">Floating Point Numbers</h2>
 <ul>
 <li>浮点总是双精度的, 64 bits</li>
 </ul>
-<h2>Boolean</h2>
+<h2 id="boolean">Boolean</h2>
 <ul>
 <li>仅取两个值: True、False</li>
 </ul>
-<h2>Complex Number(复数)</h2>
+<h2 id="complex-numberfu-shu">Complex Number(复数)</h2>
 <ul>
 <li>a + b * j</li>
 <li>a、b都是浮点数</li>
 </ul>
-<h2>Strings</h2>
+<h2 id="strings">Strings</h2>
 <ul>
 <li>Unicode 字符序列</li>
 </ul>
-<h2>Lists</h2>
+<h2 id="lists">Lists</h2>
 <ul>
 <li>一组值的有序序列</li>
 </ul>
-<h2>Tuples</h2>
+<h2 id="tuples">Tuples</h2>
 <ul>
 <li>不可变、一组值的有序序列</li>
 </ul>
-<h2>Sets</h2>
+<h2 id="sets">Sets</h2>
 <ul>
 <li>无序的值的集合</li>
 </ul>
-<h2>Dictionaries</h2>
+<h2 id="dictionaries">Dictionaries</h2>
 <ul>
 <li>无序的键值对集合</li>
 </ul>
@@ -457,8 +457,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Databases</p>
 </blockquote>
-<h1>SQLite</h1>
-<h2>数据库函数</h2>
+<h1 id="sqlite">SQLite</h1>
+<h2 id="shu-ju-ku-han-shu">数据库函数</h2>
 <div class="highlight"><pre><span></span><span class="c1"># 打开连接数据库</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="c1"># 执行 SQL</span>
@@ -469,7 +469,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
 <span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 </pre></div>
-<h2>连接和导入数据 (SQLite)</h2>
+<h2 id="lian-jie-he-dao-ru-shu-ju-sqlite">连接和导入数据 (SQLite)</h2>
 <div class="highlight"><pre><span></span><span class="c1"># insert</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sqlite3</span>

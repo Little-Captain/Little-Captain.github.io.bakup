@@ -62,7 +62,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h1>请求用户授权</h1>
+        <div><h1 id="qing-qiu-yong-hu-shou-quan">请求用户授权</h1>
 <div class="highlight"><pre><span></span><span class="n">UNUserNotificationCenter</span><span class="o">*</span> <span class="n">center</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNUserNotificationCenter</span> <span class="n">currentNotificationCenter</span><span class="p">];</span>
 <span class="p">[</span><span class="n">center</span> <span class="nl">requestAuthorizationWithOptions</span><span class="p">:(</span><span class="n">UNAuthorizationOptionAlert</span> <span class="o">+</span> <span class="n">UNAuthorizationOptionSound</span><span class="p">)</span>
    <span class="nl">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">granted</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
@@ -72,8 +72,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <ul>
 <li>获取准确的用户授权信息使用 <code>UNUserNotificationCenter</code> 对象的 <code>getNotificationSettingsWithCompletionHandler:</code> 方法</li>
 </ul>
-<h1>配置类别和可操作的通知</h1>
-<h2>针对 App 注册通知类别</h2>
+<h1 id="pei-zhi-lei-bie-he-ke-cao-zuo-de-tong-zhi">配置类别和可操作的通知</h1>
+<h2 id="zhen-dui-app-zhu-ce-tong-zhi-lei-bie">针对 App 注册通知类别</h2>
 <div class="highlight"><pre><span></span><span class="n">UNNotificationCategory</span><span class="o">*</span> <span class="n">generalCategory</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationCategory</span>
      <span class="nl">categoryWithIdentifier</span><span class="p">:</span><span class="s">@"GENERAL"</span>
      <span class="nl">actions</span><span class="p">:</span><span class="l">@[]</span>
@@ -84,7 +84,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">UNUserNotificationCenter</span><span class="o">*</span> <span class="n">center</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNUserNotificationCenter</span> <span class="n">currentNotificationCenter</span><span class="p">];</span>
 <span class="p">[</span><span class="n">center</span> <span class="nl">setNotificationCategories</span><span class="p">:[</span><span class="bp">NSSet</span> <span class="nl">setWithObjects</span><span class="p">:</span><span class="n">generalCategory</span><span class="p">,</span> <span class="nb">nil</span><span class="p">]];</span>
 </pre></div>
-<h2>将自定义操作添加到类别中</h2>
+<h2 id="jiang-zi-ding-yi-cao-zuo-tian-jia-dao-lei-bie-zhong">将自定义操作添加到类别中</h2>
 <div class="highlight"><pre><span></span><span class="n">UNNotificationCategory</span><span class="o">*</span> <span class="n">generalCategory</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationCategory</span>
       <span class="nl">categoryWithIdentifier</span><span class="p">:</span><span class="s">@"GENERAL"</span>
       <span class="nl">actions</span><span class="p">:</span><span class="l">@[]</span>
@@ -114,12 +114,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="p">[</span><span class="n">center</span> <span class="nl">setNotificationCategories</span><span class="p">:[</span><span class="bp">NSSet</span> <span class="nl">setWithObjects</span><span class="p">:</span><span class="n">generalCategory</span><span class="p">,</span> <span class="n">expiredCategory</span><span class="p">,</span>
       <span class="nb">nil</span><span class="p">]];</span>
 </pre></div>
-<h2>获取 App 的通知设置</h2>
+<h2 id="huo-qu-app-de-tong-zhi-she-zhi">获取 App 的通知设置</h2>
 <ul>
 <li>用户可以随时在系统设置中改变应用的通知设置</li>
 <li>通过使用 <code>UNUserNotificationCenter</code> 对象的 <code>getNotificationSettingsWithCompletionHandler:</code> 方法获取包含当前<code>授权状态</code>和<code>通知环境</code>的 <code>UNNotificationSettings</code> 对象</li>
 </ul>
-<h1>管理已被递送的通知</h1>
+<h1 id="guan-li-yi-bei-di-song-de-tong-zhi_1">管理已被递送的通知</h1>
 <ul>
 <li>已被递送的通知没有被 App 或用户及时处理, 它们会一直显示在通知中心.</li>
 <li>使用 <code>UNUserNotificationCenter</code> 对象的 <code>getDeliveredNotificationsWithCompletionHandler:</code> 方法<code>获取</code>在通知中心显示的<code>通知列表</code></li>

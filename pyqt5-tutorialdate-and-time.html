@@ -62,14 +62,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h1>QDate, QTime, QDateTime</h1>
+        <div><h1 id="qdate-qtime-qdatetime">QDate, QTime, QDateTime</h1>
 <ul>
 <li>PyQt5 has <code>QDate</code>, <code>QDateTime</code>, <code>QTime</code> classes to work with date and time.</li>
 <li>The <code>QDate</code> is a class for working with a calendar date in the Gregorian calendar. It has methods for determining the date, comparing, or manipulating dates.</li>
 <li>The <code>QTime</code> class works with a clock time. It provides methods for comparing time, determining the time and various other time manipulating methods.</li>
 <li>The <code>QDateTime</code> is a class that combines both QDate and QTime objects into one object.</li>
 </ul>
-<h1>Current date and time</h1>
+<h1 id="current-date-and-time">Current date and time</h1>
 <ul>
 <li>PyQt5 has <code>currentDate()</code>, <code>currentTime()</code> and <code>currentDateTime()</code> methods for determining current date and time.</li>
 </ul>
@@ -88,7 +88,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 <span class="k">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">toString</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">DefaultLocaleLongDate</span><span class="p">))</span>
 </pre></div>
-<h1>UTC time</h1>
+<h1 id="utc-time">UTC time</h1>
 <blockquote>
 <p>The UTC (Universal Coordinated time) was chosen to be the primary time standard. UTC is used in aviation, weather forecasts, flight plans, air traffic control clearances, and maps. Unlike local time, UTC does not change with a change of seasons.</p>
 </blockquote>
@@ -101,7 +101,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 <span class="k">print</span><span class="p">(</span><span class="s2">"The offset from UTC is: {0} seconds"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">offsetFromUtc</span><span class="p">()))</span>
 </pre></div>
-<h1>Number of days</h1>
+<h1 id="number-of-days">Number of days</h1>
 <ul>
 <li>The number of days in a particular month is returned by the <code>daysInMonth()</code> method and the number of days in a year by the <code>daysInYear()</code> method.</li>
 </ul>
@@ -114,7 +114,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">print</span><span class="p">(</span><span class="s2">"Days in month: {0}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">daysInMonth</span><span class="p">()))</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">"Days in year: {0}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">daysInYear</span><span class="p">()))</span>
 </pre></div>
-<h1>Difference in days</h1>
+<h1 id="difference-in-days">Difference in days</h1>
 <ul>
 <li>The <code>daysTo()</code> method returns the number of days from a date to another date.</li>
 </ul>
@@ -134,7 +134,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 <span class="k">print</span><span class="p">(</span><span class="s2">"There are {0} days until next year"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">daysTo</span><span class="p">(</span><span class="n">nextyear</span><span class="p">)))</span>
 </pre></div>
-<h1>Datetime arithmetic</h1>
+<h1 id="datetime-arithmetic">Datetime arithmetic</h1>
 <ul>
 <li>We often need to add or subtract days, seconds, or years to a datetime value.</li>
 </ul>
@@ -150,7 +150,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">print</span><span class="p">(</span><span class="s2">"Adding 3 months: {0}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">addMonths</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">toString</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ISODate</span><span class="p">)))</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">"Adding 12 years: {0}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">now</span><span class="o">.</span><span class="n">addYears</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">toString</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ISODate</span><span class="p">)))</span>
 </pre></div>
-<h1>Daylight saving time</h1>
+<h1 id="daylight-saving-time">Daylight saving time</h1>
 <blockquote>
 <p>Daylight saving time (DST) is the practice of advancing clocks during summer months so that evening daylight lasts longer. The time is adjusted forward one hour in the beginning of spring and adjusted backward in the autumn to standard time.</p>
 </blockquote>
@@ -165,7 +165,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">else</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">"The current date does not fall into DST time"</span><span class="p">)</span>
 </pre></div>
-<h1>Unix epoch</h1>
+<h1 id="unix-epoch">Unix epoch</h1>
 <blockquote>
 <p>The Unix epoch is the time 00:00:00 UTC on 1 January 1970 (or 1970- 01-01T00:00:00Z ISO 8601). The date and time in a computer is determined according to the number of seconds or clock ticks that have elapsed since the defined epoch for that computer or platform.
 Unix time is the number of seconds elapsed since Unix epoch.</p>
@@ -180,7 +180,7 @@ Unix time is the number of seconds elapsed since Unix epoch.</p>
 <span class="n">d</span> <span class="o">=</span> <span class="n">QDateTime</span><span class="o">.</span><span class="n">fromSecsSinceEpoch</span><span class="p">(</span><span class="n">unix_time</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">toString</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ISODate</span><span class="p">))</span>
 </pre></div>
-<h1>Julian day</h1>
+<h1 id="julian-day">Julian day</h1>
 <blockquote>
 <p>Julian day refers to a continuous count of days since the beginning of the Julian Period. It is used primarily by astronomers. It should not be confused with the Julian calendar. The Julian Period started in 4713 BC. The Julian day number 0 is assigned to the day starting at noon on January 1, 4713 BC.</p>
 <p>The Julian Day Number (JDN) is the number of days elapsed since the beginning of this period. The Julian Date (JD) of any instant is the Julian day number for the preceding noon plus the fraction of the day since that instant. (Qt does not compute this fraction.) Apart from astronomy, Julian dates are often used by military and mainframe programs.</p>
@@ -192,7 +192,7 @@ Unix time is the number of seconds elapsed since Unix epoch.</p>
 <span class="k">print</span><span class="p">(</span><span class="s2">"Gregorian date for today: "</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">toString</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">ISODate</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">"Julian day for today: "</span><span class="p">,</span> <span class="n">now</span><span class="o">.</span><span class="n">toJulianDay</span><span class="p">())</span> 
 </pre></div>
-<h1>Historical battles</h1>
+<h1 id="historical-battles">Historical battles</h1>
 <blockquote>
 <p>With Julian day it is possible to do calculations that span centuries.</p>
 </blockquote>

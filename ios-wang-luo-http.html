@@ -62,12 +62,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h1>基本概念</h1>
-<h2>如何找到服务器?</h2>
+        <div><h1 id="ji-ben-gai-nian">基本概念</h1>
+<h2 id="ru-he-zhao-dao-fu-wu-qi">如何找到服务器?</h2>
 <ul>
 <li>客户端通过URL找到想要连接的服务器</li>
 </ul>
-<h2>URL</h2>
+<h2 id="url">URL</h2>
 <ul>
 <li>Uniform Resource Locator : 统一资源定位符</li>
 <li>通过1个URL，能找到互联网上唯一的1个资源</li>
@@ -105,11 +105,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>访问的是共享主机的文件资源</li>
 <li>ftp://</li>
 </ul>
-<h2>TCP/IP协议簇</h2>
+<h2 id="tcpipxie-yi-cu_2">TCP/IP协议簇</h2>
 <ul>
 <li>通常意义上，我们使用的网络是在TCP/IP协议簇的基础上运作的，而HTTP属于它内部的一个子集。</li>
 </ul>
-<h3 id="ji-suan-ji-yu-wang-luo-she-bei-xu-yao-tong-xin-shuang-fang-jiu-bi-xu-yao-ji-yu-xiang-tong-de-fang-fa_1">计算机与网络设备需要通信，双方就必须要基于相同的方法</h3>
+<h3 id="ji-suan-ji-yu-wang-luo-she-bei-xu-yao-tong-xin-shuang-fang-jiu-bi-xu-yao-ji-yu-xiang-tong-de-fang-fa">计算机与网络设备需要通信，双方就必须要基于相同的方法</h3>
 <ul>
 <li>比如<ul>
 <li>具体应该如何探测通信目标</li>
@@ -152,19 +152,19 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 <h3 id="tcpipcan-kao-mo-xing">TCP/IP参考模型</h3>
 <p><img alt="" src="../assets/images/网络/TCP、IP参考模型.png"/></p>
-<h1>HTTP协议的作用</h1>
+<h1 id="httpxie-yi-de-zuo-yong_2">HTTP协议的作用</h1>
 <ul>
 <li>超文本传输协议 : Hypertext Transfer Protocol</li>
 <li>规定客户端和服务器之间的数据传输格式</li>
 <li>让客户端和服务器能有效地进行数据沟通</li>
 </ul>
-<h1>HTTP协议的特点</h1>
+<h1 id="httpxie-yi-de-te-dian">HTTP协议的特点</h1>
 <ul>
 <li>简单快速</li>
 <li>因为HTTP协议简单，所以HTTP服务器的程序规模小，因而通信速度很快</li>
 <li>灵活, HTTP允许传输各种各样的数据</li>
 </ul>
-<h2>版本特点</h2>
+<h2 id="ban-ben-te-dian">版本特点</h2>
 <ul>
 <li>0.9和1.0使用非持续连接 : 限制每次连接只处理一个请求，服务器对客户端的请求做出响应后，马上断开连接，这种方式可以节省传输时间</li>
 <li>1.1<ul>
@@ -174,8 +174,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h1>HTTP的基本通信过程</h1>
-<h2>完整的HTTP通信可以分为2大步骤</h2>
+<h1 id="httpde-ji-ben-tong-xin-guo-cheng_1">HTTP的基本通信过程</h1>
+<h2 id="wan-zheng-de-httptong-xin-ke-yi-fen-wei-2da-bu-zou">完整的HTTP通信可以分为2大步骤</h2>
 <ul>
 <li>请求, 客户端向服务器索要数据</li>
 <li>响应, 服务器返回客户端相应的数据</li>
@@ -186,7 +186,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p><img alt="" src="../assets/images/网络/HTTP通信过程.png"/></p>
 <p><em>示意图3</em></p>
 <p><img alt="" src="../assets/images/网络/CS交互.png"/></p>
-<h2>请求</h2>
+<h2 id="qing-qiu">请求</h2>
 <ul>
 <li>1个完整的由客户端发给服务器的HTTP请求中包含<ul>
 <li>请求头 : 包含了对客户端的环境描述、客户端请求信息等</li>
@@ -194,7 +194,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>响应</h2>
+<h2 id="xiang-ying">响应</h2>
 <ul>
 <li>客户端向服务器发送请求，服务器应当做出响应，即返回数据给客户端</li>
 <li>1个完整的HTTP响应中包含<ul>
@@ -224,8 +224,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h1>请求方法</h1>
-<h2>HTTP/1.1协议中</h2>
+<h1 id="qing-qiu-fang-fa_2">请求方法</h1>
+<h2 id="http11xie-yi-zhong">HTTP/1.1协议中</h2>
 <ul>
 <li>http请求的方法<ul>
 <li>GET</li>
@@ -240,7 +240,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>根据HTTP协议的设计初衷，不同的方法对资源有不同的操作方式</h2>
+<h2 id="gen-ju-httpxie-yi-de-she-ji-chu-zhong-bu-tong-de-fang-fa-dui-zi-yuan-you-bu-tong-de-cao-zuo-fang-shi">根据HTTP协议的设计初衷，不同的方法对资源有不同的操作方式</h2>
 <ul>
 <li>PUT : 增</li>
 <li>DELETE : 删</li>
@@ -248,7 +248,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>GET : 查</li>
 <li>仅仅使用 GET 和 POST 就能办到增删改查</li>
 </ul>
-<h2>GET和POST对比</h2>
+<h2 id="gethe-postdui-bi">GET和POST对比</h2>
 <h3 id="zhu-yao-qu-bie-biao-xian-zai-shu-ju-chuan-di-shang">主要区别表现在数据传递上</h3>
 <h4 id="get">GET</h4>
 <ul>
@@ -260,23 +260,23 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>发给服务器的参数全部放在请求体中</li>
 <li>POST传递的数据量没有限制, 具体还得看服务器的处理能力</li>
 </ul>
-<h2>GET和POST的选择</h2>
+<h2 id="gethe-postde-xuan-ze_2">GET和POST的选择</h2>
 <ul>
 <li>如果要传递大量数据，比如文件上传，只能用POST请求</li>
 <li>GET的安全性比POST要差些, 如果包含机密\敏感信息，建议用POST</li>
 <li>如果仅仅是索取数据（数据查询），建议使用GET</li>
 <li>如果是增加、修改、删除数据，建议使用POST</li>
 </ul>
-<h1>HTTP报文</h1>
-<h2>HTTP报文细节</h2>
+<h1 id="httpbao-wen_1">HTTP报文</h1>
+<h2 id="httpbao-wen-xi-jie">HTTP报文细节</h2>
 <p><em>报文结构</em></p>
 <p><img alt="" src="../assets/images/网络/HTTP报文.png"/></p>
 <p><em>请求</em></p>
 <p><img alt="" src="../assets/images/网络/HTTP报文细节（请求）.png"/></p>
 <p><em>响应</em></p>
 <p><img alt="" src="../assets/images/网络/HTTP报文细节（响应）.png"/></p>
-<h1>iOS中发送HTTP请求的方案</h1>
-<h2>苹果原生</h2>
+<h1 id="ioszhong-fa-song-httpqing-qiu-de-fang-an_1">iOS中发送HTTP请求的方案</h1>
+<h2 id="ping-guo-yuan-sheng">苹果原生</h2>
 <ul>
 <li>NSURLConnection<ul>
 <li>用法简单，最古老最经典最直接的一种方案</li>
@@ -291,7 +291,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </li>
 <li>CFNetwork : NSURL*的底层，纯C语言</li>
 </ul>
-<h2>第三方框架</h2>
+<h2 id="di-san-fang-kuang-jia">第三方框架</h2>
 <blockquote>
 <p>为了提高开发效率，建议使用第三方框架</p>
 </blockquote>

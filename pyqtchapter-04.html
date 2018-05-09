@@ -62,32 +62,32 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h1>函数</h1>
+        <div><h1 id="han-shu">函数</h1>
 <ul>
 <li>在 Python 中, <code>函数</code>别当做<code>对象</code></li>
 </ul>
-<h2>函数的定义</h2>
+<h2 id="han-shu-de-ding-yi">函数的定义</h2>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="o">-</span><span class="n">name</span><span class="p">(</span><span class="n">parameters</span><span class="p">):</span>
     <span class="n">statements</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
-<h2>返回语句</h2>
+<h2 id="fan-hui-yu-ju">返回语句</h2>
 <ul>
 <li>返回语句是可选的, 如果没有, 函数返回 None</li>
 </ul>
-<h2>默认参数值</h2>
+<h2 id="mo-ren-can-shu-zhi">默认参数值</h2>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 </pre></div>
-<h2>关键字参数</h2>
+<h2 id="guan-jian-zi-can-shu">关键字参数</h2>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">'l is'</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="s1">'and b is'</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">'and h is'</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="s1">'and volume is'</span><span class="p">,</span> <span class="n">l</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
 <span class="n">volume</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">volume</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">volume</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
-<h2>本地和全局变量</h2>
+<h2 id="ben-di-he-quan-ju-bian-liang">本地和全局变量</h2>
 <ul>
 <li>本地变量在函数内定义, 在函数内访问</li>
 <li>全局变量在函数内外都可以访问</li>
@@ -127,7 +127,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">compute</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">print</span> <span class="p">(</span><span class="s2">"Value of x is still"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
-<h2>Lambda 函数</h2>
+<h2 id="lambda-han-shu_1">Lambda 函数</h2>
 <ul>
 <li>一个 lambda 函数只能包含一条语句</li>
 </ul>
@@ -135,7 +135,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="nb">map</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">sequence</span><span class="p">)</span>
 <span class="nb">reduce</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">sequence</span><span class="p">)</span>
 </pre></div>
-<h2>函数的属性</h2>
+<h2 id="han-shu-de-shu-xing">函数的属性</h2>
 <ul>
 <li>函数是对象, 所以有属性</li>
 </ul>
@@ -161,7 +161,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">rect</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
 </pre></div>
-<h1>递归</h1>
+<h1 id="di-gui_2">递归</h1>
 <ul>
 <li>一个函数, 自己调用自己</li>
 <li>实现递归调用, 结束条件必须明确</li>
@@ -171,7 +171,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">else</span><span class="p">:</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">addseq</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">'The sum of first 10 sequence numbers is'</span><span class="p">,</span> <span class="n">addseq</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
-<h1>迭代器</h1>
+<h1 id="die-dai-qi">迭代器</h1>
 <ul>
 <li>迭代器用于循环遍历一个集合中的数据</li>
 <li>iter() 函数创建一个迭代器对象</li>
@@ -180,7 +180,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="c1"># iter 调用对象的 __iter__ 方法获取一个迭代器对象</span>
 <span class="nb">iter</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
 </pre></div>
-<h2>generator</h2>
+<h2 id="generator">generator</h2>
 <ul>
 <li>另一个中创建迭代器的方法, 使用 <code>generator</code></li>
 <li>generator 是一个创建迭代器的函数</li>
@@ -204,7 +204,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">print</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
-<h2>generator expression</h2>
+<h2 id="generator-expression">generator expression</h2>
 <ul>
 <li><code>generator expression</code> : 创建迭代器对象, 通过圆括号包裹</li>
 <li><code>generator expression</code> 像是匿名函数, 通常由<code>至少一个 for 语句</code>和<code>零个或多个 if 语句</code>组成</li>
@@ -220,7 +220,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">print</span><span class="p">(</span><span class="n">iteratorobj</span><span class="o">.</span><span class="n">__next__</span><span class="p">())</span>
 <span class="k">print</span><span class="p">(</span><span class="n">iteratorobj</span><span class="o">.</span><span class="n">__next__</span><span class="p">())</span>
 </pre></div>
-<h1>模块</h1>
+<h1 id="mo-kuai_1">模块</h1>
 <ul>
 <li>一个模块就是一个针对特定任务的一些函数、变量组成的一个文件</li>
 <li>一个模块只要被导入, 可以在任何地方重用</li>
@@ -240,7 +240,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="kn">import</span> <span class="nn">calendar</span> <span class="kn">as</span> <span class="nn">cal</span>
 <span class="n">cal</span><span class="o">.</span><span class="n">prcal</span><span class="p">()</span>
 </pre></div>
-<h2>Math 模块</h2>
+<h2 id="math-mo-kuai">Math 模块</h2>
 <ul>
 <li>Math 模块包含一些三角函数、常量、还有其他很多很多的函数</li>
 </ul>
@@ -256,7 +256,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="c1"># 不传参, 就使用当前模块</span>
 <span class="nb">dir</span><span class="p">(</span><span class="err">模块名</span><span class="p">)</span>
 </pre></div>
-<h1>命令行参数</h1>
+<h1 id="ming-ling-xing-can-shu_2">命令行参数</h1>
 <ul>
 <li><code>sys.argv</code> 命令行参数存储的变量, 它是个 list, 长度至少是1, 0索引位置指示的是运行的程序名</li>
 <li>传入命令行参数时, 使用<code>空格</code>分隔</li>

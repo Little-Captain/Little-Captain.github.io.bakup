@@ -65,27 +65,27 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div><blockquote>
 <p>Everything is Object</p>
 </blockquote>
-<h1>对象类型</h1>
+<h1 id="dui-xiang-lei-xing">对象类型</h1>
 <div class="highlight"><pre><span></span><span class="c1"># 使用 type 查看对象类型</span>
 <span class="nb">type</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
 </pre></div>
 <blockquote>
 <p>类型有 : int str list class function file bool(True、False) NoneType(None) long</p>
 </blockquote>
-<h1>工厂方法</h1>
+<h1 id="gong-han-fang-fa">工厂方法</h1>
 <div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>
 <span class="nb">str</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="nb">tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="nb">dict</span><span class="p">(</span><span class="n">one</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
-<h1>数</h1>
+<h1 id="shu">数</h1>
 <div class="highlight"><pre><span></span><span class="mi">12345678901234567890</span>
 <span class="mi">1</span> <span class="o">/</span> <span class="mf">7.0</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mf">1E20</span>
 <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mf">7.0</span><span class="p">)</span>
 </pre></div>
-<h1>算数操作</h1>
+<h1 id="suan-shu-cao-zuo">算数操作</h1>
 <div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
 <span class="mf">2.0</span> <span class="o">+</span> <span class="mi">3</span>
 <span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span>
@@ -100,7 +100,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="o">-</span><span class="mi">4</span> <span class="o">**</span> <span class="mi">3</span>
 <span class="mi">4</span> <span class="o">**</span> <span class="o">-</span><span class="mi">3</span>
 </pre></div>
-<h1>转换函数</h1>
+<h1 id="zhuan-huan-han-shu">转换函数</h1>
 <div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="mf">1.234</span><span class="p">)</span>
 <span class="nb">int</span><span class="p">(</span><span class="o">-</span><span class="mf">1.234</span><span class="p">)</span>
 <span class="nb">long</span><span class="p">(</span><span class="mf">1.234</span><span class="p">)</span>
@@ -111,26 +111,26 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="nb">float</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">float</span><span class="p">(</span><span class="s1">'4.321'</span><span class="p">)</span>
 </pre></div>
-<h1>布尔值</h1>
+<h1 id="bu-er-zhi">布尔值</h1>
 <div class="highlight"><pre><span></span><span class="c1"># 非零即真</span>
 <span class="nb">bool</span><span class="p">(</span><span class="s1">'any text'</span><span class="p">)</span> <span class="c1"># True</span>
 <span class="nb">bool</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span> <span class="c1"># False</span>
 <span class="nb">bool</span><span class="p">([])</span> <span class="c1"># False</span>
 </pre></div>
-<h1>随机数</h1>
+<h1 id="sui-ji-shu">随机数</h1>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 <span class="c1"># 产生 [a, b] 间的 int 数</span>
 <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 <span class="c1"># 产生 [0.0 1.0] 间的浮点数</span>
 <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
 </pre></div>
-<h1>序列 : 字符串、列表、元组</h1>
+<h1 id="xu-lie-zi-fu-chuan-lie-biao-yuan-zu">序列 : 字符串、列表、元组</h1>
 <ul>
 <li>一组字符的序列</li>
 <li>一组值的序列</li>
 <li>一组值的序列, 和列表很相似, 但是元组内的实体不可改变</li>
 </ul>
-<h2>存取</h2>
+<h2 id="cun-qu">存取</h2>
 <ul>
 <li>可以从前遍历序列, 也可从后遍历序列</li>
 </ul>
@@ -143,20 +143,20 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="o">...</span>
 <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="n">n</span><span class="p">]</span>
 </pre></div>
-<h2>成员关系</h2>
+<h2 id="cheng-yuan-guan-xi">成员关系</h2>
 <div class="highlight"><pre><span></span><span class="s1">'a'</span> <span class="ow">in</span> <span class="s1">'track'</span>              <span class="c1"># True</span>
 <span class="mi">9</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>          <span class="c1"># False</span>
 <span class="s1">'x'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">'next'</span>           <span class="c1"># False</span>
 <span class="s1">'red'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'tan'</span><span class="p">,</span><span class="s1">'pink'</span><span class="p">]</span> <span class="c1"># True</span>
 </pre></div>
-<h2>连接操作 : +</h2>
+<h2 id="lian-jie-cao-zuo">连接操作 : +</h2>
 <div class="highlight"><pre><span></span><span class="n">sequence1</span> <span class="o">+</span> <span class="n">sequence2</span>
 <span class="s1">'mr'</span> <span class="o">+</span> <span class="s1">'joe'</span> <span class="o">+</span> <span class="s1">'soap'</span>
 </pre></div>
 <div class="highlight"><pre><span></span><span class="c1"># join() 函数在处理字符串和元组的连接时比较高效, 推荐使用</span>
 <span class="s1">'-'</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">,</span><span class="s1">'d'</span><span class="p">))</span>
 </pre></div>
-<h2>元素和切片</h2>
+<h2 id="yuan-su-he-qie-pian">元素和切片</h2>
 <ul>
 <li>slice 访问格式 <code>[startindex:endindex]</code>, 包括 <code>startindex</code> 的元素, 而不包括 <code>endindex</code> 的元素</li>
 <li><code>[:endindex]</code> 从 <code>0</code> 开始</li>
@@ -170,13 +170,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="c1"># 使用多重索引访问嵌套的序列</span>
 <span class="n">mylist</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># 'b'</span>
 </pre></div>
-<h2>序列内建函数</h2>
+<h2 id="xu-lie-nei-jian-han-shu">序列内建函数</h2>
 <div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
 <span class="nb">max</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
 <span class="nb">min</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
 </pre></div>
-<h2>字符串</h2>
+<h2 id="zi-fu-chuan">字符串</h2>
 <ul>
 <li>字符串不可变</li>
 </ul>
@@ -260,7 +260,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">lstrip</span><span class="p">()</span> <span class="c1"># 移除左边的空白字符</span>
 <span class="n">strip</span><span class="p">()</span> <span class="c1"># 移除左右两边的空白字符</span>
 </pre></div>
-<h2>列表</h2>
+<h2 id="lie-biao">列表</h2>
 <ul>
 <li>创建</li>
 </ul>
@@ -298,7 +298,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <blockquote>
 <p>len、max、min、sum、sorted、reversed</p>
 </blockquote>
-<h2>元组</h2>
+<h2 id="yuan-zu">元组</h2>
 <ul>
 <li>
 <p>不可变, 这是和列表相比最大的区别</p>
@@ -325,7 +325,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <blockquote>
 <p>len、max、min、sum、sorted、reversed</p>
 </blockquote>
-<h2>字典</h2>
+<h2 id="zi-dian">字典</h2>
 <ul>
 <li>创建</li>
 </ul>

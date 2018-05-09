@@ -68,7 +68,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
         </div>
         
-        <div><h1>排版</h1>
+        <div><h1 id="pai-ban">排版</h1>
 <ul>
 <li>程序块要采用缩进风格编写，缩进的空格数为4个。对齐只使用空格键，不使用TAB键。</li>
 <li>相对独立的程序块之间、变量说明之后必须加空行。</li>
@@ -98,7 +98,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
                             <span class="nf">data:</span><span class="p">(</span><span class="bp">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
                         <span class="nf">progress:</span><span class="p">(</span><span class="n">nullable</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">float</span> <span class="n">progress</span><span class="p">))</span><span class="nv">progress</span><span class="p">;</span>
 </pre></div>
-<h1>注释</h1>
+<h1 id="zhu-shi">注释</h1>
 <ul>
 <li>添加必要注释, 尽量做到代码自注释, 通过语义清晰的命名来实现</li>
 <li>方法函数的注释, 使用 Xcode 生成的标准注释</li>
@@ -135,7 +135,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1">// end of if (...) else</span>
 <span class="p">}</span>
 </pre></div>
-<h1>标识符命名</h1>
+<h1 id="biao-shi-fu-ming-ming">标识符命名</h1>
 <ul>
 <li>标识符的命名要清晰、明了，有明确含义，同时使用完整的单词或大家基本可以 理解的缩写，避免使人产生误解。</li>
 <li>命名中若使用特殊约定或缩写，则要有注释说明。</li>
@@ -149,14 +149,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="c1">// 宏 : k开头</span>
 <span class="cp">#define kFileName @"xxx"</span>
 </pre></div>
-<h1>可读性</h1>
+<h1 id="ke-du-xing">可读性</h1>
 <ul>
 <li>注意运算符的优先级，并用括号明确表达式的操作顺序，避免使用默认优先级。</li>
 <li>避免使用不易理解的数字，用有意义的标识来替代。涉及物理状态或者含有物理意义的常量，不应直接使用数字，必须用有意义的枚举、const常量、宏来代替。</li>
 <li>源程序中关系较为紧密的代码应尽可能相邻。</li>
 <li>不要使用难懂的技巧性很高的语句，除非很有必要时。</li>
 </ul>
-<h1>方法(函数)</h1>
+<h1 id="fang-fa-han-shu">方法(函数)</h1>
 <ul>
 <li>方法的规模尽量限制在200行以内。</li>
 <li>一个方法仅完成一件功能。</li>
@@ -170,7 +170,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>功能不明确较小的方法，特别是仅有一个上级方法调用它时，应考虑把它合并到上级方法中，而不必单独存在。</li>
 <li>对于提供了返回值的方法，在引用时最好使用其返回值。</li>
 </ul>
-<h1>质量保证</h1>
+<h1 id="zhi-liang-bao-zheng">质量保证</h1>
 <ul>
 <li>在软件设计过程中构筑软件质量。不要等到软件已基本成型后, 再来提高质量</li>
 <li>代码质量保证优先原则<ul>
@@ -204,7 +204,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>时刻注意表达式是否会上溢、下溢。</li>
 <li>系统应具有一定的容错能力，对一些错误事件(如用户误操作等)能进行自动补救。</li>
 </ul>
-<h1>宏</h1>
+<h1 id="hong">宏</h1>
 <ul>
 <li>用宏定义表达式时，要使用完备的括号。</li>
 </ul>

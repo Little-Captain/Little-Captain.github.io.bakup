@@ -68,11 +68,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
         </div>
         
-        <div><h1>概述</h1>
+        <div><h1 id="gai-shu">概述</h1>
 <ul>
 <li>配合使用 NSOperation 和 NSOperationQueue 也能实现多线程编程</li>
 </ul>
-<h2>NSOperation 是个抽象类</h2>
+<h2 id="nsoperation-shi-ge-chou-xiang-lei">NSOperation 是个抽象类</h2>
 <ul>
 <li>不具备封装操作的能力，必须使用它的子类</li>
 <li>使用 NSOperation 子类的方式有3种<ul>
@@ -82,15 +82,15 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h1>实现多线程的具体步骤</h1>
+<h1 id="shi-xian-duo-xian-cheng-de-ju-ti-bu-zou_1">实现多线程的具体步骤</h1>
 <ul>
 <li>将需要执行的操作封装到一个 NSOperation 对象中</li>
 <li>将 NSOperation 对象添加到 NSOperationQueue 中</li>
 <li>系统会自动将 NSOperationQueue 中的 NSOperation 取出来</li>
 <li>将取出的 NSOperation 封装的操作放到一条新线程中执行</li>
 </ul>
-<h1>具体使用</h1>
-<h2>NSInvocationOperation</h2>
+<h1 id="ju-ti-shi-yong">具体使用</h1>
+<h2 id="nsinvocationoperation">NSInvocationOperation</h2>
 <ul>
 <li>创建NSInvocationOperation对象<ul>
 <li>alloc</li>
@@ -108,13 +108,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>NSBlockOperation</h2>
+<h2 id="nsblockoperation">NSBlockOperation</h2>
 <ul>
 <li>创建NSBlockOperation对象, blockOperationWithBlock</li>
 <li>通过addExecutionBlock:方法添加更多的操作, addExecutionBlock</li>
 <li>注意 : 只要一个NSBlockOperation对象封装的操作数 &gt; 1，就会异步执行操作</li>
 </ul>
-<h2>NSOperationQueue</h2>
+<h2 id="nsoperationqueue">NSOperationQueue</h2>
 <ul>
 <li>作用<ul>
 <li>NSOperation可以调用start方法来执行任务，但默认是同步执行的</li>
@@ -127,7 +127,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>最大并发数</h2>
+<h2 id="zui-da-bing-fa-shu">最大并发数</h2>
 <ul>
 <li>同时执行的最大任务数, 同时开3个线程执行3个任务，并发数就是3</li>
 <li>相关方法<ul>
@@ -136,7 +136,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>操作的取消、暂停、恢复</h2>
+<h2 id="cao-zuo-de-qu-xiao-zan-ting-hui-fu">操作的取消、暂停、恢复</h2>
 <ul>
 <li>cancelAllOperations, 取消队列的所有操作</li>
 <li>也可以调用NSOperation的cancel方法取消单个操作</li>
@@ -147,8 +147,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </li>
 <li>isSuspended, 测试是否暂停</li>
 </ul>
-<h1>其他使用</h1>
-<h2>操作依赖</h2>
+<h1 id="qi-ta-shi-yong_1">其他使用</h1>
+<h2 id="cao-zuo-yi-lai">操作依赖</h2>
 <ul>
 <li>NSOperation之间可以设置依赖来保证执行顺序<ul>
 <li>addDependency, 调用者依赖于参数</li>
@@ -157,12 +157,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>操作的监听</h2>
+<h2 id="cao-zuo-de-jian-ting">操作的监听</h2>
 <ul>
 <li>监听一个操作的执行完毕</li>
 <li>操作的属性, completionBlock</li>
 </ul>
-<h2>自定义NSOperation</h2>
+<h2 id="zi-ding-yi-nsoperation">自定义NSOperation</h2>
 <ul>
 <li>继承NSOperation创建自己的类</li>
 <li>重写main方法, 将任务封装到这个main方法中</li>
@@ -172,7 +172,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h1>例子 : 自定义NSOperation下载图片</h1>
+<h1 id="li-zi-zi-ding-yi-nsoperationxia-zai-tu-pian_1">例子 : 自定义NSOperation下载图片</h1>
 <p><em>无沙盒缓存</em></p>
 <p><img alt="" src="../assets/images/多线程/无沙盒缓存.png"/></p>
 <p><em>有沙盒缓存</em></p>

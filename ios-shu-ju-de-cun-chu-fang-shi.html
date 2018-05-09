@@ -62,14 +62,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h1>沙盒(磁盘)</h1>
-<h2>沙盒简介</h2>
+        <div><h1 id="sha-he-ci-pan">沙盒(磁盘)</h1>
+<h2 id="sha-he-jian-jie">沙盒简介</h2>
 <ul>
 <li>每个iOS应用程序都有自己的应用沙盒</li>
 <li>应用沙盒就是文件系统目录,  与其它文件系统隔离</li>
 <li>应用必须待在自己的沙盒里, 其它应用不能访问该沙盒</li>
 </ul>
-<h2>沙盒的访问</h2>
+<h2 id="sha-he-de-fang-wen">沙盒的访问</h2>
 <ul>
 <li>NSHomeDirectory() : 沙盒的根目录</li>
 <li>Documents<ul>
@@ -98,7 +98,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>应用程序包</h2>
+<h2 id="ying-yong-cheng-xu-bao">应用程序包</h2>
 <ul>
 <li>包含了所有的资源文件和可执行文件</li>
 <li>[NSBundle mainBundle]<ul>
@@ -108,7 +108,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </li>
 <li>注意和沙盒做区分</li>
 </ul>
-<h1>偏好设置</h1>
+<h1 id="pian-hao-she-zhi_1">偏好设置</h1>
 <ul>
 <li>小数据</li>
 <li>保存用户名、密码(MD5)、是否自动登录、字体大小等设置</li>
@@ -116,13 +116,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>实质上它是保存在 Library/Preference 中的 plist 文件</li>
 <li>注意 : UserDefaults 设置数据时，不是立即写入，而是根据时间戳定时地把缓存中的数据写入本地磁盘。所以调用了 set 方法之后数据有可能还没有写入磁盘应用程序就终止了。可以通过调用 synchornize 方法强制立即写入</li>
 </ul>
-<h1>归档</h1>
+<h1 id="gui-dang">归档</h1>
 <ul>
 <li>整存整取</li>
 <li>保存自定义对象</li>
 <li>Foundation框架中的基本数据类型遵守了NSCoding协议可以直接用NSKeyedArchiver进行归档和NSKeyedUnarchiver进行解档</li>
 </ul>
-<h2>NSCoding 协议</h2>
+<h2 id="nscoding-xie-yi">NSCoding 协议</h2>
 <ul>
 <li>encodeWithCoder<ul>
 <li>每次归档对象时，都会调用这个方法</li>
@@ -137,7 +137,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2>扩展</h2>
+<h2 id="kuo-zhan">扩展</h2>
 <ul>
 <li>initWithCoder<ul>
 <li>初始化解析xib的时候调用</li>
@@ -148,30 +148,30 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h1>plist</h1>
+<h1 id="plist_1">plist</h1>
 <ul>
 <li>小数据</li>
 <li>XML格式</li>
 <li>属性列表</li>
 <li>不能存储对象</li>
 </ul>
-<h1>json</h1>
+<h1 id="json">json</h1>
 <ul>
 <li>json 文件的序列化和反序列化</li>
 </ul>
-<h1>数据库</h1>
-<h2>FMDB</h2>
+<h1 id="shu-ju-ku">数据库</h1>
+<h2 id="fmdb">FMDB</h2>
 <ul>
 <li>大数据</li>
 <li>SQLite3 C代码的OC封装</li>
 </ul>
-<h2>CoreData</h2>
+<h2 id="coredata">CoreData</h2>
 <ul>
 <li>大数据</li>
 <li>封装SQLite3</li>
 <li>重量级框架</li>
 </ul>
-<h1>钥匙串访问</h1>
+<h1 id="yao-chi-chuan-fang-wen_1">钥匙串访问</h1>
 <ul>
 <li>小数据</li>
 <li>自动加密</li>

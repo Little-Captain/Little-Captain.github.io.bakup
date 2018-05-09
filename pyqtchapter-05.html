@@ -65,7 +65,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div><blockquote>
 <p>Classes</p>
 </blockquote>
-<h1>类</h1>
+<h1 id="lei">类</h1>
 <ul>
 <li>类是数据和操作的模板</li>
 <li>通过类可以创建实例(对象)</li>
@@ -74,7 +74,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">class</span> <span class="nc">classname</span><span class="p">[(</span><span class="n">base</span><span class="o">-</span><span class="n">classes</span><span class="p">)]:</span>
     <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
-<h2>类对象的属性</h2>
+<h2 id="lei-dui-xiang-de-shu-xing">类对象的属性</h2>
 <ul>
 <li>类属性, 不需要实例对象, 使用类名引用</li>
 </ul>
@@ -107,7 +107,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <ul>
 <li>如果你没有指定一个<code>基类</code>, 默认<code>object</code></li>
 </ul>
-<h2>类中定义函数</h2>
+<h2 id="lei-zhong-ding-yi-han-shu_1">类中定义函数</h2>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">classname</span><span class="p">(</span><span class="n">base</span><span class="o">-</span><span class="n">classes</span><span class="p">):</span>
     <span class="k">class</span> <span class="nc">variable</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">method</span> <span class="mi">1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -128,7 +128,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">print</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="n">rect</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
-<h2>实例</h2>
+<h2 id="shi-li">实例</h2>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rect</span><span class="p">:</span>
     <span class="n">l</span> <span class="o">=</span> <span class="mi">8</span>
     <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
@@ -197,7 +197,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
 </pre></div>
-<h2>类方法</h2>
+<h2 id="lei-fang-fa_1">类方法</h2>
 <ul>
 <li>类方法没有 <code>self</code> 参数, 接收一个 <code>class</code> 作为它的第一个参数, 称之为 <code>cls</code></li>
 <li>类方法通过<code>类对象</code>直接调用, 而不是<code>实例对象</code></li>
@@ -225,7 +225,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">c</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
-<h2>静态方法</h2>
+<h2 id="jing-tai-fang-fa">静态方法</h2>
 <ul>
 <li>一个可代替的类方法实现</li>
 <li>静态方法通过对普通函数使用 <code>@staticmethod</code> 装饰器创建</li>
@@ -270,7 +270,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">product</span><span class="o">.</span><span class="n">prodclasscount</span><span class="p">()</span>
 <span class="n">p2</span><span class="o">.</span><span class="n">prodclasscount</span><span class="p">()</span>
 </pre></div>
-<h1>垃圾回收</h1>
+<h1 id="la-ji-hui-shou_1">垃圾回收</h1>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rect</span><span class="p">:</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -291,11 +291,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">s</span><span class="o">.</span><span class="n">rectarea</span><span class="p">()</span>
 <span class="n">r</span><span class="o">.</span><span class="n">noOfObjects</span><span class="p">()</span>
 </pre></div>
-<h1>继承</h1>
+<h1 id="ji-cheng">继承</h1>
 <ul>
 <li>子类继承了父类所有的属性和方法, 所以可以节省时间和精力</li>
 </ul>
-<h2>继承的分类</h2>
+<h2 id="ji-cheng-de-fen-lei">继承的分类</h2>
 <h3 id="dan-ji-cheng">单继承</h3>
 <ul>
 <li>如果父类也有 <code>__init__</code> 方法, 子类的 <code>__init__</code> 方法必须调用</li>
@@ -538,8 +538,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">print</span><span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">area</span><span class="p">())</span> <span class="c1"># 这里会调用 rect 的 area 方法</span>
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">y</span><span class="p">);</span> <span class="c1"># 会抛出异常, 找不到 x 属性, 初步推断, triangle 的 __init__ 方法没有调用, 不提供子列的 __init__ 方法, 默认的 __init__ 方法会调用第一个父类的 __init__ 方法进行初始化</span>
 </pre></div>
-<h1>运算符重载</h1>
-<h2>+ : __add__</h2>
+<h1 id="yun-suan-fu-zhong-zai_3">运算符重载</h1>
+<h2 id="__add__">+ : __add__</h2>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rect</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">=</span> <span class="n">x</span>
@@ -556,7 +556,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">print</span><span class="p">(</span><span class="n">r3</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">r3</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
 </pre></div>
-<h2>== : __eq__</h2>
+<h2 id="__eq__">== : __eq__</h2>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rect</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">=</span> <span class="n">x</span>
@@ -580,7 +580,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">else</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">'The two instances are not equal'</span><span class="p">)</span>
 </pre></div>
-<h1>多态性</h1>
+<h1 id="duo-tai-xing_1">多态性</h1>
 <ul>
 <li>相同名称和签名的方法在不同的类中执行不同的任务</li>
 <li>你在不知道具体类的情况下, 通过多态调用对应的方法(不知道这个方法所属的具体类)</li>
@@ -613,7 +613,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">prncomm</span><span class="p">:</span>
     <span class="n">c</span><span class="o">.</span><span class="n">commission</span><span class="p">()</span>
 </pre></div>
-<h1>Properties(属性)</h1>
+<h1 id="propertiesshu-xing">Properties(属性)</h1>
 <ul>
 <li>用于管理实例变量, 提供 getter 和 setter</li>
 </ul>
@@ -634,7 +634,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'Cell'</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">'Getting product name '</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
-<h1>descriptor</h1>
+<h1 id="descriptor">descriptor</h1>
 <ul>
 <li><code>descriptor</code> 是 一个 <code>properties</code> 的超集</li>
 <li><code>descriptor</code> 是 <code>类族</code>, 用来方便我们管理实例对象的实例变量</li>
@@ -674,7 +674,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">k</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
-<h1>__setattr__ 、 __getattr__ 、 __delattr__</h1>
+<h1 id="__setattr__-__getattr__-__delattr__">__setattr__ 、 __getattr__ 、 __delattr__</h1>
 <ul>
 <li>在给实例变量赋值时, <code>__setattr__</code> 方法会被调用</li>
 </ul>
