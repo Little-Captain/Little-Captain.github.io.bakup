@@ -64,7 +64,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 	
         <div><blockquote>
 <p>file dialog</p>
-<p>PyQt5 supports (<code>native</code>) file dialogs: open file, open files and save file. By calling the functions included in PyQt5 you get the default file dialog, you don’t have to recreate these dialogs from scratch.</p>
+<p>PyQt5 supports (<code>native</code>) file dialogs: open file, open files and save file. By calling the functions included in PyQt5 you get the default file dialog, you don&rsquo;t have to recreate these dialogs from scratch.</p>
 <p>Importing <code>QFileDialog</code> is required.</p>
 <p>The methods used are QFileDialog.<code>getOpenFileName</code>(), QFileDialog.<code>getOpenFileNames</code>(), QFileDialog.<code>getSaveFileName</code>(). The method parameters let you specify the default directory, filetypes and the default filename.</p>
 </blockquote>
@@ -75,7 +75,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 file dialogs - pythonspot.com&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">'PyQt5 file dialogs - pythonspot.com'</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">640</span>
@@ -95,8 +95,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">openFileNameDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">options</span> <span class="o">=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">Options</span><span class="p">()</span>
         <span class="n">options</span> <span class="o">|=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">DontUseNativeDialog</span>
-        <span class="n">fileName</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">getOpenFileName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;QFileDialog.getOpenFileName()&quot;</span><span class="p">,</span>\
-                                                  <span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;All Files (*);;Python Files (*.py)&quot;</span><span class="p">,</span>\
+        <span class="n">fileName</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">getOpenFileName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"QFileDialog.getOpenFileName()"</span><span class="p">,</span>\
+                                                  <span class="s2">""</span><span class="p">,</span><span class="s2">"All Files (*);;Python Files (*.py)"</span><span class="p">,</span>\
                                                   <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">fileName</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
@@ -104,8 +104,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">openFileNamesDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">options</span> <span class="o">=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">Options</span><span class="p">()</span>
         <span class="n">options</span> <span class="o">|=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">DontUseNativeDialog</span>
-        <span class="n">files</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">getOpenFileNames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;QFileDialog.getOpenFileNames()&quot;</span><span class="p">,</span>\
-                                                <span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;All Files (*);;Python Files (*.py)&quot;</span><span class="p">,</span>\
+        <span class="n">files</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">getOpenFileNames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"QFileDialog.getOpenFileNames()"</span><span class="p">,</span>\
+                                                <span class="s2">""</span><span class="p">,</span><span class="s2">"All Files (*);;Python Files (*.py)"</span><span class="p">,</span>\
                                                 <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">files</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
@@ -113,13 +113,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">saveFileDialog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">options</span> <span class="o">=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">Options</span><span class="p">()</span>
         <span class="n">options</span> <span class="o">|=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">DontUseNativeDialog</span>
-        <span class="n">fileName</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">getSaveFileName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;QFileDialog.getSaveFileName()&quot;</span><span class="p">,</span>\
-                                                  <span class="s2">&quot;&quot;</span><span class="p">,</span><span class="s2">&quot;All Files (*);;Text Files (*.txt)&quot;</span><span class="p">,</span>\
+        <span class="n">fileName</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">getSaveFileName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"QFileDialog.getSaveFileName()"</span><span class="p">,</span>\
+                                                  <span class="s2">""</span><span class="p">,</span><span class="s2">"All Files (*);;Text Files (*.txt)"</span><span class="p">,</span>\
                                                   <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">fileName</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">App</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

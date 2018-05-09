@@ -77,14 +77,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
 <span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 </pre></div>
-
-
 <h2>连接和导入数据 (SQLite)</h2>
 <div class="highlight"><pre><span></span><span class="c1"># insert</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sqlite3</span>
 
-<span class="n">db_filename</span><span class="o">=</span><span class="s1">&#39;mydatabase.db&#39;</span>
+<span class="n">db_filename</span><span class="o">=</span><span class="s1">'mydatabase.db'</span>
 
 <span class="n">exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">exists</span><span class="p">:</span>
@@ -92,58 +90,56 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
 
-<span class="n">schema</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;create table person (</span>
+<span class="n">schema</span><span class="o">=</span><span class="s2">"""create table person (</span>
 <span class="s2">  id integer primary key autoincrement not null,</span>
 <span class="s2">  name text not null,</span>
 <span class="s2">  dob date,</span>
 <span class="s2">  nationality text,</span>
 <span class="s2">  gender text)</span>
-<span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">"""</span>
 <span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
 
-<span class="n">people</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;insert into person (name, dob, nationality, gender)</span>
-<span class="s2">values (&#39;Fred Bloggs&#39;, &#39;1965-12-25&#39;,&#39;British&#39;,&#39;Male&#39;);</span>
+<span class="n">people</span><span class="o">=</span><span class="s2">"""insert into person (name, dob, nationality, gender)</span>
+<span class="s2">values ('Fred Bloggs', '1965-12-25','British','Male');</span>
 <span class="s2">insert into person (name, dob,nationality,gender)</span>
-<span class="s2">values (&#39;Santa Claus&#39;, &#39;968-01-01&#39;,&#39;Lap&#39;,&#39;Male&#39;);</span>
+<span class="s2">values ('Santa Claus', '968-01-01','Lap','Male');</span>
 <span class="s2">insert into person (name, dob,nationality,gender)</span>
-<span class="s2">values (&#39;Tooth Fairy&#39;, &#39;1931-03-31&#39;,&#39;American&#39;,&#39;Female&#39;);</span>
-<span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">values ('Tooth Fairy', '1931-03-31','American','Female');</span>
+<span class="s2">"""</span>
 <span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
 
 <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select id, name, dob, nationality, gender from person&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"select id, name, dob, nationality, gender from person"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
     <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span> <span class="o">=</span> <span class="n">row</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%3d</span><span class="s2"> </span><span class="si">%15s</span><span class="s2"> </span><span class="si">%12s</span><span class="s2"> </span><span class="si">%10s</span><span class="s2"> </span><span class="si">%6s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%3d</span><span class="s2"> </span><span class="si">%15s</span><span class="s2"> </span><span class="si">%12s</span><span class="s2"> </span><span class="si">%10s</span><span class="s2"> </span><span class="si">%6s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span><span class="p">))</span>
 
 <span class="c1"># 省略了 name 字段, 使其抛出一个异常</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">dupe</span><span class="o">=</span><span class="s2">&quot;insert into person (id, dob,nationality,gender) </span><span class="se">\</span>
-<span class="s2">    values (1,&#39;1931-03-31&#39;,&#39;American&#39;,&#39;Female&#39;);&quot;</span>
+    <span class="n">dupe</span><span class="o">=</span><span class="s2">"insert into person (id, dob,nationality,gender) </span><span class="se">\</span>
+<span class="s2">    values (1,'1931-03-31','American','Female');"</span>
     <span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">dupe</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Cannot insert record&#39;</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Cannot insert record'</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
 </pre></div>
-
-
 <div class="highlight"><pre><span></span><span class="c1"># update</span>
 <span class="kn">import</span> <span class="nn">sqlite3</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="n">db_filename</span> <span class="o">=</span> <span class="s1">&#39;mydatabase.db&#39;</span>
+<span class="n">db_filename</span> <span class="o">=</span> <span class="s1">'mydatabase.db'</span>
 <span class="n">inid</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">innat</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
 <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 
-<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;update person set nationality = :nat where id = :id&quot;</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="n">inid</span><span class="p">,</span> <span class="s1">&#39;nat&#39;</span><span class="p">:</span><span class="n">innat</span><span class="p">})</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">"update person set nationality = :nat where id = :id"</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">{</span><span class="s1">'id'</span><span class="p">:</span><span class="n">inid</span><span class="p">,</span> <span class="s1">'nat'</span><span class="p">:</span><span class="n">innat</span><span class="p">})</span>
 
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select id, name, dob,nationality,gender from person&quot;</span><span class="p">)</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">"select id, name, dob,nationality,gender from person"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
     <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span> <span class="o">=</span> <span class="n">row</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%3d</span><span class="s2"> </span><span class="si">%15s</span><span class="s2"> </span><span class="si">%12s</span><span class="s2"> </span><span class="si">%10s</span><span class="s2"> </span><span class="si">%6s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%3d</span><span class="s2"> </span><span class="si">%15s</span><span class="s2"> </span><span class="si">%12s</span><span class="s2"> </span><span class="si">%10s</span><span class="s2"> </span><span class="si">%6s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span><span class="p">))</span>
 </pre></div></div>
 	
         <hr>

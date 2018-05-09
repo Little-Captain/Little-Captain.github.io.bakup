@@ -93,10 +93,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="c1"># file_name 文件名</span>
 <span class="c1"># mode 打开文件的目的</span>
 <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="c1"># 返回 file handler 对象</span>
-<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;xyz.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'xyz.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
 </pre></div>
-
-
 <ul>
 <li>mode</li>
 </ul>
@@ -130,8 +128,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">class</span> <span class="nc">classname</span><span class="p">[(</span><span class="n">base</span><span class="o">-</span><span class="n">classes</span><span class="p">)]:</span>
     <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
-
-
 <h2>类对象的属性</h2>
 <ul>
 <li>类属性, 不需要实例对象, 使用类名引用</li>
@@ -140,16 +136,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="n">l</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="k">print</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
-
-
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rect</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span>
 <span class="n">rect</span><span class="o">.</span><span class="n">l</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="k">print</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
-
-
-<h3>内建的类属性</h3>
+<h3 id="nei-jian-de-lei-shu-xing">内建的类属性</h3>
 <ul>
 <li>一个类隐式的设置了一些类属性, 我们称之为内建类属性</li>
 </ul>
@@ -181,8 +173,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="o">-</span><span class="n">name</span><span class="p">(</span><span class="n">parameters</span><span class="p">):</span>
     <span class="n">statements</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
-
-
 <h2>返回语句</h2>
 <ul>
 <li>返回语句是可选的, 如果没有, 函数返回 None</li>
@@ -193,11 +183,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 </pre></div>
-
-
 <h2>关键字参数</h2>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;l is&#39;</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="s1">&#39;and b is …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-04.html">read more</a></div>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'l is'</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="s1">'and b is' …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-04.html">read more</a></div>
     </div>	
 				
 
@@ -229,7 +217,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="c1"># +</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="c1"># [1, 1, 1, 2]</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># [1, 2, 1, 2]</span>
-<span class="s1">&#39;12&#39;</span> <span class="o">+</span> <span class="s1">&#39;12&#39;</span> <span class="c1"># &#39;1212&#39;</span>
+<span class="s1">'12'</span> <span class="o">+</span> <span class="s1">'12'</span> <span class="c1"># '1212'</span>
 <span class="c1"># *</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span> <span class="c1"># [1, 2, 1 …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-03.html">read more</a></div>
     </div>	
@@ -260,11 +248,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">x</span> <span class="o">//</span> <span class="n">y</span> <span class="c1"># Truncating division (floor division)</span>
 <span class="n">x</span> <span class="o">**</span> <span class="n">y</span> <span class="c1"># Exponentiation. Sets x to the power y</span>
 <span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="c1"># Modulo operator</span>
-<span class="err">–</span><span class="n">x</span> <span class="c1"># Unary minus</span>
+<span class="err">&ndash;</span><span class="n">x</span> <span class="c1"># Unary minus</span>
 <span class="o">+</span><span class="n">x</span> <span class="c1"># Unary plus</span>
 </pre></div>
-
-
 <h2>除法操作符</h2>
 <ul>
 <li><code>/</code> : 结果总是不会被截断, 结果总是浮点数</li>

@@ -79,28 +79,28 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <tbody>
 <tr>
 <td>pthread</td>
-<td>一套通用的多线程API<br>适用于Unix/Linux/Windows等系统<br>跨平台/可移植<br>使用难度大</td>
+<td>一套通用的多线程API<br/>适用于Unix/Linux/Windows等系统<br/>跨平台/可移植<br/>使用难度大</td>
 <td>C</td>
 <td>程序员管理</td>
 <td>几乎不用</td>
 </tr>
 <tr>
 <td>NSThread</td>
-<td>使用更加面向对象<br>简单易用，可直接操作线程对象</td>
+<td>使用更加面向对象<br/>简单易用，可直接操作线程对象</td>
 <td>OC</td>
 <td>程序员管理</td>
 <td>偶尔使用</td>
 </tr>
 <tr>
 <td>GCD</td>
-<td>旨在替代NSThread等线程技术<br>充分利用设备的多核</td>
+<td>旨在替代NSThread等线程技术<br/>充分利用设备的多核</td>
 <td>C</td>
 <td>自动管理</td>
 <td>经常使用</td>
 </tr>
 <tr>
 <td>NSOperation</td>
-<td>基于GCD（底层是GCD）<br>比GCD多了一些更简单实用的功能<br>使用更加面向对象</td>
+<td>基于GCD（底层是GCD）<br/>比GCD多了一些更简单实用的功能<br/>使用更加面向对象</td>
 <td>OC</td>
 <td>自动管理</td>
 <td>经常使用</td>
@@ -125,7 +125,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
  </div>
         <div class="summary"><ul>
-<li>一个iOS程序运行后，默认会开启1条线程, 称为“主线程”或“UI线程”</li>
+<li>一个iOS程序运行后，默认会开启1条线程, 称为&ldquo;主线程&rdquo;或&ldquo;UI线程&rdquo;</li>
 </ul>
 <h2>主线程的主要作用</h2>
 <ul>
@@ -134,14 +134,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>点击事件</li>
 <li>滚动事件</li>
 <li>拖拽事件</li>
-<li>…</li>
+<li>&hellip;</li>
 </ul>
 </li>
 </ul>
 <h2>主线程的使用注意</h2>
 <ul>
 <li>别将比较耗时的操作放到主线程中</li>
-<li>耗时操作会卡住主线程，严重影响UI的流畅度，给用户一种“卡”的坏体验</li>
+<li>耗时操作会卡住主线程，严重影响UI的流畅度，给用户一种&ldquo;卡&rdquo;的坏体验</li>
 <li>耗时操作的执行<ul>
 <li>如果将耗时操作放在主线程, 严重影响UI刷新</li>
 <li>如果将耗时操作放在子线程（后台线程、非主线程）, 不影响UI刷新</li>
@@ -184,7 +184,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </li>
 </ul>
 <p><em>线程的状态</em></p>
-<p><img alt="" src="../assets/images/多线程/线程的状态.png"></p>
+<p><img alt="" src="../assets/images/多线程/线程的状态.png"/></p>
 <h1>进程和线程的比较</h1>
 <ol>
 <li>线程是CPU调用(执行任务)的最小单位</li>
@@ -238,7 +238,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p><em>Debug Memory Graph(Xcode 8.0+)</em></p>
 <p>![](../assets/images/LCNetworking/Debug Memory Graph.png)</p>
 <p><em>AFNetworing 的一些对象被 Xcode 标记</em></p>
-<p><img alt="" src="../assets/images/LCNetworking/AFN的内存泄漏.png"></p>
+<p><img alt="" src="../assets/images/LCNetworking/AFN的内存泄漏.png"/></p>
 <p>图上结果表示: 这些对象无法被释放, 即内存泄漏.</p>
 <ul>
 <li>使用 Instrument 测试得到类似结果</li>
@@ -352,13 +352,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="nv">$PS1</span>
 <span class="nb">echo</span> <span class="nv">$PS2</span>
 </pre></div>
-
-
 <p><strong>bash shell 提示符字符</strong></p>
-<p><img src="../assets/images/Linux/bash shell 提示符字符.png" width = 100% align=center /></p>
+<p><img align="center" src="../assets/images/Linux/bash shell 提示符字符.png" width="100%"/></p>
 <p>配置</p>
 <div class="highlight"><pre><span></span><span class="c1"># 这个配置只会在当前会话有效</span>
-<span class="nv">PS1</span><span class="o">=</span><span class="s2">&quot;[\t][\u]\$&quot;</span>
+<span class="nv">PS1</span><span class="o">=</span><span class="s2">"[\t][\u]\$"</span>
 </pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ming-ling-ti-shi-fu-de-ge-shi.html">read more</a></div>
     </div>	
 				
@@ -412,21 +410,17 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
  </div>
         <div class="summary"><h1>CocoaPods如何管理框架</h1>
-<h1><img alt="" src="../assets/images/CocoaPods/CocoaPods工作流.png"></h1>
+<h1><img alt="" src="../assets/images/CocoaPods/CocoaPods工作流.png"/></h1>
 <h1>框架的发布与安装</h1>
-<h1><img alt="" src="../assets/images/CocoaPods/CocoaPods如何管理框架.png"></h1>
+<h1><img alt="" src="../assets/images/CocoaPods/CocoaPods如何管理框架.png"/></h1>
 <h1>发布流程</h1>
 <h2>1. 注册</h2>
 <div class="highlight"><pre><span></span>pod trunk register email地址 yourname
 </pre></div>
-
-
 <p>执行上面的命令后, 你将收到一封邮件, <code>必须验证</code>才能进行后续操作</p>
 <h2>2. 查询用户信息</h2>
 <div class="highlight"><pre><span></span>pod trunk me
 </pre></div>
-
-
 <p>这条命令将输出你的<code>个人相关信息</code></p>
 <div class="highlight"><pre><span></span>- Name:     XXX
   - Email:    littlecaptain@foxmail.com

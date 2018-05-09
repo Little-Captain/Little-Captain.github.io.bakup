@@ -101,17 +101,15 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">sld</span><span class="o">.</span><span class="n">valueChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">lcd</span><span class="o">.</span><span class="n">display</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Signal and slot&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Signal and slot'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>Reimplementing event handler</h1>
 <ul>
 <li>Events in PyQt5 are processed often by reimplementing event handlers.</li>
@@ -129,7 +127,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Event handler&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Event handler'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="c1"># reimplement the keyPressEvent() event handler.</span>
@@ -138,13 +136,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
             <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>Event object</h1>
 <ul>
 <li>Event object is a Python object that contains a number of attributes describing the event. Event object is specific to the generated event type.</li>
@@ -167,7 +163,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;x: {0},  y: {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">"x: {0},  y: {1}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">grid</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignTop</span><span class="p">)</span>
@@ -183,7 +179,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Event object&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Event object'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="c1"># The e is the event object; it contains data </span>
@@ -195,17 +191,15 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">x</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">x</span><span class="p">()</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">y</span><span class="p">()</span>
 
-        <span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;x: {0},  y: {1}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="s2">"x: {0},  y: {1}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>Event sender</h1>
 <ul>
 <li>Sometimes it is convenient to know which widget is the sender of a signal.</li>
@@ -221,10 +215,10 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">btn1</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Button 1&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">btn1</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">"Button 1"</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">btn1</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 
-        <span class="n">btn2</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Button 2&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">btn2</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">"Button 2"</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">btn2</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 
         <span class="n">btn1</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">buttonClicked</span><span class="p">)</span>
@@ -233,22 +227,20 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">290</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Event sender&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Event sender'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">buttonClicked</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># 获取信号发送者</span>
         <span class="n">sender</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sender</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="p">()</span><span class="o">.</span><span class="n">showMessage</span><span class="p">(</span><span class="n">sender</span><span class="o">.</span><span class="n">text</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39; was pressed&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="p">()</span><span class="o">.</span><span class="n">showMessage</span><span class="p">(</span><span class="n">sender</span><span class="o">.</span><span class="n">text</span><span class="p">()</span> <span class="o">+</span> <span class="s1">' was pressed'</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>Emitting signals</h1>
 <ul>
 <li>Objects created from a QObject can emit signals.</li>
@@ -276,7 +268,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">closeApp</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">290</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Emit signal&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Emit signal'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">mousePressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
@@ -284,7 +276,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="o">.</span><span class="n">closeApp</span><span class="o">.</span><span class="n">emit</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

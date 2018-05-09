@@ -73,7 +73,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p><em>Debug Memory Graph(Xcode 8.0+)</em></p>
 <p>![](../assets/images/LCNetworking/Debug Memory Graph.png)</p>
 <p><em>AFNetworing 的一些对象被 Xcode 标记</em></p>
-<p><img alt="" src="../assets/images/LCNetworking/AFN的内存泄漏.png"></p>
+<p><img alt="" src="../assets/images/LCNetworking/AFN的内存泄漏.png"/></p>
 <p>图上结果表示: 这些对象无法被释放, 即内存泄漏.</p>
 <ul>
 <li>使用 Instrument 测试得到类似结果</li>
@@ -90,7 +90,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>使用单例封装 AFNetworking, 实现自己的网络工具类.</li>
 </ul>
 <p><em>效果图</em></p>
-<p><img alt="" src="../assets/images/LCNetworking/内存泄漏解决.png"></p>
+<p><img alt="" src="../assets/images/LCNetworking/内存泄漏解决.png"/></p>
 <h1>LCNetworking</h1>
 <h2>特性</h2>
 <ul>
@@ -104,22 +104,16 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 <div class="highlight"><pre><span></span><span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">sharedInstance</span><span class="p">;</span>
 </pre></div>
-
-
 <ul>
 <li>GET / POST</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="bp">NSURLSessionDataTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">request:</span><span class="p">...;</span>
 </pre></div>
-
-
 <ul>
 <li>上传文件方法</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="bp">NSURLSessionDataTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">upload:</span><span class="p">...;</span>
 </pre></div>
-
-
 <ul>
 <li>方法持续扩展维护中</li>
 </ul></div>

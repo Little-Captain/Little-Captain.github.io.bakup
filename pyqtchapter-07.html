@@ -91,17 +91,17 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="c1"># 设置控件的几何属性</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
         <span class="c1"># 设置title, title将显示在title bar上</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Demo window&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Demo window'</span><span class="p">)</span>
         <span class="c1"># 创建一个 Push 按钮, 显示 `Close` 文字</span>
-        <span class="n">quit</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QPushButton</span><span class="p">(</span><span class="s1">&#39;Close&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">quit</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QPushButton</span><span class="p">(</span><span class="s1">'Close'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="c1"># 设置几何属性, 相对父控件</span>
         <span class="n">quit</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
         <span class="c1"># 事件处理 : signal 和 slot</span>
         <span class="c1"># signal 是 事件</span>
         <span class="c1"># slot 是 当事件发生时的处理方法</span>
         <span class="c1"># connect 方法将 signal 和 slot 进行连接</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">quit</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">SIGNAL</span><span class="p">(</span><span class="s1">&#39;clicked()&#39;</span><span class="p">),</span> \
-                     <span class="n">QtGui</span><span class="o">.</span><span class="n">qApp</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">SLOT</span><span class="p">(</span><span class="s1">&#39;quit()&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">quit</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">SIGNAL</span><span class="p">(</span><span class="s1">'clicked()'</span><span class="p">),</span> \
+                     <span class="n">QtGui</span><span class="o">.</span><span class="n">qApp</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">SLOT</span><span class="p">(</span><span class="s1">'quit()'</span><span class="p">))</span>
 <span class="c1"># 创建应用程序对象</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">QtGui</span><span class="o">.</span><span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
 <span class="c1"># 创建 demowind 实例对象</span>
@@ -113,8 +113,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="c1"># exec_ 有 _ 是因为 exec 被 Python 关键字占用了</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>使用 Qt Designer</h1>
 <ul>
 <li>预定义的 UI 模板</li>
@@ -142,7 +140,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>Display Widgets</li>
 <li>Phonon</li>
 </ul>
-<h3>Layouts</h3>
+<h3 id="layouts">Layouts</h3>
 <blockquote>
 <p>Layouts are used for arranging widgets in a desired manner. The <code>layout</code> <code>controls</code> the <code>size</code> of the <code>widgets</code> <code>within it</code>, and <code>widgets</code> are <code>automatically</code> <code>resized</code> when the form is resized.</p>
 </blockquote>
@@ -175,7 +173,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<h3>Spacers</h3>
+<h3 id="spacers">Spacers</h3>
 <blockquote>
 <p>Spacers are not visible while running a form and are used for inserting spaces between widgets or groups of widgets.</p>
 </blockquote>
@@ -200,7 +198,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<h3>Buttons</h3>
+<h3 id="buttons">Buttons</h3>
 <blockquote>
 <p>Buttons are used to initiate an action. They are event or signal generators that can be used to perform tasks.</p>
 </blockquote>
@@ -238,7 +236,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<h3>Item Views (Model-Based)</h3>
+<h3 id="item-views-model-based">Item Views (Model-Based)</h3>
 <blockquote>
 <p>Item Views widgets are used for displaying large volumes of data. Model-based means that the widgets are part of a <code>model/view</code> framework and enable you to present data in different formats and through multiple views. The classes of these widgets implement the interfaces defined by the <code>QAbstractItemViewclass</code> to allow it to display data provided by models derived from the <code>QAbstractItemModelclass</code>.</p>
 </blockquote>
@@ -268,7 +266,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<h3>Item Widgets (Item-Based)</h3>
+<h3 id="item-widgets-item-based">Item Widgets (Item-Based)</h3>
 <blockquote>
 <p>Item Widgets have self-contained views.</p>
 </blockquote>
@@ -294,7 +292,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<h3>Containers</h3>
+<h3 id="containers">Containers</h3>
 <blockquote>
 <p>Container widgets are used to control a collection of objects on a form. A widget dropped onto a container becomes a child object of the container. The child objects in a container can also be arranged in desired layouts.</p>
 </blockquote>
@@ -344,7 +342,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<h3>Input Widgets</h3>
+<h3 id="input-widgets">Input Widgets</h3>
 <blockquote>
 <p>Input Widgets are for used for interacting with the user. The user can supply data to the application through these widgets.</p>
 </blockquote>
@@ -422,7 +420,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<h3>Display Widgets</h3>
+<h3 id="display-widgets">Display Widgets</h3>
 <blockquote>
 <p>Display widgets are used for displaying information or messages to the user.</p>
 </blockquote>
@@ -476,7 +474,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<h3>Phonon</h3>
+<h3 id="phonon">Phonon</h3>
 <blockquote>
 <p>Phonon is a multimedia API that provides an abstraction layer for capturing, mixing, processing, and playing audio and video.</p>
 </blockquote>
@@ -547,7 +545,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <tbody>
 <tr>
 <td align="center">setEchoMode()</td>
-<td align="center">Used to set the echo mode of the Line Edit widget to determine how the contents of the Line Edit widget are displayed. The available options are these: <br> Normal: Default mode. Displays characters as they are entered. <br> NoEcho: Doesn’t display anything. <br> Password: Displays asterisks as the user enters data. <br> PasswordEchoOnEdit: Displays characters when editing; otherwise, asterisks are displayed.</td>
+<td align="center">Used to set the echo mode of the Line Edit widget to determine how the contents of the Line Edit widget are displayed. The available options are these: <br/> Normal: Default mode. Displays characters as they are entered. <br/> NoEcho: Doesn&rsquo;t display anything. <br/> Password: Displays asterisks as the user enters data. <br/> PasswordEchoOnEdit: Displays characters when editing; otherwise, asterisks are displayed.</td>
 </tr>
 <tr>
 <td align="center">maxLength()</td>
@@ -632,7 +630,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </table>
 <h1>Event Handling in PyQt</h1>
 <blockquote>
-<p>In PyQt, the <code>event-handling mechanism</code> is also known as <code>signals and slots</code>. Every widget emits signals when its state changes. Whenever a signal is emitted, it is simply thrown. To perform a task in response to a signal, the signal has to be connected to a slot. A slot refers to the method containing the code that you want to be executed on occurrence of a signal. Most widgets have predefined slots, you don’t have to write code for connecting a predefined signal to a predefined slot. To respond to the signals emitted, you identify the <code>QObject</code> and the signal it emits and invoke the associated method. You can use Qt Designer for connecting signals with built-in slots.</p>
+<p>In PyQt, the <code>event-handling mechanism</code> is also known as <code>signals and slots</code>. Every widget emits signals when its state changes. Whenever a signal is emitted, it is simply thrown. To perform a task in response to a signal, the signal has to be connected to a slot. A slot refers to the method containing the code that you want to be executed on occurrence of a signal. Most widgets have predefined slots, you don&rsquo;t have to write code for connecting a predefined signal to a predefined slot. To respond to the signals emitted, you identify the <code>QObject</code> and the signal it emits and invoke the associated method. You can use Qt Designer for connecting signals with built-in slots.</p>
 </blockquote></div>
 	
         <hr>

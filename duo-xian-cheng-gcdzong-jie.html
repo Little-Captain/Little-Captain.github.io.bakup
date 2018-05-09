@@ -64,7 +64,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 	
         <div><h1>简介</h1>
 <ul>
-<li>全称是Grand Central Dispatch，可译为“宏大的中枢调度器”</li>
+<li>全称是Grand Central Dispatch，可译为&ldquo;宏大的中枢调度器&rdquo;</li>
 <li>纯C语言，提供了非常多强大的函数</li>
 </ul>
 <h2>GCD的优势</h2>
@@ -88,7 +88,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <ul>
 <li>用来存放任务</li>
 </ul>
-<h3>类型</h3>
+<h3 id="lei-xing">类型</h3>
 <ul>
 <li>并发队列<ul>
 <li>Concurrent Dispatch Queue</li>
@@ -151,27 +151,27 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>dispatch_queue_create</li>
 <li>参数<ul>
 <li>label : 队列名称</li>
-<li>attr : 队列的类型<br>并发DISPATCH_QUEUE_CONCURRENT<br>串行DISPATCH_QUEUE_SERIAL==NULL</li>
+<li>attr : 队列的类型<br/>并发DISPATCH_QUEUE_CONCURRENT<br/>串行DISPATCH_QUEUE_SERIAL==NULL</li>
 </ul>
 </li>
 <li>GCD默认已经提供了全局的并发队列，供整个应用使用，可以无需手动创建<ul>
 <li>dispatch_get_global_queue</li>
-<li>参数<br>priority : 队列的优先级DISPATCH_QUEUE_PRIORITY_DEFAULT==0<br>flags : 暂时无用，用0即可</li>
+<li>参数<br/>priority : 队列的优先级DISPATCH_QUEUE_PRIORITY_DEFAULT==0<br/>flags : 暂时无用，用0即可</li>
 </ul>
 </li>
 <li>创建串行队列<ul>
 <li>dispatch_queue_create</li>
-<li>使用主队列<br>跟主线程相关联的队列<br>主队列是GCD自带的一种特殊的串行队列<br>放在主队列中的任务，都会放到主线程中执行<br>dispatch_get_main_queue</li>
+<li>使用主队列<br/>跟主线程相关联的队列<br/>主队列是GCD自带的一种特殊的串行队列<br/>放在主队列中的任务，都会放到主线程中执行<br/>dispatch_get_main_queue</li>
 </ul>
 </li>
 </ul>
 <h2>各种队列的执行效果</h2>
-<p><img alt="" src="../assets/images/多线程/函数+队列组合.png"></p>
+<p><img alt="" src="../assets/images/多线程/函数+队列组合.png"/></p>
 <ul>
 <li>异步+串行队列 : 只会开启一条线程</li>
 <li>异步+并发队列 : 可能会开启多条线程</li>
 </ul>
-<h3>说明</h3>
+<h3 id="shuo-ming">说明</h3>
 <ul>
 <li>使用sync函数往当前串行队列中添加任务，会卡住当前的串行队列</li>
 <li>可以通过控制函数和队列来控制任务的执行<ul>
@@ -189,7 +189,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <h2>延时执行</h2>
 <ul>
 <li>调用NSObject的方法 : performSelector</li>
-<li>使用GCD函数 : <br>dispatch_after<br>可以控制代码执行的队列<br>更精确</li>
+<li>使用GCD函数 : <br/>dispatch_after<br/>可以控制代码执行的队列<br/>更精确</li>
 <li>使用NSTimer : scheduledTimerWithTimeInterval</li>
 </ul>
 <h2>一次性代码</h2>
@@ -204,30 +204,30 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>快速迭代遍历</li>
 </ul>
 <h2>队列组</h2>
-<h3>需求</h3>
+<h3 id="xu-qiu">需求</h3>
 <ul>
 <li>首先, 分别异步执行2个耗时的操作</li>
 <li>其次, 等2个异步操作都执行完毕后，再回到主线程执行操作</li>
 </ul>
-<h3>使用到的方法</h3>
+<h3 id="shi-yong-dao-de-fang-fa">使用到的方法</h3>
 <ul>
 <li>dispatch_group_async</li>
 <li>dispatch_group_notify : 异步的被执行</li>
 <li>dispatch_group_wait : 同步等待, 然后执行</li>
 </ul>
 <h2>单例模式</h2>
-<h3>作用</h3>
+<h3 id="zuo-yong">作用</h3>
 <ul>
 <li>可以保证在程序运行过程，一个类只有一个实例，而且该实例易于供外界访问</li>
 <li>从而方便地控制了实例个数，并节约系统资源</li>
 </ul>
-<h3>使用场合</h3>
+<h3 id="shi-yong-chang-he">使用场合</h3>
 <ul>
 <li>在整个应用程序中，共享一份资源</li>
 <li>这份资源只需要创建初始化1次</li>
 </ul>
-<h3>实现</h3>
-<h4>ARC</h4>
+<h3 id="shi-xian">实现</h3>
+<h4 id="arc">ARC</h4>
 <ul>
 <li>创建全局的static的实例 : static id _instance;</li>
 <li>重写allocWithZone:方法 : 使用dispatch_once, 保证线程安全</li>
@@ -235,7 +235,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>实现copyWithZone:方法</li>
 <li>实现mutableCopyWithZone:方法</li>
 </ul>
-<h4>MRC</h4>
+<h4 id="mrc">MRC</h4>
 <ul>
 <li>在 ARC 的基础上增加下面的实现</li>
 <li>重写release方法 : 啥也不做</li>

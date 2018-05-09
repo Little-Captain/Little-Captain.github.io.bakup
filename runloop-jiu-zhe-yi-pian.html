@@ -75,7 +75,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>触摸事件</li>
 <li>定时器事件</li>
 <li>Selector事件</li>
-<li>…</li>
+<li>&hellip;</li>
 </ul>
 </li>
 <li>节省CPU资源</li>
@@ -84,12 +84,10 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 <h2>如果没有 runloop</h2>
 <div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;execute main function&quot;</span><span class="p">);</span> <span class="c1">// 程序开始</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"execute main function"</span><span class="p">);</span> <span class="c1">// 程序开始</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 程序结束</span>
 <span class="p">}</span>
 </pre></div>
-
-
 <h2>如果有了 runloop</h2>
 <div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
     <span class="kt">BOOL</span> <span class="n">running</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span> <span class="c1">// 程序开始</span>
@@ -100,8 +98,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-
-
 <ul>
 <li>main 函数里面启动了 RunLoop ，程序并不会马上退出，保持持续运行状态</li>
 </ul>
@@ -111,8 +107,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-
-
 <p>解释</p>
 <ul>
 <li>第3行代码的UIApplicationMain函数内部就启动了一个 runloop</li>
@@ -120,7 +114,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>这个默认启动的runloop是跟主线程相关联的</li>
 </ul>
 <h1>RunLoop对象</h1>
-<h3>iOS中有2套API来访问和使用RunLoop</h3>
+<h3 id="ioszhong-you-2tao-apilai-fang-wen-he-shi-yong-runloop">iOS中有2套API来访问和使用RunLoop</h3>
 <ul>
 <li>NSRunLoop<ul>
 <li>Foundation</li>
@@ -135,7 +129,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </li>
 <li>NSRunLoop和CFRunLoopRef都代表着RunLoop对象, 可以相互转换</li>
 </ul>
-<h3>获得RunLoop对象</h3>
+<h3 id="huo-de-runloopdui-xiang">获得RunLoop对象</h3>
 <ul>
 <li>Foundation<ul>
 <li>currentRunLoop, 获得当前线程的RunLoop对象</li>
@@ -212,11 +206,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 <h1>RunLoop处理逻辑</h1>
 <p><em>苹果官方版</em></p>
-<p><img alt="" src="../assets/images/多线程/RunLoop处理逻辑1.png"></p>
+<p><img alt="" src="../assets/images/多线程/RunLoop处理逻辑1.png"/></p>
 <p><em>网友翻译版</em></p>
-<p><img alt="" src="../assets/images/多线程/RunLoop处理逻辑2.png"></p>
+<p><img alt="" src="../assets/images/多线程/RunLoop处理逻辑2.png"/></p>
 <p><em>网友整理版</em></p>
-<p><img alt="" src="../assets/images/多线程/RunLoop处理逻辑3.png"></p>
+<p><img alt="" src="../assets/images/多线程/RunLoop处理逻辑3.png"/></p>
 <h1>RunLoop应用</h1>
 <ul>
 <li>NSTimer</li>

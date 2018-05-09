@@ -68,31 +68,31 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Web url to fetch:&#39;</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Web url to fetch:'</span><span class="p">)</span>
 <span class="n">urlparts</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">urlparts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s1">&#39;http://&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">urlparts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s1">'http://'</span><span class="p">,</span> <span class="n">url</span><span class="p">))</span>
 
-<span class="n">qstring</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter query string:&#39;</span><span class="p">)</span>
+<span class="n">qstring</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Enter query string:'</span><span class="p">)</span>
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">qstring</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;?&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">url</span><span class="p">,</span> <span class="n">qstring</span><span class="p">))</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">'?'</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">url</span><span class="p">,</span> <span class="n">qstring</span><span class="p">))</span>
 
-<span class="n">save</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Save downloaded page to disk [y/n]?&#39;</span><span class="p">)</span>
+<span class="n">save</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Save downloaded page to disk [y/n]?'</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Requesting&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'Requesting'</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">save</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">save</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'y'</span><span class="p">:</span>
         <span class="n">geturl</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">url</span>
         <span class="n">urlparts</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">geturl</span><span class="p">)</span>
         <span class="n">netloc</span> <span class="o">=</span> <span class="n">urlparts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">netloc</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;save.html&#39;</span>
+            <span class="n">fname</span> <span class="o">=</span> <span class="s1">'save.html'</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">netloc</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">))</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Saving to&#39;</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;...&#39;</span><span class="p">)</span>
-        <span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf8&#39;</span><span class="p">)</span>
+            <span class="n">fname</span> <span class="o">=</span> <span class="s1">'.'</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">netloc</span><span class="p">,</span> <span class="s1">'html'</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">'Saving to'</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="s1">'...'</span><span class="p">)</span>
+        <span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf8'</span><span class="p">)</span>
         <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
         <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>

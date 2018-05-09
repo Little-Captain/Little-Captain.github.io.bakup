@@ -76,7 +76,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt absolute positioning - pythonspot.com&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">'PyQt absolute positioning - pythonspot.com'</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">440</span>
@@ -87,21 +87,21 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">top</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
 
-        <span class="n">label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">'Python'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">label</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 
-        <span class="n">label2</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">&#39;PyQt5&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">label2</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">'PyQt5'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">label2</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
-        <span class="n">label3</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">&#39;Examples&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">label3</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">'Examples'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">label3</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
 
-        <span class="n">label4</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">&#39;pythonspot.com&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">label4</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">'pythonspot.com'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">label4</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">App</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

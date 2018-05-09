@@ -89,7 +89,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1"># In our case it is plain text.</span>
     <span class="k">def</span> <span class="nf">dragEnterEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
 
-        <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">mimeData</span><span class="p">()</span><span class="o">.</span><span class="n">hasFormat</span><span class="p">(</span><span class="s1">&#39;text/plain&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">mimeData</span><span class="p">()</span><span class="o">.</span><span class="n">hasFormat</span><span class="p">(</span><span class="s1">'text/plain'</span><span class="p">):</span>
             <span class="n">e</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">e</span><span class="o">.</span><span class="n">ignore</span><span class="p">()</span>
@@ -110,27 +110,25 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">edit</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">edit</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="c1"># The QLineEdit widget has a built-in support for drag operations. </span>
         <span class="c1"># All we need to do is to call the setDragEnabled() method to activate it.</span>
         <span class="n">edit</span><span class="o">.</span><span class="n">setDragEnabled</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">edit</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">65</span><span class="p">)</span>
 
-        <span class="n">button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Button&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="s2">"Button"</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">button</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">190</span><span class="p">,</span> <span class="mi">65</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Simple drag and drop&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Simple drag and drop'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">ex</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     <span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
 </pre></div>
-
-
 <h2>Drag and drop a button widget</h2>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QApplication</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span><span class="p">,</span> <span class="n">QMimeData</span>
@@ -169,7 +167,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">mousePressEvent</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">button</span><span class="p">()</span> <span class="o">==</span> <span class="n">Qt</span><span class="o">.</span><span class="n">LeftButton</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;press&#39;</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">'press'</span><span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">Example</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
@@ -181,10 +179,10 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setAcceptDrops</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Button&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">button</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span><span class="s1">'Button'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">65</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Click or Move&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Click or Move'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">dragEnterEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
@@ -199,7 +197,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">e</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">ex</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>

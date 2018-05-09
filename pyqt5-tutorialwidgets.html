@@ -82,31 +82,29 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-        <span class="n">cb</span> <span class="o">=</span> <span class="n">QCheckBox</span><span class="p">(</span><span class="s1">&#39;Show title&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">cb</span> <span class="o">=</span> <span class="n">QCheckBox</span><span class="p">(</span><span class="s1">'Show title'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">cb</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
         <span class="c1"># check the checkbox</span>
         <span class="n">cb</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
         <span class="n">cb</span><span class="o">.</span><span class="n">stateChanged</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">changeTitle</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;QCheckBox&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'QCheckBox'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">changeTitle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="n">state</span> <span class="o">==</span> <span class="n">Qt</span><span class="o">.</span><span class="n">Checked</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;QCheckBox&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'QCheckBox'</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>Toggle button</h1>
 <ul>
 <li>A toggle button is a QPushButton in a special mode. It is a button that has two states: pressed and not pressed. We toggle between these two states by clicking on it. There are situations where this functionality fits well.</li>
@@ -127,7 +125,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         <span class="bp">self</span><span class="o">.</span><span class="n">col</span> <span class="o">=</span> <span class="n">QColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-        <span class="n">redb</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">redb</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">'Red'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="c1"># 使能 checked 属性</span>
         <span class="c1"># To create a toggle button, we create</span>
         <span class="c1"># a QPushButton and make it checkable</span>
@@ -138,13 +136,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="c1"># We use the clicked signal that operates with a Boolean value.</span>
         <span class="n">redb</span><span class="o">.</span><span class="n">clicked</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">setColor</span><span class="p">)</span>
 
-        <span class="n">greenb</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">&#39;Green&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">greenb</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">'Green'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">greenb</span><span class="o">.</span><span class="n">setCheckable</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">greenb</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
 
         <span class="n">greenb</span><span class="o">.</span><span class="n">clicked</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">setColor</span><span class="p">)</span>
 
-        <span class="n">blueb</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">blueb</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">'Blue'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">blueb</span><span class="o">.</span><span class="n">setCheckable</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
         <span class="n">blueb</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">110</span><span class="p">)</span>
 
@@ -152,11 +150,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         <span class="bp">self</span><span class="o">.</span><span class="n">square</span> <span class="o">=</span> <span class="n">QFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">square</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">square</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">&quot;QWidget { background-color: </span><span class="si">%s</span><span class="s2"> }&quot;</span> <span class="o">%</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">square</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">"QWidget { background-color: </span><span class="si">%s</span><span class="s2"> }"</span> <span class="o">%</span>
                                   <span class="bp">self</span><span class="o">.</span><span class="n">col</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">170</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Toggle button&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Toggle button'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">setColor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pressed</span><span class="p">):</span>
@@ -168,24 +166,22 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="k">else</span><span class="p">:</span>
             <span class="n">val</span> <span class="o">=</span> <span class="mi">0</span>
 
-        <span class="k">if</span> <span class="n">source</span><span class="o">.</span><span class="n">text</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Red&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">source</span><span class="o">.</span><span class="n">text</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"Red"</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">col</span><span class="o">.</span><span class="n">setRed</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">source</span><span class="o">.</span><span class="n">text</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Green&quot;</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">source</span><span class="o">.</span><span class="n">text</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"Green"</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">col</span><span class="o">.</span><span class="n">setGreen</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">col</span><span class="o">.</span><span class="n">setBlue</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
         <span class="c1"># We use style sheets to change the background colour.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">square</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">&quot;QFrame { background-color: </span><span class="si">%s</span><span class="s2"> }&quot;</span> <span class="o">%</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">square</span><span class="o">.</span><span class="n">setStyleSheet</span><span class="p">(</span><span class="s2">"QFrame { background-color: </span><span class="si">%s</span><span class="s2"> }"</span> <span class="o">%</span>
                                   <span class="bp">self</span><span class="o">.</span><span class="n">col</span><span class="o">.</span><span class="n">name</span><span class="p">())</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>QSlider</h1>
 <ul>
 <li>A QSlider is a widget that has a simple handle. This handle can be pulled back and forth. This way we are choosing a value for a specific task.</li>
@@ -211,32 +207,30 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">sld</span><span class="o">.</span><span class="n">valueChanged</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">changeValue</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">QPixmap</span><span class="p">(</span><span class="s1">&#39;1.png&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">QPixmap</span><span class="p">(</span><span class="s1">'1.png'</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">170</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;QSlider&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'QSlider'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">changeValue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">QPixmap</span><span class="p">(</span><span class="s1">&#39;1.png&#39;</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">QPixmap</span><span class="p">(</span><span class="s1">'1.png'</span><span class="p">))</span>
         <span class="k">elif</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">QPixmap</span><span class="p">(</span><span class="s1">&#39;2.png&#39;</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">QPixmap</span><span class="p">(</span><span class="s1">'2.png'</span><span class="p">))</span>
         <span class="k">elif</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">30</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">QPixmap</span><span class="p">(</span><span class="s1">&#39;3.png&#39;</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">QPixmap</span><span class="p">(</span><span class="s1">'3.png'</span><span class="p">))</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">QPixmap</span><span class="p">(</span><span class="s1">&#39;4.png&#39;</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">QPixmap</span><span class="p">(</span><span class="s1">'4.png'</span><span class="p">))</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>QProgressBar</h1>
 <ul>
 <li>A progress bar is a widget that is used when we process lengthy tasks. It is animated so that the user knows that the task is progressing. The QProgressBar widget provides a horizontal or a vertical progress bar in PyQt5 toolkit. The programmer can set the minimum and maximum value for the progress bar. The default values are 0 and 99.</li>
@@ -258,7 +252,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">pbar</span> <span class="o">=</span> <span class="n">QProgressBar</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pbar</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">btn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">&#39;Start&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">btn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">'Start'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">btn</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">btn</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">doAction</span><span class="p">)</span>
         <span class="c1"># To activate the progress bar, we use a timer object.</span>
@@ -266,7 +260,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">step</span> <span class="o">=</span> <span class="mi">0</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">170</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;QProgressBar&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'QProgressBar'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="c1"># Each QObject and its descendants have a timerEvent() event handler.</span>
@@ -275,7 +269,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">btn</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;Finished&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">btn</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">'Finished'</span><span class="p">)</span>
             <span class="k">return</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">step</span> <span class="o">+</span> <span class="mi">1</span>
@@ -285,22 +279,20 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">isActive</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">btn</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;Start&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">btn</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">'Start'</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># To launch a timer event, we call its start() method.</span>
             <span class="c1"># This method has two parameters: the timeout and</span>
             <span class="c1"># the object which will receive the events.</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">btn</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">&#39;Stop&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">btn</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s1">'Stop'</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>QCalendarWidget</h1>
 <ul>
 <li>A QCalendarWidget provides a monthly based calendar widget. It allows a user to select a date in a simple and intuitive way.</li>
@@ -335,7 +327,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">vbox</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Calendar&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Calendar'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     <span class="c1"># We retrieve the selected date by calling the selectedDate() method.</span>
     <span class="c1"># Then we transform the date object into string and set it to the label widget.</span>
@@ -343,7 +335,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">lbl</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">toString</span><span class="p">())</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

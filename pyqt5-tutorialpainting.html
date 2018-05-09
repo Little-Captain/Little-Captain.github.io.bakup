@@ -87,10 +87,10 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Лев Николаевич Толстой</span><span class="se">\n</span><span class="s2">Анна Каренина&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">"Лев Николаевич Толстой</span><span class="se">\n</span><span class="s2">Анна Каренина"</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">170</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Drawing text&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Drawing text'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="c1"># Drawing is done within the paint event.</span>
@@ -105,7 +105,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
     <span class="k">def</span> <span class="nf">drawText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">,</span> <span class="n">qp</span><span class="p">):</span>
         <span class="n">qp</span><span class="o">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">QColor</span><span class="p">(</span><span class="mi">168</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-        <span class="n">qp</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">QFont</span><span class="p">(</span><span class="s1">&#39;Decorative&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+        <span class="n">qp</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">QFont</span><span class="p">(</span><span class="s1">'Decorative'</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
         <span class="c1"># The drawText() method draws text on the window. </span>
         <span class="c1"># The rect() method of the paint event returns </span>
         <span class="c1"># the rectangle that needs to be updated. </span>
@@ -113,13 +113,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">qp</span><span class="o">.</span><span class="n">drawText</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">rect</span><span class="p">(),</span> <span class="n">Qt</span><span class="o">.</span><span class="n">AlignCenter</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h2>Drawing points</h2>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QApplication</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QPainter</span>
@@ -135,7 +133,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">190</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Points&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Points'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">paintEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
@@ -156,13 +154,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
             <span class="n">qp</span><span class="o">.</span><span class="n">drawPoint</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>Colours</h1>
 <blockquote>
 <p>A colour is an object representing a combination of Red, Green, and Blue (RGB) intensity values. Valid RGB values are in the range from 0 to 255. We can define a colour in various ways. The most common are RGB decimal values or hexadecimal values. We can also use an RGBA value which stands for Red, Green, Blue, and Alpha. Here we add some extra information regarding transparency. Alpha value of 255 defines full opacity, 0 is for full transparency, e.g. the colour is invisible.</p>
@@ -180,7 +176,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Colours&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Colours'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">paintEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
@@ -192,7 +188,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">drawRectangles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">qp</span><span class="p">):</span>
         <span class="n">col</span> <span class="o">=</span> <span class="n">QColor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
         <span class="c1"># Here we define a colour using a hexadecimal notation.</span>
-        <span class="n">col</span><span class="o">.</span><span class="n">setNamedColor</span><span class="p">(</span><span class="s1">&#39;#d4d4d4&#39;</span><span class="p">)</span>
+        <span class="n">col</span><span class="o">.</span><span class="n">setNamedColor</span><span class="p">(</span><span class="s1">'#d4d4d4'</span><span class="p">)</span>
         <span class="c1"># Here we define a brush and draw a rectangle.</span>
         <span class="c1"># A brush is an elementary graphics object</span>
         <span class="c1"># which is used to draw the background of a shape.</span>
@@ -210,13 +206,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">qp</span><span class="o">.</span><span class="n">drawRect</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>QPen</h1>
 <ul>
 <li>The <code>QPen</code> is an elementary graphics object. It is used to draw lines, curves and outlines of rectangles, ellipses, polygons, or other shapes.</li>
@@ -235,7 +229,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">270</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Pen styles&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Pen styles'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">paintEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
@@ -279,13 +273,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">qp</span><span class="o">.</span><span class="n">drawLine</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">240</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>QBrush</h1>
 <ul>
 <li><code>QBrush</code> is an elementary graphics object. It is used to paint the background of graphics shapes, such as rectangles, ellipses, or polygons. A brush can be of three different types: a predefined brush, a gradient, or a texture pattern.</li>
@@ -304,7 +296,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">355</span><span class="p">,</span> <span class="mi">280</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Brushes&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Brushes'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">paintEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
@@ -351,16 +343,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">qp</span><span class="o">.</span><span class="n">drawRect</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">195</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
-<h1>Bézier curve</h1>
+<h1>B&eacute;zier curve</h1>
 <ul>
-<li>Bézier curve is a cubic line. Bézier curve in PyQt5 can be created with <code>QPainterPath</code>. A painter path is an object composed of a number of graphical building blocks, such as rectangles, ellipses, lines, and curves.</li>
+<li>B&eacute;zier curve is a cubic line. B&eacute;zier curve in PyQt5 can be created with <code>QPainterPath</code>. A painter path is an object composed of a number of graphical building blocks, such as rectangles, ellipses, lines, and curves.</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QApplication</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QPainter</span><span class="p">,</span> <span class="n">QPainterPath</span>
@@ -376,7 +366,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">380</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Bézier curve&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'B&eacute;zier curve'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">paintEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
@@ -397,7 +387,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">qp</span><span class="o">.</span><span class="n">drawPath</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

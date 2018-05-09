@@ -91,18 +91,18 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">mainLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">buttonBox</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">mainLayout</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Form Layout - pythonspot.com&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Form Layout - pythonspot.com'</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">createFormGroupBox</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">formGroupBox</span> <span class="o">=</span> <span class="n">QGroupBox</span><span class="p">(</span><span class="s1">&#39;Form layout&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">formGroupBox</span> <span class="o">=</span> <span class="n">QGroupBox</span><span class="p">(</span><span class="s1">'Form layout'</span><span class="p">)</span>
         <span class="n">layout</span> <span class="o">=</span> <span class="n">QFormLayout</span><span class="p">()</span>
         <span class="c1"># The Form Layout is created using the class QFormLayout. We can add rows to the form using the method addRow.</span>
-        <span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="n">QLabel</span><span class="p">(</span><span class="s1">&#39;Name:&#39;</span><span class="p">),</span> <span class="n">QLineEdit</span><span class="p">())</span>
-        <span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Country:&quot;</span><span class="p">),</span> <span class="n">QComboBox</span><span class="p">())</span>
-        <span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="n">QLabel</span><span class="p">(</span><span class="s2">&quot;Age:&quot;</span><span class="p">),</span> <span class="n">QSpinBox</span><span class="p">())</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="n">QLabel</span><span class="p">(</span><span class="s1">'Name:'</span><span class="p">),</span> <span class="n">QLineEdit</span><span class="p">())</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="n">QLabel</span><span class="p">(</span><span class="s2">"Country:"</span><span class="p">),</span> <span class="n">QComboBox</span><span class="p">())</span>
+        <span class="n">layout</span><span class="o">.</span><span class="n">addRow</span><span class="p">(</span><span class="n">QLabel</span><span class="p">(</span><span class="s2">"Age:"</span><span class="p">),</span> <span class="n">QSpinBox</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">formGroupBox</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">dialog</span> <span class="o">=</span> <span class="n">Dialog</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">dialog</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

@@ -70,8 +70,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="o">-</span><span class="n">name</span><span class="p">(</span><span class="n">parameters</span><span class="p">):</span>
     <span class="n">statements</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
-
-
 <h2>返回语句</h2>
 <ul>
 <li>返回语句是可选的, 如果没有, 函数返回 None</li>
@@ -82,43 +80,37 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 </pre></div>
-
-
 <h2>关键字参数</h2>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;l is&#39;</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="s1">&#39;and b is&#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;and h is&#39;</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="s1">&#39;and volume is&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'l is'</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="s1">'and b is'</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">'and h is'</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="s1">'and volume is'</span><span class="p">,</span> <span class="n">l</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
 <span class="n">volume</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">volume</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">volume</span><span class="p">(</span><span class="n">h</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
-
-
 <h2>本地和全局变量</h2>
 <ul>
 <li>本地变量在函数内定义, 在函数内访问</li>
 <li>全局变量在函数内外都可以访问</li>
 <li>如果在函数外访问本地变量, 将抛出一个错误</li>
 </ul>
-<h3>全局变量</h3>
+<h3 id="quan-ju-bian-liang">全局变量</h3>
 <ul>
 <li>如果某个函数需要全局变量, 在函数的第一条语句应该是这样的</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="k">global</span> <span class="n">identifiers</span> <span class="c1"># 多个以逗号隔开</span>
 </pre></div>
-
-
 <ul>
 <li>使用 <code>global</code> 定义全局变量</li>
 <li>如果本地变量没有初始化, 一个 UnboundLocalError 异常将会被抛出</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">x</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Value of x in compute function is&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s2">"Value of x in compute function is"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">+=</span> <span class="mi">5</span>
     <span class="k">return</span> <span class="bp">None</span>
 <span class="k">def</span> <span class="nf">dispvalue</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">x</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Value of x in dispvalue function is&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s2">"Value of x in dispvalue function is"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">-=</span> <span class="mi">2</span>
     <span class="k">return</span> <span class="bp">None</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
@@ -126,19 +118,15 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">dispvalue</span><span class="p">()</span>
 <span class="n">compute</span><span class="p">()</span>
 </pre></div>
-
-
-<h3>本地变量</h3>
+<h3 id="ben-di-bian-liang">本地变量</h3>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">+=</span> <span class="mi">5</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Value of x in function is&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"Value of x in function is"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">None</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">compute</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Value of x is still&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">"Value of x is still"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 </pre></div>
-
-
 <h2>Lambda 函数</h2>
 <ul>
 <li>一个 lambda 函数只能包含一条语句</li>
@@ -147,8 +135,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="nb">map</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">sequence</span><span class="p">)</span>
 <span class="nb">reduce</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">sequence</span><span class="p">)</span>
 </pre></div>
-
-
 <h2>函数的属性</h2>
 <ul>
 <li>函数是对象, 所以有属性</li>
@@ -162,23 +148,19 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">functionname</span><span class="o">.</span><span class="vm">__dict__</span> <span class="c1"># 代表函数属性的本地命名空间</span>
 <span class="c1"># 你可以 set 和 get 属于你自己的函数属性</span>
 </pre></div>
-
-
-<h3>文档字符串</h3>
+<h3 id="wen-dang-zi-fu-chuan">文档字符串</h3>
 <ul>
 <li>函数体的第一个逻辑行代表函数的文档字符串</li>
 <li>要显示文档字符串使用 <code>__doc__</code> 属性</li>
 <li><code>函数</code>、<code>类</code>、<code>模块</code>都有文档字符串</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rect</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="sd">&#39;&#39;&#39;Computes the area of rectangle</span>
-<span class="sd">Values for length and breadth are passed to the function for computation&#39;&#39;&#39;</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Area of rectangle is&#39;</span><span class="p">,</span> <span class="n">l</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
+    <span class="sd">'''Computes the area of rectangle</span>
+<span class="sd">Values for length and breadth are passed to the function for computation'''</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Area of rectangle is'</span><span class="p">,</span> <span class="n">l</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
 <span class="n">rect</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
 </pre></div>
-
-
 <h1>递归</h1>
 <ul>
 <li>一个函数, 自己调用自己</li>
@@ -187,10 +169,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">addseq</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">addseq</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The sum of first 10 sequence numbers is&#39;</span><span class="p">,</span> <span class="n">addseq</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'The sum of first 10 sequence numbers is'</span><span class="p">,</span> <span class="n">addseq</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
-
-
 <h1>迭代器</h1>
 <ul>
 <li>迭代器用于循环遍历一个集合中的数据</li>
@@ -200,8 +180,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="c1"># iter 调用对象的 __iter__ 方法获取一个迭代器对象</span>
 <span class="nb">iter</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
 </pre></div>
-
-
 <h2>generator</h2>
 <ul>
 <li>另一个中创建迭代器的方法, 使用 <code>generator</code></li>
@@ -213,21 +191,19 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fruits</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">fruit</span>
+        <span class="k">yield</span> <span class="s1">'</span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">fruit</span>
 
-<span class="n">f</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">([</span><span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Orange&#39;</span><span class="p">,</span> <span class="s1">&#39;Mango&#39;</span><span class="p">,</span> <span class="s1">&#39;Banana&#39;</span> <span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The list of fruits is:&#39;</span> <span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">([</span><span class="s1">'Apple'</span><span class="p">,</span> <span class="s1">'Orange'</span><span class="p">,</span> <span class="s1">'Mango'</span><span class="p">,</span> <span class="s1">'Banana'</span> <span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'The list of fruits is:'</span> <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">__next__</span><span class="p">())</span>
 <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">__next__</span><span class="p">())</span>
 <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">__next__</span><span class="p">())</span>
 <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">__next__</span><span class="p">())</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">([</span><span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Orange&#39;</span><span class="p">,</span> <span class="s1">&#39;Mango&#39;</span><span class="p">,</span> <span class="s1">&#39;Banana&#39;</span> <span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The list of fruits is:&#39;</span> <span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">fruits</span><span class="p">([</span><span class="s1">'Apple'</span><span class="p">,</span> <span class="s1">'Orange'</span><span class="p">,</span> <span class="s1">'Mango'</span><span class="p">,</span> <span class="s1">'Banana'</span> <span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'The list of fruits is:'</span> <span class="p">)</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">print</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
-
-
 <h2>generator expression</h2>
 <ul>
 <li><code>generator expression</code> : 创建迭代器对象, 通过圆括号包裹</li>
@@ -236,7 +212,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">squarenum</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
 <span class="n">iteratorobj</span> <span class="o">=</span> <span class="p">(</span><span class="n">squarenum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The squares of first five sequence numbers&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'The squares of first five sequence numbers'</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">iteratorobj</span><span class="o">.</span><span class="n">__next__</span><span class="p">())</span>
 <span class="k">print</span><span class="p">(</span><span class="n">iteratorobj</span><span class="o">.</span><span class="n">__next__</span><span class="p">())</span>
 <span class="k">print</span><span class="p">(</span><span class="n">iteratorobj</span><span class="o">.</span><span class="n">__next__</span><span class="p">())</span>
@@ -244,8 +220,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">print</span><span class="p">(</span><span class="n">iteratorobj</span><span class="o">.</span><span class="n">__next__</span><span class="p">())</span>
 <span class="k">print</span><span class="p">(</span><span class="n">iteratorobj</span><span class="o">.</span><span class="n">__next__</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>模块</h1>
 <ul>
 <li>一个模块就是一个针对特定任务的一些函数、变量组成的一个文件</li>
@@ -266,8 +240,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="kn">import</span> <span class="nn">calendar</span> <span class="kn">as</span> <span class="nn">cal</span>
 <span class="n">cal</span><span class="o">.</span><span class="n">prcal</span><span class="p">()</span>
 </pre></div>
-
-
 <h2>Math 模块</h2>
 <ul>
 <li>Math 模块包含一些三角函数、常量、还有其他很多很多的函数</li>
@@ -277,29 +249,25 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">ceil</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
-
-
-<h3>dir() 函数</h3>
+<h3 id="dir-han-shu">dir() 函数</h3>
 <ul>
 <li>查看模块中所有 <code>identifier</code>, 包括函数、类、变量</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="c1"># 不传参, 就使用当前模块</span>
 <span class="nb">dir</span><span class="p">(</span><span class="err">模块名</span><span class="p">)</span>
 </pre></div>
-
-
 <h1>命令行参数</h1>
 <ul>
 <li><code>sys.argv</code> 命令行参数存储的变量, 它是个 list, 长度至少是1, 0索引位置指示的是运行的程序名</li>
 <li>传入命令行参数时, 使用<code>空格</code>分隔</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;There are </span><span class="si">%d</span><span class="s1"> arguments&#39;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The command line arguments are:&#39;</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'There are </span><span class="si">%d</span><span class="s1"> arguments'</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'The command line arguments are:'</span> <span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Path of the Python is&#39;</span> <span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Path of the Python is'</span> <span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 </pre></div></div>
 	
         <hr>

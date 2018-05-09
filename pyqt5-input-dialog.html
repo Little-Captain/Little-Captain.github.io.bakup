@@ -74,7 +74,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 input dialogs - pythonspot.com&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">'PyQt5 input dialogs - pythonspot.com'</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">640</span>
@@ -93,31 +93,31 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">getInteger</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">i</span><span class="p">,</span> <span class="n">okPressed</span> <span class="o">=</span> <span class="n">QInputDialog</span><span class="o">.</span><span class="n">getInt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;Get integer&#39;</span><span class="p">,</span>\
-                                           <span class="s1">&#39;Percentage:&#39;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">i</span><span class="p">,</span> <span class="n">okPressed</span> <span class="o">=</span> <span class="n">QInputDialog</span><span class="o">.</span><span class="n">getInt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'Get integer'</span><span class="p">,</span>\
+                                           <span class="s1">'Percentage:'</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">okPressed</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">getDouble</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">d</span><span class="p">,</span> <span class="n">okPressed</span> <span class="o">=</span> <span class="n">QInputDialog</span><span class="o">.</span><span class="n">getDouble</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;Get double&quot;</span><span class="p">,</span>
-                                              <span class="s2">&quot;Value:&quot;</span><span class="p">,</span> <span class="mf">10.50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">d</span><span class="p">,</span> <span class="n">okPressed</span> <span class="o">=</span> <span class="n">QInputDialog</span><span class="o">.</span><span class="n">getDouble</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"Get double"</span><span class="p">,</span>
+                                              <span class="s2">"Value:"</span><span class="p">,</span> <span class="mf">10.50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">okPressed</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">getChoice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">items</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;Blue&quot;</span><span class="p">,</span> <span class="s2">&quot;Green&quot;</span><span class="p">)</span>
-        <span class="n">item</span><span class="p">,</span> <span class="n">okPressed</span> <span class="o">=</span> <span class="n">QInputDialog</span><span class="o">.</span><span class="n">getItem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;Get item&quot;</span><span class="p">,</span>\
-                                               <span class="s2">&quot;Color:&quot;</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+        <span class="n">items</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"Red"</span><span class="p">,</span> <span class="s2">"Blue"</span><span class="p">,</span> <span class="s2">"Green"</span><span class="p">)</span>
+        <span class="n">item</span><span class="p">,</span> <span class="n">okPressed</span> <span class="o">=</span> <span class="n">QInputDialog</span><span class="o">.</span><span class="n">getItem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"Get item"</span><span class="p">,</span>\
+                                               <span class="s2">"Color:"</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">okPressed</span> <span class="ow">and</span> <span class="n">item</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">getText</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">text</span><span class="p">,</span> <span class="n">okPressed</span> <span class="o">=</span> <span class="n">QInputDialog</span><span class="o">.</span><span class="n">getText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;Get text&quot;</span><span class="p">,</span>\
-                                               <span class="s2">&quot;Your name:&quot;</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="o">.</span><span class="n">Normal</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">okPressed</span> <span class="ow">and</span> <span class="n">text</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">text</span><span class="p">,</span> <span class="n">okPressed</span> <span class="o">=</span> <span class="n">QInputDialog</span><span class="o">.</span><span class="n">getText</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"Get text"</span><span class="p">,</span>\
+                                               <span class="s2">"Your name:"</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="o">.</span><span class="n">Normal</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">okPressed</span> <span class="ow">and</span> <span class="n">text</span> <span class="o">!=</span> <span class="s1">''</span><span class="p">:</span>
             <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">App</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

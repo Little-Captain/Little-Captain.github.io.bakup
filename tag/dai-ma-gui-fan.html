@@ -81,8 +81,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1">// 代码开始</span>
 <span class="p">}</span>
 </pre></div>
-
-
 <ul>
 <li>在两个以上的关键字、变量、常量进行对等操作时，它们之间的操作符之前、 之后或者前后要加空格;进行非对等操作时，如果是关系密切的立即操作符(++、&amp;、! ...)，后不应加空格。</li>
 <li>一行程序以小于80字符为宜，不要写得过长。</li>
@@ -90,8 +88,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 <div class="highlight"><pre><span></span><span class="o">!</span><span class="n">_block</span> <span class="o">?</span> <span class="o">:</span> <span class="n">_block</span><span class="p">(...);</span>
 </pre></div>
-
-
 <ul>
 <li>方法声明规则: 一个参数一行</li>
 </ul>
@@ -102,8 +98,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
                             <span class="nf">data:</span><span class="p">(</span><span class="bp">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
                         <span class="nf">progress:</span><span class="p">(</span><span class="n">nullable</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">float</span> <span class="n">progress</span><span class="p">))</span><span class="nv">progress</span><span class="p">;</span>
 </pre></div>
-
-
 <h1>注释</h1>
 <ul>
 <li>添加必要注释, 尽量做到代码自注释, 通过语义清晰的命名来实现</li>
@@ -123,8 +117,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="cm"> isSuccess == NO  : result 为 错误信息对象(NSError)</span>
 <span class="cm"> */</span>
 </pre></div>
-
-
 <ul>
 <li>注释应与其描述的代码相近，对代码的注释应放在其上方或右方(对单条语句的注释)相邻位置</li>
 <li>对于所有有物理含义的变量、常量，如果其命名不是充分自注释的，在声明时都必须加以注释，说明其物理含义。变量、常量、宏的注释应放在其上方相邻位置或右方。</li>
@@ -143,8 +135,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1">// end of if (...) else</span>
 <span class="p">}</span>
 </pre></div>
-
-
 <h1>标识符命名</h1>
 <ul>
 <li>标识符的命名要清晰、明了，有明确含义，同时使用完整的单词或大家基本可以 理解的缩写，避免使人产生误解。</li>
@@ -153,14 +143,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>命名规范</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="c1">// 一般变量 : 小驼峰命名法</span>
-<span class="bp">NSString</span> <span class="o">*</span><span class="n">fileName</span><span class="o">=</span> <span class="s">@&quot;xxx&quot;</span><span class="p">;</span>
+<span class="bp">NSString</span> <span class="o">*</span><span class="n">fileName</span><span class="o">=</span> <span class="s">@"xxx"</span><span class="p">;</span>
 <span class="c1">// 全局静态常量 : 大驼峰命名法</span>
-<span class="bp">NSString</span> <span class="o">*</span> <span class="k">const</span> <span class="n">FileName</span><span class="o">=</span> <span class="s">@&quot;xxx&quot;</span><span class="p">;</span>
+<span class="bp">NSString</span> <span class="o">*</span> <span class="k">const</span> <span class="n">FileName</span><span class="o">=</span> <span class="s">@"xxx"</span><span class="p">;</span>
 <span class="c1">// 宏 : k开头</span>
-<span class="cp">#define kFileName @&quot;xxx&quot;</span>
+<span class="cp">#define kFileName @"xxx"</span>
 </pre></div>
-
-
 <h1>可读性</h1>
 <ul>
 <li>注意运算符的优先级，并用括号明确表达式的操作顺序，避免使用默认优先级。</li>
@@ -210,8 +198,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1">// ... </span>
 <span class="p">}</span>
 </pre></div>
-
-
 <ul>
 <li>有可能的话，if 语句尽量加上 else 分支，对没有 else 分支的语句要小心对待; switch 语句必须有default 分支。</li>
 <li>不要使用 goto 语句。</li>

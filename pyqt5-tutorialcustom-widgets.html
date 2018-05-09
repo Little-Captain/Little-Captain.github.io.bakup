@@ -108,7 +108,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">MAX_CAPACITY</span> <span class="o">=</span> <span class="mi">700</span>
         <span class="n">OVER_CAPACITY</span> <span class="o">=</span> <span class="mi">750</span>
 
-        <span class="n">font</span> <span class="o">=</span> <span class="n">QFont</span><span class="p">(</span><span class="s1">&#39;Serif&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">QFont</span><span class="o">.</span><span class="n">Light</span><span class="p">)</span>
+        <span class="n">font</span> <span class="o">=</span> <span class="n">QFont</span><span class="p">(</span><span class="s1">'Serif'</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">QFont</span><span class="o">.</span><span class="n">Light</span><span class="p">)</span>
         <span class="n">qp</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">font</span><span class="p">)</span>
 
         <span class="c1"># We draw the widget dynamically.</span>
@@ -196,7 +196,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">vbox</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">390</span><span class="p">,</span> <span class="mi">210</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Burning widget&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Burning widget'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">changeValue</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
@@ -204,7 +204,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">wid</span><span class="o">.</span><span class="n">repaint</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

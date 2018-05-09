@@ -85,28 +85,26 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">lbl1</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">&#39;Zetcode&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">lbl1</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">'Zetcode'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="c1"># The x values grow from left to right. </span>
         <span class="c1"># The y values grow from top to bottom.</span>
         <span class="n">lbl1</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-        <span class="n">lbl2</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">&#39;tutorials&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">lbl2</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">'tutorials'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">lbl2</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
 
-        <span class="n">lbl3</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">&#39;for programmers&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">lbl3</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">'for programmers'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">lbl3</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Absolute&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Absolute'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>Box layout</h1>
 <ul>
 <li><code>QHBoxLayout</code> and <code>QVBoxLayout</code> are basic layout classes that line up widgets horizontally and vertically.</li>
@@ -124,8 +122,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">okButton</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;OK&quot;</span><span class="p">)</span>
-        <span class="n">cancelButton</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Cancel&quot;</span><span class="p">)</span>
+        <span class="n">okButton</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">"OK"</span><span class="p">)</span>
+        <span class="n">cancelButton</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">"Cancel"</span><span class="p">)</span>
 
         <span class="n">hbox</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">()</span>
         <span class="c1"># The stretch adds a stretchable space before the two buttons.</span>
@@ -143,17 +141,15 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">vbox</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Buttons&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Buttons'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>QGridLayout</h1>
 <ul>
 <li>QGridLayout is the most universal layout class. It divides the space into rows and columns.</li>
@@ -174,18 +170,18 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">grid</span> <span class="o">=</span> <span class="n">QGridLayout</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 
-        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cls&#39;</span><span class="p">,</span> <span class="s1">&#39;Bck&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;Close&#39;</span><span class="p">,</span>
-                 <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>
-                 <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span>
-                 <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span>
-                 <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">]</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Cls'</span><span class="p">,</span> <span class="s1">'Bck'</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'Close'</span><span class="p">,</span>
+                 <span class="s1">'7'</span><span class="p">,</span> <span class="s1">'8'</span><span class="p">,</span> <span class="s1">'9'</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">,</span>
+                 <span class="s1">'4'</span><span class="p">,</span> <span class="s1">'5'</span><span class="p">,</span> <span class="s1">'6'</span><span class="p">,</span> <span class="s1">'*'</span><span class="p">,</span>
+                 <span class="s1">'1'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">,</span>
+                 <span class="s1">'0'</span><span class="p">,</span> <span class="s1">'.'</span><span class="p">,</span> <span class="s1">'='</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">]</span>
 
         <span class="n">positions</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
         <span class="c1"># zip : zip([1, 2], [3, 4]) =&gt; [(1, 3), (2, 4)] (zip object)</span>
         <span class="c1"># 同时遍历 position、name</span>
         <span class="k">for</span> <span class="n">position</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
 
-            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">''</span><span class="p">:</span>
                 <span class="k">continue</span>
             <span class="n">button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
             <span class="c1"># Python 允许你在 list 或 tuple 前面加一个 * 号，</span>
@@ -193,17 +189,15 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
             <span class="n">grid</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="o">*</span><span class="n">position</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Calculator&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Calculator'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-
-
 <h1>Review example</h1>
 <ul>
 <li>Widgets can span multiple columns or rows in a grid</li>
@@ -220,9 +214,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">title</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">&#39;Title&#39;</span><span class="p">)</span>
-        <span class="n">author</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">&#39;Author&#39;</span><span class="p">)</span>
-        <span class="n">review</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">&#39;Review&#39;</span><span class="p">)</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">'Title'</span><span class="p">)</span>
+        <span class="n">author</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">'Author'</span><span class="p">)</span>
+        <span class="n">review</span> <span class="o">=</span> <span class="n">QLabel</span><span class="p">(</span><span class="s1">'Review'</span><span class="p">)</span>
 
         <span class="n">titleEdit</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">()</span>
         <span class="n">authorEdit</span> <span class="o">=</span> <span class="n">QLineEdit</span><span class="p">()</span>
@@ -244,11 +238,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Review&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Review'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

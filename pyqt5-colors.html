@@ -78,7 +78,7 @@ In a <code>QPainter</code> widget you can pass a color to the <code>setBrush</co
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt rectangle colors - pythonspot.com&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">'PyQt rectangle colors - pythonspot.com'</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">440</span>
@@ -130,7 +130,7 @@ In a <code>QPainter</code> widget you can pass a color to the <code>setBrush</co
             <span class="n">qp</span><span class="o">.</span><span class="n">setBrush</span><span class="p">(</span><span class="n">QColor</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">1</span><span class="p">))</span>
             <span class="n">qp</span><span class="o">.</span><span class="n">drawRect</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">App</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

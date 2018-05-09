@@ -82,10 +82,10 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Dialog</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="n">b1</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">&#39;Button1&#39;</span><span class="p">)</span>
-        <span class="n">b2</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Button2&quot;</span><span class="p">)</span>
-        <span class="n">b3</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Button3&quot;</span><span class="p">)</span>
-        <span class="n">b4</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">&quot;Button4&quot;</span><span class="p">)</span>
+        <span class="n">b1</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">'Button1'</span><span class="p">)</span>
+        <span class="n">b2</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">"Button2"</span><span class="p">)</span>
+        <span class="n">b3</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">"Button3"</span><span class="p">)</span>
+        <span class="n">b4</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s2">"Button4"</span><span class="p">)</span>
 
         <span class="n">mainLayout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
         <span class="n">mainLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">b1</span><span class="p">)</span>
@@ -94,9 +94,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">mainLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">b4</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">mainLayout</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Form Layout - pythonspot.com&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Form Layout - pythonspot.com'</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">dialog</span> <span class="o">=</span> <span class="n">Dialog</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">dialog</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

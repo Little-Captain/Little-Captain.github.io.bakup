@@ -76,18 +76,16 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="c1"># +</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="c1"># [1, 1, 1, 2]</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># [1, 2, 1, 2]</span>
-<span class="s1">&#39;12&#39;</span> <span class="o">+</span> <span class="s1">&#39;12&#39;</span> <span class="c1"># &#39;1212&#39;</span>
+<span class="s1">'12'</span> <span class="o">+</span> <span class="s1">'12'</span> <span class="c1"># '1212'</span>
 <span class="c1"># *</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span> <span class="c1"># [1, 2, 1, 2, 1, 2]</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span> <span class="c1"># (1, 2, 1, 2, 1, 2)</span>
-<span class="s1">&#39;12&#39;</span> <span class="o">*</span> <span class="mi">3</span> <span class="c1"># &#39;121212&#39;</span>
+<span class="s1">'12'</span> <span class="o">*</span> <span class="mi">3</span> <span class="c1"># '121212'</span>
 <span class="c1"># []</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># [2, 3]</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># (2, 3)</span>
-<span class="s1">&#39;12312312&#39;</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># &#39;23&#39;</span>
+<span class="s1">'12312312'</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># '23'</span>
 </pre></div>
-
-
 <h1>字符串</h1>
 <ul>
 <li><code>'</code> <code>"</code> <code>'''</code> <code>"""</code></li>
@@ -99,15 +97,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </li>
 <li>当你对字符串执行一个操作时, 将创建一个新字符串</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="s1">&#39;Hello World!&#39;</span>
-<span class="n">k</span> <span class="o">=</span> <span class="s2">&quot;Hello World!&quot;</span>
-<span class="n">k</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="s1">'Hello World!'</span>
+<span class="n">k</span> <span class="o">=</span> <span class="s2">"Hello World!"</span>
+<span class="n">k</span> <span class="o">=</span> <span class="s1">'''</span>
 <span class="s1">Hello World!</span>
-<span class="s1">It</span><span class="se">\&#39;</span><span class="s1"> s hot today</span>
-<span class="s1">Let</span><span class="se">\&#39;</span><span class="s1">s party &#39;&#39;&#39;</span>
+<span class="s1">It</span><span class="se">\'</span><span class="s1"> s hot today</span>
+<span class="s1">Let</span><span class="se">\'</span><span class="s1">s party '''</span>
 </pre></div>
-
-
 <h2>函数与方法的区别</h2>
 <ul>
 <li>函数是模块中的方法, 通过名字直接调用</li>
@@ -140,22 +136,18 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">istitle</span><span class="p">()</span>
 <span class="n">isupper</span><span class="p">()</span>
 </pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a string: &quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter a string: "</span><span class="p">)</span>
 <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;The first character of&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;The entered string will appear character wise as:&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"The first character of"</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="s2">"is"</span><span class="p">,</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"The entered string will appear character wise as:"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;The entered string will appear character wise as:&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"The entered string will appear character wise as:"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
     <span class="k">print</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;String with its characters sorted is&quot;</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;String in reverse form is&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">s</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"String with its characters sorted is"</span><span class="p">,</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"String in reverse form is"</span><span class="p">,</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">s</span><span class="p">)))</span>
 </pre></div>
-
-
 <div class="highlight"><pre><span></span><span class="c1"># 查找子字符串的方法</span>
 <span class="n">count</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="p">[</span><span class="n">end</span><span class="p">])</span> <span class="c1">#  查找 s 出现的次数</span>
 <span class="n">find</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="p">[</span><span class="n">end</span><span class="p">])</span> <span class="c1"># 查找 s 出现的第一个 index, 没有返回 -1</span>
@@ -163,26 +155,20 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">rfind</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="p">[</span><span class="n">end</span><span class="p">])</span> <span class="c1"># 查找 s 出现的最后一个 index, 没有返回 -1</span>
 <span class="n">rindex</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="p">[</span><span class="n">end</span><span class="p">])</span> <span class="c1"># 查找 s 出现的最后一个 index, 没有抛出错误</span>
 </pre></div>
-
-
 <div class="highlight"><pre><span></span><span class="c1"># 匹配特定的字符串前缀或后缀</span>
 <span class="c1"># suffix 可以是一个 字符串 or 字符串构成的tuple</span>
 <span class="n">startswith</span><span class="p">(</span><span class="n">suffix</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="p">[</span><span class="n">end</span><span class="p">])</span> <span class="c1"># 返回 True or False</span>
 <span class="n">endswith</span><span class="p">(</span><span class="n">suffix</span><span class="p">,</span> <span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="p">[</span><span class="n">end</span><span class="p">])</span>
 </pre></div>
-
-
 <div class="highlight"><pre><span></span><span class="c1"># 切割字符串 or 替换字符串</span>
 <span class="n">partition</span><span class="p">(</span><span class="n">separator</span><span class="p">)</span>
-<span class="s1">&#39;aLb&#39;</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">&#39;L&#39;</span><span class="p">)</span> <span class="c1"># (&#39;a&#39;, &#39;L&#39;, &#39;b&#39;)</span>
-<span class="s1">&#39;aLb&#39;</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span> <span class="c1"># (&#39;aLb&#39;, &#39;&#39;, &#39;&#39;)</span>
+<span class="s1">'aLb'</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">'L'</span><span class="p">)</span> <span class="c1"># ('a', 'L', 'b')</span>
+<span class="s1">'aLb'</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">':'</span><span class="p">)</span> <span class="c1"># ('aLb', '', '')</span>
 <span class="n">split</span><span class="p">(</span><span class="n">separator</span><span class="p">,[</span><span class="n">n</span><span class="p">])</span> <span class="c1"># n 表示切分几次</span>
 <span class="n">splitlines</span><span class="p">(</span><span class="n">boolean</span><span class="p">)</span>  <span class="c1"># 通过行分隔符切割字符串</span>
 <span class="n">expandtabs</span><span class="p">([</span><span class="n">tabsize</span><span class="p">])</span> <span class="c1"># 将 tab 展开为 空格</span>
 <span class="n">replace</span><span class="p">(</span><span class="n">sl</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="p">[</span><span class="n">n</span><span class="p">])</span> <span class="c1"># 将 s1 替换为 s2 n 次, n 没有指定, 替换所有</span>
 </pre></div>
-
-
 <h1>数组</h1>
 <ul>
 <li>一维数组</li>
@@ -191,36 +177,32 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="n">m1</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span> <span class="p">]</span>
 <span class="n">m2</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="p">]</span>
 <span class="n">m3</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">2</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Addition of two matrices is&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"Addition of two matrices is"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
         <span class="n">m3</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">m1</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">m2</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">m3</span><span class="p">:</span>
     <span class="k">print</span> <span class="p">(</span><span class="n">row</span><span class="p">)</span>
 </pre></div>
-
-
 <h1>List</h1>
-<div class="highlight"><pre><span></span><span class="n">months</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;January&#39;</span><span class="p">,</span> <span class="s1">&#39;February&#39;</span><span class="p">,</span> <span class="s1">&#39;March&#39;</span><span class="p">,</span> \
-          <span class="s1">&#39;April&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;June&#39;</span><span class="p">,</span> <span class="s1">&#39;July&#39;</span><span class="p">,</span> \
-          <span class="s1">&#39;August&#39;</span><span class="p">,</span> <span class="s1">&#39;September&#39;</span><span class="p">,</span> <span class="s1">&#39;October&#39;</span><span class="p">,</span> \
-          <span class="s1">&#39;November&#39;</span><span class="p">,</span> <span class="s1">&#39;December&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><span class="n">months</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'January'</span><span class="p">,</span> <span class="s1">'February'</span><span class="p">,</span> <span class="s1">'March'</span><span class="p">,</span> \
+          <span class="s1">'April'</span><span class="p">,</span> <span class="s1">'May'</span><span class="p">,</span> <span class="s1">'June'</span><span class="p">,</span> <span class="s1">'July'</span><span class="p">,</span> \
+          <span class="s1">'August'</span><span class="p">,</span> <span class="s1">'September'</span><span class="p">,</span> <span class="s1">'October'</span><span class="p">,</span> \
+          <span class="s1">'November'</span><span class="p">,</span> <span class="s1">'December'</span><span class="p">]</span>
 <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">months</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
     <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a value between 1 and 12: &quot;</span><span class="p">))</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter a value between 1 and 12: "</span><span class="p">))</span>
 <span class="k">if</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">12</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;The month is&quot;</span><span class="p">,</span> <span class="n">months</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s2">"The month is"</span><span class="p">,</span> <span class="n">months</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Value is out of the range&quot;</span><span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s2">"Value is out of the range"</span><span class="p">)</span>
 </pre></div>
-
-
 <h2>切片操作(slicing)</h2>
 <div class="highlight"><pre><span></span><span class="c1"># 基本语法</span>
 <span class="nb">list</span><span class="p">[</span><span class="n">start_index</span><span class="p">:</span><span class="n">end_index</span><span class="p">]</span> <span class="c1"># 包含 start_index(默认0) , 不包含 end_index(默认至结束)</span>
-<span class="n">tmplist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Kelly&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;Caroline&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;Steve&#39;</span><span class="p">,</span> <span class="s1">&#39;Katheline&#39;</span><span class="p">]</span>
+<span class="n">tmplist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'John'</span><span class="p">,</span> <span class="s1">'Kelly'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">'Caroline'</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">'Steve'</span><span class="p">,</span> <span class="s1">'Katheline'</span><span class="p">]</span>
 <span class="n">tmplist</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">tmplist</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">tmplist</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
@@ -231,8 +213,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">tmplist</span><span class="p">[:</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">tmplist</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>
 </pre></div>
-
-
 <ul>
 <li><code>list</code> 相关方法</li>
 </ul>
@@ -246,33 +226,27 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">count</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1"># 统计 value 在 list 中出现的次数</span>
 <span class="n">index</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="c1"># 获取 value 在 list 中 index, 不存在将抛出异常</span>
 </pre></div>
-
-
 <h1>Tuple</h1>
 <ul>
 <li>不可变</li>
 <li>可存储任何数据类型</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;Kelly&#39;</span><span class="p">,</span> <span class="s1">&#39;Caroline&#39;</span><span class="p">,</span> <span class="s1">&#39;Steve&#39;</span><span class="p">,</span> <span class="s1">&#39;Katheline&#39;</span><span class="p">)</span>
-<span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the name to search: &quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'John'</span><span class="p">,</span> <span class="s1">'Kelly'</span><span class="p">,</span> <span class="s1">'Caroline'</span><span class="p">,</span> <span class="s1">'Steve'</span><span class="p">,</span> <span class="s1">'Katheline'</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter the name to search: "</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The name&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;is present in the tuple&quot;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"The name"</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">"is present in the tuple"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;The name&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;does not exist in the tuple&quot;</span><span class="p">)</span>
-<span class="n">countries</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;U.S.&#39;</span><span class="p">,</span> <span class="s1">&#39;U.K&#39;</span><span class="p">,</span> <span class="s1">&#39;India&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">"The name"</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">"does not exist in the tuple"</span><span class="p">)</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'U.S.'</span><span class="p">,</span> <span class="s1">'U.K'</span><span class="p">,</span> <span class="s1">'India'</span><span class="p">)</span>
 <span class="n">names</span> <span class="o">+=</span> <span class="n">countries</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">&quot;The tuples are concatenated. The concatenated tuple is&quot;</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">"The tuples are concatenated. The concatenated tuple is"</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
 </pre></div>
-
-
 <h1>Dictionary</h1>
 <ul>
 <li>可变</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="n">key1</span> <span class="p">:</span> <span class="n">value1</span><span class="p">,</span> <span class="n">key2</span> <span class="p">:</span> <span class="n">value2</span> <span class="p">}</span>
 </pre></div>
-
-
 <h2>常用方法和函数</h2>
 <div class="highlight"><pre><span></span><span class="n">clear</span><span class="p">()</span>
 <span class="n">pop</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="p">[</span><span class="n">default</span><span class="p">])</span> <span class="c1"># key 对应的值不存在, 返回 default 指定的默认值</span>
@@ -283,41 +257,31 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">keys</span><span class="p">()</span> <span class="c1"># 返回 key 组成的 序列</span>
 <span class="n">values</span><span class="p">()</span> <span class="c1"># 返回 value 组成的 序列</span>
 </pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="n">student1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;John&#39;</span> <span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="s1">&#39;Kelly&#39;</span> <span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s1">&#39;Caroline&#39;</span> <span class="p">:</span> <span class="mi">80</span><span class="p">}</span>
-<span class="n">student2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;John&#39;</span><span class="p">,</span><span class="mi">55</span><span class="p">)])</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The items in dictionary student1 are:&#39;</span><span class="p">,</span> <span class="n">student1</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The keys in student1 dictionary are:&#39;</span><span class="p">,</span> <span class="n">student1</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The values in student1 dictionary are:&#39;</span><span class="p">,</span> <span class="n">student1</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><span class="n">student1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'John'</span> <span class="p">:</span> <span class="mi">60</span><span class="p">,</span> <span class="s1">'Kelly'</span> <span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="s1">'Caroline'</span> <span class="p">:</span> <span class="mi">80</span><span class="p">}</span>
+<span class="n">student2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">'David'</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="p">(</span><span class="s1">'John'</span><span class="p">,</span><span class="mi">55</span><span class="p">)])</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'The items in dictionary student1 are:'</span><span class="p">,</span> <span class="n">student1</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'The keys in student1 dictionary are:'</span><span class="p">,</span> <span class="n">student1</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'The values in student1 dictionary are:'</span><span class="p">,</span> <span class="n">student1</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 <span class="n">student1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">student2</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The items in dictionary student1 after merging with student2 dictionary are:&#39;</span><span class="p">,</span> <span class="n">student1</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-<span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter name whose marks you want to see: &#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'The items in dictionary student1 after merging with student2 dictionary are:'</span><span class="p">,</span> <span class="n">student1</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Enter name whose marks you want to see: '</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">student1</span><span class="p">:</span> <span class="c1"># key</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;The marks of&#39;</span><span class="p">,</span> <span class="n">n</span> <span class="p">,</span> <span class="s1">&#39;are&#39;</span> <span class="p">,</span> <span class="n">student1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'The marks of'</span><span class="p">,</span> <span class="n">n</span> <span class="p">,</span> <span class="s1">'are'</span> <span class="p">,</span> <span class="n">student1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Sorry the name&#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;does not exist in student1 dictionary&#39;</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'Sorry the name'</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s1">'does not exist in student1 dictionary'</span><span class="p">)</span>
 </pre></div>
-
-
 <h1>Set</h1>
 <h2>并(|)</h2>
 <div class="highlight"><pre><span></span><span class="n">S1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">100</span><span class="p">])</span>
 <span class="n">S2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">15</span><span class="p">])</span>
 <span class="n">S1</span> <span class="o">|</span> <span class="n">S2</span> <span class="c1"># set([1,3,5,6,10,11,15,100])</span>
 </pre></div>
-
-
 <h2>交(&amp;)</h2>
 <div class="highlight"><pre><span></span><span class="n">S1</span> <span class="o">&amp;</span> <span class="n">S2</span> <span class="c1"># set([3, 5, 6, 11])</span>
 </pre></div>
-
-
 <h2>差(-)</h2>
 <div class="highlight"><pre><span></span><span class="n">S1</span> <span class="o">-</span> <span class="n">S2</span> <span class="c1"># set([10, 100])</span>
 </pre></div>
-
-
 <h2>集合的常用方法和函数</h2>
 <div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">()</span>
 <span class="nb">max</span><span class="p">()</span>

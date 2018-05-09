@@ -132,8 +132,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>sendSynchronousRequest</li>
 </ul>
 <h2>异步请求</h2>
-<h3>根据对服务器返回数据的处理方式的不同，又可以分为2种</h3>
-<h4>block回调 …</h4> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ios-wang-luo-nsurlconnection.html">read more</a></div>
+<h3 id="gen-ju-dui-fu-wu-qi-fan-hui-shu-ju-de-chu-li-fang-shi-de-bu-tong-you-ke-yi-fen-wei-2chong">根据对服务器返回数据的处理方式的不同，又可以分为2种</h3>
+<h4 id="blockhui-diao">block回调 …</h4> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ios-wang-luo-nsurlconnection.html">read more</a></div>
     </div>	
 				
 
@@ -188,8 +188,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>服务器</li>
 <li>为客户端提供服务、提供数据、提供资源的机器</li>
 </ul>
-<h3>按照软件开发阶段来分，服务器可以大致分为2种</h3>
-<h4>远程服务器</h4>
+<h3 id="an-zhao-ruan-jian-kai-fa-jie-duan-lai-fen-fu-wu-qi-ke-yi-da-zhi-fen-wei-2chong">按照软件开发阶段来分，服务器可以大致分为2种</h3>
+<h4 id="yuan-cheng-fu-wu-qi">远程服务器</h4>
 <ul>
 <li>别名<ul>
 <li>外网服务器</li>
@@ -200,7 +200,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>使用人群, 供全体用户使用</li>
 <li>速度, 取决于服务器的性能、用户的网速</li>
 </ul>
-<h4>本地服务器</h4>
+<h4 id="ben-di-fu-wu-qi">本地服务器</h4>
 <ul>
 <li>别名 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ios-wang-luo-ji-chu.html">read more</a></div>
     </div>	
@@ -281,7 +281,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <ul>
 <li>Node.js是一个让JavaScript运行在服务器端的开发平台</li>
 <li>Node就是一个js的执行环境</li>
-<li>Node.js不是一种独立的语言，与PHP、JSP、Python、Perl、Ruby的“既是语言，也是平台”不同，Node.js使用JavaScript进行编程，运行在JavaScript引擎上（V8）</li>
+<li>Node.js不是一种独立的语言，与PHP、JSP、Python、Perl、Ruby的&ldquo;既是语言，也是平台&rdquo;不同，Node.js使用JavaScript进行编程，运行在JavaScript引擎上（V8）</li>
 <li>与PHP、JSP等相比，Node.js跳过了Apache、Naginx、IIS等HTTP服务器，它自己不用建设在任何服务器软件之上。Node.js的许多设计理念与经典架构（LAMP）有着很大的不同，可以提供强大的伸缩能力。</li>
 <li>Node.js哲学，花最小的硬件成本，追求更高的并发，更高的处理性能。</li>
 <li>Node …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/nodejs-gai-shu.html">read more</a></div>
@@ -315,7 +315,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>触摸事件</li>
 <li>定时器事件</li>
 <li>Selector事件</li>
-<li>…</li>
+<li>&hellip;</li>
 </ul>
 </li>
 <li>节省CPU资源</li>
@@ -324,12 +324,10 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 <h2>如果没有 runloop</h2>
 <div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;execute main function&quot;</span><span class="p">);</span> <span class="c1">// 程序开始</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"execute main function"</span><span class="p">);</span> <span class="c1">// 程序开始</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 程序结束</span>
 <span class="p">}</span>
 </pre></div>
-
-
 <h2>如果有了 runloop</h2>
 <div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
     <span class="kt">BOOL</span> <span class="n">running</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span> <span class="c1">// 程序开始</span>
@@ -362,7 +360,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>使用 NSOperation 子类的方式有3种<ul>
 <li>NSInvocationOperation</li>
 <li>NSBlockOperation</li>
-<li>自定义子类继承 NSOperation<br>将任务封装到内部的 main 方法中</li>
+<li>自定义子类继承 NSOperation<br/>将任务封装到内部的 main 方法中</li>
 </ul>
 </li>
 </ul>
@@ -407,7 +405,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  </div>
         <div class="summary"><h1>简介</h1>
 <ul>
-<li>全称是Grand Central Dispatch，可译为“宏大的中枢调度器”</li>
+<li>全称是Grand Central Dispatch，可译为&ldquo;宏大的中枢调度器&rdquo;</li>
 <li>纯C语言，提供了非常多强大的函数</li>
 </ul>
 <h2>GCD的优势</h2>
@@ -431,7 +429,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <ul>
 <li>用来存放任务</li>
 </ul>
-<h3>类型</h3>
+<h3 id="lei-xing">类型</h3>
 <ul>
 <li>并发队列<ul>
 <li>Concurrent Dispatch Queue</li>
@@ -588,11 +586,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 <h1>问题分析与解决</h1>
 <h2>不加锁</h2>
-<p><img alt="" src="../assets/images/多线程/不加锁.png"></p>
+<p><img alt="" src="../assets/images/多线程/不加锁.png"/></p>
 <h2>安全隐患解决</h2>
-<h3>加互斥锁</h3>
-<p><img alt="" src="../assets/images/多线程/加互斥锁.png"></p>
-<h3>互斥锁使用</h3>
+<h3 id="jia-hu-chi-suo">加互斥锁</h3>
+<p><img alt="" src="../assets/images/多线程/加互斥锁.png"/></p>
+<h3 id="hu-chi-suo-shi-yong">互斥锁使用</h3>
 <ul>
 <li>@synchronized(锁对象) {// 需要锁定的代码}</li>
 <li>锁定1份代码只用1把锁，用多把锁是无效的</li>
@@ -604,16 +602,16 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h3>互斥锁的优缺点</h3>
+<h3 id="hu-chi-suo-de-you-que-dian">互斥锁的优缺点</h3>
 <ul>
 <li>优点 : 能有效防止因多线程抢夺资源造成的数据安全问题</li>
 <li>缺点 : 需要消耗大量的CPU资源</li>
 </ul>
-<h3>什么时候使用互斥锁</h3>
+<h3 id="shi-yao-shi-hou-shi-yong-hu-chi-suo">什么时候使用互斥锁</h3>
 <ul>
 <li>多条线程抢夺同一块资源</li>
 </ul>
-<h3>线程同步</h3>
+<h3 id="xian-cheng-tong-bu">线程同步</h3>
 <ul>
 <li>多条线程在同一条线上执行（按顺序地执行任务）</li>
 <li>互斥锁，就是使用了线程同步技术</li>
@@ -630,7 +628,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>不会为setter方法加锁</li>
 </ul>
 <h2>原子和非原子属性的选择</h2>
-<h3>nonatomic和atomic对比</h3>
+<h3 id="nonatomiche-atomicdui-bi">nonatomic和atomic对比</h3>
 <ul>
 <li>atomic …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-an-quan-yin-huan.html">read more</a></div>
     </div>	

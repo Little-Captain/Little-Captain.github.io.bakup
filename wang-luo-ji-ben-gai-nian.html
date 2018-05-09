@@ -81,12 +81,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<p><img alt="" src="../assets/images/网络/IP地址分类.png"></p>
+<p><img alt="" src="../assets/images/网络/IP地址分类.png"/></p>
 <ul>
 <li>子网掩码</li>
 </ul>
-<p><img alt="" src="../assets/images/网络/子网掩码的使用.png"></p>
-<p><img alt="" src="../assets/images/网络/变长子网掩码及子网规划.png"></p>
+<p><img alt="" src="../assets/images/网络/子网掩码的使用.png"/></p>
+<p><img alt="" src="../assets/images/网络/变长子网掩码及子网规划.png"/></p>
 <h2>端口</h2>
 <ul>
 <li>属于传输层: 在传输层包头中(TCP头, UDP头)</li>
@@ -154,7 +154,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<p><img alt="" src="../assets/images/网络/DNS查询过程.png"></p>
+<p><img alt="" src="../assets/images/网络/DNS查询过程.png"/></p>
 <div class="highlight"><pre><span></span>* 从查询方式上分
     * 递归查询(要么做出查询成功的响应, 要么做出查询失败的响应; 一般客户机和服务器之间属递归查询, 当客户机向DNS服务器发出请求后, 若DNS服务器本身不能解析, 则会向另外的DNS服务器发出查询请求, 得到结果后转交给客户机)
     * 迭代查询(服务器收到一次迭代查询回复一次结果, 这个结果不一定是目标IP与域名的映射关系, 也可以是其他DNS服务器的地址)
@@ -162,8 +162,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     * 正向查询由域名查找IP地址
     * 反向查询由IP地址查找域名
 </pre></div>
-
-
 <ul>
 <li>域名空间结构<ul>
 <li>根域名(<code>.</code>根域名的服务器全球只有13台)</li>
@@ -181,11 +179,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </li>
 </ul>
 <p><em>组织域</em></p>
-<p><img alt="" src="../assets/images/网络/组织域名.png"></p>
+<p><img alt="" src="../assets/images/网络/组织域名.png"/></p>
 <p><em>国家或地区域</em></p>
-<p><img alt="" src="../assets/images/网络/国家或地区命名.png"></p>
+<p><img alt="" src="../assets/images/网络/国家或地区命名.png"/></p>
 <h2>数据封装与解封</h2>
-<p><img alt="" src="../assets/images/网络/数据封装与解封.png"></p>
+<p><img alt="" src="../assets/images/网络/数据封装与解封.png"/></p>
 <h2>交换机</h2>
 <ul>
 <li>同一网络通信</li>
@@ -199,20 +197,20 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>路由器认识 IP 地址, 用于跨网络通信</li>
 </ul>
 <h2>网关</h2>
-<h3>作用</h3>
+<h3 id="zuo-yong">作用</h3>
 <ol>
 <li>网关(Gateway)又称网间连接器、协议转换器</li>
 <li>网关在网络层以上实现网络互连, 是最复杂的网络互连设备, 仅用于两个高层协议不同的网络互连</li>
 <li>网关既可以用于广域网互连, 也可以用于局域网互连</li>
 <li>网关是一种充当转换重任的服务器或路由器, 内网IP=&gt;公网IP</li>
 </ol>
-<h3>通俗定义</h3>
+<h3 id="tong-su-ding-yi">通俗定义</h3>
 <ul>
 <li>具有路由功能的这么一个设备</li>
 <li>一般是一台路由器, 也可以在服务器上搭建路由的功能, 进而充当网关的作用</li>
 <li>网关是有多级的</li>
 </ul>
-<h3>网关到底做了什么?</h3>
+<h3 id="wang-guan-dao-di-zuo-liao-shi-yao">网关到底做了什么?</h3>
 <ul>
 <li>网关在所有内网计算机访问的不是本网段(本局域网)的数据报时使用</li>
 <li>网关负责将内网IP转换为公网IP, 公网IP转换为内网IP</li>
@@ -222,11 +220,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h3>实例</h3>
+<h3 id="shi-li">实例</h3>
 <ul>
 <li>示意图</li>
 </ul>
-<p><img alt="" src="../assets/images/网络/网关示意图.png"></p>
+<p><img alt="" src="../assets/images/网络/网关示意图.png"/></p>
 <ul>
 <li>你&lt;==&gt;PLMM<ul>
 <li>同一局域网, 通过交换机记录的MAC地址进行通信</li>

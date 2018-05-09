@@ -71,39 +71,37 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div><h1>Git vs SVN</h1>
 <h2>系统的架构</h2>
 <p><strong>SVN : 集中式</strong></p>
-<p><img src="../assets/images/git/SVN.png" width = 100% align=center /></p>
+<p><img align="center" src="../assets/images/git/SVN.png" width="100%"/></p>
 <p><strong>Git : 分布式</strong></p>
-<p><img src="../assets/images/git/Git.png" width = 100% align=center /></p>
+<p><img align="center" src="../assets/images/git/Git.png" width="100%"/></p>
 <blockquote>
 <p>分布式架构的好处, 近乎所有的操作都是本地操作. 具体体现在: 1. 离线可以工作; 2. 操作速度快</p>
 </blockquote>
 <h2>对待数据的方式</h2>
 <p><strong>SVN : 差异比较</strong></p>
-<p><img src="../assets/images/git/SVN data deal.png" width = 100% align=center /></p>
+<p><img align="center" src="../assets/images/git/SVN data deal.png" width="100%"/></p>
 <p><strong>Git : 文件快照</strong></p>
-<p><img src="../assets/images/git/Git data deal.png" width = 100% align=center /></p>
+<p><img align="center" src="../assets/images/git/Git data deal.png" width="100%"/></p>
 <h1>Git 中文件的三种状态</h1>
 <ul>
 <li>已提交(committed) : 数据已安全的保存在本地数据库中</li>
 <li>已修改(modified) : 修改了文件, 还没保存在数据库中</li>
 <li>已暂存(staged) : 对一个已修改的文件的当前版本做了标记, 使之包含在下次提交的快照中</li>
 </ul>
-<p><img src="../assets/images/git/Git workspace.png" width = 100% align=center /></p>
+<p><img align="center" src="../assets/images/git/Git workspace.png" width="100%"/></p>
 <h1>Git 的基本环境搭建</h1>
 <h2>安装 Git for Windows</h2>
 <p><a href="https://github.com/git-for-windows/git/releases/tag/v2.13.3.windows.1">下载地址</a></p>
 <p>使用管理员权限运行, 选择安装目录后, 一直下一步即可!!!</p>
 <p>安装成功后, 以后每次都使用 Git Bash 这个程序即可. 打开后界面如下:</p>
-<p><img src="../assets/images/git/Git bash.png" width = 100% align=center /></p>
+<p><img align="center" src="../assets/images/git/Git bash.png" width="100%"/></p>
 <h1>Git 的用户信息配置</h1>
 <ul>
 <li>这个用户信息是用于指示提交是谁做的, 必须配置</li>
 </ul>
-<div class="highlight"><pre><span></span>git config --global user.name <span class="s1">&#39;Little-Captain&#39;</span>
-git config --global user.email <span class="s1">&#39;littlecaptain@foxmail.com&#39;</span>
+<div class="highlight"><pre><span></span>git config --global user.name <span class="s1">'Little-Captain'</span>
+git config --global user.email <span class="s1">'littlecaptain@foxmail.com'</span>
 </pre></div>
-
-
 <h1>Git 核心命令</h1>
 <ul>
 <li>Git 帮助命令</li>
@@ -112,18 +110,14 @@ git config --global user.email <span class="s1">&#39;littlecaptain@foxmail.com&#
 git <span class="nb">help</span> &lt;verb&gt;
 man git-&lt;verb&gt;
 </pre></div>
-
-
 <ul>
 <li>Git 初始化命令</li>
 </ul>
 <div class="highlight"><pre><span></span>git init
 </pre></div>
-
-
-<p><img src="../assets/images/git/Git command.png" width = 100% align=center /></p>
+<p><img align="center" src="../assets/images/git/Git command.png" width="100%"/></p>
 <h1>案例分析</h1>
-<p><img src="../assets/images/git/对已有的代码进行Git管理.png" width = 100% align=center /></p></div>
+<p><img align="center" src="../assets/images/git/对已有的代码进行Git管理.png" width="100%"/></p></div>
         <hr />
     </div>
 		
@@ -145,7 +139,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><h2>修改 Git 的默认编辑器</h2>
 <div class="highlight"><pre><span></span><span class="c1"># 1. subl 是可以在终端中直接启动的一个文本编辑器</span>
 <span class="c1"># 2. -w 的意思是: 让 git 等待文本编辑结束. 当用户编辑完成后, 关闭文本就表示结束</span>
-git config --global core.editor <span class="s2">&quot;subl -w&quot;</span>
+git config --global core.editor <span class="s2">"subl -w"</span>
 </pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/git-shi-yong-jing-yan-ji-jin.html">read more</a></div>
     </div>	
 				
@@ -178,14 +172,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p>这个不用安装, 解压后, 根据系统使用不同的程序. 要能够在命令行中使用, 必须要将它的路径加入环境变量中</p>
 <h2>gogs</h2>
 <p>将压缩包解压, 然后启动 nssm 程序来包装 gogs, 包装流程<a href="https://gogs.io/docs/installation/run_as_windows_service">参见</a>. </p>
-<h3>防火墙配置</h3>
+<h3 id="fang-huo-qiang-pei-zhi">防火墙配置</h3>
 <ul>
 <li>不配置好防火墙, 本机外是没法访问的.</li>
 </ul>
 <p><strong> 启动或关闭 Windows 防火墙 </strong></p>
 <p>![](../assets/images/git/启动或关闭 Windows 防火墙.png)</p>
 <p><strong> 高级设置 </strong></p>
-<p><img alt="" src="../assets/images/git/高级设置.png"></p>
+<p><img alt="" src="../assets/images/git/高级设置.png"/></p>
 <p>剩下的就是打开浏览器, 访问 gogs 服务了!</p>
 <h1>注意</h1>
 <p>我们在 clone …</p> <a class="btn btn-info xsmall" href="http://littlecaptain.net/zai-windows-ping-tai-da-jian-gogs-fu-wu.html">read more</a></div>
@@ -241,7 +235,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
  </div>
         <div class="summary"><h2>准备篇</h2>
-<h3>服务器</h3>
+<h3 id="fu-wu-qi">服务器</h3>
 <ul>
 <li>创建git专用账户git</li>
 </ul>
@@ -249,16 +243,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 sudo adduser git ssh
 sudo passwd git  
 </pre></div>
-
-
 <ul>
 <li>修改git账户的home目录(有需求才改)</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="c1"># 当然可以直接修改/etc/passwd文件</span>
 usermod -d /tmp git
 </pre></div>
-
-
 <ul>
 <li>安装相关软件(在任何账户都可)</li>
 </ul>
@@ -266,8 +256,6 @@ usermod -d /tmp git
 sudo apt-get install git-core openssh-server openssh-client
 sudo apt-get install python-setuptools
 </pre></div>
-
-
 <ul>
 <li>
 <p>进入<code>git账户</code>, 安装gitosis</p>
@@ -294,7 +282,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h3>集中式工作流</h3>
+        <div class="summary"><h3 id="ji-zhong-shi-gong-zuo-liu">集中式工作流</h3>
 <ul>
 <li>
 <p>集中式系统中通常使用的是单点协作模型 - 集中式工作流。 一个中心集线器，或者说仓库，可以接受代码，所有人将自己的工作与之同步。 若干个开发者则作为节点 - 也就是中心仓库的消费者 - 并且与其进行同步。</p>
@@ -303,10 +291,10 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p>如果两个开发者从中心仓库克隆代码下来，同时作了一些修改，那么只有第一个开发者可以顺利地把数据推送回共享服务器。 第二个开发者在推送修改之前，必须先将第一个人的工作合并进来，这样才不会覆盖第一个人的修改。 这和 Subversion (或任何 CVCS)中的概念一样，而且这个模式也可以很好地运用到 Git 中。</p>
 </li>
 </ul>
-<p><img alt="" src="../assets/images/git/git常用命令-09.png"></p>
-<h3>集成管理者工作流</h3>
+<p><img alt="" src="../assets/images/git/git常用命令-09.png"/></p>
+<h3 id="ji-cheng-guan-li-zhe-gong-zuo-liu">集成管理者工作流</h3>
 <ul>
-<li>每个开发者拥有自己仓库的写权限和其他所有人仓库的读权限。 这种情形下通常会有个代表“官方”项目的权威的仓库。 要为这个项目做贡献，你需要从该项目克隆出一个自己的公开仓库，然后将自己的修改推送上去。 接着你可以请求官方仓库的维护者拉取更新合并到主项目。 维护者可以将你的仓库作为远程仓库添加进来，在本地测试你的变更，将其合并入他们的分支并推送回官方仓库。 整个流程看起来是这样的: </li>
+<li>每个开发者拥有自己仓库的写权限和其他所有人仓库的读权限。 这种情形下通常会有个代表&ldquo;官方&rdquo;项目的权威的仓库。 要为这个项目做贡献，你需要从该项目克隆出一个自己的公开仓库，然后将自己的修改推送上去。 接着你可以请求官方仓库的维护者拉取更新合并到主项目。 维护者可以将你的仓库作为远程仓库添加进来，在本地测试你的变更，将其合并入他们的分支并推送回官方仓库。 整个流程看起来是这样的: </li>
 <li>项目维护者推送到主仓库。</li>
 <li>贡献者克隆此仓库，做出修改。</li>
 <li>贡献者将数据推送到自己的公开仓库。</li>
@@ -334,9 +322,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
  </div>
         <div class="summary"><p><em>git核心命令工作示意图</em></p>
-<p><img alt="" src="../assets/images/git/git常用命令-01.png"></p>
-<p><img alt="" src="../assets/images/git/git常用命令-02.png"></p>
-<p><img alt="" src="../assets/images/git/git常用命令-03.png"></p>
+<p><img alt="" src="../assets/images/git/git常用命令-01.png"/></p>
+<p><img alt="" src="../assets/images/git/git常用命令-02.png"/></p>
+<p><img alt="" src="../assets/images/git/git常用命令-03.png"/></p>
 <ul>
 <li>git帮助</li>
 </ul>
@@ -346,8 +334,6 @@ man git-&lt;verb&gt;
 git <span class="nb">help</span>
 git <span class="nb">help</span> 其他指令
 </pre></div>
-
-
 <ul>
 <li>初始化一个本地仓库，生成一个.git目录，用于维护版本信息</li>
 </ul>
@@ -359,8 +345,6 @@ git init --bare
 # Git 会自动修改该仓库目录的组权限为可写
 git init --bare --shared
 </pre></div>
-
-
 <ul>
 <li>克隆远程仓库到本地</li>
 </ul>
