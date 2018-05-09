@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Brown Stone  
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20100928
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Lean Python(Chapter 10)</title>
+<link href="http://littlecaptain.net/theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="http://littlecaptain.net/" type="application/atom+xml" rel="alternate" title="Little Captain's Blog ATOM Feed" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+    
+                        	<div id="content">
+					<div class="post">
+						<h2 class="title"><a href="lean-pythonchapter-10.html">Lean Python(Chapter 10)</a></h2>
+						<p class="meta"><span class="date">Le Sat 23 September 2017 </span><span class="posted">Par <a href="#">Little Captain</a></span><span>&nbsp; | Catégorie : <a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></span></p>
+					<p class="meta">Tags : </p>	
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <h1>字符串搜索</h1>
+<ul>
+<li>find 返回字符串出现的字符位置, 如果没有找到就返回 -1</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">txt</span><span class="o">=</span><span class="s2">&quot;The quick brown fox jumps over the lazy dog&quot;</span>
+<span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;jump&#39;</span><span class="p">)</span>
+<span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<!-- more -->
+
+<h1>正则表达式</h1>
+<div class="highlight"><pre><span></span><span class="c1"># 匹配邮箱</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">regex</span> <span class="o">=</span> <span class="s1">&#39;\s[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}[\s]&#39;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;This is some text with x@y.z embedded e-mails</span>
+<span class="s2">that we&#39;ll use as@example.com</span>
+<span class="s2">some lines have no email addresses</span>
+<span class="s2">others@have.two valid email@address.com</span>
+<span class="s2">The re module is awonderful@thing.&quot;&quot;&quot;</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;** Search text ***</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">text</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;** Regex ***</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">regex</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">***&#39;</span><span class="p">)</span>
+
+<span class="n">utext</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">utext</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">s</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;*** At least one email found &quot;&#39;</span> <span class="o">+</span> <span class="n">s</span><span class="o">.</span><span class="n">group</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">utext</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">m</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Match found&#39;</span><span class="p">,</span> <span class="n">match</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</pre></div>
+
+
+<h2>捕获括号</h2>
+<div class="highlight"><pre><span></span><span class="c1"># 找出 html 中的 links</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;http://leanpy.com&#39;</span><span class="p">)</span>
+<span class="n">data1</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="n">regex</span> <span class="o">=</span> <span class="s1">&#39;&lt;a\s[^&gt;]*href\s*=\s*</span><span class="se">\&quot;</span><span class="s1">([^</span><span class="se">\&quot;</span><span class="s1">]*)</span><span class="se">\&quot;</span><span class="s1">[^&gt;]*&gt;(.*?)&lt;/a&gt;&#39;</span>
+
+<span class="n">pm</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">regex</span><span class="p">)</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+    <span class="n">ms</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s1">&#39;Link: &quot;&#39;</span><span class="p">,</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;&quot; Text: &quot;&#39;</span><span class="p">,</span><span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;&quot;&#39;</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">ms</span><span class="p">)</span>
+</pre></div>	
+						</div>
+					</div>
+			      
+					<div style="clear: both;">&nbsp;</div>
+				</div>
+				<!-- end #content -->
+				<div id="sidebar">
+					<div id="logo">
+						<h1><a href="http://littlecaptain.net">Little Captain's Blog</a></h1>
+					</div>
+					<div id="menu">
+						<ul>
+							<li ><a href="http://littlecaptain.net">Home</a></li>
+							<li ><a href="http://littlecaptain.net/archives.html">Archives</a></li>
+						</ul>
+					</div>
+					<ul>
+						<li>
+							<h2>Catégories</h2>
+							<ul>
+								 <li class="active"><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+								 <li ><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+							</ul>
+						</li>
+						<li>
+							<h2>Blogroll</h2>
+							<ul>
+                                                            <li><a href="https://github.com/Little-Captain">Github</a></li>
+							</ul>
+						</li>
+						<li>
+						        <h2>Tags</h2>
+						        <ul>
+						        </ul>
+						</li>
+						
+						
+					</ul>
+				</div>
+				<!-- end #sidebar -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+
+<div id="footer">
+	<p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">CSS Templates</a>.</p>
+	<p>Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

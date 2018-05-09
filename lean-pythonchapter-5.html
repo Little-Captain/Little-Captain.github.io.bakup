@@ -15,7 +15,7 @@ Released   : 20100928
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Little Captain's Blog</title>
+<title>Lean Python(Chapter 5)</title>
 <link href="http://littlecaptain.net/theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="http://littlecaptain.net/" type="application/atom+xml" rel="alternate" title="Little Captain's Blog ATOM Feed" />
 </head>
@@ -24,26 +24,48 @@ Released   : 20100928
 	<div id="page">
 		<div id="page-bgtop">
 			<div id="page-bgbtm">
-<div id="content">
-<div class="post">  
-        
-				<ul>
-                                    <li>Lean Python</li>
-                                    <li>杂谈</li>
-                                </ul>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    
+                        	<div id="content">
+					<div class="post">
+						<h2 class="title"><a href="lean-pythonchapter-5.html">Lean Python(Chapter 5)</a></h2>
+						<p class="meta"><span class="date">Le Fri 22 September 2017 </span><span class="posted">Par <a href="#">Little Captain</a></span><span>&nbsp; | Catégorie : <a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></span></p>
+					<p class="meta">Tags : </p>	
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <blockquote>
+<p>Module</p>
+</blockquote>
+<!-- more -->
+
+<h1>导入模块</h1>
+<ul>
+<li>一个<code>文件</code>就是一个<code>模块</code>, <code>模块名</code>就是<code>文件名</code></li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># as 使用自定义的名字引用这个模块</span>
+<span class="kn">import</span> <span class="nn">modulename</span> <span class="p">[</span><span class="k">as</span> <span class="n">name</span><span class="p">]</span>
+<span class="c1"># 从模块中引入指定的函数、类、变量等</span>
+<span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="n">function1</span><span class="p">,</span> <span class="n">function2</span><span class="o">...</span>
+<span class="c1"># 从模块中引入所有的内容, 这时直接使用, 而不需要使用 . 引用</span>
+<span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+
+
+<ul>
+<li>注意 : 通常, 导入模块的需要内容和功能, 而要避免使用 <code>import *</code></li>
+</ul>
+<h2>Python 自带模块</h2>
+<ul>
+<li>查看 Python 环境 Path</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span>
+</pre></div>	
+						</div>
+					</div>
+			      
+					<div style="clear: both;">&nbsp;</div>
 				</div>
-				</div>
+				<!-- end #content -->
 				<div id="sidebar">
 					<div id="logo">
 						<h1><a href="http://littlecaptain.net">Little Captain's Blog</a></h1>
@@ -58,7 +80,7 @@ Released   : 20100928
 						<li>
 							<h2>Catégories</h2>
 							<ul>
-								 <li ><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+								 <li class="active"><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
 								 <li ><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
 							</ul>
 						</li>

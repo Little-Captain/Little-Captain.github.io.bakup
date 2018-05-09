@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Brown Stone  
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20100928
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Lean Python(Chapter 8)</title>
+<link href="http://littlecaptain.net/theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="http://littlecaptain.net/" type="application/atom+xml" rel="alternate" title="Little Captain's Blog ATOM Feed" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+    
+                        	<div id="content">
+					<div class="post">
+						<h2 class="title"><a href="lean-pythonchapter-8.html">Lean Python(Chapter 8)</a></h2>
+						<p class="meta"><span class="date">Le Sat 23 September 2017 </span><span class="posted">Par <a href="#">Little Captain</a></span><span>&nbsp; | Catégorie : <a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></span></p>
+					<p class="meta">Tags : </p>	
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <blockquote>
+<p>Testing Your Code</p>
+</blockquote>
+<!--more-->
+
+<h1>模块化编程与代码测试</h1>
+<ul>
+<li>模块化编程是测试更为容易</li>
+</ul>
+<h1>测试驱动的开发(TDD)</h1>
+<blockquote>
+<ol>
+<li>开发代码前先写测试</li>
+<li>运行测试, 观察失败, 然后添加和修正代码, 使测试通过</li>
+<li>当测试通过后, 寻求改进代码设计的机会</li>
+</ol>
+</blockquote>
+<ul>
+<li>对于大型项目, TDD 能够最好的模块化你的代码</li>
+</ul>
+<h1>单元测试框架 : unittest</h1>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">op</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">&#39;+-/*&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;Operator must be +-/*&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">import</span> <span class="nn">calc</span>
+
+<span class="k">class</span> <span class="nc">testCalc</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">testSimpleAdd</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">result</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">calc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">testLargeProduct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">result</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">calc</span><span class="p">(</span><span class="mf">123456789.0</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="mf">987654321.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="mf">1.2193263111263526e+17</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">testDivByZero</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">result</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">calc</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s1">&#39;ZeroDivisionError&#39;</span><span class="p">)</span>
+
+<span class="c1"># 创建 test suite</span>
+<span class="n">TestSuite</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">TestSuite</span><span class="p">()</span>
+<span class="c1"># 添加 test 到 suite 中</span>
+<span class="n">TestSuite</span><span class="o">.</span><span class="n">addTest</span><span class="p">(</span><span class="n">testCalc</span><span class="p">(</span><span class="s2">&quot;testSimpleAdd&quot;</span><span class="p">))</span>
+<span class="n">TestSuite</span><span class="o">.</span><span class="n">addTest</span><span class="p">(</span><span class="n">testCalc</span><span class="p">(</span><span class="s2">&quot;testLargeProduct&quot;</span><span class="p">))</span>
+<span class="n">TestSuite</span><span class="o">.</span><span class="n">addTest</span><span class="p">(</span><span class="n">testCalc</span><span class="p">(</span><span class="s2">&quot;testDivByZero&quot;</span><span class="p">))</span>
+<span class="c1"># 创建 Test runner</span>
+<span class="n">runner</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">TextTestRunner</span><span class="p">()</span>
+<span class="c1"># 执行测试</span>
+<span class="n">runner</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">TestSuite</span><span class="p">)</span>
+</pre></div>	
+						</div>
+					</div>
+			      
+					<div style="clear: both;">&nbsp;</div>
+				</div>
+				<!-- end #content -->
+				<div id="sidebar">
+					<div id="logo">
+						<h1><a href="http://littlecaptain.net">Little Captain's Blog</a></h1>
+					</div>
+					<div id="menu">
+						<ul>
+							<li ><a href="http://littlecaptain.net">Home</a></li>
+							<li ><a href="http://littlecaptain.net/archives.html">Archives</a></li>
+						</ul>
+					</div>
+					<ul>
+						<li>
+							<h2>Catégories</h2>
+							<ul>
+								 <li class="active"><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+								 <li ><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+							</ul>
+						</li>
+						<li>
+							<h2>Blogroll</h2>
+							<ul>
+                                                            <li><a href="https://github.com/Little-Captain">Github</a></li>
+							</ul>
+						</li>
+						<li>
+						        <h2>Tags</h2>
+						        <ul>
+						        </ul>
+						</li>
+						
+						
+					</ul>
+				</div>
+				<!-- end #sidebar -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+
+<div id="footer">
+	<p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">CSS Templates</a>.</p>
+	<p>Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

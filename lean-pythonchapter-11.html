@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Brown Stone  
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20100928
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Lean Python(Chapter 11)</title>
+<link href="http://littlecaptain.net/theme/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="http://littlecaptain.net/" type="application/atom+xml" rel="alternate" title="Little Captain's Blog ATOM Feed" />
+</head>
+<body>
+<div id="wrapper">
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+    
+                        	<div id="content">
+					<div class="post">
+						<h2 class="title"><a href="lean-pythonchapter-11.html">Lean Python(Chapter 11)</a></h2>
+						<p class="meta"><span class="date">Le Sun 24 September 2017 </span><span class="posted">Par <a href="#">Little Captain</a></span><span>&nbsp; | Catégorie : <a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></span></p>
+					<p class="meta">Tags : </p>	
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+						 <blockquote>
+<p>Databases</p>
+</blockquote>
+<h1>SQLite</h1>
+<h2>数据库函数</h2>
+<div class="highlight"><pre><span></span><span class="c1"># 打开连接数据库</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="c1"># 执行 SQL</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="c1"># 返回游标</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="c1"># 执行查询操作, 返回数据</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</pre></div>
+
+
+<!--more-->
+
+<h2>连接和导入数据 (SQLite)</h2>
+<div class="highlight"><pre><span></span><span class="c1"># insert</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="n">db_filename</span><span class="o">=</span><span class="s1">&#39;mydatabase.db&#39;</span>
+
+<span class="n">exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">exists</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
+
+<span class="n">schema</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;create table person (</span>
+<span class="s2">  id integer primary key autoincrement not null,</span>
+<span class="s2">  name text not null,</span>
+<span class="s2">  dob date,</span>
+<span class="s2">  nationality text,</span>
+<span class="s2">  gender text)</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+
+<span class="n">people</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;insert into person (name, dob, nationality, gender)</span>
+<span class="s2">values (&#39;Fred Bloggs&#39;, &#39;1965-12-25&#39;,&#39;British&#39;,&#39;Male&#39;);</span>
+<span class="s2">insert into person (name, dob,nationality,gender)</span>
+<span class="s2">values (&#39;Santa Claus&#39;, &#39;968-01-01&#39;,&#39;Lap&#39;,&#39;Male&#39;);</span>
+<span class="s2">insert into person (name, dob,nationality,gender)</span>
+<span class="s2">values (&#39;Tooth Fairy&#39;, &#39;1931-03-31&#39;,&#39;American&#39;,&#39;Female&#39;);</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select id, name, dob, nationality, gender from person&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
+    <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span> <span class="o">=</span> <span class="n">row</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%3d</span><span class="s2"> </span><span class="si">%15s</span><span class="s2"> </span><span class="si">%12s</span><span class="s2"> </span><span class="si">%10s</span><span class="s2"> </span><span class="si">%6s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span><span class="p">))</span>
+
+<span class="c1"># 省略了 name 字段, 使其抛出一个异常</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dupe</span><span class="o">=</span><span class="s2">&quot;insert into person (id, dob,nationality,gender) </span><span class="se">\</span>
+<span class="s2">    values (1,&#39;1931-03-31&#39;,&#39;American&#39;,&#39;Female&#39;);&quot;</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">dupe</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Cannot insert record&#39;</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># update</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">db_filename</span> <span class="o">=</span> <span class="s1">&#39;mydatabase.db&#39;</span>
+<span class="n">inid</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">innat</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;update person set nationality = :nat where id = :id&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="n">inid</span><span class="p">,</span> <span class="s1">&#39;nat&#39;</span><span class="p">:</span><span class="n">innat</span><span class="p">})</span>
+
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select id, name, dob,nationality,gender from person&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
+    <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span> <span class="o">=</span> <span class="n">row</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%3d</span><span class="s2"> </span><span class="si">%15s</span><span class="s2"> </span><span class="si">%12s</span><span class="s2"> </span><span class="si">%10s</span><span class="s2"> </span><span class="si">%6s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span><span class="p">))</span>
+</pre></div>	
+						</div>
+					</div>
+			      
+					<div style="clear: both;">&nbsp;</div>
+				</div>
+				<!-- end #content -->
+				<div id="sidebar">
+					<div id="logo">
+						<h1><a href="http://littlecaptain.net">Little Captain's Blog</a></h1>
+					</div>
+					<div id="menu">
+						<ul>
+							<li ><a href="http://littlecaptain.net">Home</a></li>
+							<li ><a href="http://littlecaptain.net/archives.html">Archives</a></li>
+						</ul>
+					</div>
+					<ul>
+						<li>
+							<h2>Catégories</h2>
+							<ul>
+								 <li class="active"><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+								 <li ><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+							</ul>
+						</li>
+						<li>
+							<h2>Blogroll</h2>
+							<ul>
+                                                            <li><a href="https://github.com/Little-Captain">Github</a></li>
+							</ul>
+						</li>
+						<li>
+						        <h2>Tags</h2>
+						        <ul>
+						        </ul>
+						</li>
+						
+						
+					</ul>
+				</div>
+				<!-- end #sidebar -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+
+<div id="footer">
+	<p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">CSS Templates</a>.</p>
+	<p>Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
+</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
