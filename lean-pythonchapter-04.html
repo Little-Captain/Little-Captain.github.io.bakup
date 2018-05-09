@@ -65,36 +65,48 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div><blockquote>
 <p>Input and Output</p>
 </blockquote>
-<h1 id="xian-shi-shu-chu">显示输出</h1>
+<h1>显示输出</h1>
 <div class="highlight"><pre><span></span><span class="c1"># 格式</span>
-<span class="k">print</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="n">arg2</span><span class="p">,</span><span class="n">arg3</span><span class="o">...</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">' '</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="n">arg2</span><span class="p">,</span><span class="n">arg3</span><span class="o">...</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
+
+
 <ul>
 <li>使用格式输出</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%d</span><span class="s1"> plus </span><span class="si">%d</span><span class="s1"> makes </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> plus </span><span class="si">%d</span><span class="s1"> makes </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
+
+
 <ul>
 <li>抑制最后的空行输出</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'one...'</span><span class="p">,</span><span class="s1">'two...'</span><span class="p">,</span><span class="s1">'three'</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;one...&#39;</span><span class="p">,</span><span class="s1">&#39;two...&#39;</span><span class="p">,</span><span class="s1">&#39;three&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </pre></div>
-<h1 id="huo-qu-yong-hu-shu-ru">获取用户输入</h1>
-<div class="highlight"><pre><span></span><span class="n">yourName</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Enter your name: '</span><span class="p">)</span>
+
+
+<h1>获取用户输入</h1>
+<div class="highlight"><pre><span></span><span class="n">yourName</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter your name: &#39;</span><span class="p">)</span>
 </pre></div>
+
+
 <ul>
 <li>接收的输入都是字符串, 所以要用户输入数字等需要自行解析</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Enter a number: '</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter a number: &#39;</span><span class="p">)</span>
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">count</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
         <span class="n">count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
         <span class="k">print</span><span class="p">(</span><span class="n">count</span><span class="o">++</span><span class="p">)</span>
 </pre></div>
-<h1 id="du-xie-wen-jian">读写文件</h1>
-<h2 id="da-kai-wen-jian">打开文件</h2>
+
+
+<h1>读写文件</h1>
+<h2>打开文件</h2>
 <div class="highlight"><pre><span></span><span class="n">fileobj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
 </pre></div>
+
+
 <ul>
 <li>mode</li>
 </ul>
@@ -124,85 +136,103 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><span class="n">fname</span> <span class="o">=</span> <span class="s1">'myfile.txt'</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;myfile.txt&#39;</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
 </pre></div>
-<h2 id="guan-bi-wen-jian">关闭文件</h2>
+
+
+<h2>关闭文件</h2>
 <ul>
 <li>一旦你完成文件操作, 就应该关闭文件</li>
 <li>文件的 open 和 close 操作, 总是成对使用</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s1">'w'</span><span class="p">)</span> 
+<span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> 
 <span class="c1"># do something</span>
 <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
-<h2 id="du-qu-wen-jian">读取文件</h2>
+
+
+<h2>读取文件</h2>
 <ul>
 <li>read() 以<code>字符串</code>的形式<code>读取</code>文件的<code>全部内容</code></li>
 <li>可以将读取的内容以<code>换行符</code>('\n')进行<code>分隔</code></li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">text</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
+
+
 <ul>
 <li>readlines() 返回一个 list , list 的元素就是每行的字符串</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
-<span class="n">lines</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span> <span class="c1"># 每行包含换行符'\n'</span>
+<div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span> <span class="c1"># 每行包含换行符&#39;\n&#39;</span>
 <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
-<div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span>
+
+
+<div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="c1"># 去掉了右边的空白字符</span>
 <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fp</span><span class="o">.</span><span class="n">readlines</span><span class="p">()]</span>
 <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
+
+
 <ul>
 <li>使用文件对象自带的迭代器逐行读取文件内容</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s1">'r'</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">eachLine</span> <span class="ow">in</span> <span class="n">fp</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">eachLine</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">eachLine</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
-<h2 id="xie-ru-wen-jian">写入文件</h2>
+
+
+<h2>写入文件</h2>
 <ul>
 <li>标准写入函数 write()</li>
 <li>write() 函数, 不主动添加任何换行符</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">textline</span><span class="p">)</span>
 </pre></div>
-<div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'text.txt'</span><span class="p">,</span><span class="s1">'w'</span><span class="p">)</span>
+
+
+<div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;text.txt&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
 <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Enter text (end with blank):'</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter text (end with blank):&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
         <span class="k">break</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="o">+</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+        <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
-<div class="highlight"><pre><span></span><span class="n">lines</span><span class="o">=</span><span class="p">[</span><span class="s1">'line 1'</span><span class="p">,</span><span class="s1">'line 2'</span><span class="p">,</span><span class="s1">'line 3'</span><span class="p">,</span><span class="s1">'line 4'</span><span class="p">]</span>
-<span class="c1"># write all lines with no '\n'</span>
+
+
+<div class="highlight"><pre><span></span><span class="n">lines</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;line 1&#39;</span><span class="p">,</span><span class="s1">&#39;line 2&#39;</span><span class="p">,</span><span class="s1">&#39;line 3&#39;</span><span class="p">,</span><span class="s1">&#39;line 4&#39;</span><span class="p">]</span>
+<span class="c1"># write all lines with no &#39;\n&#39;</span>
 <span class="n">fp</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
-<span class="c1"># writes all line with '\n'</span>
-<span class="n">fp</span><span class="o">.</span><span class="n">writelines</span><span class="p">([</span><span class="n">line</span><span class="o">+</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">])</span>
+<span class="c1"># writes all line with &#39;\n&#39;</span>
+<span class="n">fp</span><span class="o">.</span><span class="n">writelines</span><span class="p">([</span><span class="n">line</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">])</span>
 </pre></div>
+
+
 <ul>
 <li>注意 : write() 和 writelines() 函数都不会在字符串末尾添加换行符(\n), 你必须自己添加</li>
 </ul>
-<h2 id="fang-wen-wen-jian-xi-tong">访问文件系统</h2>
+<h2>访问文件系统</h2>
 <ul>
 <li>os 模块中的一些常用函数</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="c1"># remove a file (deleteme.txt) from disk</span>
-<span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="s1">'deleteme.txt'</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="s1">&#39;deleteme.txt&#39;</span><span class="p">)</span>
 <span class="c1"># rename file on disk (from file.txt to newname.txt)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">'file.txt'</span><span class="p">,</span><span class="s1">'newname.txt'</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;file.txt&#39;</span><span class="p">,</span><span class="s1">&#39;newname.txt&#39;</span><span class="p">)</span>
 <span class="c1"># change current/working directory</span>
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">newdirectory</span><span class="p">)</span>
 <span class="c1"># create list of files in a directory</span>
@@ -223,20 +253,26 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="c1"># does path name exist and(且) is it is directory?</span>
 <span class="n">isdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
 </pre></div>
-<h1 id="ming-ling-xing-can-shu_1">命令行参数</h1>
+
+
+<h1>命令行参数</h1>
 <div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">mycopy</span><span class="o">.</span><span class="n">py</span> <span class="n">thisfile</span><span class="o">.</span><span class="n">txt</span> <span class="n">thatfile</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
+
+
 <ul>
 <li>如何捕获命令行参数</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">nargs</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="c1"># sys.argv is List</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'</span><span class="si">%d</span><span class="s1"> argument(s)'</span> <span class="o">%</span> <span class="p">(</span><span class="n">nargs</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> argument(s)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">nargs</span><span class="p">))</span>
 <span class="n">n</span><span class="o">=</span><span class="mi">0</span>
 <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">'  arg </span><span class="si">%d</span><span class="s1"> is </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;  arg </span><span class="si">%d</span><span class="s1"> is </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
     <span class="n">n</span><span class="o">+=</span><span class="mi">1</span>
 </pre></div>
+
+
 <ul>
 <li>注意 : <code>第一参数</code>总是<code>程序的名字</code></li>
 </ul></div>

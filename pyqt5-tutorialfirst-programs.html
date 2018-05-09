@@ -62,14 +62,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h1 id="simple-example">Simple example</h1>
+        <div><h1>Simple example</h1>
 <ul>
 <li>用于理解程序的基本原理</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span> <span class="c1"># The basic widgets are located in PyQt5.QtWidgets module</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="c1"># Every PyQt5 application must create an application object.</span>
     <span class="c1"># The sys.argv parameter is a list of arguments from a command line.</span>
     <span class="c1"># Python scripts can be run from the shell. It is a way how we can control the startup of our scripts.</span>
@@ -85,7 +85,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="n">w</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
     <span class="c1"># We set the title of the window with setWindowTitle().</span>
     <span class="c1"># The title is shown in the titlebar.</span>
-    <span class="n">w</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Simple'</span><span class="p">)</span>
+    <span class="n">w</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Simple&#39;</span><span class="p">)</span>
     <span class="c1"># The show() method displays the widget on the screen. </span>
     <span class="c1"># A widget is first created in memory and later shown on the screen.</span>
     <span class="n">w</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -97,7 +97,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1"># The exec_() method has an underscore. It is because the exec is a Python keyword. And thus, exec_() was used instead.</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-<h1 id="an-application-icon">An application icon</h1>
+
+
+<h1>An application icon</h1>
 <blockquote>
 <p>The application icon is a small image which is usually displayed in the top left corner of the titlebar. </p>
 </blockquote>
@@ -118,19 +120,21 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="c1"># In fact, it combines the resize()</span>
         <span class="c1"># and move() methods in one method.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">220</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Icon'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Icon&#39;</span><span class="p">)</span>
         <span class="c1"># sets the application icon</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowIcon</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="s1">'web.png'</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowIcon</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="s1">&#39;web.png&#39;</span><span class="p">))</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-<h1 id="showing-a-tooltip">Showing a tooltip</h1>
+
+
+<h1>Showing a tooltip</h1>
 <blockquote>
 <p>We can provide a balloon help for any of our widgets.</p>
 </blockquote>
@@ -148,29 +152,31 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># This static method sets a font used to render tooltips.</span>
-        <span class="n">QToolTip</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">QFont</span><span class="p">(</span><span class="s1">'SansSerif'</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+        <span class="n">QToolTip</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">QFont</span><span class="p">(</span><span class="s1">&#39;SansSerif&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 
         <span class="c1"># To create a tooltip, we call the setTooltip() method.</span>
         <span class="c1"># We can use rich text formatting.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="s1">'This is a &lt;b&gt;QWidget&lt;/b&gt; widget'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="s1">&#39;This is a &lt;b&gt;QWidget&lt;/b&gt; widget&#39;</span><span class="p">)</span>
 
-        <span class="n">btn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">'Button'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-        <span class="n">btn</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="s1">'This is a &lt;b&gt;QPushButton&lt;/b&gt; widget'</span><span class="p">)</span>
+        <span class="n">btn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">&#39;Button&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">btn</span><span class="o">.</span><span class="n">setToolTip</span><span class="p">(</span><span class="s1">&#39;This is a &lt;b&gt;QPushButton&lt;/b&gt; widget&#39;</span><span class="p">)</span>
         <span class="c1"># The sizeHint() method gives a recommended size for the button.</span>
         <span class="n">btn</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">btn</span><span class="o">.</span><span class="n">sizeHint</span><span class="p">())</span>
         <span class="n">btn</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Tooltips'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Tooltips&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-<h1 id="closing-a-window">Closing a window</h1>
+
+
+<h1>Closing a window</h1>
 <div class="highlight"><pre><span></span><span class="c1"># the constructor of a QPushButton widget</span>
 <span class="c1"># The text parameter is a text that will be displayed on the button.</span>
 <span class="c1"># The parent is a widget on which we place our button.</span>
@@ -179,6 +185,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="c1"># Widgets without parents are toplevel windows.</span>
 <span class="n">QPushButton</span><span class="p">(</span><span class="n">string</span> <span class="n">text</span><span class="p">,</span> <span class="n">QWidget</span> <span class="n">parent</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QApplication</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">QCoreApplication</span>
@@ -191,12 +199,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">qbtn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">'Quit'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">qbtn</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">&#39;Quit&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="c1"># The event processing system in PyQt5</span>
         <span class="c1"># is built with the signal &amp; slot mechanism.</span>
         <span class="c1"># If we click on the button, the signal clicked is emitted.</span>
         <span class="c1"># The slot can be a Qt slot or any Python callable.</span>
-        <span class="c1"># The QCoreApplication contains the main event loop&mdash;it processes</span>
+        <span class="c1"># The QCoreApplication contains the main event loop—it processes</span>
         <span class="c1"># and dispatches all events. The instance() method</span>
         <span class="c1"># gives us its current instance. Note that QCoreApplication</span>
         <span class="c1"># is created with the QApplication. The clicked signal is connected</span>
@@ -209,16 +217,18 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">qbtn</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Quit button'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Quit button&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-<h1 id="message-box">Message Box</h1>
+
+
+<h1>Message Box</h1>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QMessageBox</span><span class="p">,</span> <span class="n">QApplication</span>
 
@@ -232,15 +242,15 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Message box'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Message box&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     <span class="c1"># If we close a QWidget, the QCloseEvent is generated.</span>
     <span class="c1"># To modify the widget behaviour we need to reimplement</span>
     <span class="c1"># the closeEvent() event handler.</span>
     <span class="k">def</span> <span class="nf">closeEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
 
-        <span class="n">reply</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">question</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'Message'</span><span class="p">,</span>
-                                     <span class="s2">"Are you sure to quit?"</span><span class="p">,</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">Yes</span> <span class="o">|</span>
+        <span class="n">reply</span> <span class="o">=</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">question</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;Message&#39;</span><span class="p">,</span>
+                                     <span class="s2">&quot;Are you sure to quit?&quot;</span><span class="p">,</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">Yes</span> <span class="o">|</span>
                                      <span class="n">QMessageBox</span><span class="o">.</span><span class="n">No</span><span class="p">,</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">No</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">reply</span> <span class="o">==</span> <span class="n">QMessageBox</span><span class="o">.</span><span class="n">Yes</span><span class="p">:</span>
@@ -249,12 +259,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
             <span class="n">event</span><span class="o">.</span><span class="n">ignore</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-<h1 id="centering-window-on-the-screen">Centering window on the screen</h1>
+
+
+<h1>Centering window on the screen</h1>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QDesktopWidget</span><span class="p">,</span> <span class="n">QApplication</span>
 
@@ -269,14 +281,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Center'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Center&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">center</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># 自己的 Geometry</span>
         <span class="n">qr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frameGeometry</span><span class="p">()</span>
         <span class="c1"># The QDesktopWidget class provides information</span>
-        <span class="c1"># about the user's desktop, including the screen size.</span>
+        <span class="c1"># about the user&#39;s desktop, including the screen size.</span>
         <span class="c1"># 获取设备 Geometry, 并返回 center point</span>
         <span class="n">cp</span> <span class="o">=</span> <span class="n">QDesktopWidget</span><span class="p">()</span><span class="o">.</span><span class="n">availableGeometry</span><span class="p">()</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
         <span class="c1"># 将 qr 的中心移到设备中心(cp)</span>
@@ -284,7 +296,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="c1"># 将 自己 移动到 qr 的左上点, 这样整个窗口就在屏幕中心了</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">qr</span><span class="o">.</span><span class="n">topLeft</span><span class="p">())</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

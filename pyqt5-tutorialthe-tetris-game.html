@@ -65,7 +65,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div><blockquote>
 <p>Creating a computer game is a good way for enhancing programming skills.</p>
 </blockquote>
-<h1 id="the-development">The development</h1>
+<h1>The development</h1>
 <blockquote>
 <p>We do not have images for our Tetris game, we draw the tetrominoes using the drawing API available in the PyQt5 programming toolkit. Behind every computer game, there is a mathematical model. So it is in Tetris.</p>
 </blockquote>
@@ -97,7 +97,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''initiates application UI'''</span>
+        <span class="sd">&#39;&#39;&#39;initiates application UI&#39;&#39;&#39;</span>
 
         <span class="c1"># An instance of the Board class is created</span>
         <span class="c1"># and set to be the central widget of the application.</span>
@@ -118,11 +118,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         <span class="bp">self</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">380</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Tetris'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Tetris&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">center</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''centers the window on the screen'''</span>
+        <span class="sd">&#39;&#39;&#39;centers the window on the screen&#39;&#39;&#39;</span>
 
         <span class="n">screen</span> <span class="o">=</span> <span class="n">QDesktopWidget</span><span class="p">()</span><span class="o">.</span><span class="n">screenGeometry</span><span class="p">()</span>
         <span class="n">size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span>
@@ -136,7 +136,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1"># when we want to write a message or the score to the statusbar.</span>
     <span class="n">msg2Statusbar</span> <span class="o">=</span> <span class="n">pyqtSignal</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 
-    <span class="c1"># These are Board's class variables.</span>
+    <span class="c1"># These are Board&#39;s class variables.</span>
     <span class="c1"># The BoardWidth and the BoardHeight</span>
     <span class="c1"># define the size of the board in blocks.</span>
     <span class="c1"># The Speed defines the speed of the game.</span>
@@ -151,7 +151,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">initBoard</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">initBoard</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''initiates board'''</span>
+        <span class="sd">&#39;&#39;&#39;initiates board&#39;&#39;&#39;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="n">QBasicTimer</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">isWaitingAfterLine</span> <span class="o">=</span> <span class="bp">False</span>
@@ -171,12 +171,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
     <span class="c1"># The shapeAt() method determines the type of a shape at a given block.</span>
     <span class="k">def</span> <span class="nf">shapeAt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="sd">'''determines shape at the board position'''</span>
+        <span class="sd">&#39;&#39;&#39;determines shape at the board position&#39;&#39;&#39;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[(</span><span class="n">y</span> <span class="o">*</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardWidth</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">setShapeAt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
-        <span class="sd">'''sets a shape at the board'''</span>
+        <span class="sd">&#39;&#39;&#39;sets a shape at the board&#39;&#39;&#39;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[(</span><span class="n">y</span> <span class="o">*</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardWidth</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">shape</span>
 
@@ -185,17 +185,17 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1"># The squareWidth() calculates the width of the single square in pixels and returns it.</span>
     <span class="c1"># The Board.BoardWidth is the size of the board in blocks.</span>
     <span class="k">def</span> <span class="nf">squareWidth</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''returns the width of one square'''</span>
+        <span class="sd">&#39;&#39;&#39;returns the width of one square&#39;&#39;&#39;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">contentsRect</span><span class="p">()</span><span class="o">.</span><span class="n">width</span><span class="p">()</span> <span class="o">//</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardWidth</span>
 
     <span class="k">def</span> <span class="nf">squareHeight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''returns the height of one square'''</span>
+        <span class="sd">&#39;&#39;&#39;returns the height of one square&#39;&#39;&#39;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">contentsRect</span><span class="p">()</span><span class="o">.</span><span class="n">height</span><span class="p">()</span> <span class="o">//</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardHeight</span>
 
     <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''starts game'''</span>
+        <span class="sd">&#39;&#39;&#39;starts game&#39;&#39;&#39;</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isPaused</span><span class="p">:</span>
             <span class="k">return</span>
@@ -213,7 +213,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1"># The pause() method pauses the game.</span>
     <span class="c1"># It stops the timer and displays a message on the statusbar.</span>
     <span class="k">def</span> <span class="nf">pause</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''pauses game'''</span>
+        <span class="sd">&#39;&#39;&#39;pauses game&#39;&#39;&#39;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">isStarted</span><span class="p">:</span>
             <span class="k">return</span>
@@ -222,7 +222,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isPaused</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">msg2Statusbar</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">"paused"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">msg2Statusbar</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;paused&quot;</span><span class="p">)</span>
 
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">Board</span><span class="o">.</span><span class="n">Speed</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
@@ -233,7 +233,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1"># The painting happens in the paintEvent() method.</span>
     <span class="c1"># The QPainter is responsible for all low-level painting in PyQt5.</span>
     <span class="k">def</span> <span class="nf">paintEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
-        <span class="sd">'''paints all shapes of the game'''</span>
+        <span class="sd">&#39;&#39;&#39;paints all shapes of the game&#39;&#39;&#39;</span>
 
         <span class="n">painter</span> <span class="o">=</span> <span class="n">QPainter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">rect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">contentsRect</span><span class="p">()</span>
@@ -265,7 +265,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
                                 <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">shape</span><span class="p">())</span>
 
     <span class="k">def</span> <span class="nf">keyPressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
-        <span class="sd">'''processes key press events'''</span>
+        <span class="sd">&#39;&#39;&#39;processes key press events&#39;&#39;&#39;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">isStarted</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">Tetrominoe</span><span class="o">.</span><span class="n">NoShape</span><span class="p">:</span>
             <span class="nb">super</span><span class="p">(</span><span class="n">Board</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">keyPressEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
@@ -312,7 +312,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1"># after the previous one was dropped to the bottom</span>
     <span class="c1"># or we move a falling piece one line down.</span>
     <span class="k">def</span> <span class="nf">timerEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
-        <span class="sd">'''handles timer event'''</span>
+        <span class="sd">&#39;&#39;&#39;handles timer event&#39;&#39;&#39;</span>
 
         <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">timerId</span><span class="p">()</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">timerId</span><span class="p">():</span>
 
@@ -328,13 +328,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1"># The clearBoard() method clears the board by setting</span>
     <span class="c1"># Tetrominoe.NoShape at each block of the board.</span>
     <span class="k">def</span> <span class="nf">clearBoard</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''clears shapes from the board'''</span>
+        <span class="sd">&#39;&#39;&#39;clears shapes from the board&#39;&#39;&#39;</span>
 
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Board</span><span class="o">.</span><span class="n">BoardHeight</span> <span class="o">*</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardWidth</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Tetrominoe</span><span class="o">.</span><span class="n">NoShape</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">dropDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''drops down a shape'''</span>
+        <span class="sd">&#39;&#39;&#39;drops down a shape&#39;&#39;&#39;</span>
 
         <span class="n">newY</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curY</span>
 
@@ -348,13 +348,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">pieceDropped</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">oneLineDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''goes one line down with a shape'''</span>
+        <span class="sd">&#39;&#39;&#39;goes one line down with a shape&#39;&#39;&#39;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">tryMove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">curX</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">curY</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pieceDropped</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">pieceDropped</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''after dropping shape, remove full lines and create new shape'''</span>
+        <span class="sd">&#39;&#39;&#39;after dropping shape, remove full lines and create new shape&#39;&#39;&#39;</span>
 
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
             <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curX</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -374,7 +374,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1"># Otherwise, it would not work correctly. In our case we use a naive gravity.</span>
     <span class="c1"># This means that the pieces may be floating above empty gaps.</span>
     <span class="k">def</span> <span class="nf">removeFullLines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''removes all full lines from the board'''</span>
+        <span class="sd">&#39;&#39;&#39;removes all full lines from the board&#39;&#39;&#39;</span>
 
         <span class="n">numFullLines</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">rowsToRemove</span> <span class="o">=</span> <span class="p">[]</span>
@@ -410,7 +410,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1"># The newPiece() method creates randomly a new tetris piece.</span>
     <span class="c1"># If the piece cannot go into its initial position, the game is over.</span>
     <span class="k">def</span> <span class="nf">newPiece</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''creates a new shape'''</span>
+        <span class="sd">&#39;&#39;&#39;creates a new shape&#39;&#39;&#39;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span> <span class="o">=</span> <span class="n">Shape</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">setRandomShape</span><span class="p">()</span>
@@ -421,14 +421,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
             <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">setShape</span><span class="p">(</span><span class="n">Tetrominoe</span><span class="o">.</span><span class="n">NoShape</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">isStarted</span> <span class="o">=</span> <span class="bp">False</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">msg2Statusbar</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">"Game over"</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">msg2Statusbar</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Game over&quot;</span><span class="p">)</span>
 
     <span class="c1"># In the tryMove() method we try to move our shapes.</span>
     <span class="c1"># If the shape is at the edge of the board or</span>
     <span class="c1"># is adjacent to some other piece, we return False.</span>
     <span class="c1"># Otherwise we place the current falling piece to a new position.</span>
     <span class="k">def</span> <span class="nf">tryMove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newPiece</span><span class="p">,</span> <span class="n">newX</span><span class="p">,</span> <span class="n">newY</span><span class="p">):</span>
-        <span class="sd">'''tries to move a shape'''</span>
+        <span class="sd">&#39;&#39;&#39;tries to move a shape&#39;&#39;&#39;</span>
 
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
 
@@ -449,7 +449,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="k">return</span> <span class="bp">True</span>
 
     <span class="k">def</span> <span class="nf">drawSquare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">painter</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
-        <span class="sd">'''draws a square of a shape'''</span>
+        <span class="sd">&#39;&#39;&#39;draws a square of a shape&#39;&#39;&#39;</span>
 
         <span class="n">colorTable</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x000000</span><span class="p">,</span> <span class="mh">0xCC6666</span><span class="p">,</span> <span class="mh">0x66CC66</span><span class="p">,</span> <span class="mh">0x6666CC</span><span class="p">,</span>
                       <span class="mh">0xCCCC66</span><span class="p">,</span> <span class="mh">0xCC66CC</span><span class="p">,</span> <span class="mh">0x66CCCC</span><span class="p">,</span> <span class="mh">0xDAAA00</span><span class="p">]</span>
@@ -504,12 +504,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">setShape</span><span class="p">(</span><span class="n">Tetrominoe</span><span class="o">.</span><span class="n">NoShape</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''returns shape'''</span>
+        <span class="sd">&#39;&#39;&#39;returns shape&#39;&#39;&#39;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pieceShape</span>
 
     <span class="k">def</span> <span class="nf">setShape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
-        <span class="sd">'''sets a shape'''</span>
+        <span class="sd">&#39;&#39;&#39;sets a shape&#39;&#39;&#39;</span>
 
         <span class="n">table</span> <span class="o">=</span> <span class="n">Shape</span><span class="o">.</span><span class="n">coordsTable</span><span class="p">[</span><span class="n">shape</span><span class="p">]</span>
 
@@ -520,32 +520,32 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">pieceShape</span> <span class="o">=</span> <span class="n">shape</span>
 
     <span class="k">def</span> <span class="nf">setRandomShape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''chooses a random shape'''</span>
+        <span class="sd">&#39;&#39;&#39;chooses a random shape&#39;&#39;&#39;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setShape</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
-        <span class="sd">'''returns x coordinate'''</span>
+        <span class="sd">&#39;&#39;&#39;returns x coordinate&#39;&#39;&#39;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
-        <span class="sd">'''returns y coordinate'''</span>
+        <span class="sd">&#39;&#39;&#39;returns y coordinate&#39;&#39;&#39;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">setX</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="sd">'''sets x coordinate'''</span>
+        <span class="sd">&#39;&#39;&#39;sets x coordinate&#39;&#39;&#39;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
 
     <span class="k">def</span> <span class="nf">setY</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="sd">'''sets y coordinate'''</span>
+        <span class="sd">&#39;&#39;&#39;sets y coordinate&#39;&#39;&#39;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
 
     <span class="k">def</span> <span class="nf">minX</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''returns min x value'''</span>
+        <span class="sd">&#39;&#39;&#39;returns min x value&#39;&#39;&#39;</span>
 
         <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
@@ -554,7 +554,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="k">return</span> <span class="n">m</span>
 
     <span class="k">def</span> <span class="nf">maxX</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''returns max x value'''</span>
+        <span class="sd">&#39;&#39;&#39;returns max x value&#39;&#39;&#39;</span>
 
         <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
@@ -563,7 +563,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="k">return</span> <span class="n">m</span>
 
     <span class="k">def</span> <span class="nf">minY</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''returns min y value'''</span>
+        <span class="sd">&#39;&#39;&#39;returns min y value&#39;&#39;&#39;</span>
 
         <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
@@ -572,7 +572,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="k">return</span> <span class="n">m</span>
 
     <span class="k">def</span> <span class="nf">maxY</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''returns max y value'''</span>
+        <span class="sd">&#39;&#39;&#39;returns max y value&#39;&#39;&#39;</span>
 
         <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
@@ -586,7 +586,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1"># A new piece is created and its coordinates </span>
     <span class="c1"># are set to the ones of the rotated piece.</span>
     <span class="k">def</span> <span class="nf">rotateLeft</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''rotates shape to the left'''</span>
+        <span class="sd">&#39;&#39;&#39;rotates shape to the left&#39;&#39;&#39;</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pieceShape</span> <span class="o">==</span> <span class="n">Tetrominoe</span><span class="o">.</span><span class="n">SquareShape</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span>
@@ -601,7 +601,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="k">return</span> <span class="n">result</span>
 
     <span class="k">def</span> <span class="nf">rotateRight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">'''rotates shape to the right'''</span>
+        <span class="sd">&#39;&#39;&#39;rotates shape to the right&#39;&#39;&#39;</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pieceShape</span> <span class="o">==</span> <span class="n">Tetrominoe</span><span class="o">.</span><span class="n">SquareShape</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span>
@@ -616,7 +616,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="k">return</span> <span class="n">result</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">([])</span>
     <span class="n">tetris</span> <span class="o">=</span> <span class="n">Tetris</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

@@ -63,9 +63,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         </div>
 	
         <div><p><a href="https://github.com/Little-Captain/LCNetworking">框架地址</a></p>
-<h1 id="afnetworking-cun-zai-de-wen-ti">AFNetworking 存在的问题</h1>
+<h1>AFNetworking 存在的问题</h1>
 <p>如果你的项目中使用了 AFNetworking, 就一定会出现内存泄漏的问题. 这个是我在用做测试的时候发现的.</p>
-<h2 id="wen-ti-zhong-xian">问题重现</h2>
+<h2>问题重现</h2>
 <ul>
 <li>安装 AFNetworking, 使用 AFNetworking 做网络请求</li>
 <li>使用 Debug Memory Graph 查看内存引用关系</li>
@@ -73,12 +73,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p><em>Debug Memory Graph(Xcode 8.0+)</em></p>
 <p>![](../assets/images/LCNetworking/Debug Memory Graph.png)</p>
 <p><em>AFNetworing 的一些对象被 Xcode 标记</em></p>
-<p><img alt="" src="../assets/images/LCNetworking/AFN的内存泄漏.png"/></p>
+<p><img alt="" src="../assets/images/LCNetworking/AFN的内存泄漏.png"></p>
 <p>图上结果表示: 这些对象无法被释放, 即内存泄漏.</p>
 <ul>
 <li>使用 Instrument 测试得到类似结果</li>
 </ul>
-<h1 id="jie-jue-wen-ti_1">解决问题</h1>
+<h1>解决问题</h1>
 <p>失败的解决办法</p>
 <ul>
 <li>控制器退出时, 取消所有任务</li>
@@ -90,30 +90,36 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>使用单例封装 AFNetworking, 实现自己的网络工具类.</li>
 </ul>
 <p><em>效果图</em></p>
-<p><img alt="" src="../assets/images/LCNetworking/内存泄漏解决.png"/></p>
-<h1 id="lcnetworking">LCNetworking</h1>
-<h2 id="te-xing">特性</h2>
+<p><img alt="" src="../assets/images/LCNetworking/内存泄漏解决.png"></p>
+<h1>LCNetworking</h1>
+<h2>特性</h2>
 <ul>
 <li>一款基于 AFNetworking 的框架</li>
 <li>使用单例模式解决了 AFNetworking 的内存泄漏问题</li>
 <li>与 AFNetworking 原有 API 完全兼容</li>
 </ul>
-<h2 id="zeng-jia-api">增加 API</h2>
+<h2>增加 API</h2>
 <ul>
 <li>获取单例对象</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">sharedInstance</span><span class="p">;</span>
 </pre></div>
+
+
 <ul>
 <li>GET / POST</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="bp">NSURLSessionDataTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">request:</span><span class="p">...;</span>
 </pre></div>
+
+
 <ul>
 <li>上传文件方法</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="bp">NSURLSessionDataTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">upload:</span><span class="p">...;</span>
 </pre></div>
+
+
 <ul>
 <li>方法持续扩展维护中</li>
 </ul></div>

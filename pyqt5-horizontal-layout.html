@@ -75,7 +75,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QDialog</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">'PyQt5 layout - pythonspot.com'</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;PyQt5 layout - pythonspot.com&#39;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">top</span> <span class="o">=</span> <span class="mi">10</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="mi">320</span>
@@ -95,18 +95,18 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">createHorizontalLayout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">horizontalGroupBox</span> <span class="o">=</span> <span class="n">QGroupBox</span><span class="p">(</span><span class="s1">'What is your favorite color?'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">horizontalGroupBox</span> <span class="o">=</span> <span class="n">QGroupBox</span><span class="p">(</span><span class="s1">&#39;What is your favorite color?&#39;</span><span class="p">)</span>
         <span class="n">layout</span> <span class="o">=</span> <span class="n">QHBoxLayout</span><span class="p">()</span>
 
-        <span class="n">buttonBlue</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">'Blue'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">buttonBlue</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">buttonBlue</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_click</span><span class="p">)</span>
         <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">buttonBlue</span><span class="p">)</span>
 
-        <span class="n">buttonRed</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">'Red'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">buttonRed</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">buttonRed</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_click</span><span class="p">)</span>
         <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">buttonRed</span><span class="p">)</span>
 
-        <span class="n">buttonGreen</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">'Green'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">buttonGreen</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">&#39;Green&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="n">buttonGreen</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_click</span><span class="p">)</span>
         <span class="n">layout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">buttonGreen</span><span class="p">)</span>
 
@@ -114,9 +114,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
     <span class="nd">@pyqtSlot</span><span class="p">()</span>
     <span class="k">def</span> <span class="nf">on_click</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">'PyQt5 button click'</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;PyQt5 button click&#39;</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">App</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

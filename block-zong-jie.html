@@ -62,7 +62,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h2 id="ji-ben-gai-nian">基本概念</h2>
+        <div><h2>基本概念</h2>
 <ul>
 <li>Block 即<code>带有</code>自动变量(<code>局部变量</code>)的<code>匿名函数</code></li>
 <li>Block <code>提供</code>了类似由 C++ 和 Objective-C 类生成实例或对象来<code>保持变量值的能力</code></li>
@@ -73,41 +73,43 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">testGetClassInheritChain</span> <span class="p">{</span>
 
     <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">testBlock</span><span class="p">)(</span><span class="kt">void</span><span class="p">)</span> <span class="o">=</span> <span class="o">^</span><span class="p">{</span>
-        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"testBlock"</span><span class="p">);</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;testBlock&quot;</span><span class="p">);</span>
     <span class="p">};</span>
 
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"%@"</span><span class="p">,</span> <span class="p">[[</span><span class="n">testBlock</span> <span class="k">class</span><span class="p">]</span> <span class="n">lc_classInheritChain</span><span class="p">]);</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span> <span class="p">[[</span><span class="n">testBlock</span> <span class="k">class</span><span class="p">]</span> <span class="n">lc_classInheritChain</span><span class="p">]);</span>
 <span class="p">}</span>
 <span class="c1">// 打印结果: __NSGlobalBlock__ -&gt; __NSGlobalBlock -&gt; NSBlock -&gt; NSObject</span>
 </pre></div>
+
+
 <ul>
 <li><a href="https://github.com/Little-Captain/LCRuntimeTool">源码地址</a></li>
 </ul>
-<h2 id="block-shu-xing-de-xiu-shi-copy-strong-retain-assign">Block 属性的修饰 (copy, strong, retain, assign)</h2>
+<h2>Block 属性的修饰 (copy, strong, retain, assign)</h2>
 <ul>
 <li>Block 本身就是<code>对象</code>, 所以可以 <code>retain</code> 和 <code>release</code></li>
 <li>Block 在<code>创建的时候</code>，它的内存是分配在<code>栈</code>(stack)上，而不是在堆(heap)上</li>
 <li>Block 的作于域是属于创建时的作用域，一旦在创建时候的<code>作用域外</code>面<code>调用</code>这个 Block 将导致<code>程序崩溃</code></li>
 <li>使用 retain/strong 可以，但是 Block 的 <code>retain/strong 行为和用 copy 的行为是一样的</code>, 即将 Block 从栈上拷贝(copy)到堆中, 所以<code>一般直接使用 copy</code></li>
 </ul>
-<h2 id="__block-guan-jian-zi">__block 关键字</h2>
+<h2>__block 关键字</h2>
 <ul>
 <li>在 Block 的 {} 体内，是不可以对外面的变量进行更改的, 使用 __block 就能改变 Block 块中变量的值. 不使用 __block 时, 是值捕获; 使用 __block 时, 是地址捕获. </li>
 </ul>
-<h2 id="__block-he-__weak">__block 和 __weak</h2>
+<h2>__block 和 __weak</h2>
 <ul>
 <li><code>__block</code> 不管是 <code>ARC</code> 还是 <code>MRC</code>模式下都可以使用，可以修饰<code>对象</code>，还可以修饰<code>基本数据类型</code></li>
 <li><code>__weak</code> 只能在 <code>ARC</code> 模式下使用，也只能修饰<code>对象</code>，不能修饰基本数据类型</li>
 <li><code>__block 对象</code>可以在 Block 中被<code>重新赋值</code>，<code>__weak 不可以</code></li>
 </ul>
-<h2 id="shi-yong-block-chuan-di-shu-ju">使用 Block 传递数据</h2>
+<h2>使用 Block 传递数据</h2>
 <ul>
 <li>在<code>数据发送对象</code>中<code>定义 Block 属性</code></li>
 <li>在<code>数据接收对象</code>中给 Block 赋值, Block 中写具体要做得事情</li>
 <li>在<code>数据发送对象</code>内部调用这个 Block , 就可以把<code>数据通过 Block 的参数传递</code>给<code>数据接收对象</code></li>
 <li>这个过程其实就是<code>代理设计模式</code>所描述的过程. </li>
 </ul>
-<h2 id="block-shi-yong-zhu-yi">Block 使用注意</h2>
+<h2>Block 使用注意</h2>
 <ul>
 <li><code>Block</code>当做参数传递, 如果外界传入的值为<code>nil</code>, 直接<code>调用</code>会<code>崩溃</code></li>
 <li>Block 引入<code>循环引用</code><ul>

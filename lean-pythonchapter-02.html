@@ -65,27 +65,33 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div><blockquote>
 <p>Everything is Object</p>
 </blockquote>
-<h1 id="dui-xiang-lei-xing">对象类型</h1>
+<h1>对象类型</h1>
 <div class="highlight"><pre><span></span><span class="c1"># 使用 type 查看对象类型</span>
 <span class="nb">type</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
 </pre></div>
+
+
 <blockquote>
 <p>类型有 : int str list class function file bool(True、False) NoneType(None) long</p>
 </blockquote>
-<h1 id="gong-han-fang-fa">工厂方法</h1>
+<h1>工厂方法</h1>
 <div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>
 <span class="nb">str</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="nb">tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="nb">dict</span><span class="p">(</span><span class="n">one</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
-<h1 id="shu">数</h1>
+
+
+<h1>数</h1>
 <div class="highlight"><pre><span></span><span class="mi">12345678901234567890</span>
 <span class="mi">1</span> <span class="o">/</span> <span class="mf">7.0</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mf">1E20</span>
 <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mf">7.0</span><span class="p">)</span>
 </pre></div>
-<h1 id="suan-shu-cao-zuo">算数操作</h1>
+
+
+<h1>算数操作</h1>
 <div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span>
 <span class="mf">2.0</span> <span class="o">+</span> <span class="mi">3</span>
 <span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span>
@@ -100,37 +106,45 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="o">-</span><span class="mi">4</span> <span class="o">**</span> <span class="mi">3</span>
 <span class="mi">4</span> <span class="o">**</span> <span class="o">-</span><span class="mi">3</span>
 </pre></div>
-<h1 id="zhuan-huan-han-shu">转换函数</h1>
+
+
+<h1>转换函数</h1>
 <div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="mf">1.234</span><span class="p">)</span>
 <span class="nb">int</span><span class="p">(</span><span class="o">-</span><span class="mf">1.234</span><span class="p">)</span>
 <span class="nb">long</span><span class="p">(</span><span class="mf">1.234</span><span class="p">)</span>
 <span class="nb">long</span><span class="p">(</span><span class="o">-</span><span class="mf">1.234</span><span class="p">)</span>
-<span class="nb">long</span><span class="p">(</span><span class="s1">'1234'</span><span class="p">)</span>
-<span class="nb">long</span><span class="p">(</span><span class="s1">'1.234'</span><span class="p">)</span>
-<span class="nb">long</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s1">'1.234'</span><span class="p">))</span>
+<span class="nb">long</span><span class="p">(</span><span class="s1">&#39;1234&#39;</span><span class="p">)</span>
+<span class="nb">long</span><span class="p">(</span><span class="s1">&#39;1.234&#39;</span><span class="p">)</span>
+<span class="nb">long</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="s1">&#39;1.234&#39;</span><span class="p">))</span>
 <span class="nb">float</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="nb">float</span><span class="p">(</span><span class="s1">'4.321'</span><span class="p">)</span>
+<span class="nb">float</span><span class="p">(</span><span class="s1">&#39;4.321&#39;</span><span class="p">)</span>
 </pre></div>
-<h1 id="bu-er-zhi">布尔值</h1>
+
+
+<h1>布尔值</h1>
 <div class="highlight"><pre><span></span><span class="c1"># 非零即真</span>
-<span class="nb">bool</span><span class="p">(</span><span class="s1">'any text'</span><span class="p">)</span> <span class="c1"># True</span>
-<span class="nb">bool</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span> <span class="c1"># False</span>
+<span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;any text&#39;</span><span class="p">)</span> <span class="c1"># True</span>
+<span class="nb">bool</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1"># False</span>
 <span class="nb">bool</span><span class="p">([])</span> <span class="c1"># False</span>
 </pre></div>
-<h1 id="sui-ji-shu">随机数</h1>
+
+
+<h1>随机数</h1>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 <span class="c1"># 产生 [a, b] 间的 int 数</span>
 <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 <span class="c1"># 产生 [0.0 1.0] 间的浮点数</span>
 <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
 </pre></div>
-<h1 id="xu-lie-zi-fu-chuan-lie-biao-yuan-zu">序列 : 字符串、列表、元组</h1>
+
+
+<h1>序列 : 字符串、列表、元组</h1>
 <ul>
 <li>一组字符的序列</li>
 <li>一组值的序列</li>
 <li>一组值的序列, 和列表很相似, 但是元组内的实体不可改变</li>
 </ul>
-<h2 id="cun-qu">存取</h2>
+<h2>存取</h2>
 <ul>
 <li>可以从前遍历序列, 也可从后遍历序列</li>
 </ul>
@@ -143,90 +157,118 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="o">...</span>
 <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="n">n</span><span class="p">]</span>
 </pre></div>
-<h2 id="cheng-yuan-guan-xi">成员关系</h2>
-<div class="highlight"><pre><span></span><span class="s1">'a'</span> <span class="ow">in</span> <span class="s1">'track'</span>              <span class="c1"># True</span>
+
+
+<h2>成员关系</h2>
+<div class="highlight"><pre><span></span><span class="s1">&#39;a&#39;</span> <span class="ow">in</span> <span class="s1">&#39;track&#39;</span>              <span class="c1"># True</span>
 <span class="mi">9</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>          <span class="c1"># False</span>
-<span class="s1">'x'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">'next'</span>           <span class="c1"># False</span>
-<span class="s1">'red'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'tan'</span><span class="p">,</span><span class="s1">'pink'</span><span class="p">]</span> <span class="c1"># True</span>
+<span class="s1">&#39;x&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">&#39;next&#39;</span>           <span class="c1"># False</span>
+<span class="s1">&#39;red&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;tan&#39;</span><span class="p">,</span><span class="s1">&#39;pink&#39;</span><span class="p">]</span> <span class="c1"># True</span>
 </pre></div>
-<h2 id="lian-jie-cao-zuo">连接操作 : +</h2>
+
+
+<h2>连接操作 : +</h2>
 <div class="highlight"><pre><span></span><span class="n">sequence1</span> <span class="o">+</span> <span class="n">sequence2</span>
-<span class="s1">'mr'</span> <span class="o">+</span> <span class="s1">'joe'</span> <span class="o">+</span> <span class="s1">'soap'</span>
+<span class="s1">&#39;mr&#39;</span> <span class="o">+</span> <span class="s1">&#39;joe&#39;</span> <span class="o">+</span> <span class="s1">&#39;soap&#39;</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="c1"># join() 函数在处理字符串和元组的连接时比较高效, 推荐使用</span>
-<span class="s1">'-'</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'b'</span><span class="p">,</span><span class="s1">'c'</span><span class="p">,</span><span class="s1">'d'</span><span class="p">))</span>
+<span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">))</span>
 </pre></div>
-<h2 id="yuan-su-he-qie-pian">元素和切片</h2>
+
+
+<h2>元素和切片</h2>
 <ul>
 <li>slice 访问格式 <code>[startindex:endindex]</code>, 包括 <code>startindex</code> 的元素, 而不包括 <code>endindex</code> 的元素</li>
 <li><code>[:endindex]</code> 从 <code>0</code> 开始</li>
 <li><code>[startindex:]</code> 到 <code>末尾</code> 结束</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">,</span> <span class="s1">'d'</span><span class="p">,</span> <span class="s1">'e'</span><span class="p">,</span> <span class="s1">'f'</span><span class="p">]</span>
-<span class="n">mylist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># 'a'</span>
-<span class="n">mylist</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># ['b', 'c']</span>
+<div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">]</span>
+<span class="n">mylist</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># &#39;a&#39;</span>
+<span class="n">mylist</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># [&#39;b&#39;, &#39;c&#39;]</span>
 </pre></div>
-<div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">],</span> <span class="mi">5</span><span class="p">]</span>
+
+
+<div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="mi">5</span><span class="p">]</span>
 <span class="c1"># 使用多重索引访问嵌套的序列</span>
-<span class="n">mylist</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># 'b'</span>
+<span class="n">mylist</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># &#39;b&#39;</span>
 </pre></div>
-<h2 id="xu-lie-nei-jian-han-shu">序列内建函数</h2>
+
+
+<h2>序列内建函数</h2>
 <div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
 <span class="nb">max</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
 <span class="nb">min</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
 </pre></div>
-<h2 id="zi-fu-chuan">字符串</h2>
+
+
+<h2>字符串</h2>
 <ul>
 <li>字符串不可变</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">mystr</span> <span class="o">=</span> <span class="s1">'Paddington Station'</span>
+<div class="highlight"><pre><span></span><span class="n">mystr</span> <span class="o">=</span> <span class="s1">&#39;Paddington Station&#39;</span>
 <span class="n">mystr</span><span class="o">=</span><span class="n">mystr</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 </pre></div>
+
+
 <ul>
 <li>赋值, 字符串成对使用 <code>'</code> 或 <code>"</code> 来包裹. 你可以在一对中使用另一对</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">'Paul said, "Hello World!"'</span>
+<div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;Paul said, &quot;Hello World!&quot;&#39;</span>
 <span class="k">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
+
+
 <ul>
 <li>访问子串</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">text</span><span class="o">=</span><span class="s1">'Paul said, "Hi"'</span>
+<div class="highlight"><pre><span></span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;Paul said, &quot;Hi&quot;&#39;</span>
 <span class="n">text</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:]</span>
 <span class="n">text</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span>
 <span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="n">text</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">14</span><span class="p">]</span>
 </pre></div>
+
+
 <ul>
 <li>字符串比较</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="s1">'mcr'</span><span class="o">&gt;</span><span class="s1">'liv'</span>
-<span class="s1">'X'</span><span class="o">&gt;</span><span class="s1">'t'</span>
+<div class="highlight"><pre><span></span><span class="s1">&#39;mcr&#39;</span><span class="o">&gt;</span><span class="s1">&#39;liv&#39;</span>
+<span class="s1">&#39;X&#39;</span><span class="o">&gt;</span><span class="s1">&#39;t&#39;</span>
 </pre></div>
+
+
 <ul>
 <li>子串搜索</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="s1">'a'</span> <span class="ow">in</span> <span class="s1">'the task'</span> <span class="c1"># True</span>
-<span class="s1">'as'</span> <span class="ow">in</span> <span class="s1">'the task'</span> <span class="c1"># True</span>
+<div class="highlight"><pre><span></span><span class="s1">&#39;a&#39;</span> <span class="ow">in</span> <span class="s1">&#39;the task&#39;</span> <span class="c1"># True</span>
+<span class="s1">&#39;as&#39;</span> <span class="ow">in</span> <span class="s1">&#39;the task&#39;</span> <span class="c1"># True</span>
 </pre></div>
+
+
 <ul>
 <li>特殊字符和转义符</li>
 </ul>
 <div class="highlight"><pre><span></span>\<span class="mi">0</span> <span class="c1"># Null character</span>
 \<span class="n">t</span> <span class="c1"># Horizontal tab</span>
 \<span class="n">n</span> <span class="c1"># Newline character</span>
-\<span class="s1">' # Single quote</span>
-\<span class="s2">" # Double quote</span>
+\<span class="s1">&#39; # Single quote</span>
+\<span class="s2">&quot; # Double quote</span>
 \\ <span class="c1"># Backslash</span>
 </pre></div>
+
+
 <ul>
 <li>包裹多行 <code>"""</code></li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">multiline</span><span class="o">=</span><span class="s2">"""Line1</span>
+<div class="highlight"><pre><span></span><span class="n">multiline</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Line1</span>
 <span class="s2">Line 2</span>
-<span class="s2">Line 3"""</span>
+<span class="s2">Line 3&quot;&quot;&quot;</span>
 </pre></div>
+
+
 <ul>
 <li>字符串的格式化</li>
 </ul>
@@ -239,11 +281,15 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="o">%</span><span class="n">f</span> <span class="c1"># 浮点数</span>
 <span class="o">%%</span> <span class="c1"># 百分号</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="n">ntoys</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">myname</span><span class="o">=</span><span class="s1">'Fred'</span>
-<span class="s1">'</span><span class="si">%s</span><span class="s1"> has </span><span class="si">%d</span><span class="s1"> toys'</span> <span class="o">%</span> <span class="p">(</span><span class="n">myname</span><span class="p">,</span><span class="n">ntoys</span><span class="p">)</span>
-<span class="c1"># 'Fred has 4 toys'</span>
+<span class="n">myname</span><span class="o">=</span><span class="s1">&#39;Fred&#39;</span>
+<span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> has </span><span class="si">%d</span><span class="s1"> toys&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">myname</span><span class="p">,</span><span class="n">ntoys</span><span class="p">)</span>
+<span class="c1"># &#39;Fred has 4 toys&#39;</span>
 </pre></div>
+
+
 <ul>
 <li>字符串函数</li>
 </ul>
@@ -260,45 +306,53 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">lstrip</span><span class="p">()</span> <span class="c1"># 移除左边的空白字符</span>
 <span class="n">strip</span><span class="p">()</span> <span class="c1"># 移除左右两边的空白字符</span>
 </pre></div>
-<h2 id="lie-biao">列表</h2>
+
+
+<h2>列表</h2>
 <ul>
 <li>创建</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">'Tom'</span><span class="p">,</span><span class="s1">'Dick'</span><span class="p">,</span><span class="s1">'Harry'</span><span class="p">]</span>
-<span class="n">mixedlist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">'four'</span><span class="p">]</span> <span class="c1"># 混合</span>
+<span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span><span class="s1">&#39;Dick&#39;</span><span class="p">,</span><span class="s1">&#39;Harry&#39;</span><span class="p">]</span>
+<span class="n">mixedlist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;four&#39;</span><span class="p">]</span> <span class="c1"># 混合</span>
 <span class="n">elist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span> <span class="c1"># 嵌套</span>
-<span class="n">names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># 'Dick'</span>
+<span class="n">names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># &#39;Dick&#39;</span>
 <span class="n">elist</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># 5</span>
 <span class="c1"># 如果访问不存在的 index, 会产生一个 list index 越界错误</span>
 </pre></div>
+
+
 <ul>
 <li>修改</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="c1"># append 追加</span>
-<span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'Dick'</span><span class="p">)</span>
-<span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'Harry'</span><span class="p">)</span>
+<span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">)</span>
+<span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Dick&#39;</span><span class="p">)</span>
+<span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Harry&#39;</span><span class="p">)</span>
 <span class="c1"># 改变值</span>
-<span class="n">mylist</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="s1">'Bill'</span>
+<span class="n">mylist</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;Bill&#39;</span>
 <span class="c1"># 删除</span>
-<span class="k">del</span> <span class="n">mylist</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># # ['Tom','Harry']</span>
+<span class="k">del</span> <span class="n">mylist</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># # [&#39;Tom&#39;,&#39;Harry&#39;]</span>
 </pre></div>
+
+
 <ul>
 <li>获取索引</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">mylist</span><span class="o">=</span><span class="p">[</span><span class="s1">'Tom'</span><span class="p">,</span><span class="s1">'Dick'</span><span class="p">,</span><span class="s1">'Harry'</span><span class="p">]</span>
-<span class="n">mylist</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">'Dick'</span><span class="p">)</span> <span class="c1"># 1</span>
-<span class="n">mylist</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">'Henry'</span><span class="p">)</span> <span class="c1"># 不存在, 抛出错误</span>
+<div class="highlight"><pre><span></span><span class="n">mylist</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span><span class="s1">&#39;Dick&#39;</span><span class="p">,</span><span class="s1">&#39;Harry&#39;</span><span class="p">]</span>
+<span class="n">mylist</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;Dick&#39;</span><span class="p">)</span> <span class="c1"># 1</span>
+<span class="n">mylist</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;Henry&#39;</span><span class="p">)</span> <span class="c1"># 不存在, 抛出错误</span>
 </pre></div>
+
+
 <ul>
 <li>序列操作和相关函数</li>
 </ul>
 <blockquote>
 <p>len、max、min、sum、sorted、reversed</p>
 </blockquote>
-<h2 id="yuan-zu">元组</h2>
+<h2>元组</h2>
 <ul>
 <li>
 <p>不可变, 这是和列表相比最大的区别</p>
@@ -308,58 +362,66 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </li>
 </ul>
 <div class="highlight"><pre><span></span><span class="n">mynumbers</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
-<span class="n">months</span><span class="o">=</span><span class="p">(</span><span class="s1">'Jan'</span><span class="p">,</span><span class="s1">'Feb'</span><span class="p">,</span><span class="s1">'Mar'</span><span class="p">,</span><span class="s1">'Apr'</span><span class="p">,</span><span class="s1">'May'</span><span class="p">,</span><span class="s1">'Jun'</span><span class="p">,</span><span class="s1">'Jul'</span><span class="p">,</span><span class="s1">'Aug'</span><span class="p">,</span><span class="s1">'Sep'</span><span class="p">,</span><span class="s1">'Oct'</span><span class="p">,</span><span class="s1">'Nov'</span><span class="p">,</span><span class="s1">'Dec'</span><span class="p">)</span>
-<span class="n">mixed</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="s1">'some text'</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">'testing'</span><span class="p">])</span>
+<span class="n">months</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Jan&#39;</span><span class="p">,</span><span class="s1">&#39;Feb&#39;</span><span class="p">,</span><span class="s1">&#39;Mar&#39;</span><span class="p">,</span><span class="s1">&#39;Apr&#39;</span><span class="p">,</span><span class="s1">&#39;May&#39;</span><span class="p">,</span><span class="s1">&#39;Jun&#39;</span><span class="p">,</span><span class="s1">&#39;Jul&#39;</span><span class="p">,</span><span class="s1">&#39;Aug&#39;</span><span class="p">,</span><span class="s1">&#39;Sep&#39;</span><span class="p">,</span><span class="s1">&#39;Oct&#39;</span><span class="p">,</span><span class="s1">&#39;Nov&#39;</span><span class="p">,</span><span class="s1">&#39;Dec&#39;</span><span class="p">)</span>
+<span class="n">mixed</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="s1">&#39;some text&#39;</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;testing&#39;</span><span class="p">])</span>
 </pre></div>
+
+
 <ul>
 <li>访问</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="n">mynumbers</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">months</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
-<span class="n">mixed</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="s1">' '</span><span class="o">+</span><span class="n">mixed</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">mixed</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39; &#39;</span><span class="o">+</span><span class="n">mixed</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
 <span class="c1"># 访问一个不存在的 index, 同样会抛出 index 越界的错误</span>
 </pre></div>
+
+
 <ul>
 <li>序列操作和相关函数</li>
 </ul>
 <blockquote>
 <p>len、max、min、sum、sorted、reversed</p>
 </blockquote>
-<h2 id="zi-dian">字典</h2>
+<h2>字典</h2>
 <ul>
 <li>创建</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">wdays</span><span class="o">=</span><span class="p">{</span> <span class="s1">'M'</span><span class="p">:</span><span class="s1">'Monday'</span><span class="p">,</span> <span class="s1">'T'</span><span class="p">:</span><span class="s1">'Tuesday'</span><span class="p">,</span> <span class="s1">'W'</span><span class="p">:</span><span class="s1">'Wednesday'</span><span class="p">,</span> <span class="s1">'Th'</span><span class="p">:</span><span class="s1">'Thursday'</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">:</span><span class="s1">'Friday'</span><span class="p">,</span> <span class="s1">'Sa'</span><span class="p">:</span><span class="s1">'Saturday'</span><span class="p">,</span> <span class="s1">'Su'</span><span class="p">:</span><span class="s1">'Sunday'</span> <span class="p">}</span>
-<span class="n">wdays</span><span class="p">[</span><span class="s1">'M'</span><span class="p">]</span>
-<span class="n">wdays</span><span class="p">[</span><span class="s1">'W'</span><span class="p">]</span>
-<span class="n">wdays</span><span class="p">[</span><span class="s1">'Su'</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><span class="n">wdays</span><span class="o">=</span><span class="p">{</span> <span class="s1">&#39;M&#39;</span><span class="p">:</span><span class="s1">&#39;Monday&#39;</span><span class="p">,</span> <span class="s1">&#39;T&#39;</span><span class="p">:</span><span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">:</span><span class="s1">&#39;Wednesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Th&#39;</span><span class="p">:</span><span class="s1">&#39;Thursday&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">:</span><span class="s1">&#39;Friday&#39;</span><span class="p">,</span> <span class="s1">&#39;Sa&#39;</span><span class="p">:</span><span class="s1">&#39;Saturday&#39;</span><span class="p">,</span> <span class="s1">&#39;Su&#39;</span><span class="p">:</span><span class="s1">&#39;Sunday&#39;</span> <span class="p">}</span>
+<span class="n">wdays</span><span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">]</span>
+<span class="n">wdays</span><span class="p">[</span><span class="s1">&#39;W&#39;</span><span class="p">]</span>
+<span class="n">wdays</span><span class="p">[</span><span class="s1">&#39;Su&#39;</span><span class="p">]</span>
 <span class="n">newdict</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># 空字典</span>
 </pre></div>
+
+
 <ul>
 <li>修改</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="n">newdict</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="c1"># 添加</span>
-<span class="n">newdict</span><span class="p">[</span><span class="s1">'1st'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'first entry'</span>
-<span class="n">newdict</span><span class="p">[</span><span class="s1">'2nd'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'second entry'</span>
+<span class="n">newdict</span><span class="p">[</span><span class="s1">&#39;1st&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;first entry&#39;</span>
+<span class="n">newdict</span><span class="p">[</span><span class="s1">&#39;2nd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;second entry&#39;</span>
 <span class="c1"># 修改</span>
-<span class="n">newdict</span><span class="p">[</span><span class="s1">'1st'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'new value'</span>
+<span class="n">newdict</span><span class="p">[</span><span class="s1">&#39;1st&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;new value&#39;</span>
 <span class="c1"># 删除</span>
-<span class="k">del</span> <span class="n">newdict</span><span class="p">[</span><span class="s1">'2nd'</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">newdict</span><span class="p">[</span><span class="s1">&#39;2nd&#39;</span><span class="p">]</span>
 <span class="c1"># 长度</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">newdict</span><span class="p">)</span>
 </pre></div>
+
+
 <ul>
 <li>操作, 特殊的有用操作</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="c1"># 判断 key 是否存在</span>
-<span class="s1">'Sa'</span> <span class="ow">in</span> <span class="n">wdays</span>
+<span class="s1">&#39;Sa&#39;</span> <span class="ow">in</span> <span class="n">wdays</span>
 <span class="c1"># 通过 keys 创建 List</span>
 <span class="n">wdays</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 <span class="c1"># 通过 values 创建一个可递归的 List</span>
 <span class="n">wdays</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 <span class="c1"># 查找 values, 没找到使用默认值</span>
-<span class="n">wdays</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'X'</span><span class="p">,</span><span class="s1">'Not a day'</span><span class="p">)</span>
+<span class="n">wdays</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span><span class="s1">&#39;Not a day&#39;</span><span class="p">)</span>
 </pre></div></div>
 	
         <hr>

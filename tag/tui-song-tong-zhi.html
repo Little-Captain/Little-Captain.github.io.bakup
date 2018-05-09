@@ -68,17 +68,19 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
         </div>
         
-        <div><h1 id="pei-zhi-ben-di-tui-song-tong-zhi">配置本地推送通知</h1>
-<h2 id="step-1">Step 1</h2>
+        <div><h1>配置本地推送通知</h1>
+<h2>Step 1</h2>
 <ul>
 <li>创建和配置包含通知具体内容的 <code>UNMutableNotificationContent</code> 对象</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="n">UNMutableNotificationContent</span><span class="o">*</span> <span class="n">content</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UNMutableNotificationContent</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-<span class="n">content</span><span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSString</span> <span class="nl">localizedUserNotificationStringForKey</span><span class="p">:</span><span class="s">@"Wake up!"</span> <span class="nl">arguments</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-<span class="n">content</span><span class="p">.</span><span class="n">body</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSString</span> <span class="nl">localizedUserNotificationStringForKey</span><span class="p">:</span><span class="s">@"Rise and shine! It's morning time!"</span>
+<span class="n">content</span><span class="p">.</span><span class="n">title</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSString</span> <span class="nl">localizedUserNotificationStringForKey</span><span class="p">:</span><span class="s">@&quot;Wake up!&quot;</span> <span class="nl">arguments</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+<span class="n">content</span><span class="p">.</span><span class="n">body</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSString</span> <span class="nl">localizedUserNotificationStringForKey</span><span class="p">:</span><span class="s">@&quot;Rise and shine! It&#39;s morning time!&quot;</span>
         <span class="nl">arguments</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
 </pre></div>
-<h2 id="step-2">Step 2</h2>
+
+
+<h2>Step 2</h2>
 <ul>
 <li>创建一个 <code>UNCalendarNotificationTrigger</code>, <code>UNTimeIntervalNotificationTrigger</code>, 或 <code>UNLocationNotificationTrigger</code> 对象来描述通知被递送的条件</li>
 </ul>
@@ -88,28 +90,34 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">UNCalendarNotificationTrigger</span><span class="o">*</span> <span class="n">trigger</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNCalendarNotificationTrigger</span>
        <span class="nl">triggerWithDateMatchingComponents</span><span class="p">:</span><span class="n">date</span> <span class="nl">repeats</span><span class="p">:</span><span class="nb">NO</span><span class="p">];</span>
 </pre></div>
-<h2 id="step-3">Step 3</h2>
+
+
+<h2>Step 3</h2>
 <ul>
 <li>通过上面创建两个对象, 再创建一个 <code>UNNotificationRequest</code> 对象</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="n">UNNotificationRequest</span><span class="o">*</span> <span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationRequest</span>
-       <span class="nl">requestWithIdentifier</span><span class="p">:</span><span class="s">@"MorningAlarm"</span> <span class="nl">content</span><span class="p">:</span><span class="n">content</span> <span class="nl">trigger</span><span class="p">:</span><span class="n">trigger</span><span class="p">];</span>
+       <span class="nl">requestWithIdentifier</span><span class="p">:</span><span class="s">@&quot;MorningAlarm&quot;</span> <span class="nl">content</span><span class="p">:</span><span class="n">content</span> <span class="nl">trigger</span><span class="p">:</span><span class="n">trigger</span><span class="p">];</span>
 </pre></div>
-<h2 id="step-4">Step 4</h2>
+
+
+<h2>Step 4</h2>
 <ul>
 <li>调用 <code>addNotificationRequest:withCompletionHandler:</code> 方法派送通知.</li>
 </ul>
-<h1 id="fen-pei-zi-ding-yi-cao-zuo_1">分配自定义操作</h1>
+<h1>分配自定义操作</h1>
 <div class="highlight"><pre><span></span><span class="n">UNNotificationContent</span> <span class="o">*</span><span class="n">content</span> <span class="o">=</span> <span class="p">[[</span><span class="n">UNNotificationContent</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
 <span class="c1">// 配置内容</span>
 
 <span class="c1">// 分配类别, 为内容分配类别, 这样当显示这些内容的时候, 系统就会将这个类别中的操作分配给这个通知</span>
 <span class="c1">// 在派送通知请求之前, 为此属性分配一个值, 才有效。</span>
-<span class="n">content</span><span class="p">.</span><span class="n">categoryIdentifier</span> <span class="o">=</span> <span class="s">@"TIMER_EXPIRED"</span><span class="p">;</span>
+<span class="n">content</span><span class="p">.</span><span class="n">categoryIdentifier</span> <span class="o">=</span> <span class="s">@&quot;TIMER_EXPIRED&quot;</span><span class="p">;</span>
 
 <span class="c1">// 创建请求和派送通知</span>
 </pre></div>
-<h1 id="wei-tong-zhi-nei-rong-tian-jia-sheng-yin">为通知内容添加声音</h1>
+
+
+<h1>为通知内容添加声音</h1>
 <ul>
 <li>为 UNMutableNotificationContent 对象的 sound 属性分配一个 UNNotificationSound 对象</li>
 <li>UNNotificationSound 对象可以创建自定义声音或默认通知声音, 自定义的音频必须位于 App 的主 bundle 或沙盒的 Library/Sounds 目录中</li>
@@ -118,35 +126,39 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="c1">// 默认</span>
 <span class="n">content</span><span class="p">.</span><span class="n">sound</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationSound</span> <span class="n">defaultSound</span><span class="p">];</span>
 <span class="c1">// 自定义</span>
-<span class="n">content</span><span class="p">.</span><span class="n">sound</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationSound</span> <span class="nl">soundNamed</span><span class="p">:</span><span class="s">@"MySound.aiff"</span><span class="p">];</span>
+<span class="n">content</span><span class="p">.</span><span class="n">sound</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationSound</span> <span class="nl">soundNamed</span><span class="p">:</span><span class="s">@&quot;MySound.aiff&quot;</span><span class="p">];</span>
 </pre></div>
-<h1 id="ben-di-tong-zhi-de-pai-song">本地通知的派送</h1>
+
+
+<h1>本地通知的派送</h1>
 <ul>
 <li>创建 <code>UNNotificationRequest</code> 对象, 然后调用 <code>UNUserNotificationCenter</code> 对象的 <code>addNotificationRequest:withCompletionHandler:</code> 方法</li>
 <li>系统异步派送本地通知. 当派送完成或失败, 就会执行回调 block</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="c1">// 创建通知请求对象</span>
 <span class="n">UNNotificationRequest</span><span class="o">*</span> <span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationRequest</span>
-       <span class="nl">requestWithIdentifier</span><span class="p">:</span><span class="s">@"MorningAlarm"</span> <span class="nl">content</span><span class="p">:</span><span class="n">content</span> <span class="nl">trigger</span><span class="p">:</span><span class="n">trigger</span><span class="p">];</span>
+       <span class="nl">requestWithIdentifier</span><span class="p">:</span><span class="s">@&quot;MorningAlarm&quot;</span> <span class="nl">content</span><span class="p">:</span><span class="n">content</span> <span class="nl">trigger</span><span class="p">:</span><span class="n">trigger</span><span class="p">];</span>
 
 <span class="n">UNUserNotificationCenter</span><span class="o">*</span> <span class="n">center</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNUserNotificationCenter</span> <span class="n">currentNotificationCenter</span><span class="p">];</span>
 <span class="p">[</span><span class="n">center</span> <span class="nl">addNotificationRequest</span><span class="p">:</span><span class="n">request</span> <span class="nl">withCompletionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="bp">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
    <span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{</span>
-       <span class="n">NSLog</span><span class="p">(</span><span class="s">@"%@"</span><span class="p">,</span> <span class="n">error</span><span class="p">.</span><span class="n">localizedDescription</span><span class="p">);</span>
+       <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;%@&quot;</span><span class="p">,</span> <span class="n">error</span><span class="p">.</span><span class="n">localizedDescription</span><span class="p">);</span>
    <span class="p">}</span>
 <span class="p">}];</span>
 </pre></div>
+
+
 <ul>
 <li>计划派送的本地通知将保持活动状态, 直到被系统不计划或被你取消. 当通知被派送, 系统自动将其置为不计划, 除非这是个重复触发的通知.</li>
 <li>取消通知, 可以调用 <code>UNUserNotificationCenter</code> 对象的 <code>removePendingNotificationRequestsWithIdentifiers:</code> 方法</li>
 <li>一个能够被取消的通知, 必须被分配一个 <code>identifier</code> 给对应的 <code>UNNotificationRequest</code> 对象</li>
 <li>调用 <code>removeAllPendingNotificationRequests</code> 方法取消所有被挂起的通知, 它不需要任何 <code>identifier</code></li>
 </ul>
-<h1 id="xiang-ying-tong-zhi-shi-jian">响应通知事件</h1>
+<h1>响应通知事件</h1>
 <ul>
 <li>为了实现响应, 必须为 <code>UNUserNotificationCenter</code> 对象实现代理. 代理对象必须遵守 <code>UNUserNotificationCenterDelegate</code> 协议. 这个协议明确了, 通知中心如果将通知信息传递给你的 App. 如果你的通知包含自定义操作, 代理是必须的.</li>
 </ul>
-<h1 id="app-zai-qian-tai-shi-chu-li-tong-zhi">App 在前台时, 处理通知</h1>
+<h1>App 在前台时, 处理通知</h1>
 <ul>
 <li>App 在前台, 通知到达时, 你可以不派送给通知中心或让系统继续下一步操作(显示在通知中心)</li>
 <li>默认情况下, 当 App 在前台时, 通知不会被呈现在通知中心, 而是直接递送通知数据给你的 App</li>
@@ -161,11 +173,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
    <span class="n">completionHandler</span><span class="p">(</span><span class="n">UNNotificationPresentationOptionSound</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
+
+
 <ul>
 <li>如果 App 在后台或者没有运行, 系统不会调用 <code>userNotificationCenter:willPresentNotification:withCompletionHandler:</code> 方法. 这时, 系统根据通知自带信息通知用户</li>
 <li>你可以通过 <code>UNUserNotificationCenter</code> 对象的 <code>getDeliveredNotificationsWithCompletionHandler:</code> 方法确定是否派送通知</li>
 </ul>
-<h1 id="xiang-ying-yong-hu-zi-ding-yi-cao-zuo">响应用户自定义操作</h1>
+<h1>响应用户自定义操作</h1>
 <ul>
 <li>用户的操作打包在 <code>UNNotificationResponse</code> 对象中</li>
 <li>在用户选中你的自定义操作时, 递送给你 App 的 <code>UNUserNotificationCenter</code> 对象的代理</li>
@@ -176,13 +190,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
            <span class="nf">didReceiveNotificationResponse:</span><span class="p">(</span><span class="n">UNNotificationResponse</span> <span class="o">*</span><span class="p">)</span><span class="nv">response</span>
            <span class="nf">withCompletionHandler:</span><span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="kt">void</span><span class="p">))</span><span class="nv">completionHandler</span> <span class="p">{</span>
            <span class="c1">// 匹配通知类别标识符</span>
-    <span class="k">if</span> <span class="p">([</span><span class="n">response</span><span class="p">.</span><span class="n">notification</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">categoryIdentifier</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@"TIMER_EXPIRED"</span><span class="p">])</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">response</span><span class="p">.</span><span class="n">notification</span><span class="p">.</span><span class="n">request</span><span class="p">.</span><span class="n">content</span><span class="p">.</span><span class="n">categoryIdentifier</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&quot;TIMER_EXPIRED&quot;</span><span class="p">])</span> <span class="p">{</span>
         <span class="c1">// 匹配不同操作</span>
-        <span class="k">if</span> <span class="p">([</span><span class="n">response</span><span class="p">.</span><span class="n">actionIdentifier</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@"SNOOZE_ACTION"</span><span class="p">])</span>
+        <span class="k">if</span> <span class="p">([</span><span class="n">response</span><span class="p">.</span><span class="n">actionIdentifier</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&quot;SNOOZE_ACTION&quot;</span><span class="p">])</span>
         <span class="p">{</span>
             <span class="c1">// 具体操作</span>
         <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">([</span><span class="n">response</span><span class="p">.</span><span class="n">actionIdentifier</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@"STOP_ACTION"</span><span class="p">])</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">([</span><span class="n">response</span><span class="p">.</span><span class="n">actionIdentifier</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&quot;STOP_ACTION&quot;</span><span class="p">])</span>
         <span class="p">{</span>
             <span class="c1">// 具体操作</span>
         <span class="p">}</span>
@@ -192,7 +206,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1">// 其他通知类别的操作的匹配处理</span>
 <span class="p">}</span>
 </pre></div>
-<h1 id="chu-li-xi-tong-biao-zhun-cao-zuo">处理系统标准操作</h1>
+
+
+<h1>处理系统标准操作</h1>
 <ul>
 <li>触发系统操作时, 通知中心将调用代理的 <code>userNotificationCenter:didReceiveNotificationResponse:withCompletionHandler:</code> 方法</li>
 <li>在上述方法中的 response 对象可能包含以下两个标识符之一:<ul>
@@ -232,20 +248,22 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1 id="qing-qiu-yong-hu-shou-quan">请求用户授权</h1>
+        <div class="summary"><h1>请求用户授权</h1>
 <div class="highlight"><pre><span></span><span class="n">UNUserNotificationCenter</span><span class="o">*</span> <span class="n">center</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNUserNotificationCenter</span> <span class="n">currentNotificationCenter</span><span class="p">];</span>
 <span class="p">[</span><span class="n">center</span> <span class="nl">requestAuthorizationWithOptions</span><span class="p">:(</span><span class="n">UNAuthorizationOptionAlert</span> <span class="o">+</span> <span class="n">UNAuthorizationOptionSound</span><span class="p">)</span>
    <span class="nl">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">granted</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
       <span class="c1">// 通过授权结果完成进一步操作</span>
 <span class="p">}];</span>
 </pre></div>
+
+
 <ul>
 <li>获取准确的用户授权信息使用 <code>UNUserNotificationCenter</code> 对象的 <code>getNotificationSettingsWithCompletionHandler:</code> 方法</li>
 </ul>
-<h1 id="pei-zhi-lei-bie-he-ke-cao-zuo-de-tong-zhi">配置类别和可操作的通知</h1>
-<h2 id="zhen-dui-app-zhu-ce-tong-zhi-lei-bie">针对 App 注册通知类别</h2>
+<h1>配置类别和可操作的通知</h1>
+<h2>针对 App 注册通知类别</h2>
 <div class="highlight"><pre><span></span><span class="n">UNNotificationCategory</span><span class="o">*</span> <span class="n">generalCategory</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationCategory</span>
-     <span class="nl">categoryWithIdentifier</span><span class="p">:</span><span class="s">@"GENERAL"</span>
+     <span class="nl">categoryWithIdentifier</span><span class="p">:</span><span class="s">@&quot;GENERAL&quot;</span>
      <span class="nl">actions</span><span class="p">:</span><span class="l">@[]</span>
      <span class="nl">intentIdentifiers</span><span class="p">:</span><span class="l">@[]</span>
      <span class="nl">options</span><span class="p">:</span><span class="n">UNNotificationCategoryOptionCustomDismissAction</span><span class="p">];</span>
@@ -254,7 +272,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">UNUserNotificationCenter</span><span class="o">*</span> <span class="n">center</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNUserNotificationCenter</span> <span class="n">currentNotificationCenter</span><span class="p">];</span>
 <span class="p">[</span><span class="n">center</span> <span class="nl">setNotificationCategories</span><span class="p">:[</span><span class="bp">NSSet</span> <span class="nl">setWithObjects</span><span class="p">:</span><span class="n">generalCategory</span><span class="p">,</span> <span class="nb">nil</span><span class="p">]];</span>
 </pre></div>
-<h2 id="jiang-zi-ding-yi-cao-zuo-tian-jia-dao-lei-bie-zhong">将自定义操作添加到类别中</h2>
+
+
+<h2>将自定义操作添加到类别中</h2>
 <div class="highlight"><pre><span></span><span class="n">UNNotificationCategory</span><span class="o">*</span> <span class="n">generalCategory</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationCategory</span>
       <span class="nl">categoryWithIdentifier …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/app-de-tong-zhi-zhi-chi.html">read more</a></div>
     </div>	

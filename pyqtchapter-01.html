@@ -65,75 +65,81 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div><blockquote>
 <p>Python and Its Features</p>
 </blockquote>
-<h1 id="shu-ju-lei-xing">数据类型</h1>
-<h2 id="integers">Integers</h2>
+<h1>数据类型</h1>
+<h2>Integers</h2>
 <ul>
 <li>32 bits</li>
 <li>[-2<sup>32</sup> 2<sup>32</sup>-1]</li>
 </ul>
-<h2 id="long-integers">Long Integers</h2>
+<h2>Long Integers</h2>
 <ul>
 <li>无限精度, 受限于计算机内存</li>
 </ul>
-<h2 id="floating-point-numbers">Floating Point Numbers</h2>
+<h2>Floating Point Numbers</h2>
 <ul>
 <li>浮点总是双精度的, 64 bits</li>
 </ul>
-<h2 id="boolean">Boolean</h2>
+<h2>Boolean</h2>
 <ul>
 <li>仅取两个值: True、False</li>
 </ul>
-<h2 id="complex-numberfu-shu">Complex Number(复数)</h2>
+<h2>Complex Number(复数)</h2>
 <ul>
 <li>a + b * j</li>
 <li>a、b都是浮点数</li>
 </ul>
-<h2 id="strings">Strings</h2>
+<h2>Strings</h2>
 <ul>
 <li>Unicode 字符序列</li>
 </ul>
-<h2 id="lists">Lists</h2>
+<h2>Lists</h2>
 <ul>
 <li>一组值的有序序列</li>
 </ul>
-<h2 id="tuples">Tuples</h2>
+<h2>Tuples</h2>
 <ul>
 <li>不可变、一组值的有序序列</li>
 </ul>
-<h2 id="sets">Sets</h2>
+<h2>Sets</h2>
 <ul>
 <li>无序的值的集合</li>
 </ul>
-<h2 id="dictionaries">Dictionaries</h2>
+<h2>Dictionaries</h2>
 <ul>
 <li>无序的键值对集合</li>
 </ul>
 <blockquote>
 <p>0b、0B: 二进制; 0o、0O: 八进制; 0x、0X: 十六进制</p>
 </blockquote>
-<h1 id="bian-cheng-de-ji-ben-yuan-su_1">编程的基本元素</h1>
-<h2 id="zi-mian-liang">字面量</h2>
+<h1>编程的基本元素</h1>
+<h2>字面量</h2>
 <div class="highlight"><pre><span></span><span class="mi">10</span> <span class="c1"># Integer literal</span>
 <span class="mf">10.50</span> <span class="c1"># Floating-point literal </span>
 <span class="mf">10.50j</span> <span class="c1">#Imaginary literal </span>
-<span class="s1">'Hello'</span> <span class="c1"># String literal </span>
-<span class="s2">"World!"</span> <span class="c1"># String literal </span>
-<span class="sd">'''Hello World!</span>
+<span class="s1">&#39;Hello&#39;</span> <span class="c1"># String literal </span>
+<span class="s2">&quot;World!&quot;</span> <span class="c1"># String literal </span>
+<span class="sd">&#39;&#39;&#39;Hello World!</span>
 <span class="sd">It might rain today # Triple-quoted string literal</span>
-<span class="sd">Tomorrow is Sunday'''</span>
+<span class="sd">Tomorrow is Sunday&#39;&#39;&#39;</span>
 </pre></div>
-<h2 id="bian-liang">变量</h2>
+
+
+<h2>变量</h2>
 <div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">length</span> <span class="o">=</span> <span class="mi">10</span> 
 <span class="n">length_rectangle</span> <span class="o">=</span> <span class="mf">10.0</span> 
-<span class="n">k</span> <span class="o">=</span> <span class="s2">"Hello World!"</span>
+<span class="n">k</span> <span class="o">=</span> <span class="s2">&quot;Hello World!&quot;</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="bp">True</span> <span class="c1">#Booleanvariable</span>
 <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="c1"># List variable</span>
-<span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'apple'</span><span class="p">,</span> <span class="s1">'mango'</span><span class="p">,</span> <span class="s1">'banana'</span><span class="p">)</span> <span class="c1"># tuple variable </span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;mango&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">)</span> <span class="c1"># tuple variable </span>
 <span class="c1"># A tuple in python language refers to an ordered, immutable (non changeable) set of values of any data type.</span>
 </pre></div>
-<h2 id="guan-jian-zi">关键字</h2>
+
+
+<h2>关键字</h2>
 <ul>
 <li>Python 共有 31 个关键字</li>
 </ul>
@@ -144,10 +150,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="kn">import</span> <span class="nn">in</span> <span class="nn">is</span> <span class="nn">not</span> <span class="nn">or</span>
 <span class="k">pass</span> <span class="k">raise</span> <span class="k">return</span> <span class="k">try</span> <span class="k">with</span> <span class="k">yield</span>
 </pre></div>
-<h1 id="zhu-shi_1">注释</h1>
+
+
+<h1>注释</h1>
 <div class="highlight"><pre><span></span><span class="c1"># this is comment</span>
 </pre></div>
-<h1 id="dai-ma-duo-xing-zhi-chi">代码多行支持</h1>
+
+
+<h1>代码多行支持</h1>
 <ul>
 <li>物理行 : 编辑器中看见的一行</li>
 <li>逻辑行 : Python 中的一个语句</li>
@@ -155,15 +165,17 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>如果括号(<code>(``[``{</code>)没有关闭, Python 也将把多个物理行转换为一个逻辑行</li>
 <li>Python 缩排规则仅使用在连续行的第一行, 其他行不适用</li>
 </ul>
-<h1 id="da-yin-shu-chu">打印输出</h1>
+<h1>打印输出</h1>
 <div class="highlight"><pre><span></span><span class="c1"># 通用语法</span>
-<span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">' '</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="c1"># 例子</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">)</span> <span class="k">print</span> <span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span> <span class="k">print</span> <span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="k">print</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">"Length is "</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">"Length is </span><span class="si">%d</span><span class="s2"> and Breadth is </span><span class="si">%d</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span> <span class="c1"># 如果格式不匹配, 将转换为要输出的格式</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Length is &quot;</span><span class="p">,</span><span class="n">l</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Length is </span><span class="si">%d</span><span class="s2"> and Breadth is </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span> <span class="c1"># 如果格式不匹配, 将转换为要输出的格式</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="o">%</span><span class="n">s</span> <span class="c1"># Displays in string format.</span>
 <span class="o">%</span><span class="n">d</span> <span class="c1"># Displays in decimal format</span>
 <span class="o">%</span><span class="n">e</span> <span class="c1"># Displays in exponential format.</span>
@@ -172,13 +184,15 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="o">%</span><span class="n">x</span> <span class="c1"># Displays in hexadecimal format. </span>
 <span class="o">%</span><span class="n">c</span> <span class="c1"># Displays ASCII code.</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="mi">10</span><span class="p">)</span> 
-<span class="k">print</span><span class="p">(</span><span class="s1">'Hello World! </span><span class="se">\</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello World! </span><span class="se">\</span>
 <span class="s1">It might rain today. </span><span class="se">\</span>
-<span class="s1">Tomorrow is Sunday.'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'''Hello World!</span>
+<span class="s1">Tomorrow is Sunday.&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;Hello World!</span>
 <span class="s1">It might rain today.</span>
-<span class="s1">Tomorrow is Sunday.'''</span><span class="p">)</span>
+<span class="s1">Tomorrow is Sunday.&#39;&#39;&#39;</span><span class="p">)</span>
 </pre></div></div>
 	
         <hr>

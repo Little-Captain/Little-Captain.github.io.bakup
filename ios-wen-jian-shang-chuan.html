@@ -62,39 +62,47 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h1 id="bu-zou">步骤</h1>
-<h2 id="she-zhi-qing-qiu-tou">设置请求头</h2>
-<div class="highlight"><pre><span></span><span class="p">[</span><span class="n">request</span> <span class="nl">setValue</span><span class="p">:</span><span class="s">@"multipart/form-data; boundary=分割线"</span> <span class="nl">forHTTPHeaderField</span><span class="p">:</span><span class="s">@"Content-Type"</span><span class="p">];</span>
+        <div><h1>步骤</h1>
+<h2>设置请求头</h2>
+<div class="highlight"><pre><span></span><span class="p">[</span><span class="n">request</span> <span class="nl">setValue</span><span class="p">:</span><span class="s">@&quot;multipart/form-data; boundary=分割线&quot;</span> <span class="nl">forHTTPHeaderField</span><span class="p">:</span><span class="s">@&quot;Content-Type&quot;</span><span class="p">];</span>
 </pre></div>
-<h2 id="she-zhi-qing-qiu-ti">设置请求体</h2>
+
+
+<h2>设置请求体</h2>
 <ul>
 <li>非文件参数</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="nt">--分割线</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
-<span class="nt">Content-Disposition</span><span class="o">:</span> <span class="nt">form-data</span><span class="o">;</span> <span class="nt">name</span><span class="o">=</span><span class="s2">"参数名"</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
+<span class="nt">Content-Disposition</span><span class="o">:</span> <span class="nt">form-data</span><span class="o">;</span> <span class="nt">name</span><span class="o">=</span><span class="s2">&quot;参数名&quot;</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
 <span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
 <span class="nt">参数值</span>
 <span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
 </pre></div>
+
+
 <ul>
 <li>文件参数</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="nt">--分割线</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
-<span class="nt">Content-Disposition</span><span class="o">:</span> <span class="nt">form-data</span><span class="o">;</span> <span class="nt">name</span><span class="o">=</span><span class="s2">"参数名"</span><span class="o">;</span> <span class="nt">filename</span><span class="o">=</span><span class="s2">"文件名"</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
+<span class="nt">Content-Disposition</span><span class="o">:</span> <span class="nt">form-data</span><span class="o">;</span> <span class="nt">name</span><span class="o">=</span><span class="s2">&quot;参数名&quot;</span><span class="o">;</span> <span class="nt">filename</span><span class="o">=</span><span class="s2">&quot;文件名&quot;</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
 <span class="nt">Content-Type</span><span class="o">:</span> <span class="nt">文件的MIMEType</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
 <span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
 <span class="nt">文件数据</span>
 <span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
 </pre></div>
+
+
 <ul>
 <li>结束的标记</li>
 </ul>
 <div class="highlight"><pre><span></span>--分割线--\r\n
 </pre></div>
-<h1 id="bu-fen-wen-jian-de-mimetype_1">部分文件的MIMEType</h1>
-<p><img alt="" src="../assets/images/网络/部分文件的MIMEType.png"/></p>
-<h1 id="huo-de-wen-jian-de-mimetype">获得文件的MIMEType</h1>
-<h2 id="li-yong-nsurlconnection">利用NSURLConnection</h2>
+
+
+<h1>部分文件的MIMEType</h1>
+<p><img alt="" src="../assets/images/网络/部分文件的MIMEType.png"></p>
+<h1>获得文件的MIMEType</h1>
+<h2>利用NSURLConnection</h2>
 <div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">MIMEType:</span><span class="p">(</span><span class="bp">NSURL</span> <span class="o">*</span><span class="p">)</span><span class="nv">url</span> <span class="p">{</span>
     <span class="c1">// 1.创建一个请求</span>
     <span class="bp">NSURLRequest</span> <span class="o">*</span><span class="n">request</span> <span class="o">=</span> <span class="p">[</span><span class="bp">NSURLRequest</span> <span class="nl">requestWithURL</span><span class="p">:</span><span class="n">url</span><span class="p">];</span>
@@ -105,7 +113,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">return</span> <span class="n">response</span><span class="p">.</span><span class="n">MIMEType</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-<h2 id="cyu-yan-api">C语言API</h2>
+
+
+<h2>C语言API</h2>
 <div class="highlight"><pre><span></span><span class="p">+</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">mimeTypeForFileAtPath:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">path</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[[</span><span class="bp">NSFileManager</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">]</span> <span class="nl">fileExistsAtPath</span><span class="p">:</span><span class="n">path</span><span class="p">])</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nb">nil</span><span class="p">;</span>
@@ -115,7 +125,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="n">CFStringRef</span> <span class="n">MIMEType</span> <span class="o">=</span> <span class="n">UTTypeCopyPreferredTagWithClass</span> <span class="p">(</span><span class="n">UTI</span><span class="p">,</span> <span class="n">kUTTagClassMIMEType</span><span class="p">);</span>
     <span class="n">CFRelease</span><span class="p">(</span><span class="n">UTI</span><span class="p">);</span>
     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">MIMEType</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s">@"application/octet-stream"</span><span class="p">;</span>
+        <span class="k">return</span> <span class="s">@&quot;application/octet-stream&quot;</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="n">NSMakeCollectable</span><span class="p">(</span><span class="n">MIMEType</span><span class="p">);</span>
 <span class="p">}</span>

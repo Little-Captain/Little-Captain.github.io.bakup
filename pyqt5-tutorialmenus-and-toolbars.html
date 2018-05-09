@@ -62,11 +62,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h1 id="qmainwindow">QMainWindow</h1>
+        <div><h1>QMainWindow</h1>
 <blockquote>
 <p>The <code>QMainWindow</code> class provides a main application window. This enables to create a classic application skeleton with a statusbar, toolbars, and a menubar.</p>
 </blockquote>
-<h1 id="statusbar">Statusbar</h1>
+<h1>Statusbar</h1>
 <blockquote>
 <p>A statusbar is a widget that is used for displaying status information.</p>
 </blockquote>
@@ -87,19 +87,21 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="c1"># the method creates a status bar. </span>
         <span class="c1"># Subsequent calls return the statusbar object. </span>
         <span class="c1"># The showMessage() displays a message on the statusbar.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="p">()</span><span class="o">.</span><span class="n">showMessage</span><span class="p">(</span><span class="s1">'Ready'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="p">()</span><span class="o">.</span><span class="n">showMessage</span><span class="p">(</span><span class="s1">&#39;Ready&#39;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Statusbar'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Statusbar&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-<h1 id="simple-menu">Simple menu</h1>
+
+
+<h1>Simple menu</h1>
 <blockquote>
 <p>A menubar is a common part of a GUI application. It is a group of commands located in various menus. (Mac OS treats menubars differently. To get a similar outcome, we can add the following line: menubar.setNativeMenuBar(False).)</p>
 </blockquote>
@@ -115,9 +117,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">exitAct</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="s1">'exit.png'</span><span class="p">),</span> <span class="s1">'&amp;Exit'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-        <span class="n">exitAct</span><span class="o">.</span><span class="n">setShortcut</span><span class="p">(</span><span class="s1">'Ctrl+Q'</span><span class="p">)</span>
-        <span class="n">exitAct</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s1">'Exit application'</span><span class="p">)</span>
+        <span class="n">exitAct</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="s1">&#39;exit.png&#39;</span><span class="p">),</span> <span class="s1">&#39;&amp;Exit&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">exitAct</span><span class="o">.</span><span class="n">setShortcut</span><span class="p">(</span><span class="s1">&#39;Ctrl+Q&#39;</span><span class="p">)</span>
+        <span class="n">exitAct</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s1">&#39;Exit application&#39;</span><span class="p">)</span>
         <span class="n">exitAct</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">qApp</span><span class="o">.</span><span class="n">quit</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="p">()</span>
@@ -125,19 +127,21 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">menubar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">menuBar</span><span class="p">()</span>
         <span class="c1"># 针对 macOS 适配</span>
         <span class="n">menubar</span><span class="o">.</span><span class="n">setNativeMenuBar</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-        <span class="n">fileMenu</span> <span class="o">=</span> <span class="n">menubar</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s1">'&amp;File'</span><span class="p">)</span>
+        <span class="n">fileMenu</span> <span class="o">=</span> <span class="n">menubar</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s1">&#39;&amp;File&#39;</span><span class="p">)</span>
         <span class="n">fileMenu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">exitAct</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Simple menu'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Simple menu&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-<h1 id="submenu">Submenu</h1>
+
+
+<h1>Submenu</h1>
 <blockquote>
 <p>A submenu is a menu located inside another menu.</p>
 </blockquote>
@@ -155,30 +159,32 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">menubar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">menuBar</span><span class="p">()</span>
         <span class="c1"># 针对 macOS 适配</span>
         <span class="n">menubar</span><span class="o">.</span><span class="n">setNativeMenuBar</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-        <span class="n">fileMenu</span> <span class="o">=</span> <span class="n">menubar</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s1">'File'</span><span class="p">)</span>
+        <span class="n">fileMenu</span> <span class="o">=</span> <span class="n">menubar</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s1">&#39;File&#39;</span><span class="p">)</span>
 
         <span class="c1"># New menu is created with QMenu.</span>
-        <span class="n">impMenu</span> <span class="o">=</span> <span class="n">QMenu</span><span class="p">(</span><span class="s1">'Import'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-        <span class="n">impAct</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="s1">'Import mail'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">impMenu</span> <span class="o">=</span> <span class="n">QMenu</span><span class="p">(</span><span class="s1">&#39;Import&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">impAct</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="s1">&#39;Import mail&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
         <span class="c1"># An action is added to the submenu with addAction().</span>
         <span class="n">impMenu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">impAct</span><span class="p">)</span>
 
-        <span class="n">newAct</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="s1">'New'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">newAct</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="s1">&#39;New&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
 
         <span class="n">fileMenu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">newAct</span><span class="p">)</span>
         <span class="n">fileMenu</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="n">impMenu</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Submenu'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Submenu&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-<h1 id="check-menu">Check menu</h1>
+
+
+<h1>Check menu</h1>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QAction</span><span class="p">,</span> <span class="n">QApplication</span>
 
@@ -192,16 +198,16 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">statusbar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">statusbar</span><span class="o">.</span><span class="n">showMessage</span><span class="p">(</span><span class="s1">'Ready'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">statusbar</span><span class="o">.</span><span class="n">showMessage</span><span class="p">(</span><span class="s1">&#39;Ready&#39;</span><span class="p">)</span>
 
         <span class="n">menubar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">menuBar</span><span class="p">()</span>
         <span class="c1"># 针对 macOS 适配</span>
         <span class="n">menubar</span><span class="o">.</span><span class="n">setNativeMenuBar</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-        <span class="n">viewMenu</span> <span class="o">=</span> <span class="n">menubar</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s1">'View'</span><span class="p">)</span>
+        <span class="n">viewMenu</span> <span class="o">=</span> <span class="n">menubar</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s1">&#39;View&#39;</span><span class="p">)</span>
         <span class="c1"># 创建 action, 使能 check</span>
-        <span class="n">viewStatAct</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="s1">'View statusbar'</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">checkable</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">viewStatAct</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="s1">&#39;View statusbar&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">checkable</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="c1"># 设置相应的状态栏提示</span>
-        <span class="n">viewStatAct</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s1">'View statusbar'</span><span class="p">)</span>
+        <span class="n">viewStatAct</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s1">&#39;View statusbar&#39;</span><span class="p">)</span>
         <span class="c1"># 默认 checked</span>
         <span class="n">viewStatAct</span><span class="o">.</span><span class="n">setChecked</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
         <span class="c1"># 连接方法 toggleMenu</span>
@@ -210,7 +216,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">viewMenu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">viewStatAct</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Check menu'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Check menu&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">toggleMenu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
@@ -221,12 +227,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
             <span class="bp">self</span><span class="o">.</span><span class="n">statusbar</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-<h1 id="context-menu">Context menu</h1>
+
+
+<h1>Context menu</h1>
 <blockquote>
 <p>A context menu, also called a popup menu, is a list of commands that appears under some context. </p>
 </blockquote>
@@ -242,16 +250,16 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Context menu'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Context menu&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     <span class="c1"># To work with a context menu, we have to</span>
     <span class="c1"># reimplement the contextMenuEvent() method.</span>
     <span class="k">def</span> <span class="nf">contextMenuEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
         <span class="n">cmenu</span> <span class="o">=</span> <span class="n">QMenu</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-        <span class="n">newAct</span> <span class="o">=</span> <span class="n">cmenu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="s2">"New"</span><span class="p">)</span>
-        <span class="n">opnAct</span> <span class="o">=</span> <span class="n">cmenu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="s2">"Open"</span><span class="p">)</span>
-        <span class="n">quitAct</span> <span class="o">=</span> <span class="n">cmenu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="s2">"Quit"</span><span class="p">)</span>
+        <span class="n">newAct</span> <span class="o">=</span> <span class="n">cmenu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="s2">&quot;New&quot;</span><span class="p">)</span>
+        <span class="n">opnAct</span> <span class="o">=</span> <span class="n">cmenu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="s2">&quot;Open&quot;</span><span class="p">)</span>
+        <span class="n">quitAct</span> <span class="o">=</span> <span class="n">cmenu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="s2">&quot;Quit&quot;</span><span class="p">)</span>
         <span class="c1"># The context menu is displayed with the exec_() method.</span>
         <span class="c1"># The get the coordinates of the mouse pointer from the event object.</span>
         <span class="c1"># The mapToGlobal() method translates the widget coordinates</span>
@@ -262,12 +270,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
             <span class="n">qApp</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-<h1 id="toolbar">Toolbar</h1>
+
+
+<h1>Toolbar</h1>
 <blockquote>
 <p>Toolbars provide a quick access to the most frequently used commands.</p>
 </blockquote>
@@ -283,24 +293,26 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">exitAct</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="s1">'web.png'</span><span class="p">),</span> <span class="s1">'Exit'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-        <span class="n">exitAct</span><span class="o">.</span><span class="n">setShortcut</span><span class="p">(</span><span class="s1">'Ctrl+Q'</span><span class="p">)</span>
+        <span class="n">exitAct</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="s1">&#39;web.png&#39;</span><span class="p">),</span> <span class="s1">&#39;Exit&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">exitAct</span><span class="o">.</span><span class="n">setShortcut</span><span class="p">(</span><span class="s1">&#39;Ctrl+Q&#39;</span><span class="p">)</span>
         <span class="n">exitAct</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">qApp</span><span class="o">.</span><span class="n">quit</span><span class="p">)</span>
         <span class="c1"># The toolbar is created with the addToolBar() method.</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">toolbar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">addToolBar</span><span class="p">(</span><span class="s1">'Exit'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">toolbar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">addToolBar</span><span class="p">(</span><span class="s1">&#39;Exit&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">toolbar</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">exitAct</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Toolbar'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Toolbar&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div>
-<h1 id="putting-it-together">Putting it together</h1>
+
+
+<h1>Putting it together</h1>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QTextEdit</span><span class="p">,</span> <span class="n">QAction</span><span class="p">,</span> <span class="n">QApplication</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
@@ -316,9 +328,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">textEdit</span> <span class="o">=</span> <span class="n">QTextEdit</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="n">textEdit</span><span class="p">)</span>
 
-        <span class="n">exitAct</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="s1">'web.png'</span><span class="p">),</span> <span class="s1">'Exit'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-        <span class="n">exitAct</span><span class="o">.</span><span class="n">setShortcut</span><span class="p">(</span><span class="s1">'Ctrl+Q'</span><span class="p">)</span>
-        <span class="n">exitAct</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s1">'Exit application'</span><span class="p">)</span>
+        <span class="n">exitAct</span> <span class="o">=</span> <span class="n">QAction</span><span class="p">(</span><span class="n">QIcon</span><span class="p">(</span><span class="s1">&#39;web.png&#39;</span><span class="p">),</span> <span class="s1">&#39;Exit&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="n">exitAct</span><span class="o">.</span><span class="n">setShortcut</span><span class="p">(</span><span class="s1">&#39;Ctrl+Q&#39;</span><span class="p">)</span>
+        <span class="n">exitAct</span><span class="o">.</span><span class="n">setStatusTip</span><span class="p">(</span><span class="s1">&#39;Exit application&#39;</span><span class="p">)</span>
         <span class="n">exitAct</span><span class="o">.</span><span class="n">triggered</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="p">()</span>
@@ -326,18 +338,18 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">menubar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">menuBar</span><span class="p">()</span>
         <span class="c1"># 针对 macOS 适配</span>
         <span class="n">menubar</span><span class="o">.</span><span class="n">setNativeMenuBar</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
-        <span class="n">fileMenu</span> <span class="o">=</span> <span class="n">menubar</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s1">'&amp;File'</span><span class="p">)</span>
+        <span class="n">fileMenu</span> <span class="o">=</span> <span class="n">menubar</span><span class="o">.</span><span class="n">addMenu</span><span class="p">(</span><span class="s1">&#39;&amp;File&#39;</span><span class="p">)</span>
         <span class="n">fileMenu</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">exitAct</span><span class="p">)</span>
 
-        <span class="n">toolbar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">addToolBar</span><span class="p">(</span><span class="s1">'Exit'</span><span class="p">)</span>
+        <span class="n">toolbar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">addToolBar</span><span class="p">(</span><span class="s1">&#39;Exit&#39;</span><span class="p">)</span>
         <span class="n">toolbar</span><span class="o">.</span><span class="n">addAction</span><span class="p">(</span><span class="n">exitAct</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setGeometry</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Main window'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Main window&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">ex</span> <span class="o">=</span> <span class="n">Example</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

@@ -65,7 +65,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div><blockquote>
 <p>Classes</p>
 </blockquote>
-<h1 id="lei">类</h1>
+<h1>类</h1>
 <ul>
 <li>类是数据和操作的模板</li>
 <li>通过类可以创建实例(对象)</li>
@@ -74,7 +74,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">class</span> <span class="nc">classname</span><span class="p">[(</span><span class="n">base</span><span class="o">-</span><span class="n">classes</span><span class="p">)]:</span>
     <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
-<h2 id="lei-dui-xiang-de-shu-xing">类对象的属性</h2>
+
+
+<h2>类对象的属性</h2>
 <ul>
 <li>类属性, 不需要实例对象, 使用类名引用</li>
 </ul>
@@ -82,32 +84,40 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="n">l</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="k">print</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rect</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span>
 <span class="n">rect</span><span class="o">.</span><span class="n">l</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="k">print</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
-<h3 id="nei-jian-de-lei-shu-xing">内建的类属性</h3>
+
+
+<h3>内建的类属性</h3>
 <ul>
 <li>一个类隐式的设置了一些类属性, 我们称之为内建类属性</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="vm">__name__</span> <span class="c1"># 类名</span>
 <span class="vm">__bases__</span> <span class="c1"># 一个 tuple 指示 base classes</span>
-<span class="vm">__dict__</span> <span class="c1"># 通过 key/value 存储类的自定义属性. rect.__dict__['l'] = 8</span>
+<span class="vm">__dict__</span> <span class="c1"># 通过 key/value 存储类的自定义属性. rect.__dict__[&#39;l&#39;] = 8</span>
 <span class="vm">__doc__</span> <span class="c1"># 类的文档字符串</span>
 <span class="vm">__module__</span> <span class="c1"># 定义类的模块名</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rect</span><span class="p">:</span>
     <span class="n">l</span><span class="o">=</span><span class="mi">8</span>
     <span class="n">b</span><span class="o">=</span><span class="mi">5</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Length is </span><span class="si">%d</span><span class="s2">, Breadth is </span><span class="si">%d</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">b</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Class name is "</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s2">" and Base class is "</span><span class="p">,</span><span class="n">rect</span><span class="o">.</span><span class="vm">__bases__</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Attributes of this class are "</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Length is </span><span class="si">%d</span><span class="s2">, Breadth is </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">b</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Class name is &quot;</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s2">&quot; and Base class is &quot;</span><span class="p">,</span><span class="n">rect</span><span class="o">.</span><span class="vm">__bases__</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Attributes of this class are &quot;</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
 </pre></div>
+
+
 <ul>
 <li>如果你没有指定一个<code>基类</code>, 默认<code>object</code></li>
 </ul>
-<h2 id="lei-zhong-ding-yi-han-shu_1">类中定义函数</h2>
+<h2>类中定义函数</h2>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">classname</span><span class="p">(</span><span class="n">base</span><span class="o">-</span><span class="n">classes</span><span class="p">):</span>
     <span class="k">class</span> <span class="nc">variable</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">method</span> <span class="mi">1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -117,6 +127,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">instance</span> <span class="n">variable</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
         <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)]</span>
 </pre></div>
+
+
 <ul>
 <li>一个类可以拥有两种类型的数据成员: 类属性和实例属性</li>
 </ul>
@@ -128,7 +140,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">print</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="n">rect</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
-<h2 id="shi-li">实例</h2>
+
+
+<h2>实例</h2>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rect</span><span class="p">:</span>
     <span class="n">l</span> <span class="o">=</span> <span class="mi">8</span>
     <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
@@ -137,9 +151,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">rectarea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">rect</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="n">rect</span><span class="o">.</span><span class="n">b</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">rect</span><span class="p">()</span> <span class="c1"># 创建实例对象</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Area of rectangle is &quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
 </pre></div>
-<h3 id="__init__-fang-fa">__init__() 方法</h3>
+
+
+<h3>__init__() 方法</h3>
 <ul>
 <li><code>__init__()</code> 方法是创建一个实例后第一个被执行的方法, 且自动执行</li>
 <li>它就像 C++ 和 Java 语言中用于执行初始化操作的构造器</li>
@@ -154,8 +170,10 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">rectarea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">rect</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Area of rectangle is &quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
 </pre></div>
+
+
 <ul>
 <li>给 <code>__init__</code> 方法传参</li>
 </ul>
@@ -166,8 +184,10 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">rectarea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">rect</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'Area of rectangle is '</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Area of rectangle is &#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
 </pre></div>
+
+
 <ul>
 <li>给 <code>__init__</code> 方法定义<code>默认值参数</code></li>
 </ul>
@@ -179,9 +199,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">rect</span><span class="p">()</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">rect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Area of rectangle is &quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Area of rectangle is &quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
 </pre></div>
+
+
 <ul>
 <li>实例的字符串描述: 实例的 <code>__str__</code> 方法被 <code>str()</code>函数和 <code>print</code> 语句调用</li>
 </ul>
@@ -190,14 +212,16 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">y</span>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s1">'Length is </span><span class="si">%d</span><span class="s1">, Breadth is </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;Length is </span><span class="si">%d</span><span class="s1">, Breadth is </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">rectarea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">rect</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Area of rectangle is &quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
 </pre></div>
-<h2 id="lei-fang-fa_1">类方法</h2>
+
+
+<h2>类方法</h2>
 <ul>
 <li>类方法没有 <code>self</code> 参数, 接收一个 <code>class</code> 作为它的第一个参数, 称之为 <code>cls</code></li>
 <li>类方法通过<code>类对象</code>直接调用, 而不是<code>实例对象</code></li>
@@ -209,6 +233,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">parm1</span><span class="p">,</span> <span class="n">parm2</span><span class="p">,</span> <span class="o">.</span> <span class="o">.</span> <span class="o">.</span><span class="p">):</span>
     <span class="n">body</span> <span class="n">of</span> <span class="n">the</span> <span class="n">method</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">book</span><span class="p">:</span>
     <span class="n">price</span> <span class="o">=</span> <span class="mi">100</span>
     <span class="nd">@classmethod</span>
@@ -225,7 +251,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">b</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">c</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
-<h2 id="jing-tai-fang-fa">静态方法</h2>
+
+
+<h2>静态方法</h2>
 <ul>
 <li>一个可代替的类方法实现</li>
 <li>静态方法通过对普通函数使用 <code>@staticmethod</code> 装饰器创建</li>
@@ -236,17 +264,21 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">def</span> <span class="nf">name</span> <span class="p">(</span><span class="n">parm</span><span class="o">.</span> <span class="o">.</span> <span class="o">.</span><span class="p">):</span>
     <span class="n">body</span> <span class="n">of</span> <span class="n">the</span> <span class="n">method</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rect</span><span class="p">:</span>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">disp_message</span><span class="p">():</span>
         <span class="n">l</span> <span class="o">=</span> <span class="mi">50</span>
-        <span class="k">print</span> <span class="p">(</span><span class="s2">"Length is "</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Length is &quot;</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
 <span class="c1"># 通过 类对象 调用</span>
 <span class="n">rect</span><span class="o">.</span><span class="n">disp_message</span><span class="p">()</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">rect</span><span class="p">()</span>
 <span class="c1"># 通过 实例对象 调用</span>
 <span class="n">r</span><span class="o">.</span><span class="n">disp_message</span><span class="p">()</span>
 </pre></div>
+
+
 <ul>
 <li><code>类方法</code>和<code>静态方法</code>都可以通过<code>类对象</code>和<code>实例对象</code>调用</li>
 <li><code>实例方法</code>只能通过<code>实例对象</code>调用</li>
@@ -261,16 +293,18 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="k">return</span> <span class="n">product</span><span class="o">.</span><span class="n">count</span>
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">prodclasscount</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">'Class info: '</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">'Class method - The product count is: '</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
-<span class="n">p1</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="s1">'Camera'</span><span class="p">)</span>
-<span class="n">p2</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="s1">'Cell'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'Static method - The product count is: '</span><span class="p">,</span>\
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Class info: &#39;</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Class method - The product count is: &#39;</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="s1">&#39;Camera&#39;</span><span class="p">)</span>
+<span class="n">p2</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="s1">&#39;Cell&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Static method - The product count is: &#39;</span><span class="p">,</span>\
       <span class="n">product</span><span class="o">.</span><span class="n">prodstatcount</span><span class="p">(),</span> <span class="n">p1</span><span class="o">.</span><span class="n">prodstatcount</span><span class="p">())</span>
 <span class="n">product</span><span class="o">.</span><span class="n">prodclasscount</span><span class="p">()</span>
 <span class="n">p2</span><span class="o">.</span><span class="n">prodclasscount</span><span class="p">()</span>
 </pre></div>
-<h1 id="la-ji-hui-shou_1">垃圾回收</h1>
+
+
+<h1>垃圾回收</h1>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rect</span><span class="p">:</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -279,11 +313,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">y</span>
     <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">rect</span><span class="o">.</span><span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
-        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s1">'destroyed'</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s1">&#39;destroyed&#39;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">rectarea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span> <span class="p">(</span><span class="s1">'Area of rectangle is'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Area of rectangle is&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">noOfObjects</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span> <span class="p">(</span><span class="s1">'Number of objects are:'</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Number of objects are:&#39;</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
 
 <span class="n">r</span><span class="o">=</span><span class="n">rect</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">()</span>
@@ -291,12 +325,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">s</span><span class="o">.</span><span class="n">rectarea</span><span class="p">()</span>
 <span class="n">r</span><span class="o">.</span><span class="n">noOfObjects</span><span class="p">()</span>
 </pre></div>
-<h1 id="ji-cheng">继承</h1>
+
+
+<h1>继承</h1>
 <ul>
 <li>子类继承了父类所有的属性和方法, 所以可以节省时间和精力</li>
 </ul>
-<h2 id="ji-cheng-de-fen-lei">继承的分类</h2>
-<h3 id="dan-ji-cheng">单继承</h3>
+<h2>继承的分类</h2>
+<h3>单继承</h3>
 <ul>
 <li>如果父类也有 <code>__init__</code> 方法, 子类的 <code>__init__</code> 方法必须调用</li>
 </ul>
@@ -317,10 +353,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 <span class="n">r</span><span class="o">=</span><span class="n">triangle</span><span class="p">()</span>
 <span class="c1"># 如果通过多态去调用父类的方法, 涉及到父类的属性, 父类的 __init__ 方法必须在子类的__init__ 方法中调用</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Area of triangle is "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">trigarea</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Area of rectangle is &quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Area of triangle is &quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">trigarea</span><span class="p">())</span>
 </pre></div>
-<h4 id="fang-wen-kong-zhi-zhi-shi-fu">访问控制指示符</h4>
+
+
+<h4>访问控制指示符</h4>
 <ul>
 <li>用于标识类成员的可见性</li>
 <li><code>public</code> : 类的外部和内部同样访问</li>
@@ -335,8 +373,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">rectarea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">rect</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="n">r</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Area of rectangle is &quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Area of rectangle is &quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="n">r</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
 <span class="c1"># 访问 private 成员</span>
 <span class="k">class</span> <span class="nc">rect</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
@@ -345,15 +383,17 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">rectarea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__l</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">__b</span>
 <span class="n">r</span><span class="o">=</span><span class="n">rect</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Area of rectangle is &quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
 <span class="c1"># 类外部访问 private 成员, 使用 _类名+private成员</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">_rect__l</span> <span class="o">*</span> <span class="n">r</span><span class="o">.</span><span class="n">_rect__b</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">__l</span><span class="o">*</span> <span class="n">r</span><span class="o">.</span><span class="n">__b</span><span class="p">)</span> <span class="c1"># 抛出错误</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Area of rectangle is &quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">_rect__l</span> <span class="o">*</span> <span class="n">r</span><span class="o">.</span><span class="n">_rect__b</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Area of rectangle is &quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">__l</span><span class="o">*</span> <span class="n">r</span><span class="o">.</span><span class="n">__b</span><span class="p">)</span> <span class="c1"># 抛出错误</span>
 </pre></div>
+
+
 <ul>
 <li>一个子类可以访问父类的 <code>public</code> 成员变量和方法</li>
 </ul>
-<h4 id="zhong-xie-override">重写(override)</h4>
+<h4>重写(override)</h4>
 <ul>
 <li>子类重写父类的方法, 先走子类的方法</li>
 </ul>
@@ -371,8 +411,10 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span>
 <span class="n">r</span><span class="o">=</span><span class="n">triangle</span><span class="p">()</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">"Area of triangle is "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">area</span><span class="p">())</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Area of triangle is &quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">area</span><span class="p">())</span>
 </pre></div>
+
+
 <ul>
 <li>在子类中访问父类的方法</li>
 </ul>
@@ -381,7 +423,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">=</span> <span class="mi">8</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
     <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Area of rectangle is &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">triangle</span><span class="p">(</span><span class="n">rect</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">rect</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -390,11 +432,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># 使用 类名 调用父类中方法</span>
         <span class="n">rect</span><span class="o">.</span><span class="n">area</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Area of triangle is "</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Area of triangle is &quot;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">triangle</span><span class="p">()</span>
 <span class="n">r</span><span class="o">.</span><span class="n">area</span><span class="p">()</span>
 </pre></div>
-<h3 id="duo-ceng-ji-cheng_1">多层继承</h3>
+
+
+<h3>多层继承</h3>
 <ul>
 <li>C 继承自 B, B 继承自 A, 这就是多层继承</li>
 <li>C 可以访问 B 中的 public 成员, B 可以访问 A 中的 public 成员</li>
@@ -407,46 +451,50 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">class</span> <span class="nc">manager</span><span class="p">(</span><span class="n">officer</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">worker</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">c</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">n</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">salary</span> <span class="o">=</span> <span class="n">s</span>
     <span class="k">def</span> <span class="nf">showworker</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Code is "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Name is "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Salary is "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">salary</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Code is &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Name is &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Salary is &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">salary</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">officer</span><span class="p">(</span><span class="n">worker</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
         <span class="n">worker</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hra</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">/</span> <span class="mi">100</span>
     <span class="k">def</span> <span class="nf">showofficer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">worker</span><span class="o">.</span><span class="n">showworker</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"HRA - House Rent Allowance is "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hra</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;HRA - House Rent Allowance is &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hra</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">manager</span><span class="p">(</span><span class="n">officer</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
         <span class="n">officer</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">da</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="mi">98</span> <span class="o">/</span> <span class="mi">100</span>
     <span class="k">def</span> <span class="nf">showmanager</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">officer</span><span class="o">.</span><span class="n">showofficer</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">print</span> <span class="p">(</span><span class="s2">"DA - Dearness Allowance is "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">da</span><span class="p">)</span>
-<span class="n">w</span> <span class="o">=</span> <span class="n">worker</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="s1">'John'</span> <span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
-<span class="n">o</span> <span class="o">=</span> <span class="n">officer</span><span class="p">(</span><span class="mi">102</span><span class="p">,</span> <span class="s1">'David'</span><span class="p">,</span> <span class="mi">4000</span><span class="p">)</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">manager</span><span class="p">(</span><span class="mi">103</span><span class="p">,</span> <span class="s1">'Ben'</span> <span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">"Information of worker is "</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;DA - Dearness Allowance is &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">da</span><span class="p">)</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">worker</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="s1">&#39;John&#39;</span> <span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="n">o</span> <span class="o">=</span> <span class="n">officer</span><span class="p">(</span><span class="mi">102</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="mi">4000</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">manager</span><span class="p">(</span><span class="mi">103</span><span class="p">,</span> <span class="s1">&#39;Ben&#39;</span> <span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;Information of worker is &quot;</span><span class="p">)</span>
 <span class="n">w</span><span class="o">.</span><span class="n">showworker</span><span class="p">()</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Information of officer is "</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Information of officer is &quot;</span><span class="p">)</span>
 <span class="n">o</span><span class="o">.</span><span class="n">showofficer</span><span class="p">()</span>
-<span class="k">print</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Information of manager is "</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Information of manager is &quot;</span><span class="p">)</span>
 <span class="n">m</span><span class="o">.</span><span class="n">showmanager</span><span class="p">()</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">student</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">roll</span> <span class="o">=</span> <span class="n">r</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">n</span>
     <span class="k">def</span> <span class="nf">showstudent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Roll : "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">roll</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Name is "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Roll : &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">roll</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Name is &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">science</span><span class="p">(</span><span class="n">student</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
         <span class="n">student</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
@@ -454,8 +502,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">chemistry</span> <span class="o">=</span> <span class="n">c</span>
     <span class="k">def</span> <span class="nf">showscience</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">student</span><span class="o">.</span><span class="n">showstudent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Physics marks : "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">physics</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Chemistry marks : "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chemistry</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Physics marks : &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">physics</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Chemistry marks : &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chemistry</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">arts</span><span class="p">(</span><span class="n">student</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="n">g</span><span class="p">):</span>
         <span class="n">student</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
@@ -463,16 +511,18 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">geography</span><span class="o">=</span><span class="n">g</span>
     <span class="k">def</span> <span class="nf">showarts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">student</span><span class="o">.</span><span class="n">showstudent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"History marks : "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Geography marks : "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">geography</span><span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">science</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="s1">'David'</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">arts</span><span class="p">(</span><span class="mi">102</span><span class="p">,</span> <span class="s1">'Ben'</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Information of science student is "</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;History marks : &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Geography marks : &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">geography</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">science</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">arts</span><span class="p">(</span><span class="mi">102</span><span class="p">,</span> <span class="s1">&#39;Ben&#39;</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Information of science student is &quot;</span><span class="p">)</span>
 <span class="n">s</span><span class="o">.</span><span class="n">showscience</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Information of arts student is "</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Information of arts student is &quot;</span><span class="p">)</span>
 <span class="n">a</span><span class="o">.</span><span class="n">showarts</span><span class="p">()</span>
 </pre></div>
-<h3 id="duo-ji-cheng">多继承</h3>
+
+
+<h3>多继承</h3>
 <ul>
 <li>C 同时继承自 A 和 B, C 可以访问 A 和 B 中所有的 public 成员</li>
 </ul>
@@ -483,20 +533,22 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">class</span> <span class="nc">manager</span><span class="p">(</span><span class="n">worker</span><span class="p">,</span> <span class="n">officer</span><span class="p">):</span>
     <span class="o">...</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">student</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">roll</span> <span class="o">=</span> <span class="n">r</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">n</span>
     <span class="k">def</span> <span class="nf">showstudent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Roll : "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">roll</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Name is "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Roll : &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">roll</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Name is &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">science</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">physics</span> <span class="o">=</span> <span class="n">p</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">chemistry</span> <span class="o">=</span> <span class="n">c</span>
     <span class="k">def</span> <span class="nf">showscience</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Physics marks : "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">physics</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Chemistry marks : "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chemistry</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Physics marks : &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">physics</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Chemistry marks : &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">chemistry</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">results</span><span class="p">(</span><span class="n">student</span><span class="p">,</span> <span class="n">science</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
         <span class="n">student</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
@@ -506,16 +558,18 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="nf">showresults</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">student</span><span class="o">.</span><span class="n">showstudent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">science</span><span class="o">.</span><span class="n">showscience</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Total marks : "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">total</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Percentage marks : "</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">percentage</span><span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">results</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="s1">'David'</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Result of student is "</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Total marks : &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">total</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Percentage marks : &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">percentage</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">results</span><span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">75</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Result of student is &quot;</span><span class="p">)</span>
 <span class="n">s</span><span class="o">.</span><span class="n">showresults</span><span class="p">()</span>
 </pre></div>
+
+
 <ul>
 <li><code>多继承</code>可能会产生<code>混乱</code></li>
 </ul>
-<h4 id="fu-lei-zhong-cun-zai-ming-zi-he-qian-ming-xiang-tong-de-fang-fa">父类中存在名字和签名相同的方法</h4>
+<h4>父类中存在名字和签名相同的方法</h4>
 <ul>
 <li>写在前面的类的方法将会被调用</li>
 <li>如果我们都需要, 那我们就要<code>重写</code>父类方法后, 进行<code>主动调用</code></li>
@@ -535,17 +589,19 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">class</span> <span class="nc">both</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span> <span class="n">triangle</span><span class="p">):</span>
     <span class="k">pass</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">both</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">area</span><span class="p">())</span> <span class="c1"># 这里会调用 rect 的 area 方法</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Area of rectangle is &quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">area</span><span class="p">())</span> <span class="c1"># 这里会调用 rect 的 area 方法</span>
 <span class="k">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">y</span><span class="p">);</span> <span class="c1"># 会抛出异常, 找不到 x 属性, 初步推断, triangle 的 __init__ 方法没有调用, 不提供子列的 __init__ 方法, 默认的 __init__ 方法会调用第一个父类的 __init__ 方法进行初始化</span>
 </pre></div>
-<h1 id="yun-suan-fu-zhong-zai_3">运算符重载</h1>
-<h2 id="__add__">+ : __add__</h2>
+
+
+<h1>运算符重载</h1>
+<h2>+ : __add__</h2>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rect</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">y</span>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s1">'Length is </span><span class="si">%d</span><span class="s1">, Breadth is </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;Length is </span><span class="si">%d</span><span class="s1">, Breadth is </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
     <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">rect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">rectarea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -554,15 +610,17 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">r2</span> <span class="o">=</span> <span class="n">rect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="n">r3</span> <span class="o">=</span> <span class="n">r1</span> <span class="o">+</span> <span class="n">r2</span> <span class="c1"># 通过实例 r1 调用其 __add__ 方法, r2 作为参数传入</span>
 <span class="k">print</span><span class="p">(</span><span class="n">r3</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Area of rectangle is "</span><span class="p">,</span> <span class="n">r3</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Area of rectangle is &quot;</span><span class="p">,</span> <span class="n">r3</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
 </pre></div>
-<h2 id="__eq__">== : __eq__</h2>
+
+
+<h2>== : __eq__</h2>
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rect</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">=</span> <span class="n">x</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">y</span>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s1">'Length is </span><span class="si">%d</span><span class="s1">, Breadth is </span><span class="si">%d</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;Length is </span><span class="si">%d</span><span class="s1">, Breadth is </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">l</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">l</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">b</span><span class="p">))</span>
     <span class="k">def</span> <span class="nf">rectarea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -570,17 +628,19 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">r1</span> <span class="o">=</span> <span class="n">rect</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">r2</span> <span class="o">=</span> <span class="n">rect</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">r1</span> <span class="o">==</span> <span class="n">r2</span><span class="p">:</span> <span class="c1"># 通过实例 r1 调用其 __eq__ 方法, r2 作为参数传入</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">'The two instances are equal'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;The two instances are equal&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">'The two instances are not equal'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;The two instances are not equal&#39;</span><span class="p">)</span>
 
 <span class="n">r2</span> <span class="o">=</span> <span class="n">rect</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">r1</span> <span class="o">==</span> <span class="n">r2</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">'The two instances are equal'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;The two instances are equal&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">'The two instances are not equal'</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;The two instances are not equal&#39;</span><span class="p">)</span>
 </pre></div>
-<h1 id="duo-tai-xing_1">多态性</h1>
+
+
+<h1>多态性</h1>
 <ul>
 <li>相同名称和签名的方法在不同的类中执行不同的任务</li>
 <li>你在不知道具体类的情况下, 通过多态调用对应的方法(不知道这个方法所属的具体类)</li>
@@ -593,19 +653,19 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="n">book</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">commission</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">comm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">/</span> <span class="mi">100</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Commission of Stockist is </span><span class="si">%.2f</span><span class="s2">"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">comm</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Commission of Stockist is </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">comm</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">distributor</span><span class="p">(</span><span class="n">book</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="n">book</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">commission</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">comm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">/</span> <span class="mi">100</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Commission of Distributor is </span><span class="si">%.2f</span><span class="s2">"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">comm</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Commission of Distributor is </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">comm</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">retailer</span><span class="p">(</span><span class="n">book</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
         <span class="n">book</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">commission</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">comm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">100</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">"Commission of Retailer is </span><span class="si">%.2f</span><span class="s2">"</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">comm</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Commission of Retailer is </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">comm</span><span class="p">)</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">stockist</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">distributor</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">retailer</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -613,7 +673,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">prncomm</span><span class="p">:</span>
     <span class="n">c</span><span class="o">.</span><span class="n">commission</span><span class="p">()</span>
 </pre></div>
-<h1 id="propertiesshu-xing">Properties(属性)</h1>
+
+
+<h1>Properties(属性)</h1>
 <ul>
 <li>用于管理实例变量, 提供 getter 和 setter</li>
 </ul>
@@ -621,7 +683,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
     <span class="k">def</span> <span class="nf">set_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="k">print</span> <span class="p">(</span><span class="s1">'Setting product name: </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Setting product name: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
     <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
@@ -629,12 +691,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_name</span>
     <span class="c1"># 属性声明</span>
     <span class="n">name</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">get_name</span><span class="p">,</span> <span class="n">set_name</span><span class="p">)</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="s1">'Camera'</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'Getting product name '</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'Cell'</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'Getting product name '</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="s1">&#39;Camera&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Getting product name &#39;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Cell&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Getting product name &#39;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
-<h1 id="descriptor">descriptor</h1>
+
+
+<h1>descriptor</h1>
 <ul>
 <li><code>descriptor</code> 是 一个 <code>properties</code> 的超集</li>
 <li><code>descriptor</code> 是 <code>类族</code>, 用来方便我们管理实例对象的实例变量</li>
@@ -644,6 +708,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="fm">__get__</span><span class="p">()</span> <span class="c1"># 设置对象的实例变量值</span>
 <span class="fm">__delete__</span><span class="p">()</span> <span class="c1"># 删除对象的某个实例变量</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="c1"># descriptor 的语法</span>
 <span class="k">class</span> <span class="nc">Descriptor</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
@@ -653,6 +719,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">def</span> <span class="fm">__delete__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span>
         <span class="o">...</span>
 </pre></div>
+
+
 <ul>
 <li>无数据的 descriptor: 针对<code>对象</code>只实现 <code>__get__</code> 方法</li>
 <li>有数据的 descriptor: 针对<code>对象</code>同时实现 <code>__delete__</code> <code>__set__</code> <code>__get__</code></li>
@@ -662,19 +730,21 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">x</span>
     <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">print</span> <span class="p">(</span><span class="s1">'Setting attribute'</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Setting attribute&#39;</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">value</span>
     <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">objtype</span><span class="p">):</span>
-        <span class="k">print</span> <span class="p">(</span><span class="s1">'Getting attribute'</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">objtype</span><span class="p">)</span>
+        <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Getting attribute&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">objtype</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">price</span>
 <span class="k">class</span> <span class="nc">cart</span><span class="p">:</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="s1">'butter'</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="s1">&#39;butter&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 <span class="n">k</span> <span class="o">=</span> <span class="n">cart</span><span class="p">()</span>
 <span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">p</span><span class="p">)</span>
 <span class="n">k</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="k">print</span><span class="p">(</span><span class="n">k</span><span class="o">.</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
-<h1 id="__setattr__-__getattr__-__delattr__">__setattr__ 、 __getattr__ 、 __delattr__</h1>
+
+
+<h1>__setattr__ 、 __getattr__ 、 __delattr__</h1>
 <ul>
 <li>在给实例变量赋值时, <code>__setattr__</code> 方法会被调用</li>
 </ul>
@@ -686,34 +756,40 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="c1"># 这里可以进行类型检查</span>
     <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 </pre></div>
+
+
 <ul>
 <li><code>__getattr__</code> 方法使用字符串对象获取实例变量, 当属性搜索失败时, 会被调用, 比如当你访问一个未定义的属性. 这个方法应该要么返回实例变量值, 要么抛出属性访问错误异常</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
 </pre></div>
+
+
 <ul>
 <li>当对一个实例的属性使用 <code>del</code> 时, <code>__delattr__</code> 方法会被调用</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__delattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">product</span><span class="p">:</span>
     <span class="c1"># 类属性</span>
     <span class="n">price</span> <span class="o">=</span> <span class="mi">25</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
     <span class="k">def</span> <span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
     <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="s1">'Camera'</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">product</span><span class="p">(</span><span class="s1">&#39;Camera&#39;</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">price</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 <span class="n">p</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="mi">15</span>
-<span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">"Cell"</span>
+<span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Cell&quot;</span>
 <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">price</span><span class="p">)</span>
 </pre></div></div>

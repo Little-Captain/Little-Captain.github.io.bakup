@@ -65,11 +65,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div><blockquote>
 <p>Testing Your Code</p>
 </blockquote>
-<h1 id="mo-kuai-hua-bian-cheng-yu-dai-ma-ce-shi">模块化编程与代码测试</h1>
+<h1>模块化编程与代码测试</h1>
 <ul>
 <li>模块化编程是测试更为容易</li>
 </ul>
-<h1 id="ce-shi-qu-dong-de-kai-fa-tdd">测试驱动的开发(TDD)</h1>
+<h1>测试驱动的开发(TDD)</h1>
 <blockquote>
 <ol>
 <li>开发代码前先写测试</li>
@@ -80,16 +80,16 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <ul>
 <li>对于大型项目, TDD 能够最好的模块化你的代码</li>
 </ul>
-<h1 id="dan-yuan-ce-shi-kuang-jia-unittest">单元测试框架 : unittest</h1>
+<h1>单元测试框架 : unittest</h1>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">op</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">'+-/*'</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">'Operator must be +-/*'</span>
+    <span class="k">if</span> <span class="n">op</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">&#39;+-/*&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;Operator must be +-/*&#39;</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">'+'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">'-'</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
-        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">'/'</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
@@ -97,29 +97,31 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <span class="k">return</span> <span class="bp">None</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
     <span class="k">return</span> <span class="n">result</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
 <span class="kn">import</span> <span class="nn">calc</span>
 
 <span class="k">class</span> <span class="nc">testCalc</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">testSimpleAdd</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">result</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">calc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">calc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">testLargeProduct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">result</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">calc</span><span class="p">(</span><span class="mf">123456789.0</span><span class="p">,</span> <span class="s1">'*'</span><span class="p">,</span> <span class="mf">987654321.0</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">calc</span><span class="p">(</span><span class="mf">123456789.0</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="mf">987654321.0</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="mf">1.2193263111263526e+17</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">testDivByZero</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">result</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">calc</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s1">'/'</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s1">'ZeroDivisionError'</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">calc</span><span class="o">.</span><span class="n">calc</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="s1">&#39;ZeroDivisionError&#39;</span><span class="p">)</span>
 
 <span class="c1"># 创建 test suite</span>
 <span class="n">TestSuite</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">TestSuite</span><span class="p">()</span>
 <span class="c1"># 添加 test 到 suite 中</span>
-<span class="n">TestSuite</span><span class="o">.</span><span class="n">addTest</span><span class="p">(</span><span class="n">testCalc</span><span class="p">(</span><span class="s2">"testSimpleAdd"</span><span class="p">))</span>
-<span class="n">TestSuite</span><span class="o">.</span><span class="n">addTest</span><span class="p">(</span><span class="n">testCalc</span><span class="p">(</span><span class="s2">"testLargeProduct"</span><span class="p">))</span>
-<span class="n">TestSuite</span><span class="o">.</span><span class="n">addTest</span><span class="p">(</span><span class="n">testCalc</span><span class="p">(</span><span class="s2">"testDivByZero"</span><span class="p">))</span>
+<span class="n">TestSuite</span><span class="o">.</span><span class="n">addTest</span><span class="p">(</span><span class="n">testCalc</span><span class="p">(</span><span class="s2">&quot;testSimpleAdd&quot;</span><span class="p">))</span>
+<span class="n">TestSuite</span><span class="o">.</span><span class="n">addTest</span><span class="p">(</span><span class="n">testCalc</span><span class="p">(</span><span class="s2">&quot;testLargeProduct&quot;</span><span class="p">))</span>
+<span class="n">TestSuite</span><span class="o">.</span><span class="n">addTest</span><span class="p">(</span><span class="n">testCalc</span><span class="p">(</span><span class="s2">&quot;testDivByZero&quot;</span><span class="p">))</span>
 <span class="c1"># 创建 Test runner</span>
 <span class="n">runner</span> <span class="o">=</span> <span class="n">unittest</span><span class="o">.</span><span class="n">TextTestRunner</span><span class="p">()</span>
 <span class="c1"># 执行测试</span>

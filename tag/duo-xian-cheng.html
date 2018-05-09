@@ -68,33 +68,35 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
         </div>
         
-        <div><h1 id="gai-nian">概念</h1>
+        <div><h1>概念</h1>
 <ul>
 <li>字面意思 : 运行循环</li>
 </ul>
 <p><em>示意图</em></p>
 <p>![](../assets/images/多线程/runloop mode.png)</p>
-<h1 id="ji-ben-zuo-yong">基本作用</h1>
+<h1>基本作用</h1>
 <ul>
 <li>保持程序的持续运行</li>
 <li>处理App中的各种事件<ul>
 <li>触摸事件</li>
 <li>定时器事件</li>
 <li>Selector事件</li>
-<li>&hellip;</li>
+<li>…</li>
 </ul>
 </li>
 <li>节省CPU资源</li>
 <li>提高程序性能, 该做事时做事，该休息时休息</li>
 <li>...</li>
 </ul>
-<h2 id="ru-guo-mei-you-runloop">如果没有 runloop</h2>
+<h2>如果没有 runloop</h2>
 <div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@"execute main function"</span><span class="p">);</span> <span class="c1">// 程序开始</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;execute main function&quot;</span><span class="p">);</span> <span class="c1">// 程序开始</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 程序结束</span>
 <span class="p">}</span>
 </pre></div>
-<h2 id="ru-guo-you-liao-runloop">如果有了 runloop</h2>
+
+
+<h2>如果有了 runloop</h2>
 <div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
     <span class="kt">BOOL</span> <span class="n">running</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span> <span class="c1">// 程序开始</span>
     <span class="k">do</span> <span class="p">{</span>
@@ -104,6 +106,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+
+
 <ul>
 <li>main 函数里面启动了 RunLoop ，程序并不会马上退出，保持持续运行状态</li>
 </ul>
@@ -113,14 +117,16 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+
+
 <p>解释</p>
 <ul>
 <li>第3行代码的UIApplicationMain函数内部就启动了一个 runloop</li>
 <li>UIApplicationMain函数一直不会返回，保持了程序的持续运行</li>
 <li>这个默认启动的runloop是跟主线程相关联的</li>
 </ul>
-<h1 id="runloopdui-xiang_1">RunLoop对象</h1>
-<h3 id="ioszhong-you-2tao-apilai-fang-wen-he-shi-yong-runloop">iOS中有2套API来访问和使用RunLoop</h3>
+<h1>RunLoop对象</h1>
+<h3>iOS中有2套API来访问和使用RunLoop</h3>
 <ul>
 <li>NSRunLoop<ul>
 <li>Foundation</li>
@@ -135,7 +141,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </li>
 <li>NSRunLoop和CFRunLoopRef都代表着RunLoop对象, 可以相互转换</li>
 </ul>
-<h3 id="huo-de-runloopdui-xiang">获得RunLoop对象</h3>
+<h3>获得RunLoop对象</h3>
 <ul>
 <li>Foundation<ul>
 <li>currentRunLoop, 获得当前线程的RunLoop对象</li>
@@ -148,15 +154,15 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h1 id="runloopyu-xian-cheng_1">RunLoop与线程</h1>
+<h1>RunLoop与线程</h1>
 <ul>
 <li>每条线程都有唯一的一个与之对应的RunLoop对象</li>
 <li>主线程的RunLoop已经自动创建好了</li>
 <li>子线程的RunLoop需要主动创建</li>
 <li>RunLoop在第一次获取时创建，在线程结束时销毁</li>
 </ul>
-<h1 id="runloopxiang-guan-lei">RunLoop相关类</h1>
-<h2 id="cfrunloopmoderef">CFRunLoopModeRef</h2>
+<h1>RunLoop相关类</h1>
+<h2>CFRunLoopModeRef</h2>
 <ul>
 <li>RunLoop的运行模式</li>
 <li>一个 RunLoop 包含若干个 Mode</li>
@@ -171,7 +177,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2 id="cfrunloopsourceref">CFRunLoopSourceRef</h2>
+<h2>CFRunLoopSourceRef</h2>
 <ul>
 <li>事件源（输入源）</li>
 <li>以前的分法<ul>
@@ -186,16 +192,16 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2 id="cfrunloopref">CFRunLoopRef</h2>
+<h2>CFRunLoopRef</h2>
 <ul>
 <li>代表的是 RunLoop 本身</li>
 </ul>
-<h2 id="cfrunlooptimerref">CFRunLoopTimerRef</h2>
+<h2>CFRunLoopTimerRef</h2>
 <ul>
 <li>基于时间的触发器</li>
 <li>基本上说的就是NSTimer</li>
 </ul>
-<h2 id="cfrunloopobserverref">CFRunLoopObserverRef</h2>
+<h2>CFRunLoopObserverRef</h2>
 <ul>
 <li>观察者</li>
 <li>能够监听RunLoop的状态改变</li>
@@ -210,22 +216,22 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h1 id="runloopchu-li-luo-ji_1">RunLoop处理逻辑</h1>
+<h1>RunLoop处理逻辑</h1>
 <p><em>苹果官方版</em></p>
-<p><img alt="" src="../assets/images/多线程/RunLoop处理逻辑1.png"/></p>
+<p><img alt="" src="../assets/images/多线程/RunLoop处理逻辑1.png"></p>
 <p><em>网友翻译版</em></p>
-<p><img alt="" src="../assets/images/多线程/RunLoop处理逻辑2.png"/></p>
+<p><img alt="" src="../assets/images/多线程/RunLoop处理逻辑2.png"></p>
 <p><em>网友整理版</em></p>
-<p><img alt="" src="../assets/images/多线程/RunLoop处理逻辑3.png"/></p>
-<h1 id="runloopying-yong">RunLoop应用</h1>
+<p><img alt="" src="../assets/images/多线程/RunLoop处理逻辑3.png"></p>
+<h1>RunLoop应用</h1>
 <ul>
 <li>NSTimer</li>
 <li>PerformSelector</li>
 <li>自动释放池</li>
 <li>常驻线程</li>
 </ul>
-<h1 id="runloopwen-ti-ji-jin">RunLoop问题集锦</h1>
-<h2 id="shi-yao-shi-runloop">什么是RunLoop</h2>
+<h1>RunLoop问题集锦</h1>
+<h2>什么是RunLoop</h2>
 <ul>
 <li>运行循环</li>
 <li>它内部就是do-while循环，在这个循环内部不断地处理各种任务(Source、Timer)</li>
@@ -237,7 +243,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>RunLoop只能选择一个Mode启动，如果当前Mode中没有任何Source(Sources0、Sources1)、Timer，那么就直接退出RunLoop</li>
 <li>通过Observer监听RunLoop的状态</li>
 </ul>
-<h2 id="zi-dong-shi-fang-chi-shi-yao-shi-hou-shi-fang">自动释放池什么时候释放</h2>
+<h2>自动释放池什么时候释放</h2>
 <ul>
 <li>通过Observer监听RunLoop的状态, 一旦监听到RunLoop即将进入睡眠等待状态, 就释放自动释放池(kCFRunLoopBeforeWaiting)释放内部对象, 然后马上创建一个空的新的自动释放池, 便于下次恢复运行直接使用</li>
 <li>kCFRunLoopEntry<ul>
@@ -248,7 +254,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>kCFRunLoopBeforeWaiting, 销毁自动释放池, 创建一个新的自动释放池</li>
 <li>kCFRunLoopExit, 退出runloop的时候, 需要销毁自动释放池</li>
 </ul>
-<h2 id="ru-he-shi-yong-runloopyou-na-xie-ying-yong-chang-jing">如何使用RunLoop？有哪些应用场景？</h2>
+<h2>如何使用RunLoop？有哪些应用场景？</h2>
 <ul>
 <li>开启一个常驻线程, 让一个子线程不进入消亡状态，等待其他线程发来消息，处理其他事件</li>
 <li>在子线程中开启一个定时器</li>
@@ -257,7 +263,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>可以让某些事件（行为、任务）在特定模式下执行</li>
 <li>可以添加 Observer 监听 RunLoop 的状态, 比如监听点击事件的处理（在所有点击事件之前做一些事情）</li>
 </ul>
-<h1 id="can-kao_1">参考</h1>
+<h1>参考</h1>
 <p><a href="http://blog.ibireme.com/2015/05/18/runloop/">深入理解RunLoop</a></p></div>
         <hr />
     </div>
@@ -277,29 +283,29 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1 id="gai-shu">概述</h1>
+        <div class="summary"><h1>概述</h1>
 <ul>
 <li>配合使用 NSOperation 和 NSOperationQueue 也能实现多线程编程</li>
 </ul>
-<h2 id="nsoperation-shi-ge-chou-xiang-lei">NSOperation 是个抽象类</h2>
+<h2>NSOperation 是个抽象类</h2>
 <ul>
 <li>不具备封装操作的能力，必须使用它的子类</li>
 <li>使用 NSOperation 子类的方式有3种<ul>
 <li>NSInvocationOperation</li>
 <li>NSBlockOperation</li>
-<li>自定义子类继承 NSOperation<br/>将任务封装到内部的 main 方法中</li>
+<li>自定义子类继承 NSOperation<br>将任务封装到内部的 main 方法中</li>
 </ul>
 </li>
 </ul>
-<h1 id="shi-xian-duo-xian-cheng-de-ju-ti-bu-zou_1">实现多线程的具体步骤</h1>
+<h1>实现多线程的具体步骤</h1>
 <ul>
 <li>将需要执行的操作封装到一个 NSOperation 对象中</li>
 <li>将 NSOperation 对象添加到 NSOperationQueue 中</li>
 <li>系统会自动将 NSOperationQueue 中的 NSOperation 取出来</li>
 <li>将取出的 NSOperation 封装的操作放到一条新线程中执行</li>
 </ul>
-<h1 id="ju-ti-shi-yong">具体使用</h1>
-<h2 id="nsinvocationoperation">NSInvocationOperation</h2>
+<h1>具体使用</h1>
+<h2>NSInvocationOperation</h2>
 <ul>
 <li>创建NSInvocationOperation对象<ul>
 <li>alloc</li>
@@ -330,12 +336,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1 id="jian-jie">简介</h1>
+        <div class="summary"><h1>简介</h1>
 <ul>
-<li>全称是Grand Central Dispatch，可译为&ldquo;宏大的中枢调度器&rdquo;</li>
+<li>全称是Grand Central Dispatch，可译为“宏大的中枢调度器”</li>
 <li>纯C语言，提供了非常多强大的函数</li>
 </ul>
-<h2 id="gcdde-you-shi">GCD的优势</h2>
+<h2>GCD的优势</h2>
 <ul>
 <li>苹果公司为多核的并行运算提出的解决方案</li>
 <li>自动利用更多的CPU内核</li>
@@ -347,16 +353,16 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </li>
 <li>使用方便 : 程序员只需要告诉GCD想要执行什么任务，不需要编写任何线程管理代码</li>
 </ul>
-<h1 id="he-xin-gai-nian_1">核心概念</h1>
-<h2 id="ren-wu">任务</h2>
+<h1>核心概念</h1>
+<h2>任务</h2>
 <ul>
 <li>执行什么操作</li>
 </ul>
-<h2 id="dui-lie">队列</h2>
+<h2>队列</h2>
 <ul>
 <li>用来存放任务</li>
 </ul>
-<h3 id="lei-xing">类型</h3>
+<h3>类型</h3>
 <ul>
 <li>并发队列<ul>
 <li>Concurrent Dispatch Queue</li>
@@ -372,7 +378,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h2 id="tong-bu-he-yi-bu_1">同步和异步</h2>
+<h2>同步和异步</h2>
 <ul>
 <li>同步<ul>
 <li>只能在当前线程中执行任务</li>
@@ -385,7 +391,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h1 id="rong-yi-hun-yao-de-zhu-yu_1">容易混淆的术语 …</h1> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-gcdzong-jie.html">read more</a></div>
+<h1>容易混淆的术语 …</h1> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-gcdzong-jie.html">read more</a></div>
     </div>	
 				
 
@@ -404,8 +410,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
  </div>
         <div class="summary"><p>一个NSThread对象就代表一条线程</p>
-<h1 id="shi-yong-bu-zou">使用步骤</h1>
-<h2 id="1-chuang-jian-xian-cheng">1. 创建线程</h2>
+<h1>使用步骤</h1>
+<h2>1. 创建线程</h2>
 <ul>
 <li>init<ul>
 <li>具体使用: 自定义线程类继承自NSThread, 重写 main 方法(自定义任务、start 方法中会调用 main 方法)</li>
@@ -413,27 +419,27 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </li>
 <li>initWithTarget</li>
 </ul>
-<h2 id="2-qi-dong-xian-cheng">2. 启动线程</h2>
+<h2>2. 启动线程</h2>
 <ul>
 <li>start<ul>
 <li>必须要启动, 不然任务不会执行</li>
 </ul>
 </li>
 </ul>
-<h1 id="xiang-guan-fang-fa_1">相关方法</h1>
-<h2 id="zhu-xian-cheng-xiang-guan">主线程相关</h2>
+<h1>相关方法</h1>
+<h2>主线程相关</h2>
 <ul>
 <li>mainThread : 获取主线程</li>
 <li>isMainThread : 类方法</li>
 <li>isMainThread : 对象方法</li>
 </ul>
-<h2 id="qi-ta-fang-fa">其他方法</h2>
+<h2>其他方法</h2>
 <ul>
 <li>currentThread : 获取当前所在线程</li>
 <li>setName : 设置线程名</li>
 <li>name : 获取线程名</li>
 </ul>
-<h2 id="qi-ta-chuang-jian-xian-cheng-fang-shi">其他创建线程方式</h2>
+<h2>其他创建线程方式</h2>
 <ul>
 <li>
 <p>detachNewThreadSelector</p>
@@ -457,7 +463,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h1 id="kong-zhi-xian-cheng-zhuang-tai_1">控制线程状态 …</h1> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-nsthreadde-shi-yong.html">read more</a></div>
+<h1>控制线程状态 …</h1> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-nsthreadde-shi-yong.html">read more</a></div>
     </div>	
 				
 
@@ -475,14 +481,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1 id="gai-nian">概念</h1>
+        <div class="summary"><h1>概念</h1>
 <p>在1个进程中，线程往往不是孤立存在的，多个线程之间需要经常进行通信</p>
-<h1 id="ju-ti-ying-yong">具体应用</h1>
+<h1>具体应用</h1>
 <ul>
 <li>1个线程传递数据给另1个线程</li>
 <li>在1个线程中执行完特定任务后，转到另1个线程继续执行任务</li>
 </ul>
-<h1 id="xian-cheng-jian-tong-xin-chang-yong-fang-fa">线程间通信常用方法</h1>
+<h1>线程间通信常用方法</h1>
 <ul>
 <li>performSelectorOnMainThread</li>
 <li>performSelector: onThread:</li>
@@ -505,19 +511,19 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1 id="zi-yuan-gong-xiang-wen-ti">资源共享问题</h1>
+        <div class="summary"><h1>资源共享问题</h1>
 <ul>
 <li>1块资源可能会被多个线程共享，也就是多个线程可能会访问同一块资源</li>
 <li>比如: 多个线程访问同一个对象、同一个变量、同一个文件</li>
 <li>当多个线程访问同一块资源时，很容易引发数据错乱和数据安全问题</li>
 </ul>
-<h1 id="wen-ti-fen-xi-yu-jie-jue">问题分析与解决</h1>
-<h2 id="bu-jia-suo">不加锁</h2>
-<p><img alt="" src="../assets/images/多线程/不加锁.png"/></p>
-<h2 id="an-quan-yin-huan-jie-jue">安全隐患解决</h2>
-<h3 id="jia-hu-chi-suo">加互斥锁</h3>
-<p><img alt="" src="../assets/images/多线程/加互斥锁.png"/></p>
-<h3 id="hu-chi-suo-shi-yong">互斥锁使用</h3>
+<h1>问题分析与解决</h1>
+<h2>不加锁</h2>
+<p><img alt="" src="../assets/images/多线程/不加锁.png"></p>
+<h2>安全隐患解决</h2>
+<h3>加互斥锁</h3>
+<p><img alt="" src="../assets/images/多线程/加互斥锁.png"></p>
+<h3>互斥锁使用</h3>
 <ul>
 <li>@synchronized(锁对象) {// 需要锁定的代码}</li>
 <li>锁定1份代码只用1把锁，用多把锁是无效的</li>
@@ -529,33 +535,33 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 </ul>
-<h3 id="hu-chi-suo-de-you-que-dian">互斥锁的优缺点</h3>
+<h3>互斥锁的优缺点</h3>
 <ul>
 <li>优点 : 能有效防止因多线程抢夺资源造成的数据安全问题</li>
 <li>缺点 : 需要消耗大量的CPU资源</li>
 </ul>
-<h3 id="shi-yao-shi-hou-shi-yong-hu-chi-suo">什么时候使用互斥锁</h3>
+<h3>什么时候使用互斥锁</h3>
 <ul>
 <li>多条线程抢夺同一块资源</li>
 </ul>
-<h3 id="xian-cheng-tong-bu">线程同步</h3>
+<h3>线程同步</h3>
 <ul>
 <li>多条线程在同一条线上执行（按顺序地执行任务）</li>
 <li>互斥锁，就是使用了线程同步技术</li>
 </ul>
-<h1 id="yuan-zi-he-fei-yuan-zi-shu-xing_2">原子和非原子属性</h1>
-<h2 id="atomic">atomic</h2>
+<h1>原子和非原子属性</h1>
+<h2>atomic</h2>
 <ul>
 <li>原子属性</li>
 <li>为setter方法加锁（默认就是atomic）</li>
 </ul>
-<h2 id="nonatomic">nonatomic</h2>
+<h2>nonatomic</h2>
 <ul>
 <li>非原子属性</li>
 <li>不会为setter方法加锁</li>
 </ul>
-<h2 id="yuan-zi-he-fei-yuan-zi-shu-xing-de-xuan-ze">原子和非原子属性的选择</h2>
-<h3 id="nonatomiche-atomicdui-bi">nonatomic和atomic对比</h3>
+<h2>原子和非原子属性的选择</h2>
+<h3>nonatomic和atomic对比</h3>
 <ul>
 <li>atomic …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-an-quan-yin-huan.html">read more</a></div>
     </div>	
@@ -588,28 +594,28 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <tbody>
 <tr>
 <td>pthread</td>
-<td>一套通用的多线程API<br/>适用于Unix/Linux/Windows等系统<br/>跨平台/可移植<br/>使用难度大</td>
+<td>一套通用的多线程API<br>适用于Unix/Linux/Windows等系统<br>跨平台/可移植<br>使用难度大</td>
 <td>C</td>
 <td>程序员管理</td>
 <td>几乎不用</td>
 </tr>
 <tr>
 <td>NSThread</td>
-<td>使用更加面向对象<br/>简单易用，可直接操作线程对象</td>
+<td>使用更加面向对象<br>简单易用，可直接操作线程对象</td>
 <td>OC</td>
 <td>程序员管理</td>
 <td>偶尔使用</td>
 </tr>
 <tr>
 <td>GCD</td>
-<td>旨在替代NSThread等线程技术<br/>充分利用设备的多核</td>
+<td>旨在替代NSThread等线程技术<br>充分利用设备的多核</td>
 <td>C</td>
 <td>自动管理</td>
 <td>经常使用</td>
 </tr>
 <tr>
 <td>NSOperation</td>
-<td>基于GCD（底层是GCD）<br/>比GCD多了一些更简单实用的功能<br/>使用更加面向对象</td>
+<td>基于GCD（底层是GCD）<br>比GCD多了一些更简单实用的功能<br>使用更加面向对象</td>
 <td>OC</td>
 <td>自动管理</td>
 <td>经常使用</td>
@@ -634,23 +640,23 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
  </div>
         <div class="summary"><ul>
-<li>一个iOS程序运行后，默认会开启1条线程, 称为&ldquo;主线程&rdquo;或&ldquo;UI线程&rdquo;</li>
+<li>一个iOS程序运行后，默认会开启1条线程, 称为“主线程”或“UI线程”</li>
 </ul>
-<h2 id="zhu-xian-cheng-de-zhu-yao-zuo-yong">主线程的主要作用</h2>
+<h2>主线程的主要作用</h2>
 <ul>
 <li>显示 / 刷新UI界面</li>
 <li>处理UI事件<ul>
 <li>点击事件</li>
 <li>滚动事件</li>
 <li>拖拽事件</li>
-<li>&hellip;</li>
+<li>…</li>
 </ul>
 </li>
 </ul>
-<h2 id="zhu-xian-cheng-de-shi-yong-zhu-yi">主线程的使用注意</h2>
+<h2>主线程的使用注意</h2>
 <ul>
 <li>别将比较耗时的操作放到主线程中</li>
-<li>耗时操作会卡住主线程，严重影响UI的流畅度，给用户一种&ldquo;卡&rdquo;的坏体验</li>
+<li>耗时操作会卡住主线程，严重影响UI的流畅度，给用户一种“卡”的坏体验</li>
 <li>耗时操作的执行<ul>
 <li>如果将耗时操作放在主线程, 严重影响UI刷新</li>
 <li>如果将耗时操作放在子线程（后台线程、非主线程）, 不影响UI刷新</li>
@@ -674,12 +680,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1 id="jin-cheng">进程</h1>
+        <div class="summary"><h1>进程</h1>
 <ul>
 <li>在操作系统中正在运行的一个应用程序</li>
 <li>每个进程之间是独立的，每个进程均运行在其专用且受保护的内存空间内</li>
 </ul>
-<h1 id="xian-cheng">线程</h1>
+<h1>线程</h1>
 <ul>
 <li>1个进程要想执行任务，必须得有线程</li>
 <li>每1个进程至少要有1条线程</li>
@@ -693,15 +699,15 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </li>
 </ul>
 <p><em>线程的状态</em></p>
-<p><img alt="" src="../assets/images/多线程/线程的状态.png"/></p>
-<h1 id="jin-cheng-he-xian-cheng-de-bi-jiao">进程和线程的比较</h1>
+<p><img alt="" src="../assets/images/多线程/线程的状态.png"></p>
+<h1>进程和线程的比较</h1>
 <ol>
 <li>线程是CPU调用(执行任务)的最小单位</li>
 <li>进程是CPU分配资源和调度的单位</li>
 <li>一个程序可以对应多个进程，一个进程中可以有多个线程，但至少要有一个线程</li>
 <li>同一个进程内的线程共享进程的资源</li>
 </ol>
-<h1 id="duo-xian-cheng">多线程</h1>
+<h1>多线程</h1>
 <ul>
 <li>1个进程中可以开启多条线程，每条线程可以并行（同时）执行不同的任务</li>
 <li>
@@ -715,7 +721,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p>多线程技术可以提高程序的执行效率, 比如: 同时开启3条线程分别下载3个文件</p>
 </li>
 </ul>
-<h2 id="duo-xian-cheng-de-yuan-li">多线程的原理</h2>
+<h2>多线程的原理</h2>
 <ul>
 <li>同一时间，CPU只能处理1条线程，只有1条线程在工作（执行）</li>
 <li>多线程并发（同时）执行，其实是CPU快速地在多条线程之间调度 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-ji-ben-gai-nian-he-yuan-li.html">read more</a></div>

@@ -67,7 +67,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 可执行程序、静态库、动态库
 构建、工具集</p>
 </blockquote>
-<h1 id="bian-yi-lian-jie-da-bao-ke-zhi-xing-cheng-xu-jing-tai-ku-dong-tai-ku">编译、链接、打包、可执行程序、静态库、动态库</h1>
+<h1>编译、链接、打包、可执行程序、静态库、动态库</h1>
 <ul>
 <li>The three basic tools used to build C++ applications are the <code>compiler</code>, the <code>linker</code>, and the <code>archiver</code> (or librarian). A collection of these programs and possibly other tools is called a toolset.<ul>
 <li>The <code>compiler</code> takes C++ source files as input and produces <code>object files</code>, which <code>contain</code> a mixture of <code>machine-executable code</code> and <code>symbolic references to functions and data</code>. </li>
@@ -76,9 +76,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 </li>
 <li>An <code>executable</code>, or application, is simply any program that can be executed by the operating system. </li>
-<li>A <code>dynamic library</code>, also called a <code>shared library</code>, is like an executable except that <code>it can&rsquo;t be run on its own</code>; <code>it consists of a body of machine-executable code that is loaded into memory after an application is started and can be shared by one or more applications.</code> On Windows, dynamic libraries are also called dynamic link libraries (DLLs).</li>
+<li>A <code>dynamic library</code>, also called a <code>shared library</code>, is like an executable except that <code>it can’t be run on its own</code>; <code>it consists of a body of machine-executable code that is loaded into memory after an application is started and can be shared by one or more applications.</code> On Windows, dynamic libraries are also called dynamic link libraries (DLLs).</li>
 <li>The <code>object files</code> and <code>static libraries</code> on which an executable depends are needed only when the executable is built. </li>
-<li>The <code>dynamic libraries</code> on which an executable depends, however, must be present on a user&rsquo;s system when the executable is run.</li>
+<li>The <code>dynamic libraries</code> on which an executable depends, however, must be present on a user’s system when the executable is run.</li>
 </ul>
 <p><strong>File extensions on Windows and Unix</strong></p>
 <table>
@@ -117,14 +117,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<h1 id="gou-jian-gong-ju-ji">构建、工具集</h1>
-<h2 id="gou-jian">构建</h2>
+<h1>构建、工具集</h1>
+<h2>构建</h2>
 <ul>
 <li>A <code>build system</code> provides a text file format for describing a collection of source files and the binary files that should be generated from them, together with a build tool that reads these text files and generates the binary files by invoking the appropriate command-line tools. Typically, these text files are created and edited using a text editor, and the build tool is invoked from the command line. Some build systems, however, provide a graphical interface for editing the text files and invoking the build tool.</li>
 <li>The most common build tool is the <code>make</code> utility; the text files it relies on are called <code>makefiles</code>. While there are many versions of make, such as GNU make, the most powerful and portable make incarnation. <code>GNU make</code> is an extremely flexible tool that can be more than building C++ applications. It also has the advantage of being widely used and well-understood by developers. Unfortunately, getting GNU make to do exactly what you want it to do can be a <code>challenge</code>, especially with complex projects involving multiple toolsets. For that reason, I will also discuss Boost.Build, a powerful and extensible build system designed from the ground up for building C++ applications.</li>
-<li><code>Boost.Build</code> was developed by members of the Boost C++ Libraries project. It has been used by a large community of developers for several years, and is currently under active development. Boost.Build uses a build tool called <code>bjam</code> and text files called <code>Jamfiles</code>. Its greatest strength is the ease with which it allows you to manage complex projects involving multiple platforms and build configurations. Although Boost.Build started out as an extension of Perforce&rsquo;s Jam build system, it has since undergone extensive redesign.</li>
+<li><code>Boost.Build</code> was developed by members of the Boost C++ Libraries project. It has been used by a large community of developers for several years, and is currently under active development. Boost.Build uses a build tool called <code>bjam</code> and text files called <code>Jamfiles</code>. Its greatest strength is the ease with which it allows you to manage complex projects involving multiple platforms and build configurations. Although Boost.Build started out as an extension of Perforce’s Jam build system, it has since undergone extensive redesign.</li>
 </ul>
-<h2 id="gong-ju-ji">工具集</h2>
+<h2>工具集</h2>
 <p><strong>Names of command-line tools for various toolsets</strong></p>
 <table>
 <thead>
@@ -158,7 +158,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <td align="center">Intel (Linux)</td>
 <td align="center">icpc</td>
 <td align="center">icpc</td>
-<td align="center">ar<br/>ranlib</td>
+<td align="center">ar<br>ranlib</td>
 </tr>
 <tr>
 <td align="center">Metrowerks</td>
@@ -175,7 +175,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <tr>
 <td align="center">Borland</td>
 <td align="center">bcc32.exe</td>
-<td align="center">bcc32.exe<br/>ilink32.exe</td>
+<td align="center">bcc32.exe<br>ilink32.exe</td>
 <td align="center">tlib.exe</td>
 </tr>
 <tr>
@@ -233,17 +233,17 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </tr>
 </tbody>
 </table>
-<h3 id="the-gnu-compiler-collection-gcc">The GNU Compiler Collection (GCC)</h3>
+<h3>The GNU Compiler Collection (GCC)</h3>
 <ul>
-<li>GCC is a collection of compilers for a wide assortment of languages, including C and C++. It&rsquo;s remarkable for being open source, available on almost every imaginable platform, and highly conformant to the C++ language standard. It&rsquo;s the dominant compiler on many Unix platforms, and is also widely used on Microsoft Windows. You can learn a lot by compiling your code with GCC. If you think you know a way to improve the C++ language, you can test your idea with the GCC code base.</li>
-<li>GCC comes with libstdc++, a good open source implementation of the C++ standard library. It can also be used with the open source STLPort C++ standard library and with Dinkumware&rsquo;s standard library.</li>
+<li>GCC is a collection of compilers for a wide assortment of languages, including C and C++. It’s remarkable for being open source, available on almost every imaginable platform, and highly conformant to the C++ language standard. It’s the dominant compiler on many Unix platforms, and is also widely used on Microsoft Windows. You can learn a lot by compiling your code with GCC. If you think you know a way to improve the C++ language, you can test your idea with the GCC code base.</li>
+<li>GCC comes with libstdc++, a good open source implementation of the C++ standard library. It can also be used with the open source STLPort C++ standard library and with Dinkumware’s standard library.</li>
 </ul>
-<h3 id="visual-c">Visual C++</h3>
+<h3>Visual C++</h3>
 <ul>
-<li>Microsoft&rsquo;s toolset is the dominant toolset on the Windows platform. While several old versions are still in wide use, the most recent version is highly standards conforming. It is also capable of producing highly optimized code. Microsoft&rsquo;s tools are distributed with the Visual C++ and Visual Studio development environments. Visual C++ comes with a customized version of the Dinkumware C++ standard library implementation. Dinkumware&rsquo;s C++ standard library is among the most efficient and standards-conforming commercial implementation.</li>
+<li>Microsoft’s toolset is the dominant toolset on the Windows platform. While several old versions are still in wide use, the most recent version is highly standards conforming. It is also capable of producing highly optimized code. Microsoft’s tools are distributed with the Visual C++ and Visual Studio development environments. Visual C++ comes with a customized version of the Dinkumware C++ standard library implementation. Dinkumware’s C++ standard library is among the most efficient and standards-conforming commercial implementation.</li>
 </ul>
-<h2 id="the-usage-of-gcc_1">The Usage of GCC</h2>
-<h3 id="building-a-simple-hello-world-application-from-the-command-line">Building a Simple &ldquo;Hello, World&rdquo; Application from the Command Line</h3>
+<h2>The Usage of GCC</h2>
+<h3>Building a Simple “Hello, World” Application from the Command Line</h3>
 <div class="highlight"><pre><span></span><span class="c1"># Commands for compiling and linking hello.cpp in a single step</span>
 g++ -o hello hello.cpp
 <span class="c1"># Commands for compiling hello.cpp without linking</span>
@@ -251,19 +251,25 @@ g++ -c -o hello.o hello.cpp
 <span class="c1"># Commands for linking hello</span>
 g++ -o hello hello.o
 </pre></div>
-<h3 id="building-a-static-library-from-the-command-line">Building a Static Library from the Command Line</h3>
+
+
+<h3>Building a Static Library from the Command Line</h3>
 <div class="highlight"><pre><span></span><span class="c1"># Commands for creating the archive libjohnpaul.lib or libjohnpaul.a</span>
 ar ru libjohnpaul.a john.o paul.o johnpaul.o
 </pre></div>
+
+
 <div class="highlight"><pre><span></span>g++ -c -o john.o john.cpp
 g++ -c -o paul.o paul.cpp
 g++ -c -o johnpaul.o johnpaul.cpp
 <span class="c1"># The `ru` option tells `ar` to add the given object files to the specified archive if there are no existing archive members with the same names, but to update an existing archive member only if the given object file is newer than the existing member.</span>
 ar ru libjohnpaul.a john.o paul.o johnpaul.o
-<span class="c1"># Traditionally, after an archive was created or updated, the tool `ranlib` was used to create or update the archive&rsquo;s symbol table, i.e., the index of the symbols that appear in the various object files it contains.</span>
+<span class="c1"># Traditionally, after an archive was created or updated, the tool `ranlib` was used to create or update the archive’s symbol table, i.e., the index of the symbols that appear in the various object files it contains.</span>
 ranlib libjohnpaul.a
 </pre></div>
-<h3 id="building-a-dynamic-library-from-the-command-line">Building a Dynamic Library from the Command Line</h3>
+
+
+<h3>Building a Dynamic Library from the Command Line</h3>
 <div class="highlight"><pre><span></span><span class="c1"># GCC</span>
 g++ -shared -fPIC -o libgeorgeringo.so george.o ringo.o georgeringo.o
 <span class="c1"># GCC (Mac OS X)</span>
@@ -273,25 +279,27 @@ g++ -shared -o libgeorgeringo.dll -Wl,--out-implib,libgeorgeringo.dll.a -W1,--ex
 <span class="c1"># GCC (MinGW)</span>
 g++ -shared -o libgeorgeringo.dll -Wl,--out-implib,libgeorgeringo.a -W1,--export-all-symbols -Wl,--enable-auto-image-base george.o ringo.o georgeringo.o
 </pre></div>
+
+
 <ul>
 <li>Each command line specifies:</li>
 <li>The name of the input files: george.obj, ringo.obj, and georgeringo.obj</li>
 <li>The name of the dynamic library to be created</li>
 <li>On Windows, the name of the import library</li>
-<li><code>Some Unix linkers</code> should be told to generate position-independent code using the option <code>-fPIC</code> (GCC and Intel for Linux). This option makes it more likely that multiple processes will be able to share a single copy of the dynamic library&rsquo;s code; on some systems, failing to specify this option can cause a linker error. Similarly, on Windows the GCC linker the option --enable-auto-image-base makes it less likely that the operating system will attempt to load two dynamic libraries at the same location; using this option helps to speed DLL loading.  </li>
+<li><code>Some Unix linkers</code> should be told to generate position-independent code using the option <code>-fPIC</code> (GCC and Intel for Linux). This option makes it more likely that multiple processes will be able to share a single copy of the dynamic library’s code; on some systems, failing to specify this option can cause a linker error. Similarly, on Windows the GCC linker the option --enable-auto-image-base makes it less likely that the operating system will attempt to load two dynamic libraries at the same location; using this option helps to speed DLL loading.  </li>
 </ul>
-<h4 id="symbol-visibility">Symbol visibility</h4>
+<h4>Symbol visibility</h4>
 <ul>
-<li><code>Dynamic libraries</code> can contain the definitions of classes, functions, and data. <code>On some platforms</code>, all such symbols are automatically accessible to code which uses a dynamic library; <code>other systems</code> offer programmers fine-grained control over which symbols are accessible. Being able to determine which symbols should be visible on a case-by-case basis is generally advantageous; it gives a programmer more explicit control of his library&rsquo;s public interface, and it often provides superior performance. It also makes building and using dynamic libraries more complex, however.</li>
+<li><code>Dynamic libraries</code> can contain the definitions of classes, functions, and data. <code>On some platforms</code>, all such symbols are automatically accessible to code which uses a dynamic library; <code>other systems</code> offer programmers fine-grained control over which symbols are accessible. Being able to determine which symbols should be visible on a case-by-case basis is generally advantageous; it gives a programmer more explicit control of his library’s public interface, and it often provides superior performance. It also makes building and using dynamic libraries more complex, however.</li>
 <li><code>With most Windows toolsets</code>, in order for a symbol defined in a dynamic library to be available to code which uses the dynamically library, <code>it must be explicitly exported when the dynamic library is built and imported when an executable or dynamic library that uses the dynamic library is built</code>. Some Unix toolsets also offer this flexibility; this is true for recent versions of GCC on several platforms, for Metrowerks on Mac OS X, and for Intel on Linux. In some cases, however, there is no alternative but to make all symbols visible.</li>
 </ul>
-<h4 id="passing-libraries-to-the-linker">Passing libraries to the linker</h4>
+<h4>Passing libraries to the linker</h4>
 <ul>
 <li><code>On Unix</code>, a dynamic library can be specified as input to the linker when code using the dynamic library is linked. <code>On Windows</code>, except when using GCC, dynamic libraries are not specified directly as input to the linker; instead, an import library or module definition file is used.</li>
 </ul>
-<h4 id="import-libraries-and-module-definition-files">Import libraries and module definition files</h4>
+<h4>Import libraries and module definition files</h4>
 <ul>
-<li>Import libraries, roughly speaking, are static libraries containing the information needed to invoke functions in a DLL at runtime. It&rsquo;s not necessary to know how they work, only how to create and use them. Most linkers create import libraries automatically when you build a DLL, but in some cases it may be necessary to use a separate tool called an import librarian.</li>
+<li>Import libraries, roughly speaking, are static libraries containing the information needed to invoke functions in a DLL at runtime. It’s not necessary to know how they work, only how to create and use them. Most linkers create import libraries automatically when you build a DLL, but in some cases it may be necessary to use a separate tool called an import librarian.</li>
 <li>A module definition file, or <code>.def</code> file, is a text file that describes the functions and data exported by a DLL. A <code>.def</code> file can be written by hand or automatically generated by a tool.</li>
 </ul>
 <p><strong>A module definition file for libgeorgeringo.dll</strong></p>
@@ -300,10 +308,12 @@ g++ -shared -o libgeorgeringo.dll -Wl,--out-implib,libgeorgeringo.a -W1,--export
 <span class="n">EXPORTS</span>
     <span class="n">Georgeringo</span>    <span class="mi">@1</span>
 </pre></div>
-<h4 id="exporting-symbols-from-a-dll">Exporting symbols from a DLL</h4>
+
+
+<h4>Exporting symbols from a DLL</h4>
 <ul>
 <li>There are two standard methods for exporting symbols from a Windows DLL:</li>
-<li>Use the <code>__declspec(dllexport)</code> attribute in the DLL&rsquo;s headers, and build an import library for use when linking code that uses your DLL. <br/>The <code>__declspec(dllexport)</code> attribute should be inserted at the beginning of the declarations of exported functions and data, following any linkage specifiers, and immediately following the class or struct keyword for exported classes. Note that <code>__declspec(dllexport)</code> is not part of the C++ language; <code>it is a language extension implemented by most Windows compilers</code>.</li>
+<li>Use the <code>__declspec(dllexport)</code> attribute in the DLL’s headers, and build an import library for use when linking code that uses your DLL. <br>The <code>__declspec(dllexport)</code> attribute should be inserted at the beginning of the declarations of exported functions and data, following any linkage specifiers, and immediately following the class or struct keyword for exported classes. Note that <code>__declspec(dllexport)</code> is not part of the C++ language; <code>it is a language extension implemented by most Windows compilers</code>.</li>
 <li>Create a .def file describing the functions and data exported by your dynamic library.</li>
 </ul>
 <p><strong>Using the _ _declspec(dllexport) attribute</strong></p>
@@ -314,10 +324,12 @@ g++ -shared -o libgeorgeringo.dll -Wl,--out-implib,libgeorgeringo.a -W1,--export
     <span class="cm">/* ... */</span> 
 <span class="p">};</span>
 </pre></div>
+
+
 <ul>
-<li>Using a <code>.def</code> file has certain advantages; for instance, it can allow functions in a DLL to be accessed by number rather than name, decreasing the size of a DLL. It also eliminates the need for the messy preprocessor directives. It has some serious <code>drawbacks</code>, however. For example, a <code>.def</code> file cannot be used to export classes. Furthermore, it can be difficult to remember to update your .def file when you add, remove, or modify functions in your DLL. I therefore <code>recommend</code> that you <code>always use __declspec(dllexport)</code>. To learn the full syntax of .def files as well as how to use them, consult your toolset&rsquo;s documentation.</li>
+<li>Using a <code>.def</code> file has certain advantages; for instance, it can allow functions in a DLL to be accessed by number rather than name, decreasing the size of a DLL. It also eliminates the need for the messy preprocessor directives. It has some serious <code>drawbacks</code>, however. For example, a <code>.def</code> file cannot be used to export classes. Furthermore, it can be difficult to remember to update your .def file when you add, remove, or modify functions in your DLL. I therefore <code>recommend</code> that you <code>always use __declspec(dllexport)</code>. To learn the full syntax of .def files as well as how to use them, consult your toolset’s documentation.</li>
 </ul>
-<h4 id="importing-symbols-from-a-dll">Importing symbols from a DLL</h4>
+<h4>Importing symbols from a DLL</h4>
 <ul>
 <li>There are two ways to import symbols:</li>
 <li>In the headers included by source code that uses your DLL, use the attribute <code>__declspec(dllimport)</code> and pass an import library to the linker when linking code that uses your DLL.</li>
@@ -346,7 +358,7 @@ g++ -shared -o libgeorgeringo.dll -Wl,--out-implib,libgeorgeringo.a -W1,--export
 <span class="cp"># define GEORGERINGO_DECL</span>
 <span class="cp">#endif</span>
 
-<span class="c1">// Prints "George, and Ringo\n"</span>
+<span class="c1">// Prints &quot;George, and Ringo\n&quot;</span>
 <span class="cp">#ifdef __MWERKS__</span>
 <span class="cp"># pragma export on</span>
 <span class="cp">#endif</span>
@@ -358,21 +370,23 @@ g++ -shared -o libgeorgeringo.dll -Wl,--out-implib,libgeorgeringo.a -W1,--export
 
 <span class="cp">#endif </span><span class="c1">// GEORGERINGO_HPP_INCLUDED</span>
 </pre></div>
-<h4 id="building-dlls-with-gcc">Building DLLs with GCC</h4>
+
+
+<h4>Building DLLs with GCC</h4>
 <ul>
 <li>The Cygwin and MinGW ports of GCC, handle DLLs <code>differently</code> than other Windows toolsets. When you build a DLL with GCC, all functions, classes, and data are exported by default. This behavior can be modified by passing the option --no-export-all-symbols to the linker, by using the attribute __declspec(dllexport) in your source files, or by using a .def file. In each of these three cases, unless you use the option --export-all-symbols to force the linker to export all symbols, the only exported functions, classes, and data will be those marked __declspec(dllexport) or listed in the .def file.</li>
-<li>It&rsquo;s therefore possible to use the GCC toolset to build DLLs in two ways: like an ordinary Windows toolset, exporting symbols explicitly using __declspec, or like a Unix toolset, exporting all symbols automatically. If you choose this method, you should consider using the option --export-all-symbols as a safety measure, in case you happen to include headers containing __declspec(dllexport).</li>
+<li>It’s therefore possible to use the GCC toolset to build DLLs in two ways: like an ordinary Windows toolset, exporting symbols explicitly using __declspec, or like a Unix toolset, exporting all symbols automatically. If you choose this method, you should consider using the option --export-all-symbols as a safety measure, in case you happen to include headers containing __declspec(dllexport).</li>
 <li>GCC differs from other Windows toolsets in a second way: rather than passing the linker an import library associated with a DLL, you can pass the DLL itself. This is usually faster than using an import library. It can also create problems, however, since several versions of a DLL may exist on your system, and you must ensure that the linker selects the correct version.</li>
 </ul>
-<h4 id="gcc-40s-fvisibility-option">GCC 4.0&rsquo;s -fvisibility option</h4>
+<h4>GCC 4.0’s -fvisibility option</h4>
 <ul>
 <li>See C++ Cookbook 30 page</li>
 </ul>
-<h3 id="building-a-complex-application-from-the-command-line_1">Building a Complex Application from the Command Line</h3>
+<h3>Building a Complex Application from the Command Line</h3>
 <ul>
 <li>Step<ul>
 <li>Start by building the static and dynamic libraries on which your application depends. Or use the third party libraries</li>
-<li>Next, compile your application&rsquo;s .cpp files into object files. You may need to use the -I option to tell your compiler where to search for the headers needed by your application</li>
+<li>Next, compile your application’s .cpp files into object files. You may need to use the -I option to tell your compiler where to search for the headers needed by your application</li>
 <li>Finally, use your linker to produce an executable from the collection of object files and libraries. For each library, you must either provide a full pathname or tell the linker where to search for it</li>
 </ul>
 </li>
@@ -390,27 +404,27 @@ g++ -shared -o libgeorgeringo.dll -Wl,--out-implib,libgeorgeringo.a -W1,--export
 <tbody>
 <tr>
 <td align="center">GCC (Unix)</td>
-<td align="center">hellobeatles.o <br/>libjohnpaul.a <br/>libgeorgeringo.so</td>
-<td align="center">g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo <br/>or <br/>g++ -o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.so</td>
+<td align="center">hellobeatles.o <br>libjohnpaul.a <br>libgeorgeringo.so</td>
+<td align="center">g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo <br>or <br>g++ -o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.so</td>
 </tr>
 <tr>
 <td align="center">GCC (Mac OS X)</td>
-<td align="center">hellobeatles.o <br/>libjohnpaul.a <br/>libgeorgeringo.dylib</td>
-<td align="center">g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo<br/>or<br/>g++ -o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.dylib</td>
+<td align="center">hellobeatles.o <br>libjohnpaul.a <br>libgeorgeringo.dylib</td>
+<td align="center">g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo<br>or<br>g++ -o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.dylib</td>
 </tr>
 <tr>
 <td align="center">GCC (Cygwin)</td>
-<td align="center">hellobeatles.o <br/>libjohnpaul.a <br/>libgeorgeringo.dll.a</td>
-<td align="center">g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo<br/>or<br/>g++ -o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.dll.a</td>
+<td align="center">hellobeatles.o <br>libjohnpaul.a <br>libgeorgeringo.dll.a</td>
+<td align="center">g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo<br>or<br>g++ -o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.dll.a</td>
 </tr>
 <tr>
 <td align="center">GCC (MinGW)</td>
-<td align="center">hellobeatles.o <br/>libjohnpaul.a <br/>libgeorgeringo.a</td>
-<td align="center">g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo<br/>or<br/>g++ --o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.a</td>
+<td align="center">hellobeatles.o <br>libjohnpaul.a <br>libgeorgeringo.a</td>
+<td align="center">g++ -o hellobeatles hellobeatles.o -L../johnpaul -L../georgeringo -ljohnpaul -lgeorgeringo<br>or<br>g++ --o hellobeatles hellobeatles.o ../johnpaul/libjohnpaul.a ../georgeringo/libgeorgeringo.a</td>
 </tr>
 <tr>
 <td align="center">Visual C++</td>
-<td align="center">hellobeatles.obj <br/>libjohnpaul.lib <br/>libgeorgeringo.lib</td>
+<td align="center">hellobeatles.obj <br>libjohnpaul.lib <br>libgeorgeringo.lib</td>
 <td align="center">link -nologo -out:hellobeatles.exe -libpath:../johnpaul -libpath:../georgeringo libjohnpaul.lib libgeorgeringo.lib hellobeatles.obj</td>
 </tr>
 </tbody>
@@ -426,15 +440,15 @@ g++ -shared -o libgeorgeringo.dll -Wl,--out-implib,libgeorgeringo.a -W1,--export
 <p>The locations to search for libraries can usually be specified on the command line. Most linkers use the option <code>-L&lt;directory&gt;</code> for this purpose, but Visual C++ use <code>-lipath:&lt;directory&gt;</code></p>
 </blockquote>
 <ul>
-<li>The way the name of a library is specified to the linker differs between Unix and Windows. <code>On Windows</code>, the full name of the library is specified, including the file extension. <code>On Unix&mdash;and on Windows when using the GCC toolset&mdash;libraries</code> are specified using the -l option followed by the name of the library, with the file extension and the lib prefix removed. This means that the name of <code>a library must begin with lib to be automatically found by the linker</code>. More interestingly, it gives the linker the opportunity to choose between several versions of a library. If the linker finds both static and dynamic version of a library, the dynamic library is selected, unless otherwise specified. On some systems, the linker may choose between several versions of a dynamic library based on the portion of the file name following .so.</li>
+<li>The way the name of a library is specified to the linker differs between Unix and Windows. <code>On Windows</code>, the full name of the library is specified, including the file extension. <code>On Unix—and on Windows when using the GCC toolset—libraries</code> are specified using the -l option followed by the name of the library, with the file extension and the lib prefix removed. This means that the name of <code>a library must begin with lib to be automatically found by the linker</code>. More interestingly, it gives the linker the opportunity to choose between several versions of a library. If the linker finds both static and dynamic version of a library, the dynamic library is selected, unless otherwise specified. On some systems, the linker may choose between several versions of a dynamic library based on the portion of the file name following .so.</li>
 <li>Be aware that Unix linkers can be very sensitive to the order in which object files and static libraries are specified on the command line: if a static library or object file references a symbol defined in a second static library or object file, the first file must appear before the second file on the command line. To resolve circular dependencies, it is sometimes necessary to specify a given library or object file more than once. Another solution is to pass a sequence of object files and static libraries to linker bracketed by <code>-(</code> and <code>-)</code>; this causes the file to be searched repeatedly until all references are resolved. This option should be avoided if possible because it can significantly degrade performance.</li>
 </ul>
-<h4 id="running-your-application">Running your application</h4>
+<h4>Running your application</h4>
 <ul>
-<li>If your application uses a dynamic variant of your toolset&rsquo;s runtime library, the runtime library must be available when your application is run and in a location where it will be found automatically by the operating system&rsquo;s dynamic loader. <code>Typically, this means that the dynamic runtime library must be placed either in the same directory as your application or in one of a list of system-specific directories.</code> This is more of a concern when developing for Windows than when developing for Unix, since on Unix the appropriate runtime libraries are often already installed in the correct locations.</li>
+<li>If your application uses a dynamic variant of your toolset’s runtime library, the runtime library must be available when your application is run and in a location where it will be found automatically by the operating system’s dynamic loader. <code>Typically, this means that the dynamic runtime library must be placed either in the same directory as your application or in one of a list of system-specific directories.</code> This is more of a concern when developing for Windows than when developing for Unix, since on Unix the appropriate runtime libraries are often already installed in the correct locations.</li>
 </ul>
-<h1 id="boostbuild_3">Boost.Build</h1>
-<h2 id="build-process">Build process</h2>
+<h1>Boost.Build</h1>
+<h2>Build process</h2>
 <blockquote>
 <p><code>Jamfiles</code> and an interpreter called <code>b2</code></p>
 </blockquote>
@@ -532,7 +546,7 @@ g++ -shared -o libgeorgeringo.dll -Wl,--out-implib,libgeorgeringo.a -W1,--export
 </tr>
 </tbody>
 </table>
-<h2 id="basic-tasks">Basic tasks</h2>
+<h2>Basic tasks</h2>
 <blockquote>
 <p><code>Rules</code> and <code>features</code></p>
 </blockquote>
@@ -559,6 +573,8 @@ exe hello : hello.cpp : : &lt;variant&gt;debug &lt;variant&gt;release &lt;define
 # &lt;optimization&gt; 互斥. 所以这里会生成 2 * 2 (4) 个版本
 exe hello : hello.cpp : : &lt;variant&gt;debug &lt;variant&gt;release &lt;optimization&gt;speed &lt;optimization&gt;off ; 
 </pre></div>
+
+
 <p><strong>lib规则</strong></p>
 <div class="highlight"><pre><span></span># 构建动态链接库(默认)
 lib world : world.cpp ; 
@@ -567,39 +583,45 @@ lib world : world.cpp : &lt;link&gt;static ;
 # 同时构建静态和动态链接库. 第三个和第四个参数的规则和 exe 一样
 lib hello : hello.cpp : : &lt;link&gt;static &lt;link&gt;shared ; 
 </pre></div>
+
+
 <p><strong>install规则</strong></p>
 <div class="highlight"><pre><span></span><span class="nt">exe</span> <span class="nt">hello</span> <span class="o">:</span> <span class="nt">hello</span><span class="p">.</span><span class="nc">cpp</span> <span class="o">;</span> 
 <span class="err">#</span> <span class="nt">hello</span> <span class="nt">是对第一个语句中的</span> <span class="nt">hello</span> <span class="nt">的引用</span>
-<span class="nt">install</span> <span class="s2">"/Users/Liu-Mac/Desktop/bin"</span> <span class="o">:</span> <span class="nt">hello</span> <span class="o">;</span> 
+<span class="nt">install</span> <span class="s2">&quot;/Users/Liu-Mac/Desktop/bin&quot;</span> <span class="o">:</span> <span class="nt">hello</span> <span class="o">;</span> 
 <span class="err">#</span> <span class="nt">使用</span> <span class="o">&lt;</span><span class="nt">locatin</span><span class="o">&gt;</span> <span class="nt">标签将安装目录放到第三个参数</span>
 <span class="err">#</span> <span class="nt">将引用上一个语句的</span> <span class="nt">hello</span> <span class="nt">尽量放在前面的参数位置上</span>
-<span class="nt">install</span> <span class="nt">install-bin</span> <span class="o">:</span> <span class="nt">hello</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nt">location</span><span class="o">&gt;</span><span class="s2">"/Users/Liu-Mac/Desktop/bin"</span> <span class="o">;</span> 
+<span class="nt">install</span> <span class="nt">install-bin</span> <span class="o">:</span> <span class="nt">hello</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nt">location</span><span class="o">&gt;</span><span class="s2">&quot;/Users/Liu-Mac/Desktop/bin&quot;</span> <span class="o">;</span> 
 <span class="err">#</span> <span class="nt">通过</span> <span class="o">&lt;</span><span class="nt">target-os</span><span class="o">&gt;</span> <span class="nt">确定操作系统</span><span class="o">,</span> <span class="nt">然后指定不同的安装目录</span>
-<span class="nt">install</span> <span class="nt">install-bin</span> <span class="o">:</span> <span class="nt">hello</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nt">target-os</span><span class="o">&gt;</span><span class="nt">windows</span><span class="o">:&lt;</span><span class="nt">location</span><span class="o">&gt;</span><span class="s2">"C:/Program Files/hello"</span> <span class="o">&lt;</span><span class="nt">target-os</span><span class="o">&gt;</span><span class="nt">linux</span><span class="o">:&lt;</span><span class="nt">location</span><span class="o">&gt;/</span><span class="nt">usr</span><span class="o">/</span><span class="nt">local</span><span class="o">/</span><span class="nt">bin</span> <span class="o">;</span> 
+<span class="nt">install</span> <span class="nt">install-bin</span> <span class="o">:</span> <span class="nt">hello</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nt">target-os</span><span class="o">&gt;</span><span class="nt">windows</span><span class="o">:&lt;</span><span class="nt">location</span><span class="o">&gt;</span><span class="s2">&quot;C:/Program Files/hello&quot;</span> <span class="o">&lt;</span><span class="nt">target-os</span><span class="o">&gt;</span><span class="nt">linux</span><span class="o">:&lt;</span><span class="nt">location</span><span class="o">&gt;/</span><span class="nt">usr</span><span class="o">/</span><span class="nt">local</span><span class="o">/</span><span class="nt">bin</span> <span class="o">;</span> 
 </pre></div>
+
+
 <p><strong>glob规则</strong></p>
 <div class="highlight"><pre><span></span># glob 规则允许你使用通配符
 # 这是一个嵌套的函数调用, glob 规则的结果作为 exe 规则的第二个参数传入. 嵌套调用的时候使用 `[` `]`
 exe hello : [ glob *.cpp ] ; 
 </pre></div>
-<h2 id="project-management">Project management</h2>
+
+
+<h2>Project management</h2>
 <blockquote>
 <p>Multiple Jamfiles</p>
 </blockquote>
-<h2 id="best-practices">Best practices</h2>
+<h2>Best practices</h2>
 <blockquote>
 <p>How Boost.Build is used by others</p>
 </blockquote>
-<h2 id="rule-reference">Rule reference</h2>
+<h2>Rule reference</h2>
 <blockquote>
 <p>Building blocks for Jamfiles</p>
 </blockquote>
-<h2 id="feature-reference">Feature reference</h2>
+<h2>Feature reference</h2>
 <blockquote>
 <p>Configuration options for the build process</p>
 </blockquote>
 <p><a href="http://www.boost.org/build/doc/html/index.html">Boost.Build User Manual</a></p>
-<h1 id="gnu-make_1">GNU make</h1>
+<h1>GNU make</h1>
 <ul>
 <li>待续...</li>
 </ul></div>

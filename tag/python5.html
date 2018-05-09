@@ -89,12 +89,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>执行文件操作(读、写、更新)</li>
 <li>关闭文件</li>
 </ul>
-<h1 id="da-kai-wen-jian">打开文件</h1>
+<h1>打开文件</h1>
 <div class="highlight"><pre><span></span><span class="c1"># file_name 文件名</span>
 <span class="c1"># mode 打开文件的目的</span>
 <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="c1"># 返回 file handler 对象</span>
-<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'xyz.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;xyz.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
 </pre></div>
+
+
 <ul>
 <li>mode</li>
 </ul>
@@ -119,7 +121,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Classes</p>
 </blockquote>
-<h1 id="lei">类</h1>
+<h1>类</h1>
 <ul>
 <li>类是数据和操作的模板</li>
 <li>通过类可以创建实例(对象)</li>
@@ -128,7 +130,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">class</span> <span class="nc">classname</span><span class="p">[(</span><span class="n">base</span><span class="o">-</span><span class="n">classes</span><span class="p">)]:</span>
     <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
-<h2 id="lei-dui-xiang-de-shu-xing">类对象的属性</h2>
+
+
+<h2>类对象的属性</h2>
 <ul>
 <li>类属性, 不需要实例对象, 使用类名引用</li>
 </ul>
@@ -136,12 +140,16 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="n">l</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="k">print</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rect</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">pass</span>
 <span class="n">rect</span><span class="o">.</span><span class="n">l</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="k">print</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
-<h3 id="nei-jian-de-lei-shu-xing">内建的类属性</h3>
+
+
+<h3>内建的类属性</h3>
 <ul>
 <li>一个类隐式的设置了一些类属性, 我们称之为内建类属性</li>
 </ul>
@@ -165,27 +173,31 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1 id="han-shu">函数</h1>
+        <div class="summary"><h1>函数</h1>
 <ul>
 <li>在 Python 中, <code>函数</code>别当做<code>对象</code></li>
 </ul>
-<h2 id="han-shu-de-ding-yi">函数的定义</h2>
+<h2>函数的定义</h2>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="o">-</span><span class="n">name</span><span class="p">(</span><span class="n">parameters</span><span class="p">):</span>
     <span class="n">statements</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 </pre></div>
-<h2 id="fan-hui-yu-ju">返回语句</h2>
+
+
+<h2>返回语句</h2>
 <ul>
 <li>返回语句是可选的, 如果没有, 函数返回 None</li>
 </ul>
-<h2 id="mo-ren-can-shu-zhi">默认参数值</h2>
+<h2>默认参数值</h2>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 </pre></div>
-<h2 id="guan-jian-zi-can-shu">关键字参数</h2>
+
+
+<h2>关键字参数</h2>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">'l is'</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="s1">'and b is' …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-04.html">read more</a></div>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;l is&#39;</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="s1">&#39;and b is …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-04.html">read more</a></div>
     </div>	
 				
 
@@ -203,7 +215,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1 id="sequence">Sequence</h1>
+        <div class="summary"><h1>Sequence</h1>
 <ul>
 <li>有序</li>
 <li>通过索引定位</li>
@@ -217,7 +229,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="c1"># +</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="c1"># [1, 1, 1, 2]</span>
 <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># [1, 2, 1, 2]</span>
-<span class="s1">'12'</span> <span class="o">+</span> <span class="s1">'12'</span> <span class="c1"># '1212'</span>
+<span class="s1">&#39;12&#39;</span> <span class="o">+</span> <span class="s1">&#39;12&#39;</span> <span class="c1"># &#39;1212&#39;</span>
 <span class="c1"># *</span>
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span> <span class="c1"># [1, 2, 1 …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-03.html">read more</a></div>
     </div>	
@@ -240,7 +252,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Getting Wet in Python (深入巨蟒湿地)</p>
 </blockquote>
-<h1 id="suan-shu-cao-zuo-fu">算数操作符</h1>
+<h1>算数操作符</h1>
 <div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="c1"># Addition</span>
 <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="c1"># Subtraction</span>
 <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="c1"># Multiplication</span>
@@ -248,10 +260,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">x</span> <span class="o">//</span> <span class="n">y</span> <span class="c1"># Truncating division (floor division)</span>
 <span class="n">x</span> <span class="o">**</span> <span class="n">y</span> <span class="c1"># Exponentiation. Sets x to the power y</span>
 <span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="c1"># Modulo operator</span>
-<span class="err">&ndash;</span><span class="n">x</span> <span class="c1"># Unary minus</span>
+<span class="err">–</span><span class="n">x</span> <span class="c1"># Unary minus</span>
 <span class="o">+</span><span class="n">x</span> <span class="c1"># Unary plus</span>
 </pre></div>
-<h2 id="chu-fa-cao-zuo-fu">除法操作符</h2>
+
+
+<h2>除法操作符</h2>
 <ul>
 <li><code>/</code> : 结果总是不会被截断, 结果总是浮点数</li>
 <li><code>//</code> : 不管有没有浮点操作数, 都将结果截断为整数. 但是如果一个操作数为浮点数, 结果就为浮点数 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-02.html">read more</a></div>
@@ -275,46 +289,46 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div class="summary"><blockquote>
 <p>Python and Its Features</p>
 </blockquote>
-<h1 id="shu-ju-lei-xing">数据类型</h1>
-<h2 id="integers">Integers</h2>
+<h1>数据类型</h1>
+<h2>Integers</h2>
 <ul>
 <li>32 bits</li>
 <li>[-2<sup>32</sup> 2<sup>32</sup>-1]</li>
 </ul>
-<h2 id="long-integers">Long Integers</h2>
+<h2>Long Integers</h2>
 <ul>
 <li>无限精度, 受限于计算机内存</li>
 </ul>
-<h2 id="floating-point-numbers">Floating Point Numbers</h2>
+<h2>Floating Point Numbers</h2>
 <ul>
 <li>浮点总是双精度的, 64 bits</li>
 </ul>
-<h2 id="boolean">Boolean</h2>
+<h2>Boolean</h2>
 <ul>
 <li>仅取两个值: True、False</li>
 </ul>
-<h2 id="complex-numberfu-shu">Complex Number(复数)</h2>
+<h2>Complex Number(复数)</h2>
 <ul>
 <li>a + b * j</li>
 <li>a、b都是浮点数</li>
 </ul>
-<h2 id="strings">Strings</h2>
+<h2>Strings</h2>
 <ul>
 <li>Unicode 字符序列</li>
 </ul>
-<h2 id="lists">Lists</h2>
+<h2>Lists</h2>
 <ul>
 <li>一组值的有序序列</li>
 </ul>
-<h2 id="tuples">Tuples</h2>
+<h2>Tuples</h2>
 <ul>
 <li>不可变、一组值的有序序列</li>
 </ul>
-<h2 id="sets">Sets</h2>
+<h2>Sets</h2>
 <ul>
 <li>无序的值的集合</li>
 </ul>
-<h2 id="dictionaries">Dictionaries</h2>
+<h2>Dictionaries</h2>
 <ul>
 <li>无序的键值对集合</li>
 </ul>

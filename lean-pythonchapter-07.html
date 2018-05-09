@@ -65,30 +65,34 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         <div><blockquote>
 <p>Exception and Error Handling</p>
 </blockquote>
-<h1 id="yi-chang-he-cuo-wu-de-chu-li">异常和错误的处理</h1>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'Input two numbers. the first will be divided by the second'</span><span class="p">)</span>
+<h1>异常和错误的处理</h1>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Input two numbers. the first will be divided by the second&#39;</span><span class="p">)</span>
 
-<span class="n">afirst</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'first number:'</span><span class="p">)</span>
+<span class="n">afirst</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;first number:&#39;</span><span class="p">)</span>
 <span class="n">first</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">afirst</span><span class="p">)</span>
-<span class="n">asecond</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'second number:'</span><span class="p">)</span>
+<span class="n">asecond</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;second number:&#39;</span><span class="p">)</span>
 <span class="n">second</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">asecond</span><span class="p">)</span>
 
 <span class="n">quotient</span> <span class="o">=</span> <span class="n">first</span> <span class="o">/</span> <span class="n">second</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">'Quotient first/second = '</span><span class="p">,</span><span class="n">quotient</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Quotient first/second = &#39;</span><span class="p">,</span><span class="n">quotient</span><span class="p">)</span>
 </pre></div>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">'Input two numbers. the first will be divided by the second'</span><span class="p">)</span>
 
-<span class="n">afirst</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'first number:'</span><span class="p">)</span>
-<span class="n">asecond</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'second number:'</span><span class="p">)</span>
+
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Input two numbers. the first will be divided by the second&#39;</span><span class="p">)</span>
+
+<span class="n">afirst</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;first number:&#39;</span><span class="p">)</span>
+<span class="n">asecond</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;second number:&#39;</span><span class="p">)</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="n">first</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">afirst</span><span class="p">)</span>
     <span class="n">second</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">asecond</span><span class="p">)</span>
     <span class="n">quotient</span> <span class="o">=</span> <span class="n">first</span> <span class="o">/</span> <span class="n">second</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">'Quotient 1st/2nd = '</span><span class="p">,</span> <span class="n">quotient</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Quotient 1st/2nd = &#39;</span><span class="p">,</span> <span class="n">quotient</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">diag</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">diag</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s1">':'</span><span class="p">,</span> <span class="n">diag</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">diag</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="p">)</span>
 </pre></div>
+
+
 <ul>
 <li>Exception 是一个针对异常的顶层类, 所以它可以捕获所有的错误</li>
 </ul></div>

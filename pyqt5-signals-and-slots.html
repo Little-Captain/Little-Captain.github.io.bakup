@@ -75,11 +75,15 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="c1"># This principle of connecting slots methods or function to a widget, applies to all widgets</span>
 <span class="n">widget</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">slot_method</span><span class="p">)</span>
 </pre></div>
+
+
 <ul>
 <li>显式的定义信号</li>
 </ul>
-<div class="highlight"><pre><span></span><span class="n">QtCore</span><span class="o">.</span><span class="n">QObject</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">SIGNAL</span><span class="p">(</span><span class="err">&lsquo;</span><span class="n">signalname</span><span class="err">&rsquo;</span><span class="p">),</span> <span class="n">slot_function</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="n">QtCore</span><span class="o">.</span><span class="n">QObject</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">widget</span><span class="p">,</span> <span class="n">QtCore</span><span class="o">.</span><span class="n">SIGNAL</span><span class="p">(</span><span class="err">‘</span><span class="n">signalname</span><span class="err">’</span><span class="p">),</span> <span class="n">slot_function</span><span class="p">)</span>
 </pre></div>
+
+
 <blockquote>
 <p>PyQt supports many type of signals, not just clicks. A slot is any callable function or method.</p>
 </blockquote>
@@ -92,21 +96,21 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="k">class</span> <span class="nc">Dialog</span><span class="p">(</span><span class="n">QDialog</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">slot_method</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">'slot method called'</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;slot method called&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Dialog</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="n">button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">'Click'</span><span class="p">)</span>
+        <span class="n">button</span> <span class="o">=</span> <span class="n">QPushButton</span><span class="p">(</span><span class="s1">&#39;Click&#39;</span><span class="p">)</span>
         <span class="n">button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">slot_method</span><span class="p">)</span>
 
         <span class="n">mainLayout</span> <span class="o">=</span> <span class="n">QVBoxLayout</span><span class="p">()</span>
         <span class="n">mainLayout</span><span class="o">.</span><span class="n">addWidget</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">mainLayout</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">'Button Example - pythonspot.com'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Button Example - pythonspot.com&#39;</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
     <span class="n">dialog</span> <span class="o">=</span> <span class="n">Dialog</span><span class="p">()</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">dialog</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

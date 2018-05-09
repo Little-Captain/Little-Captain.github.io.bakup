@@ -70,7 +70,7 @@ The web browser engine is used by Safari, App Store and many OS X applications.<
 <p>The load() method opens the url (QUrl) in the argument. You can create a QUrl using: QUrl(url).</p>
 <p>The show() method is required to display the widget.</p>
 </blockquote>
-<p><img align="center" src="../assets/images/PyQt/QWebView.png" width="100%"/></p>
+<p><img src="../assets/images/PyQt/QWebView.png" width = 100% align=center /></p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">PyQt5</span> <span class="kn">import</span> <span class="n">QtCore</span><span class="p">,</span> <span class="n">QtGui</span><span class="p">,</span> <span class="n">QtWidgets</span>
 <span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="o">*</span>
@@ -83,7 +83,7 @@ The web browser engine is used by Safari, App Store and many OS X applications.<
 <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
 
 <span class="n">web</span> <span class="o">=</span> <span class="n">QWebEngineView</span><span class="p">()</span>
-<span class="n">web</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">QUrl</span><span class="p">(</span><span class="s2">"https://www.baidu.com"</span><span class="p">))</span>
+<span class="n">web</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">QUrl</span><span class="p">(</span><span class="s2">&quot;https://www.baidu.com&quot;</span><span class="p">))</span>
 <span class="n">web</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>

@@ -62,7 +62,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
         </div>
 	
-        <div><h1 id="if-thenyu-ju">if-then语句</h1>
+        <div><h1>if-then语句</h1>
 <ul>
 <li>bash 的 if 语句会运行 if 行定义的那个命令. 如果命令的退出状态码是0, 位于 then 部分的命令会被执行</li>
 </ul>
@@ -71,11 +71,15 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
    commands
 <span class="k">fi</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="k">if</span> command<span class="p">;</span> <span class="k">then</span>
    commands
 <span class="k">fi</span>
 </pre></div>
-<h1 id="if-then-elseyu-ju">if-then-else语句</h1>
+
+
+<h1>if-then-else语句</h1>
 <div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">command</span>
 <span class="k">then</span>
    commands
@@ -83,7 +87,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
    commands
 <span class="k">fi</span>
 </pre></div>
-<h1 id="qian-tao-if">嵌套 if</h1>
+
+
+<h1>嵌套 if</h1>
 <div class="highlight"><pre><span></span><span class="k">if</span> command1
 <span class="k">then</span>
    commands
@@ -92,17 +98,23 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
    commands
 <span class="k">fi</span>
 </pre></div>
-<h1 id="test-ming-ling">test 命令</h1>
+
+
+<h1>test 命令</h1>
 <ul>
 <li>如果 test 命令中列出的条件成立, test 命令就会退出并返回状态码 0</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="nb">test</span> condition
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">test</span> condition
 <span class="k">then</span>
    commands
 <span class="k">fi</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="c1"># test 命令的简写形式</span>
 <span class="c1"># 方括号定义了 test 命令中用到的条件</span>
 <span class="c1"># condition 左右的空格是必须的</span>
@@ -111,53 +123,63 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
    commands
 <span class="k">fi</span>
 </pre></div>
-<h2 id="shu-zhi-bi-jiao">数值比较</h2>
+
+
+<h2>数值比较</h2>
 <p><strong>数值比较</strong></p>
-<p><img align="center" src="../assets/images/Linux/数值比较.png" width="100%"/></p>
+<p><img src="../assets/images/Linux/数值比较.png" width = 100% align=center /></p>
 <div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[</span> <span class="nv">$val</span> -gt <span class="m">5</span> <span class="o">]</span>
 <span class="k">then</span>
-   <span class="nb">echo</span> <span class="s2">"The test value </span><span class="nv">$val</span><span class="s2"> is greater than 5"</span>
+   <span class="nb">echo</span> <span class="s2">&quot;The test value </span><span class="nv">$val</span><span class="s2"> is greater than 5&quot;</span>
 <span class="k">fi</span>
 </pre></div>
-<h2 id="zi-fu-chuan-bi-jiao">字符串比较</h2>
+
+
+<h2>字符串比较</h2>
 <p><strong>字符串比较</strong></p>
-<p><img align="center" src="../assets/images/Linux/字符串比较.png" width="100%"/></p>
+<p><img src="../assets/images/Linux/字符串比较.png" width = 100% align=center /></p>
 <ul>
 <li>字符串大小比较</li>
 <li>大于小于符号必须转义, 因为它们和重定向符号冲突</li>
 <li>大于小于顺序和sort命令所采用的不同. 在 test 命令中, 大写字母小于小写字母. sort 命令, 则相反. test 命令使用标准的 ASCII 顺序. sort 命令使用系统的本地化语言设置中定义的排序顺序.</li>
 </ul>
-<h2 id="wen-jian-bi-jiao">文件比较</h2>
+<h2>文件比较</h2>
 <p><strong>文件比较</strong></p>
-<p><img align="center" src="../assets/images/Linux/文件比较.png" width="100%"/></p>
-<h2 id="fu-he-tiao-jian-ce-shi">复合条件测试</h2>
+<p><img src="../assets/images/Linux/文件比较.png" width = 100% align=center /></p>
+<h2>复合条件测试</h2>
 <ul>
 <li>[ condition1 ] &amp;&amp; [ condition2 ]</li>
 <li>[ condition1 ] || [ condition2 ]</li>
 </ul>
-<h1 id="if-then-de-gao-ji-te-xing_1">if-then 的高级特性</h1>
-<h2 id="shi-yong-shuang-jian-gua-hao">使用双尖括号</h2>
+<h1>if-then 的高级特性</h1>
+<h2>使用双尖括号</h2>
 <ul>
 <li>任意的数学<code>赋值</code>或<code>比较</code>表达式</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="c1"># 可以放入类似C语言中的高级数学表达式</span>
 <span class="o">((</span> expression <span class="o">))</span>
 </pre></div>
+
+
 <p><strong>双尖括号命令符号</strong></p>
-<p><img align="center" src="../assets/images/Linux/双尖括号命令符号.png" width="100%"/></p>
-<h2 id="shi-yong-shuang-fang-gua-hao">使用双方括号</h2>
+<p><img src="../assets/images/Linux/双尖括号命令符号.png" width = 100% align=center /></p>
+<h2>使用双方括号</h2>
 <ul>
 <li>支持 test 命令中的标准字符串比较</li>
 <li>高级特性 : 模式匹配. 也就是你可以定义一个正则表达式来匹配字符串</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="o">[[</span> expression <span class="o">]]</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">[[</span> <span class="nv">$USER</span> <span class="o">==</span> r* <span class="o">]]</span>
 <span class="k">then</span>
   <span class="nb">echo</span> Hello
 <span class="k">fi</span>
 </pre></div>
-<h1 id="case-ming-ling_1">case 命令</h1>
+
+
+<h1>case 命令</h1>
 <div class="highlight"><pre><span></span><span class="c1"># 一旦某个模式匹配了, 后面的模式将不会再进行匹配</span>
 <span class="k">case</span> variable in
 pattern1 <span class="p">|</span> pattern2<span class="o">)</span> commands1<span class="p">;;</span>
@@ -165,32 +187,40 @@ pattern3<span class="o">)</span> commands2<span class="p">;;</span>
 *<span class="o">)</span> default commands<span class="p">;;</span>
 <span class="k">esac</span>
 </pre></div>
-<h1 id="for-ming-ling">for 命令</h1>
+
+
+<h1>for 命令</h1>
 <div class="highlight"><pre><span></span><span class="k">for</span> var in list
 <span class="k">do</span>
   commands
 <span class="k">done</span>
 </pre></div>
+
+
 <ul>
 <li>list 中有特殊字符, 可以使用转义, 或使用引号括起来</li>
 </ul>
-<h2 id="cong-bian-liang-du-qu-lie-biao">从变量读取列表</h2>
-<div class="highlight"><pre><span></span><span class="nv">list</span><span class="o">=</span><span class="s2">"Alabama Alaska Colorado"</span>
+<h2>从变量读取列表</h2>
+<div class="highlight"><pre><span></span><span class="nv">list</span><span class="o">=</span><span class="s2">&quot;Alabama Alaska Colorado&quot;</span>
 <span class="c1"># 向变量中添加文本字符串</span>
-<span class="nv">list</span><span class="o">=</span><span class="nv">$list</span><span class="s2">" Arizona"</span>
+<span class="nv">list</span><span class="o">=</span><span class="nv">$list</span><span class="s2">&quot; Arizona&quot;</span>
 <span class="k">for</span> state in <span class="nv">$list</span>
 <span class="k">do</span>
   <span class="nb">echo</span> <span class="nv">$state</span>
 <span class="k">done</span>
 </pre></div>
-<h2 id="cong-ming-ling-du-qu-zhi">从命令读取值</h2>
-<div class="highlight"><pre><span></span><span class="nv">file</span><span class="o">=</span><span class="s2">"states"</span>
+
+
+<h2>从命令读取值</h2>
+<div class="highlight"><pre><span></span><span class="nv">file</span><span class="o">=</span><span class="s2">&quot;states&quot;</span>
 <span class="k">for</span> state in <span class="sb">`</span>cat <span class="nv">$file</span><span class="sb">`</span>
 <span class="k">do</span>
-  <span class="nb">echo</span> <span class="s2">"Visit beautiful </span><span class="nv">$state</span><span class="s2">"</span>
+  <span class="nb">echo</span> <span class="s2">&quot;Visit beautiful </span><span class="nv">$state</span><span class="s2">&quot;</span>
 <span class="k">done</span>
 </pre></div>
-<h2 id="geng-gai-zi-duan-fen-ge-fu">更改字段分隔符</h2>
+
+
+<h2>更改字段分隔符</h2>
 <blockquote>
 <p>IFS 内部字段分隔符, 这个 bash 环境变量保存用作 bash 字段分隔符的字符. 默认的字段分隔符是: 空格、制表符、换行符</p>
 </blockquote>
@@ -199,66 +229,84 @@ pattern3<span class="o">)</span> commands2<span class="p">;;</span>
 <li>当在一个脚本中, 需要恢复默认值时, 可以使用一个变量暂存</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="c1"># 仅仅换行符</span>
-<span class="nv">IFS</span><span class="o">=</span><span class="s1">$'\n'</span>
+<span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n&#39;</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="c1"># shell 中暂存</span>
 IFS.OLD<span class="o">=</span><span class="nv">$IFS</span>
-<span class="nv">IFS</span><span class="o">=</span><span class="s1">$'\n'</span>
+<span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n&#39;</span>
 <span class="c1"># code</span>
 <span class="nv">IFS</span><span class="o">=</span><span class="nv">$IFS</span>.OLD
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="c1"># 指定多个分隔符</span>
-<span class="nv">IFS</span><span class="o">=</span><span class="s1">$'\n:;'</span> <span class="c1"># 换行符、冒号、分号</span>
+<span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;\n:;&#39;</span> <span class="c1"># 换行符、冒号、分号</span>
 </pre></div>
-<h2 id="shi-yong-tong-pei-fu-du-qu-mu-lu">使用通配符读取目录</h2>
+
+
+<h2>使用通配符读取目录</h2>
 <ul>
 <li>使用 for 命令遍历目录中的文件, 可以使用通配符</li>
 <li>文件扩展通配 : 生成匹配指定的通配符的文件名或路径名的过程</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="k">for</span> file in /home/rich/test/*
 <span class="k">do</span>
-  <span class="k">if</span> <span class="o">[</span> -d <span class="s2">"</span><span class="nv">$file</span><span class="s2">"</span> <span class="o">]</span>
+  <span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span> <span class="o">]</span>
   <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$file</span><span class="s2"> is a directory"</span>
-  <span class="k">elif</span> <span class="o">[</span> -f <span class="s2">"</span><span class="nv">$file</span><span class="s2">"</span> <span class="o">]</span>
+    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2"> is a directory&quot;</span>
+  <span class="k">elif</span> <span class="o">[</span> -f <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span> <span class="o">]</span>
   <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$file</span><span class="s2"> is a file"</span>
+    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2"> is a file&quot;</span>
   <span class="k">fi</span>
 <span class="k">done</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="c1"># 在 for 命令中通过列出一系列的目录通配符来将目录查找方法和列表方法合并到同一个 for 语句中</span>
 <span class="k">for</span> file in /home/rich/.b* /home/rich/badtest
 <span class="k">do</span>
-  <span class="k">if</span> <span class="o">[</span> -d <span class="s2">"</span><span class="nv">$file</span><span class="s2">"</span> <span class="o">]</span>
+  <span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span> <span class="o">]</span>
   <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$file</span><span class="s2"> is a directory"</span>
-  <span class="k">elif</span> <span class="o">[</span> -f <span class="s2">"</span><span class="nv">$file</span><span class="s2">"</span> <span class="o">]</span>
+    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2"> is a directory&quot;</span>
+  <span class="k">elif</span> <span class="o">[</span> -f <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2">&quot;</span> <span class="o">]</span>
   <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$file</span><span class="s2"> is a file"</span>
+    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$file</span><span class="s2"> is a file&quot;</span>
   <span class="k">fi</span>
 <span class="k">done</span>
 </pre></div>
-<h1 id="cyu-yan-feng-ge-de-for-ming-ling_1">C语言风格的 for 命令</h1>
+
+
+<h1>C语言风格的 for 命令</h1>
 <div class="highlight"><pre><span></span><span class="k">for</span> <span class="o">((</span> variable assignment<span class="p">;</span> condition<span class="p">;</span> iteration process <span class="o">))</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="c1"># C 风格 for 命令</span>
 <span class="k">for</span> <span class="o">((</span> <span class="nv">i</span> <span class="o">=</span> <span class="m">1</span><span class="p">;</span> i &lt;<span class="o">=</span> <span class="m">10</span><span class="p">;</span> ++i <span class="o">))</span>
 <span class="k">do</span>
-  <span class="nb">echo</span> <span class="s2">"The next number is </span><span class="nv">$i</span><span class="s2">"</span>
+  <span class="nb">echo</span> <span class="s2">&quot;The next number is </span><span class="nv">$i</span><span class="s2">&quot;</span>
 <span class="k">done</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="c1"># 使用多个变量</span>
 <span class="k">for</span> <span class="o">((</span> <span class="nv">a</span> <span class="o">=</span> <span class="m">1</span>, <span class="nv">b</span> <span class="o">=</span> <span class="m">10</span><span class="p">;</span> a &lt;<span class="o">=</span> <span class="m">10</span><span class="p">;</span> ++a, --b <span class="o">))</span>
 <span class="k">do</span>
-  <span class="nb">echo</span> <span class="s2">"</span><span class="nv">$a</span><span class="s2"> - </span><span class="nv">$b</span><span class="s2">"</span>
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$a</span><span class="s2"> - </span><span class="nv">$b</span><span class="s2">&quot;</span>
 <span class="k">done</span>
 </pre></div>
-<h1 id="while-ming-ling">while 命令</h1>
+
+
+<h1>while 命令</h1>
 <div class="highlight"><pre><span></span><span class="k">while</span> <span class="nb">test</span> <span class="nb">command</span>
 <span class="k">do</span>
   other commands
 <span class="k">done</span>
 </pre></div>
+
+
 <div class="highlight"><pre><span></span><span class="nv">var1</span><span class="o">=</span><span class="m">10</span>
 <span class="k">while</span> <span class="o">[</span> <span class="nv">$var1</span> -gt <span class="m">0</span> <span class="o">]</span>
 <span class="k">do</span>
@@ -266,7 +314,9 @@ IFS.OLD<span class="o">=</span><span class="nv">$IFS</span>
   <span class="nv">var1</span><span class="o">=</span>$<span class="o">[</span> <span class="nv">$var1</span> - <span class="m">1</span> <span class="o">]</span>
 <span class="k">done</span>
 </pre></div>
-<h2 id="shi-yong-duo-ge-ce-shi-ming-ling">使用多个测试命令</h2>
+
+
+<h2>使用多个测试命令</h2>
 <ul>
 <li>只有最后一个测试命令的退出状态码会被用来决定什么时候结束循环</li>
 </ul>
@@ -274,11 +324,13 @@ IFS.OLD<span class="o">=</span><span class="nv">$IFS</span>
 <span class="k">while</span> <span class="nb">echo</span> <span class="nv">$var1</span>
       <span class="o">[</span> <span class="nv">$var1</span> -gt <span class="m">0</span> <span class="o">]</span>
 <span class="k">do</span>
-  <span class="nb">echo</span> <span class="s2">"This is inside the loop"</span>
+  <span class="nb">echo</span> <span class="s2">&quot;This is inside the loop&quot;</span>
   <span class="nv">var1</span><span class="o">=</span>$<span class="o">[</span> <span class="nv">$var1</span> - <span class="m">1</span> <span class="o">]</span>
 <span class="k">done</span>
 </pre></div>
-<h1 id="until-ming-ling_1">until 命令</h1>
+
+
+<h1>until 命令</h1>
 <ul>
 <li>until 命令和while 命令工作的方式完全相反.</li>
 <li>退出状态码非零, 循环执行; 退出状态码为零, 循环结束</li>
@@ -288,36 +340,46 @@ IFS.OLD<span class="o">=</span><span class="nv">$IFS</span>
   other commands
 <span class="k">done</span>
 </pre></div>
-<h1 id="qian-tao-xun-huan">嵌套循环</h1>
+
+
+<h1>嵌套循环</h1>
 <ul>
 <li>循环套循环</li>
 </ul>
-<h1 id="kong-zhi-xun-huan">控制循环</h1>
-<h2 id="break">break</h2>
+<h1>控制循环</h1>
+<h2>break</h2>
 <ul>
 <li>跳出当前层循环</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="nb">break</span>
 </pre></div>
+
+
 <ul>
 <li>跳出指定层级的外部循环</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="c1"># 默认 n 为 1, 向外递增</span>
 <span class="nb">break</span> n
 </pre></div>
-<h2 id="continue">continue</h2>
+
+
+<h2>continue</h2>
 <ul>
 <li>继续当前层循环</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="k">continue</span>
 </pre></div>
+
+
 <ul>
 <li>继续指定层级的外部循环</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="c1"># 默认 n 为 1, 向外递增</span>
 <span class="k">continue</span> n
 </pre></div>
-<h1 id="chu-li-xun-huan-de-shu-chu_1">处理循环的输出</h1>
+
+
+<h1>处理循环的输出</h1>
 <ul>
 <li>shell 中处理输出, 要么管接, 要么重定向</li>
 </ul>

@@ -68,12 +68,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
         </div>
         
-        <div><h1 id="wen-ti-miao-shu">问题描述</h1>
+        <div><h1>问题描述</h1>
 <ul>
 <li>将<code>图片</code>拖入 <code>iOS 工程</code>后, <code>Xcode</code> 会对其进行<code>特殊处理</code>, 导致图片能在 Apple 相关系统上正常显示, 其他系统都不能正常显示. </li>
 <li>之所以能在 Apple 相关系统上正常显示是因为苹果的底层方法实现就做了相应处理.</li>
 </ul>
-<h1 id="wen-ti-jie-jue">问题解决</h1>
+<h1>问题解决</h1>
 <ul>
 <li><code>通过苹果的方法把这些特殊图片读入系统, 然后重新保存为 PNG 图片即可</code>.</li>
 </ul>
@@ -81,7 +81,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <div class="highlight"><pre><span></span><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
 <span class="cp">#import &lt;Cocoa/Cocoa.h&gt;</span>
 
-<span class="cp">#define NSLog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])</span>
+<span class="cp">#define NSLog(FORMAT, ...) printf(&quot;%s\n&quot;, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String])</span>
 
 <span class="kt">BOOL</span> <span class="nf">saveImage</span><span class="p">(</span><span class="n">NSImage</span> <span class="o">*</span><span class="n">image</span><span class="p">,</span> <span class="bp">NSString</span> <span class="o">*</span><span class="n">path</span><span class="p">);</span>
 
@@ -89,7 +89,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">@autoreleasepool</span> <span class="p">{</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">NSLog</span><span class="p">(</span><span class="s">@"请输入包含待处理的 PNG 图片的路径"</span><span class="p">);</span>
+            <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;请输入包含待处理的 PNG 图片的路径&quot;</span><span class="p">);</span>
             <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
         <span class="p">}</span>
 
@@ -104,7 +104,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
                                                                                         <span class="nl">options</span><span class="p">:</span><span class="n">NSDirectoryEnumerationSkipsHiddenFiles</span>
                                                                         <span class="nl">errorHandler</span><span class="p">:</span><span class="nb">NULL</span><span class="p">];</span>
 
-        <span class="bp">NSString</span> <span class="o">*</span><span class="n">decodeFileRootPath</span> <span class="o">=</span> <span class="p">[</span><span class="n">fileRootPath</span> <span class="nl">stringByAppendingPathComponent</span><span class="p">:</span><span class="s">@"decode"</span><span class="p">];</span>
+        <span class="bp">NSString</span> <span class="o">*</span><span class="n">decodeFileRootPath</span> <span class="o">=</span> <span class="p">[</span><span class="n">fileRootPath</span> <span class="nl">stringByAppendingPathComponent</span><span class="p">:</span><span class="s">@&quot;decode&quot;</span><span class="p">];</span>
 
         <span class="p">[[</span><span class="bp">NSFileManager</span> <span class="n">defaultManager</span><span class="p">]</span> <span class="nl">createDirectoryAtPath</span><span class="p">:</span><span class="n">decodeFileRootPath</span>
                                   <span class="nl">withIntermediateDirectories</span><span class="p">:</span><span class="nb">YES</span>
@@ -120,12 +120,12 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
                 <span class="k">continue</span><span class="p">;</span>
             <span class="p">}</span>
             <span class="bp">NSString</span> <span class="o">*</span><span class="n">fileName</span> <span class="o">=</span> <span class="n">resourceValues</span><span class="p">[</span><span class="n">NSURLNameKey</span><span class="p">];</span>
-            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[[</span><span class="n">fileName</span> <span class="n">pathExtension</span><span class="p">]</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@"png"</span><span class="p">])</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[[</span><span class="n">fileName</span> <span class="n">pathExtension</span><span class="p">]</span> <span class="nl">isEqualToString</span><span class="p">:</span><span class="s">@&quot;png&quot;</span><span class="p">])</span> <span class="p">{</span>
                 <span class="k">continue</span><span class="p">;</span>
             <span class="p">}</span>
             <span class="p">[</span><span class="n">allFiles</span> <span class="nl">addObject</span><span class="p">:</span><span class="n">fileName</span><span class="p">];</span>
         <span class="p">}</span>
-        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"共有 %zd 张 PNG 图片"</span><span class="p">,</span> <span class="n">allFiles</span><span class="p">.</span><span class="n">count</span><span class="p">);</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;共有 %zd 张 PNG 图片&quot;</span><span class="p">,</span> <span class="n">allFiles</span><span class="p">.</span><span class="n">count</span><span class="p">);</span>
 
         <span class="n">NSUInteger</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
         <span class="k">for</span> <span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="n">fileName</span> <span class="k">in</span> <span class="n">allFiles</span><span class="p">)</span> <span class="p">{</span>
@@ -134,11 +134,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
             <span class="n">NSImage</span> <span class="o">*</span><span class="n">image</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSImage</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithContentsOfFile</span><span class="p">:</span><span class="n">originFilePath</span><span class="p">];</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">saveImage</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">decodeFilePath</span><span class="p">))</span> <span class="p">{</span>
                 <span class="o">++</span><span class="n">count</span><span class="p">;</span>
-                <span class="n">NSLog</span><span class="p">(</span><span class="s">@"进度 - %.2f%%"</span><span class="p">,</span> <span class="mf">100.0</span> <span class="o">*</span> <span class="n">count</span> <span class="o">/</span> <span class="n">allFiles</span><span class="p">.</span><span class="n">count</span><span class="p">);</span>
+                <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;进度 - %.2f%%&quot;</span><span class="p">,</span> <span class="mf">100.0</span> <span class="o">*</span> <span class="n">count</span> <span class="o">/</span> <span class="n">allFiles</span><span class="p">.</span><span class="n">count</span><span class="p">);</span>
             <span class="p">}</span>
         <span class="p">}</span>
 
-        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"共转换 %zd 张图片"</span><span class="p">,</span> <span class="n">count</span><span class="p">);</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;共转换 %zd 张图片&quot;</span><span class="p">,</span> <span class="n">count</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
@@ -156,7 +156,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <span class="k">return</span> <span class="p">[</span><span class="n">imageData</span> <span class="nl">writeToFile</span><span class="p">:</span><span class="n">path</span> <span class="nl">atomically</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
 <span class="p">}</span>
 </pre></div>
-<h1 id="wan-shan">完善</h1>
+
+
+<h1>完善</h1>
 <ul>
 <li>同时集成正常化和压缩处理, 新建一个 shell 脚本文件(如 pngNormalizer.sh), 加入如下代码</li>
 </ul>
@@ -165,11 +167,15 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 ipaPNGnormalizer ./
 zip -r decode decode/
 </pre></div>
+
+
 <ul>
 <li>将这个脚本文件放入包含需要正常化的 PNG 的文件中, 然后在终端输入如下命令</li>
 </ul>
 <div class="highlight"><pre><span></span>./pngNormalizer.sh
 </pre></div>
+
+
 <ul>
 <li>至此任务完成, 将 <code>decode.zip</code> 拷给其他小伙伴就可以了</li>
 </ul></div>
@@ -191,30 +197,36 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1 id="bu-zou">步骤</h1>
-<h2 id="she-zhi-qing-qiu-tou">设置请求头</h2>
-<div class="highlight"><pre><span></span><span class="p">[</span><span class="n">request</span> <span class="nl">setValue</span><span class="p">:</span><span class="s">@"multipart/form-data; boundary=分割线"</span> <span class="nl">forHTTPHeaderField</span><span class="p">:</span><span class="s">@"Content-Type"</span><span class="p">];</span>
+        <div class="summary"><h1>步骤</h1>
+<h2>设置请求头</h2>
+<div class="highlight"><pre><span></span><span class="p">[</span><span class="n">request</span> <span class="nl">setValue</span><span class="p">:</span><span class="s">@&quot;multipart/form-data; boundary=分割线&quot;</span> <span class="nl">forHTTPHeaderField</span><span class="p">:</span><span class="s">@&quot;Content-Type&quot;</span><span class="p">];</span>
 </pre></div>
-<h2 id="she-zhi-qing-qiu-ti">设置请求体</h2>
+
+
+<h2>设置请求体</h2>
 <ul>
 <li>非文件参数</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="nt">--分割线</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
-<span class="nt">Content-Disposition</span><span class="o">:</span> <span class="nt">form-data</span><span class="o">;</span> <span class="nt">name</span><span class="o">=</span><span class="s2">"参数名"</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
+<span class="nt">Content-Disposition</span><span class="o">:</span> <span class="nt">form-data</span><span class="o">;</span> <span class="nt">name</span><span class="o">=</span><span class="s2">&quot;参数名&quot;</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
 <span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
 <span class="nt">参数值</span>
 <span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
 </pre></div>
+
+
 <ul>
 <li>文件参数</li>
 </ul>
 <div class="highlight"><pre><span></span><span class="nt">--分割线</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
-<span class="nt">Content-Disposition</span><span class="o">:</span> <span class="nt">form-data</span><span class="o">;</span> <span class="nt">name</span><span class="o">=</span><span class="s2">"参数名"</span><span class="o">;</span> <span class="nt">filename</span><span class="o">=</span><span class="s2">"文件名"</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
+<span class="nt">Content-Disposition</span><span class="o">:</span> <span class="nt">form-data</span><span class="o">;</span> <span class="nt">name</span><span class="o">=</span><span class="s2">&quot;参数名&quot;</span><span class="o">;</span> <span class="nt">filename</span><span class="o">=</span><span class="s2">&quot;文件名&quot;</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
 <span class="nt">Content-Type</span><span class="o">:</span> <span class="nt">文件的MIMEType</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
 <span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
 <span class="nt">文件数据</span>
 <span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
 </pre></div>
+
+
 <ul>
 <li>结束的标记</li>
 </ul>
@@ -236,13 +248,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
 
  </div>
-        <div class="summary"><h1 id="xiao-wen-jian">小文件</h1>
+        <div class="summary"><h1>小文件</h1>
 <ul>
 <li>利用NSURLConnection发送一个HTTP请求下载</li>
 <li>直接用NSData的 +dataWithContentsOfURL</li>
 <li>下载图片, 可以利用SDWebImage框架</li>
 </ul>
-<h1 id="da-wen-jian">大文件</h1>
+<h1>大文件</h1>
 <ul>
 <li>建议使用 NSURLSession 或者第三方框架</li>
 </ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ios-wen-jian-xia-zai.html">read more</a></div>

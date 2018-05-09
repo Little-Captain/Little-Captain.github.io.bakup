@@ -63,23 +63,23 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         </div>
 	
         <div><ul>
-<li>一个iOS程序运行后，默认会开启1条线程, 称为&ldquo;主线程&rdquo;或&ldquo;UI线程&rdquo;</li>
+<li>一个iOS程序运行后，默认会开启1条线程, 称为“主线程”或“UI线程”</li>
 </ul>
-<h2 id="zhu-xian-cheng-de-zhu-yao-zuo-yong">主线程的主要作用</h2>
+<h2>主线程的主要作用</h2>
 <ul>
 <li>显示 / 刷新UI界面</li>
 <li>处理UI事件<ul>
 <li>点击事件</li>
 <li>滚动事件</li>
 <li>拖拽事件</li>
-<li>&hellip;</li>
+<li>…</li>
 </ul>
 </li>
 </ul>
-<h2 id="zhu-xian-cheng-de-shi-yong-zhu-yi">主线程的使用注意</h2>
+<h2>主线程的使用注意</h2>
 <ul>
 <li>别将比较耗时的操作放到主线程中</li>
-<li>耗时操作会卡住主线程，严重影响UI的流畅度，给用户一种&ldquo;卡&rdquo;的坏体验</li>
+<li>耗时操作会卡住主线程，严重影响UI的流畅度，给用户一种“卡”的坏体验</li>
 <li>耗时操作的执行<ul>
 <li>如果将耗时操作放在主线程, 严重影响UI刷新</li>
 <li>如果将耗时操作放在子线程（后台线程、非主线程）, 不影响UI刷新</li>
