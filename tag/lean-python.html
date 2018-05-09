@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Little Captain's Blog - Python</title>
+    <title>Little Captain's Blog - Lean Python</title>
     <meta name="description" content="">
     <meta name="author" content="Little Captain">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,6 +53,226 @@
         <div class="span9">
         
 
+        
+
+
+    <div class='article'>
+        <div class="content-title">
+            <a href="http://littlecaptain.net/lean-pythonchapter-11.html"><h1>Lean Python(Chapter 11)</h1></a>
+Sun 24 September 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ 
+        </div>
+        
+        <div><blockquote>
+<p>Databases</p>
+</blockquote>
+<h1>SQLite</h1>
+<h2>数据库函数</h2>
+<div class="highlight"><pre><span></span><span class="c1"># 打开连接数据库</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="c1"># 执行 SQL</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="c1"># 返回游标</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="c1"># 执行查询操作, 返回数据</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</pre></div>
+
+
+<h2>连接和导入数据 (SQLite)</h2>
+<div class="highlight"><pre><span></span><span class="c1"># insert</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<span class="n">db_filename</span><span class="o">=</span><span class="s1">&#39;mydatabase.db&#39;</span>
+
+<span class="n">exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">exists</span><span class="p">:</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
+
+<span class="n">schema</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;create table person (</span>
+<span class="s2">  id integer primary key autoincrement not null,</span>
+<span class="s2">  name text not null,</span>
+<span class="s2">  dob date,</span>
+<span class="s2">  nationality text,</span>
+<span class="s2">  gender text)</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+
+<span class="n">people</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;insert into person (name, dob, nationality, gender)</span>
+<span class="s2">values (&#39;Fred Bloggs&#39;, &#39;1965-12-25&#39;,&#39;British&#39;,&#39;Male&#39;);</span>
+<span class="s2">insert into person (name, dob,nationality,gender)</span>
+<span class="s2">values (&#39;Santa Claus&#39;, &#39;968-01-01&#39;,&#39;Lap&#39;,&#39;Male&#39;);</span>
+<span class="s2">insert into person (name, dob,nationality,gender)</span>
+<span class="s2">values (&#39;Tooth Fairy&#39;, &#39;1931-03-31&#39;,&#39;American&#39;,&#39;Female&#39;);</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select id, name, dob, nationality, gender from person&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
+    <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span> <span class="o">=</span> <span class="n">row</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%3d</span><span class="s2"> </span><span class="si">%15s</span><span class="s2"> </span><span class="si">%12s</span><span class="s2"> </span><span class="si">%10s</span><span class="s2"> </span><span class="si">%6s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span><span class="p">))</span>
+
+<span class="c1"># 省略了 name 字段, 使其抛出一个异常</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dupe</span><span class="o">=</span><span class="s2">&quot;insert into person (id, dob,nationality,gender) </span><span class="se">\</span>
+<span class="s2">    values (1,&#39;1931-03-31&#39;,&#39;American&#39;,&#39;Female&#39;);&quot;</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">dupe</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Cannot insert record&#39;</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># update</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">db_filename</span> <span class="o">=</span> <span class="s1">&#39;mydatabase.db&#39;</span>
+<span class="n">inid</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">innat</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;update person set nationality = :nat where id = :id&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="n">inid</span><span class="p">,</span> <span class="s1">&#39;nat&#39;</span><span class="p">:</span><span class="n">innat</span><span class="p">})</span>
+
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select id, name, dob,nationality,gender from person&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
+    <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span> <span class="o">=</span> <span class="n">row</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%3d</span><span class="s2"> </span><span class="si">%15s</span><span class="s2"> </span><span class="si">%12s</span><span class="s2"> </span><span class="si">%10s</span><span class="s2"> </span><span class="si">%6s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span><span class="p">))</span>
+</pre></div></div>
+        <hr />
+    </div>
+		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/lean-pythonchapter-10.html"><h2>Lean Python(Chapter 10)</h2></a>
+        <div class= "well small"> Sat 23 September 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>字符串搜索</h1>
+<ul>
+<li>find 返回字符串出现的字符位置, 如果没有找到就返回 -1</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">txt</span><span class="o">=</span><span class="s2">&quot;The quick brown fox jumps over the lazy dog&quot;</span>
+<span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;jump&#39;</span><span class="p">)</span>
+<span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h1>正则表达式</h1>
+<div class="highlight"><pre><span></span><span class="c1"># 匹配邮箱</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">regex</span> <span class="o">=</span> <span class="s1">&#39;\s[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}[\s]&#39;</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;This is some text with x@y.z embedded e-mails</span>
+<span class="s2">that we …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-10.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/lean-pythonchapter-09.html"><h2>Lean Python(Chapter 09)</h2></a>
+        <div class= "well small"> Sat 23 September 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>Accessing the Web</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Web url to fetch:&#39;</span><span class="p">)</span>
+<span class="n">urlparts</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">urlparts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s1">&#39;http://&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">))</span>
+
+<span class="n">qstring</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter query string:&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">qstring</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;?&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">url</span><span class="p">,</span> <span class="n">qstring</span><span class="p">))</span>
+
+<span class="n">save</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Save downloaded page to disk [y/n]?&#39;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Requesting …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-09.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/lean-pythonchapter-08.html"><h2>Lean Python(Chapter 08)</h2></a>
+        <div class= "well small"> Sat 23 September 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>Testing Your Code</p>
+</blockquote>
+<h1>模块化编程与代码测试</h1>
+<ul>
+<li>模块化编程是测试更为容易</li>
+</ul>
+<h1>测试驱动的开发(TDD)</h1>
+<blockquote>
+<ol>
+<li>开发代码前先写测试</li>
+<li>运行测试, 观察失败, 然后添加和修正代码, 使测试通过</li>
+<li>当测试通过后, 寻求改进代码设计的机会</li>
+</ol>
+</blockquote>
+<ul>
+<li>对于大型项目, TDD 能够最好的模块化你的代码</li>
+</ul>
+<h1>单元测试框架 : unittest</h1>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">op</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">&#39;+-/*&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;Operator must be +-/*&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+        <span class="k">else …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-08.html">read more</a></div>
+    </div>	
+				
+
+ 
         
 
  
@@ -314,81 +534,14 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="n">x</span> <span class="o">=</span> <span class="mf">1E20 …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-02.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/lean-pythonchapter-01.html"><h2>Lean Python(Chapter 01)</h2></a>
-        <div class= "well small"> Tue 19 September 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><blockquote>
-<p>Foundation</p>
-</blockquote>
-<h1>解释器</h1>
-<h2>交互模式</h2>
-<ul>
-<li>dir : 列出一个对象的所有属性</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
-</pre></div>
-
-
-<ul>
-<li>help : 查看内建关键字和方法的帮助文档</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">open</span><span class="p">)</span>
-</pre></div>
-
-
-<h2>命令行模式</h2>
-<ul>
-<li>通过在命令行中加载 python 程序执行</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">myprogram</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
-
-
-<h1>注释、代码块、缩进</h1>
-<ul>
-<li>使用 <code>#</code> 进行注释</li>
-<li>使用相同的<code>缩进</code>区分代码块</li>
-<li><code>:</code> 用在 if、elif、else、while、for、函数定义中, 区分首行和下面的具体代码块, 具体代码块需要缩进</li>
-<li>使用 <code>\</code> 连接多行代码</li>
-</ul>
-<h1>变量</h1>
-<ul>
-<li>赋值</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="n">expression</span>
-<span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">var3</span> <span class="o">=</span> <span class="n">expression</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-
-
-<ul>
-<li>关键字 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-01.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
-    <li class="prev"><a href="http://littlecaptain.net/tag/python5.html">&larr; Previous</a></li>
+    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
 
-    <li class=""><a href="http://littlecaptain.net/tag/python.html">1</a></li>
-    <li class=""><a href="http://littlecaptain.net/tag/python2.html">2</a></li>
-    <li class=""><a href="http://littlecaptain.net/tag/python3.html">3</a></li>
-    <li class=""><a href="http://littlecaptain.net/tag/python4.html">4</a></li>
-    <li class=""><a href="http://littlecaptain.net/tag/python5.html">5</a></li>
-    <li class="active"><a href="http://littlecaptain.net/tag/python6.html">6</a></li>
+    <li class="active"><a href="http://littlecaptain.net/tag/lean-python.html">1</a></li>
+    <li class=""><a href="http://littlecaptain.net/tag/lean-python2.html">2</a></li>
 
-    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+    <li class="next"><a href="http://littlecaptain.net/tag/lean-python2.html">Next &rarr;</a></li>
 
 </ul>
 </div>
@@ -422,14 +575,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
                 
                 <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
                 <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
-                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
                 <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
                 <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
                 <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
-                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
                 <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
                 <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
                 <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/python.html">Python</a></li>
                 <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
                 <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
                 <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
