@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Lean Python(Chapter 03)</title>
+        <link rel="stylesheet" href="http://littlecaptain.net/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://littlecaptain.net/">Little Captain's Blog </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="http://littlecaptain.net/category/python.html">Python</a></li>
+                    <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                </ul>
+                </nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://littlecaptain.net/lean-pythonchapter-03.html" rel="bookmark"
+           title="Permalink to Lean Python(Chapter 03)">Lean Python(Chapter 03)</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <span>Thu 21 September 2017</span>
+
+</footer><!-- /.post-info -->      <blockquote>
+<p>Program Structure</p>
+</blockquote>
+<h1>做决定</h1>
+<h2>if 语句</h2>
+<!--more-->
+
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">test</span><span class="p">:</span>
+    <span class="n">statement1</span> <span class="c1"># 如果条件为真, 这三条语句都将执行</span>
+    <span class="n">statement2</span>
+    <span class="n">statement3</span>
+<span class="c1"># if else</span>
+<span class="k">if</span> <span class="n">test</span><span class="p">:</span>
+    <span class="n">DoThis</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">DoThat</span><span class="p">()</span>
+<span class="c1"># if elif else</span>
+<span class="k">if</span> <span class="n">test1</span><span class="p">:</span>
+    <span class="n">DoThis</span><span class="p">()</span>
+<span class="k">elif</span> <span class="n">test2</span><span class="p">:</span>
+    <span class="n">DoThat</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">DoOther</span><span class="p">()</span>
+</pre></div>
+
+
+<ul>
+<li>同一语句中的 <code>if</code> <code>elif</code> <code>else</code> 的缩进必须保持一致</li>
+</ul>
+<h2>pass 语句</h2>
+<ul>
+<li>pass 语句就是什么都不做</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">test1</span><span class="p">:</span>
+    <span class="n">DoThis</span><span class="p">()</span>
+<span class="k">elif</span> <span class="n">test2</span><span class="p">:</span>
+    <span class="n">DoThat</span><span class="p">()</span>
+<span class="c1"># else 不是严格必须, 但是加上, 通过使用 pass 语句, 表明这时什么都不做, 语义更明确</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+
+<h2>常见的测试条件</h2>
+<ul>
+<li>比较</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">var1</span> <span class="o">&gt;</span> <span class="n">var2</span>
+</pre></div>
+
+
+<ul>
+<li>序列的成员所属关系</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">var</span> <span class="ow">in</span> <span class="n">seq</span>
+<span class="n">var</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seq</span>
+</pre></div>
+
+
+<ul>
+<li>序列长度</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span>
+</pre></div>
+
+
+<ul>
+<li>布尔值</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">fileopen</span> <span class="c1"># fileopen == True ?</span>
+</pre></div>
+
+
+<ul>
+<li>变量是否有值</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">var</span> <span class="c1"># not None (or zero or &#39;&#39;)</span>
+</pre></div>
+
+
+<ul>
+<li>校验</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">var</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="c1"># alphanumeric ?</span>
+</pre></div>
+
+
+<ul>
+<li>计算结果比较</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="p">(</span><span class="n">price</span> <span class="o">*</span> <span class="n">quantity</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">100.0</span> <span class="c1"># cost &gt; 100?</span>
+</pre></div>
+
+
+<ul>
+<li>
+<p>逻辑操作符: <code>and</code> <code>or</code> <code>not</code> 可以用来连接条件构成复合条件</p>
+</li>
+<li>
+<p>嵌套的条件表达式, 通过缩进区分层级</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">age</span><span class="o">&gt;</span><span class="mi">19</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">carValue</span><span class="o">&gt;</span><span class="mi">10000</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">gotConvictions</span><span class="p">:</span>
+            <span class="n">rejectInsuranceApplication</span><span class="p">()</span>
+</pre></div>
+
+
+<h1>循环和迭代</h1>
+<h2>for 循环</h2>
+<ul>
+<li>迭代一个集合中的每个元素</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">theTeam</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Julia&#39;</span><span class="p">,</span><span class="s1">&#39;Jane&#39;</span><span class="p">,</span><span class="s1">&#39;Tom&#39;</span><span class="p">,</span><span class="s1">&#39;Dick&#39;</span><span class="p">,</span><span class="s1">&#39;Harry&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">theTeam</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> is in the team&#39;</span> <span class="o">%</span> <span class="n">person</span><span class="p">)</span>
+<span class="c1"># for 循环的通用格式为 for var in seq:</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># [0, 1, 2, ... , 9]</span>
+<span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># [1, 2, ... , 9], 不包括 10</span>
+<span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c1"># 1 开始, 20 结束(不包括), 3 为步长</span>
+
+<span class="c1"># 不想遍历序列, 只是想执行指定的代码指定的次数</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+</pre></div>
+
+
+<h2>while 循环</h2>
+<ul>
+<li>重复执行循环直到测试失败</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+</pre></div>
+
+
+<h2>break 语句</h2>
+<ul>
+<li>终止循环, 执行循环后的语句</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">command</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter command:&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">command</span><span class="o">==</span><span class="s1">&#39;exit&#39;</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;bye&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>continue 语句</h2>
+<ul>
+<li>跳过本次循环的后续代码, 直接进行下次循环</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">command</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter command:&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">command</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="k">elif</span> <span class="n">command</span><span class="o">==</span><span class="s1">&#39;exit&#39;</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Goodbye&#39;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;bye&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>List Comprehensions (列表推导式、列表解析)</h2>
+<div class="highlight"><pre><span></span><span class="c1"># 普通方法</span>
+<span class="n">squares</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+    <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+<span class="c1"># 列表推导式</span>
+<span class="n">squares</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)]</span>
+<span class="c1"># 具体语法</span>
+<span class="p">[</span><span class="n">expr</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span> <span class="k">if</span> <span class="n">condition</span><span class="p">]</span>
+<span class="c1"># if 语句用于从 iterable 中选择元素</span>
+<span class="c1"># 例子</span>
+<span class="n">evens</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">trulines</span> <span class="o">=</span> <span class="p">[</span><span class="n">l</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span> <span class="k">if</span> <span class="n">l</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;True&#39;</span><span class="p">)</span><span class="o">&gt;-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+
+<h1>使用函数</h1>
+<h2>函数是什么</h2>
+<ul>
+<li>一个函数是一个代码片段</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># 关键字 def 用于定义一个新函数</span>
+<span class="k">def</span> <span class="nf">lenDictList</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="nb">list</span><span class="p">,</span><span class="nb">dict</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">nelems</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">:</span>
+        <span class="n">nelems</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">nelems</span>
+
+<span class="c1"># 调用实例</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="s1">&#39;three&#39;</span><span class="p">}</span>
+<span class="n">lenDictList</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="n">lenDictList</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="n">lenDictList</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>返回值</h2>
+<div class="highlight"><pre><span></span><span class="k">return</span>
+<span class="k">return</span> <span class="bp">True</span>
+<span class="k">return</span> <span class="bp">False</span>
+<span class="k">return</span> <span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="n">r3</span>
+<span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="n">v1</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">v2</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>调用函数</h2>
+<div class="highlight"><pre><span></span><span class="c1"># 左边变量的个数必须和右边函数的返回值个数匹配</span>
+<span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+<span class="nb">max</span><span class="p">,</span> <span class="nb">min</span><span class="p">,</span> <span class="n">average</span> <span class="o">=</span> <span class="n">analyse</span><span class="p">(</span><span class="n">numlist</span><span class="p">)</span>
+<span class="n">fee</span> <span class="o">=</span> <span class="n">calculateFee</span><span class="p">(</span><span class="n">hours</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">taxfactor</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>调用时给参数指定名字</h2>
+<ul>
+<li>指定名字的参数必须全部位于未指定名字的参数之后</li>
+<li>自定名字的参数是关键字参数, 没有指定名字的参数是位置参数. <code>关键字参数</code>必须位于<code>位置参数</code>之<code>后</code></li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="o">*</span><span class="n">c</span>
+<span class="n">fn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">fn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fn</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">fn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c1"># 错误!!! positional argument follows keyword argument</span>
+</pre></div>
+
+
+<h2>变量作用域</h2>
+<div class="highlight"><pre><span></span><span class="n">sharedvar</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m sharable&quot;</span>
+<span class="k">def</span> <span class="nf">first</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">sharedvar</span><span class="p">)</span>
+    <span class="n">firstvar</span> <span class="o">=</span> <span class="s1">&#39;Not shared&#39;</span>
+    <span class="k">return</span>
+<span class="k">def</span> <span class="nf">second</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">sharedvar</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">firstvar</span><span class="p">)</span> <span class="c1"># error</span>
+    <span class="k">return</span>
+</pre></div>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="https://github.com/Little-Captain">Github</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme <a href="https://github.com/blueicefield/pelican-blueidea/">blueidea</a>, inspired by the default theme.</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

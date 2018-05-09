@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Lean Python(Chapter 07)</title>
+        <link rel="stylesheet" href="http://littlecaptain.net/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="http://littlecaptain.net/">Little Captain's Blog </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="http://littlecaptain.net/category/python.html">Python</a></li>
+                    <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                </ul>
+                </nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://littlecaptain.net/lean-pythonchapter-07.html" rel="bookmark"
+           title="Permalink to Lean Python(Chapter 07)">Lean Python(Chapter 07)</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <span>Sat 23 September 2017</span>
+
+</footer><!-- /.post-info -->      <blockquote>
+<p>Exception and Error Handling</p>
+</blockquote>
+<!-- more -->
+
+<h1>异常和错误的处理</h1>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Input two numbers. the first will be divided by the second&#39;</span><span class="p">)</span>
+
+<span class="n">afirst</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;first number:&#39;</span><span class="p">)</span>
+<span class="n">first</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">afirst</span><span class="p">)</span>
+<span class="n">asecond</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;second number:&#39;</span><span class="p">)</span>
+<span class="n">second</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">asecond</span><span class="p">)</span>
+
+<span class="n">quotient</span> <span class="o">=</span> <span class="n">first</span> <span class="o">/</span> <span class="n">second</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Quotient first/second = &#39;</span><span class="p">,</span><span class="n">quotient</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Input two numbers. the first will be divided by the second&#39;</span><span class="p">)</span>
+
+<span class="n">afirst</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;first number:&#39;</span><span class="p">)</span>
+<span class="n">asecond</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;second number:&#39;</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">first</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">afirst</span><span class="p">)</span>
+    <span class="n">second</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">asecond</span><span class="p">)</span>
+    <span class="n">quotient</span> <span class="o">=</span> <span class="n">first</span> <span class="o">/</span> <span class="n">second</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Quotient 1st/2nd = &#39;</span><span class="p">,</span> <span class="n">quotient</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">diag</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">diag</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">diag</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>Exception 是一个针对异常的顶层类, 所以它可以捕获所有的错误</li>
+</ul>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="https://github.com/Little-Captain">Github</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme <a href="https://github.com/blueicefield/pelican-blueidea/">blueidea</a>, inspired by the default theme.</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
