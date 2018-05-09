@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - shell 脚本编程基础</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>shell 脚本编程基础</h1>
+Sat 12 August 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+        </div>
+	
+        <div><h1>基础</h1>
+<ul>
+<li>同<code>一行多个命令</code>顺序执行, 使用<code>;</code></li>
+</ul>
+<div class="highlight"><pre><span></span>data<span class="p">;</span>who
+</pre></div>
+
+
+<ul>
+<li>创建shell脚本文件</li>
+<li>在文件的<code>第一行指定</code>要使用的<code>shell</code></li>
+</ul>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+</pre></div>
+
+
+<ul>
+<li>显示消息</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nb">echo</span> This is a <span class="nb">test</span>
+<span class="nb">echo</span> Let<span class="se">\&#39;</span>s see <span class="k">if</span> <span class="s2">&quot;this&#39;ll&quot;</span> work
+<span class="nb">echo</span> <span class="s2">&quot;Let&#39;s see if this&#39;ll work&quot;</span>
+<span class="nb">echo</span> <span class="s1">&#39;Rich says &quot;scripting is easy&quot;.&#39;</span>
+<span class="c1"># -n : 不输出末尾的 newline 字符</span>
+<span class="nb">echo</span> -n <span class="s2">&quot;The time and date are: &quot;</span><span class="p">;</span>date
+</pre></div>
+
+
+<ul>
+<li>环境变量 : shell维护者一组环境变量, 用来记录特定的系统信息.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nv">$PATH</span>
+</pre></div>
+
+
+<ul>
+<li>用户变量</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># 区分大小写</span>
+<span class="c1"># 变量、等号和值之间不能出现空格</span>
+<span class="c1"># shell自动决定变量值的数据类型</span>
+<span class="c1"># 变量的生命周期: 从创建时开始到shell脚本完成时删除掉</span>
+<span class="nv">var1</span><span class="o">=</span><span class="m">10</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 变量每次引用时, 都会输出当前赋给它的值</span>
+<span class="c1"># 引用变量来使用其值时, 需要使用 $</span>
+<span class="c1"># 引用变量来对其赋值时, 不需要使用 $</span>
+<span class="nv">value1</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">value2</span><span class="o">=</span><span class="nv">$value1</span>
+</pre></div>
+
+
+<ul>
+<li>反引号 : 将 shell 命令的输出赋给变量</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nv">testing</span><span class="o">=</span><span class="sb">`</span>date<span class="sb">`</span>
+<span class="nv">today</span><span class="o">=</span><span class="sb">`</span>date +%y%m%d<span class="sb">`</span>
+</pre></div>
+
+
+<ul>
+<li>输出重定向</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># 将命令输出重定向到一个文件</span>
+<span class="c1"># 文件不存在创建</span>
+<span class="c1"># 文件存在就覆盖</span>
+<span class="c1"># 覆盖输出重定向</span>
+date &gt; <span class="nb">test</span>
+<span class="c1"># 文件不存在创建</span>
+<span class="c1"># 追加重定向</span>
+date &gt;&gt; <span class="nb">test</span>
+</pre></div>
+
+
+<ul>
+<li>输入重定向</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># 将文件内容重定向到命令</span>
+wc &lt; <span class="nb">test</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 内联输入重定向</span>
+<span class="c1"># 可以在命令行指定输入重定向的数据</span>
+<span class="c1"># 使用 &lt;&lt; </span>
+<span class="c1">## 需要指定一个文本标记来划分要输入数据的开始和结尾</span>
+wc <span class="s">&lt;&lt; EOF</span>
+<span class="s">test string 1</span>
+<span class="s">test string 2</span>
+<span class="s">test string 3</span>
+<span class="s">EOF</span>
+</pre></div>
+
+
+<ul>
+<li>管道</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># Linux 系统会同时运行这两个命令, 在系统内部将它们连接起来</span>
+<span class="c1"># 可以在一条命令中使用任意多条管道</span>
+rpm -qa <span class="p">|</span> sort
+</pre></div>
+
+
+<ul>
+<li>退出脚本</li>
+</ul>
+<blockquote>
+<p>shell 中运行的每个命令都使用退出状态码来告诉 shell 它完成了处理. 退出状态码是一个 0~255 之间的整数值, 在命令结束运行时由命令传给 shell.
+0 : 成功结束
+非0 : 结束时有错误
+shell 脚本以脚本的最后一个命令的退出状态码退出</p>
+</blockquote>
+<div class="highlight"><pre><span></span>data
+<span class="c1"># $? 专属变量保存上一个命令的退出状态码</span>
+<span class="nb">echo</span> <span class="nv">$?</span>
+</pre></div>
+
+
+<p><strong>Linux退出状态码</strong></p>
+<p><img src="../assets/images/Linux/Linux退出状态码.png" width = 100% align=center /></p>
+<div class="highlight"><pre><span></span><span class="c1"># exit 命令允许在脚本退出时指定一个退出状态码</span>
+<span class="c1"># 范围 0~255</span>
+<span class="c1"># 超出范围会与256取模</span>
+<span class="nb">exit</span> <span class="m">5</span>
+</pre></div></div>
+	
+        <hr>
+
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2017</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>
