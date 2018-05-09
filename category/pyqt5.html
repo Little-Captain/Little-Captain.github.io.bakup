@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - PyQt</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqtchapter-06.html"><h2>PyQt(Chapter 06)</h2></a>
+        <div class= "well small"> Tue 10 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>File Handling</p>
+</blockquote>
+<ul>
+<li>文件是数据对象序列的容器, 被描述为字节序列</li>
+<li>
+<p>文件处理是读写文件的技术</p>
+</li>
+<li>
+<p>文件分类</p>
+</li>
+<li>文本文件: 容易理解, 但是不易更新</li>
+<li>二进制文件: 优化了处理速度. 通过 offset 写入数据, 通过 seek() 方法访问特定的数据</li>
+<li>
+<p>Pickled files: 用于存储对象. 为了优化性能, 将对象存储为二进制格式</p>
+</li>
+<li>
+<p>处理文件三步走:</p>
+</li>
+<li>打开文件</li>
+<li>执行文件操作(读、写、更新)</li>
+<li>关闭文件</li>
+</ul>
+<h1>打开文件</h1>
+<div class="highlight"><pre><span></span><span class="c1"># file_name 文件名</span>
+<span class="c1"># mode 打开文件的目的</span>
+<span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="c1"># 返回 file handler 对象</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;xyz.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>mode</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">r</span>  <span class="c1"># 打开 for …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-06.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqtchapter-05.html"><h2>PyQt(Chapter 05)</h2></a>
+        <div class= "well small"> Mon 09 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>Classes</p>
+</blockquote>
+<h1>类</h1>
+<ul>
+<li>类是数据和操作的模板</li>
+<li>通过类可以创建实例(对象)</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># 多个父类用逗号隔开</span>
+<span class="k">class</span> <span class="nc">classname</span><span class="p">[(</span><span class="n">base</span><span class="o">-</span><span class="n">classes</span><span class="p">)]:</span>
+    <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>类对象的属性</h2>
+<ul>
+<li>类属性, 不需要实例对象, 使用类名引用</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rect</span><span class="p">:</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="k">print</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">rect</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">pass</span>
+<span class="n">rect</span><span class="o">.</span><span class="n">l</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">print</span><span class="p">(</span><span class="n">rect</span><span class="o">.</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+
+
+<h3>内建的类属性</h3>
+<ul>
+<li>一个类隐式的设置了一些类属性, 我们称之为内建类属性</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="vm">__name__</span> <span class="c1"># 类名</span>
+<span class="vm">__bases__</span> <span class="c1"># 一个 tuple 指示 base classes</span>
+<span class="vm">__dict__</span> <span class="c1"># 通过 key/value 存储类的自定义属性. rect …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-05.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqtchapter-04.html"><h2>PyQt(Chapter 04)</h2></a>
+        <div class= "well small"> Sat 07 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>函数</h1>
+<ul>
+<li>在 Python 中, <code>函数</code>别当做<code>对象</code></li>
+</ul>
+<h2>函数的定义</h2>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function</span><span class="o">-</span><span class="n">name</span><span class="p">(</span><span class="n">parameters</span><span class="p">):</span>
+    <span class="n">statements</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>返回语句</h2>
+<ul>
+<li>返回语句是可选的, 如果没有, 函数返回 None</li>
+</ul>
+<h2>默认参数值</h2>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+</pre></div>
+
+
+<h2>关键字参数</h2>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;l is&#39;</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="s1">&#39;and b is …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-04.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqtchapter-03.html"><h2>PyQt(Chapter 03)</h2></a>
+        <div class= "well small"> Wed 27 September 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>Sequence</h1>
+<ul>
+<li>有序</li>
+<li>通过索引定位</li>
+<li>切片操作取出子 sequence</li>
+<li>String、Tuple(至少含有两个元素, (1) 为 int 1) 不可变(创建后, 元素不可变), List 可变</li>
+<li><code>+</code> <code>*</code> <code>[]</code> 是所有 sequence 通用的操作符</li>
+<li><code>+</code> 连接</li>
+<li><code>*</code> 重复序列, 产生新的序列</li>
+<li><code>[]</code> 取出指定的元素和子 sequence</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># +</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="c1"># [1, 1, 1, 2]</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># [1, 2, 1, 2]</span>
+<span class="s1">&#39;12&#39;</span> <span class="o">+</span> <span class="s1">&#39;12&#39;</span> <span class="c1"># &#39;1212&#39;</span>
+<span class="c1"># *</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span> <span class="c1"># [1, 2, 1 …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-03.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqtchapter-02.html"><h2>PyQt(Chapter 02)</h2></a>
+        <div class= "well small"> Mon 25 September 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>Getting Wet in Python (深入巨蟒湿地)</p>
+</blockquote>
+<h1>算数操作符</h1>
+<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="c1"># Addition</span>
+<span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="c1"># Subtraction</span>
+<span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="c1"># Multiplication</span>
+<span class="n">x</span> <span class="o">/</span> <span class="n">y</span> <span class="c1"># Division</span>
+<span class="n">x</span> <span class="o">//</span> <span class="n">y</span> <span class="c1"># Truncating division (floor division)</span>
+<span class="n">x</span> <span class="o">**</span> <span class="n">y</span> <span class="c1"># Exponentiation. Sets x to the power y</span>
+<span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="c1"># Modulo operator</span>
+<span class="err">–</span><span class="n">x</span> <span class="c1"># Unary minus</span>
+<span class="o">+</span><span class="n">x</span> <span class="c1"># Unary plus</span>
+</pre></div>
+
+
+<h2>除法操作符</h2>
+<ul>
+<li><code>/</code> : 结果总是不会被截断, 结果总是浮点数</li>
+<li><code>//</code> : 不管有没有浮点操作数, 都将结果截断为整数. 但是如果一个操作数为浮点数, 结果就为浮点数 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-02.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqtchapter-01.html"><h2>PyQt(Chapter 01)</h2></a>
+        <div class= "well small"> Sun 24 September 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>Python and Its Features</p>
+</blockquote>
+<h1>数据类型</h1>
+<h2>Integers</h2>
+<ul>
+<li>32 bits</li>
+<li>[-2<sup>32</sup> 2<sup>32</sup>-1]</li>
+</ul>
+<h2>Long Integers</h2>
+<ul>
+<li>无限精度, 受限于计算机内存</li>
+</ul>
+<h2>Floating Point Numbers</h2>
+<ul>
+<li>浮点总是双精度的, 64 bits</li>
+</ul>
+<h2>Boolean</h2>
+<ul>
+<li>仅取两个值: True、False</li>
+</ul>
+<h2>Complex Number(复数)</h2>
+<ul>
+<li>a + b * j</li>
+<li>a、b都是浮点数</li>
+</ul>
+<h2>Strings</h2>
+<ul>
+<li>Unicode 字符序列</li>
+</ul>
+<h2>Lists</h2>
+<ul>
+<li>一组值的有序序列</li>
+</ul>
+<h2>Tuples</h2>
+<ul>
+<li>不可变、一组值的有序序列</li>
+</ul>
+<h2>Sets</h2>
+<ul>
+<li>无序的值的集合</li>
+</ul>
+<h2>Dictionaries</h2>
+<ul>
+<li>无序的键值对集合</li>
+</ul>
+<blockquote>
+<p>0b、0B: 二进制 …</p></blockquote> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-01.html">read more</a></div>
+    </div>	
+				
+<div class="pagination">
+<ul>
+    <li class="prev"><a href="http://littlecaptain.net/category/pyqt4.html">&larr; Previous</a></li>
+
+    <li class=""><a href="http://littlecaptain.net/category/pyqt.html">1</a></li>
+    <li class=""><a href="http://littlecaptain.net/category/pyqt2.html">2</a></li>
+    <li class=""><a href="http://littlecaptain.net/category/pyqt3.html">3</a></li>
+    <li class=""><a href="http://littlecaptain.net/category/pyqt4.html">4</a></li>
+    <li class="active"><a href="http://littlecaptain.net/category/pyqt5.html">5</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>
+ 
+  
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2017</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

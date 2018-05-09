@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - PyQt(Chapter 06)</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>PyQt(Chapter 06)</h1>
+Tue 10 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+        </div>
+	
+        <div><blockquote>
+<p>File Handling</p>
+</blockquote>
+<ul>
+<li>文件是数据对象序列的容器, 被描述为字节序列</li>
+<li>
+<p>文件处理是读写文件的技术</p>
+</li>
+<li>
+<p>文件分类</p>
+</li>
+<li>文本文件: 容易理解, 但是不易更新</li>
+<li>二进制文件: 优化了处理速度. 通过 offset 写入数据, 通过 seek() 方法访问特定的数据</li>
+<li>
+<p>Pickled files: 用于存储对象. 为了优化性能, 将对象存储为二进制格式</p>
+</li>
+<li>
+<p>处理文件三步走:</p>
+</li>
+<li>打开文件</li>
+<li>执行文件操作(读、写、更新)</li>
+<li>关闭文件</li>
+</ul>
+<h1>打开文件</h1>
+<div class="highlight"><pre><span></span><span class="c1"># file_name 文件名</span>
+<span class="c1"># mode 打开文件的目的</span>
+<span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span> <span class="c1"># 返回 file handler 对象</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;xyz.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>mode</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">r</span>  <span class="c1"># 打开 for 读, 默认, 文件必须存在</span>
+<span class="n">w</span>  <span class="c1"># 创建一个文件用于写入. 如果文件已存在, 文件的原始内容将被覆盖(覆盖相当于完全擦除后, 再写入)</span>
+<span class="n">a</span>  <span class="c1"># 打开文件追加, 如果文件不存在, 就创建新文件</span>
+<span class="n">r</span><span class="o">+</span> <span class="c1"># 打开 for 读写, 文件必须存在</span>
+<span class="n">w</span><span class="o">+</span> <span class="c1"># 创建一个文件用于读写. 如果文件已存在, 文件的原始内容将被覆盖</span>
+<span class="n">a</span><span class="o">+</span> <span class="c1"># 打开文件追加和读取, 如果文件不存在, 就创建新文件</span>
+</pre></div>
+
+
+<h1>文件操作</h1>
+<ul>
+<li>open</li>
+</ul>
+<blockquote>
+<p>open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+Open file and return a stream.  Raise IOError upon failure.</p>
+<p>file is either a text or byte string giving the name (and the path
+if the file isn't in the current working directory) of the file to
+be opened or an integer file descriptor of the file to be
+wrapped. (If a file descriptor is given, it is closed when the
+returned I/O object is closed, unless closefd is set to False.)</p>
+<p>mode is an optional string that specifies the mode in which the file
+is opened. It defaults to 'r' which means open for reading in text
+mode.  Other common values are 'w' for writing (truncating the file if
+it already exists), 'x' for creating and writing to a new file, and
+'a' for appending (which on some Unix systems, means that all writes
+append to the end of the file regardless of the current seek position).
+In text mode, if encoding is not specified the encoding used is platform
+dependent: locale.getpreferredencoding(False) is called to get the
+current locale encoding. (For reading and writing raw bytes use binary
+mode and leave encoding unspecified.) The available modes are:</p>
+<p>========= ===============================================================
+Character Meaning</p>
+<hr>
+<p>'r'       open for reading (default)
+'w'       open for writing, truncating the file first
+'x'       create a new file and open it for writing
+'a'       open for writing, appending to the end of the file if it exists
+'b'       binary mode
+'t'       text mode (default)
+'+'       open a disk file for updating (reading and writing)
+'U'       universal newline mode (deprecated)
+========= ===============================================================</p>
+<p>The default mode is 'rt' (open for reading text). For binary random
+access, the mode 'w+b' opens and truncates the file to 0 bytes, while
+'r+b' opens the file without truncation. The 'x' mode implies 'w' and
+raises an <code>FileExistsError</code> if the file already exists.</p>
+<p>Python distinguishes between files opened in binary and text modes,
+even when the underlying operating system doesn't. Files opened in
+binary mode (appending 'b' to the mode argument) return contents as
+bytes objects without any decoding. In text mode (the default, or when
+'t' is appended to the mode argument), the contents of the file are
+returned as strings, the bytes having been first decoded using a
+platform-dependent encoding or using the specified encoding if given.</p>
+<p>'U' mode is deprecated and will raise an exception in future versions
+of Python.  It has no effect in Python 3.  Use newline to control
+universal newlines mode.</p>
+<p>buffering is an optional integer used to set the buffering policy.
+Pass 0 to switch buffering off (only allowed in binary mode), 1 to select
+line buffering (only usable in text mode), and an integer &gt; 1 to indicate
+the size of a fixed-size chunk buffer.  When no buffering argument is
+given, the default buffering policy works as follows:</p>
+<ul>
+<li>
+<p>Binary files are buffered in fixed-size chunks; the size of the buffer
+is chosen using a heuristic trying to determine the underlying device's
+"block size" and falling back on <code>io.DEFAULT_BUFFER_SIZE</code>.
+On many systems, the buffer will typically be 4096 or 8192 bytes long.</p>
+</li>
+<li>
+<p>"Interactive" text files (files for which isatty() returns True)
+use line buffering.  Other text files use the policy described above
+for binary files.</p>
+</li>
+</ul>
+<p>encoding is the name of the encoding used to decode or encode the
+file. This should only be used in text mode. The default encoding is
+platform dependent, but any encoding supported by Python can be
+passed.  See the codecs module for the list of supported encodings.</p>
+<p>errors is an optional string that specifies how encoding errors are to
+be handled---this argument should not be used in binary mode. Pass
+'strict' to raise a ValueError exception if there is an encoding error
+(the default of None has the same effect), or pass 'ignore' to ignore
+errors. (Note that ignoring encoding errors can lead to data loss.)
+See the documentation for codecs.register or run 'help(codecs.Codec)'
+for a list of the permitted encoding error strings.</p>
+<p>newline controls how universal newlines works (it only applies to text
+mode). It can be None, '', '\n', '\r', and '\r\n'.  It works as
+follows:</p>
+<ul>
+<li>
+<p>On input, if newline is None, universal newlines mode is
+enabled. Lines in the input can end in '\n', '\r', or '\r\n', and
+these are translated into '\n' before being returned to the
+caller. If it is '', universal newline mode is enabled, but line
+endings are returned to the caller untranslated. If it has any of
+the other legal values, input lines are only terminated by the given
+string, and the line ending is returned to the caller untranslated.</p>
+</li>
+<li>
+<p>On output, if newline is None, any '\n' characters written are
+translated to the system default line separator, os.linesep. If
+newline is '' or '\n', no translation takes place. If newline is any
+of the other legal values, any '\n' characters written are translated
+to the given string.</p>
+</li>
+</ul>
+<p>If closefd is False, the underlying file descriptor will be kept open
+when the file is closed. This does not work when a file name is given
+and must be True in that case.</p>
+<p>A custom opener can be used by passing a callable as <em>opener</em>. The
+underlying file descriptor for the file object is then obtained by
+calling <em>opener</em> with (<em>file</em>, <em>flags</em>). <em>opener</em> must return an open
+file descriptor (passing os.open as <em>opener</em> results in functionality
+similar to passing None).</p>
+<p>open() returns a file object whose type depends on the mode, and
+through which the standard file operations such as reading and writing
+are performed. When open() is used to open a file in a text mode ('w',
+'r', 'wt', 'rt', etc.), it returns a TextIOWrapper. When used to open
+a file in a binary mode, the returned class varies: in read binary
+mode, it returns a BufferedReader; in write binary and append binary
+modes, it returns a BufferedWriter, and in read/write mode, it returns
+a BufferedRandom.</p>
+<p>It is also possible to use a string or bytearray as a file for both
+reading and writing. For strings StringIO can be used like a file
+opened in a text mode, and for bytes a BytesIO can be used like a file
+opened in a binary mode.</p>
+</blockquote>
+<ul>
+<li>close</li>
+</ul>
+<blockquote>
+<p>close(self, /)
+Flush and close the IO object.
+This method has no effect if the file is already closed.</p>
+</blockquote>
+<ul>
+<li>read</li>
+</ul>
+<blockquote>
+<p>read(self, size=-1, /)
+Read at most n characters from stream.
+Read from underlying buffer until we have n characters or we hit EOF.
+If n is negative or omitted, read until EOF.</p>
+</blockquote>
+<ul>
+<li>readline</li>
+</ul>
+<blockquote>
+<p>readline(self, size=-1, /)
+Read until newline or EOF.</p>
+<p>Returns an empty string if EOF is hit immediately.</p>
+</blockquote>
+<ul>
+<li>readlines</li>
+</ul>
+<blockquote>
+<p>readlines(self, hint=-1, /)
+Return a list of lines from the stream.  </p>
+<p>hint can be specified to control the number of lines read: no more
+lines will be read if the total size (in bytes/characters) of all
+lines so far exceeds hint.</p>
+</blockquote>
+<ul>
+<li>flush</li>
+</ul>
+<blockquote>
+<p>flush(self, /)
+Flush write buffers, if applicable.
+This is not implemented for read-only and non-blocking streams.</p>
+</blockquote>
+<ul>
+<li>write</li>
+</ul>
+<blockquote>
+<p>write(self, text, /)
+Write string to stream.</p>
+<p>Returns the number of characters written (which is always equal to
+the length of the string).</p>
+</blockquote>
+<ul>
+<li>writelines</li>
+</ul>
+<blockquote>
+<p>writelines(self, lines, /)</p>
+</blockquote>
+<ul>
+<li>seek</li>
+</ul>
+<blockquote>
+<p>seek(self, cookie, whence=0, /)
+Change stream position.</p>
+<p>Change the stream position to the given byte offset. The offset is
+interpreted relative to the position indicated by whence.  Values
+for whence are:</p>
+<ul>
+<li>0 -- start of stream (the default); offset should be zero or positive</li>
+<li>1 -- current stream position; offset may be negative</li>
+<li>2 -- end of stream; offset is usually negative</li>
+</ul>
+<p>Return the new absolute position.</p>
+</blockquote>
+<ul>
+<li>tell</li>
+</ul>
+<blockquote>
+<p>tell(self, /)
+Return current stream position.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="n">matter</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Python is a great language</span>
+<span class="s1">Easy to understand and learn</span>
+<span class="s1">Supports Object Oriented Programming</span>
+<span class="s1">Also used in web development &#39;&#39;&#39;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">matter</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="k">print</span> <span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<blockquote>
+<p>A blank line carries a newline character <code>\n</code> and is considered a string of length <code>1</code>.</p>
+</blockquote>
+<h2>文件信息</h2>
+<ul>
+<li>
+<p>通过文件对象(file handler)获取</p>
+</li>
+<li>
+<p>fileno</p>
+</li>
+</ul>
+<blockquote>
+<p>fileno(self, /)
+Returns underlying file descriptor if one exists.</p>
+<p>OSError is raised if the IO object does not use a file descriptor.</p>
+</blockquote>
+<ul>
+<li>isatty</li>
+</ul>
+<blockquote>
+<p>isatty(self, /)
+Return whether this is an 'interactive' stream.</p>
+<p>Return False if it can't be determined.</p>
+</blockquote>
+<ul>
+<li>
+<p>closed : 测试文件是否关闭了</p>
+</li>
+<li>
+<p>mode : 文件模式</p>
+</li>
+<li>
+<p>name : 文件名</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;aboutbook.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Name of the file:&quot;</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Closed?&quot;</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">closed</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Opening mode:&quot;</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;File number descriptor is:&quot;</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">fileno</span><span class="p">())</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<h2>读取文件</h2>
+<div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;File aboutbook.txt does not exist&#39;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>stdin</code> <code>stdout</code> <code>stderr</code> 标准输入输出流对象, 使用它们可以更好的控制流</li>
+</ul>
+<h2>向文件中追加内容</h2>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">matter2</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39; Its very hot today</span>
+<span class="s1">Lets have a Cold drink &#39;&#39;&#39;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span> <span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">matter2</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The contents in the file are:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>复制文件</h2>
+<div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">g</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;copyaboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span> <span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The copy of the file is made&#39;</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;copyaboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span> <span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<h2>从文件中删除内容</h2>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span> <span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Original content of the file:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">del</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span> <span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">The content of the file after deleting second and third line:&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span> <span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<h2>更新文件的内容</h2>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Original content of the file:&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Enter the line number to change: &quot;</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the new content: &quot;</span><span class="p">)</span>
+    <span class="n">lines</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span> <span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;The content of the file after updating line&#39;</span> <span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span> <span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">print</span> <span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s2">&quot;The line number&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;is not found in the file&quot;</span> <span class="p">)</span>
+</pre></div>
+
+
+<h2>从文件的任意位置读入内容</h2>
+<div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;A line from file is:&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The line from character 6 till end of line is:&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The pointer is at location&#39;</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">tell</span><span class="p">())</span>
+<span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The fifteen characters starting at location 12 are as:&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>访问文件中指定的内容</h2>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">linecache</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">linecache</span><span class="o">.</span><span class="n">getline</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The content of the third line is:&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;numbers.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span> <span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How many numbers? &#39;</span> <span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Enter&#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;numbers&#39;</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">m</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;numbers.txt&#39;</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The numbers stored in the file are&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The numbers in the file multiplied by 2&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>创建二进制文件</h2>
+<div class="highlight"><pre><span></span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Hello World!&#39;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;filebinary.bin&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;filebinary.bin&quot;</span><span class="p">,</span><span class="s2">&quot;rb&quot;</span> <span class="p">)</span>
+<span class="n">fcontent</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;The content in the file is:&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">fcontent</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+</pre></div>
+
+
+<h2>序列化(Pickling)</h2>
+<ul>
+<li>Pickling : 一个将结构化数据转换为数据流的过程</li>
+<li>通过 <code>Pickling</code>, 可以将 <code>list</code> <code>tuple</code> <code>function</code> <code>class</code> 通过使用 <code>ASCII</code> 字符存储在文件中</li>
+<li><code>序列化</code>的数据格式被标准化了, 所以与序列化相对的有<code>反序列化</code></li>
+<li><code>序列化</code> : 存储数据; <code>反序列化</code> : 恢复数据</li>
+<li>常用模块 <code>pickle</code> <code>cPickle</code>, 它们功能一样, <code>cPickle</code> 是 C 实现, 所以性能更好</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="k">class</span> <span class="nc">rect</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="k">def</span> <span class="nf">rectarea</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># 这样返回的是一个 tuple</span>
+        <span class="k">return</span> <span class="s2">&quot;Area of rectangle is&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">l</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">rect</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;studentinfo.bin&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
+<span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">del</span> <span class="n">r</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;studentinfo.bin&#39;</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+<span class="n">storedobj</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">storedobj</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">storedobj</span><span class="o">.</span><span class="n">rectarea</span><span class="p">())</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="k">class</span> <span class="nc">user</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emailadd</span> <span class="o">=</span> <span class="n">z</span>
+    <span class="k">def</span> <span class="nf">dispuser</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;User ID:&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;User Name:&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Email Address:&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">emailadd</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;UsersInfo.bin&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How many users? &#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Enter&#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;numbers&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;User ID: &#39;</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;User Name: &#39;</span><span class="p">)</span>
+    <span class="n">e</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Email Address: &#39;</span><span class="p">)</span>
+    <span class="n">usrobj</span> <span class="o">=</span> <span class="n">user</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">usrobj</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Information of the users is:&#39;</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;UsersInfo.bin&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># 从 f 中 load 对象, load 方法是 一个接一个 的 load 对象的</span>
+        <span class="n">usrobj</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">EOFError</span><span class="p">:</span>
+        <span class="c1"># 文件结束异常捕获</span>
+        <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># 使用 load 的对象</span>
+        <span class="n">usrobj</span><span class="o">.</span><span class="n">dispuser</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<h1>异常处理</h1>
+<ul>
+<li>异常处理的两种形式</li>
+<li>try/except : 至少要有一个 <code>except</code> 语句与 <code>try</code> 语句配对</li>
+<li>try/finally : 不管异常出现与否, <code>finally</code> 语句总是被执行. </li>
+</ul>
+<h2>try/except</h2>
+<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">SomeException</span><span class="p">:</span> <span class="c1"># except 的数量无限制, 每一个 except 表达式就是一个异常处理器(exception handler)</span>
+    <span class="n">code</span> <span class="k">for</span> <span class="n">handling</span> <span class="n">exception</span> 
+<span class="p">[</span><span class="k">else</span><span class="p">:</span>
+    <span class="n">statement</span><span class="p">(</span><span class="n">s</span><span class="p">)]</span>
+</pre></div>
+
+
+<ul>
+<li>try/except 的处理过程</li>
+<li>执行 try 代码块</li>
+<li>如果 try 代码块没有抛出异常, except 代码块被忽略</li>
+<li>如果 try 代码块抛出了异常, 就会通过 except 来匹配对应的异常, 当匹配到了, 就执行 except 代码块</li>
+<li>如果 except 没有匹配到, Python 会在 try 代码块的外部继续寻找 <code>exception handler</code>. 如果还是没有找到, 就使用 Python 内建的异常处理器</li>
+<li>else 语句只有在 try 代码块执行成功(没有抛出异常)时, 才执行. </li>
+<li>
+<p>try 代码块可以嵌套</p>
+</li>
+<li>
+<p>常见异常</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="ne">AssertionError</span> <span class="c1"># 断言失败异常</span>
+<span class="ne">AttributeError</span> <span class="c1"># 属性没有找到异常</span>
+<span class="ne">EOFError</span> <span class="c1"># 读取文件超出文件结束符异常</span>
+<span class="ne">FloatingPointError</span> <span class="c1"># 浮点操作失败异常</span>
+<span class="ne">IOError</span> <span class="c1"># I/O 操作失败异常</span>
+<span class="ne">IndexError</span> <span class="c1"># index 超出 range</span>
+<span class="ne">KeyError</span> <span class="c1"># mapping 的 key 不存在</span>
+<span class="ne">OSError</span> <span class="c1"># 操作系统调用失败</span>
+<span class="ne">OverflowError</span> <span class="c1"># 值太大, 不能表示. 移除异常</span>
+<span class="ne">TypeError</span> <span class="c1"># 对参数应用了不适当的类型</span>
+<span class="ne">ValueError</span> <span class="c1"># 使用了不适当的参数值</span>
+<span class="ne">ZeroDivisionError</span> <span class="c1"># 除零异常 ( / %)</span>
+</pre></div>
+
+
+<h2>try/finally</h2>
+<ul>
+<li>异常出现后, 后续代码就会停止执行并退出程序</li>
+<li>无论异常出现与否, 一些确定的都需要被执行, 包括释放内存、关闭文件, 这时就可以使用 finally 代码块</li>
+<li>try/finally 的处理过程</li>
+<li>执行 try 代码块</li>
+<li>如果 try 代码块没有抛出异常, finally 代码块被执行</li>
+<li>如果 try 代码块中执行到退出语句(return、break、continue), finally 代码块在退出前被执行</li>
+<li>如果 try 代码块中出现了异常, 先执行 finally 代码块, 然后再抛出异常</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;aboutbook.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;File aboutbook.txt does not exist&#39;</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>抛出异常</h2>
+<ul>
+<li>可以在 try/except 中使用 <code>raise</code> 语句抛出确定的异常</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">customException</span><span class="p">,</span> <span class="n">statement</span> <span class="k">for</span> <span class="n">customException</span> 
+<span class="k">except</span> <span class="n">customException</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">statements</span> <span class="k">for</span> <span class="n">customException</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">myException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">quantity</span><span class="p">):</span>
+        <span class="ne">Exception</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">quantity</span> <span class="o">=</span> <span class="n">quantity</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter quantity &#39;</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">myException</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">EOFError</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;You pressed EOF &#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">myException</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;myException:The quantity entered is </span><span class="si">%d</span><span class="s1">, it must be some positive value&#39;</span>\
+          <span class="o">%</span> <span class="n">ex</span><span class="o">.</span><span class="n">quantity</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;No exception raised.&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>使用断言</h2>
+<ul>
+<li>当断言失败时, 会抛出 <code>AssertionError</code> 异常</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter a positive value: &#39;</span><span class="p">))</span>
+<span class="k">assert</span><span class="p">(</span><span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;Entered value is not a positive value&quot;</span>
+</pre></div></div>
+	
+        <hr>
+
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2017</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

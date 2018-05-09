@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - PyQt5 tutorial(Introduction)</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>PyQt5 tutorial(Introduction)</h1>
+Thu 12 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+        </div>
+	
+        <div><h1>PyQt5 modules</h1>
+<ul>
+<li>PyQt5's classes are divided into several modules</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">module</th>
+<th align="center">function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">QtCore</td>
+<td align="center">The QtCore module contains the core non-GUI functionality. This module is used for working with time, files and directories, various data types, streams, URLs, mime types, threads or processes.</td>
+</tr>
+<tr>
+<td align="center">QtGui</td>
+<td align="center">The QtGui contains classes for windowing system integration, event handling, 2D graphics, basic imaging, fonts and text.</td>
+</tr>
+<tr>
+<td align="center">QtWidgets</td>
+<td align="center">The QtWidgets module contains classes that provide a set of UI elements to create classic desktop-style user interfaces.</td>
+</tr>
+<tr>
+<td align="center">QtMultimedia</td>
+<td align="center">The QtMultimedia contains classes to handle multimedia content and APIs to access camera and radio functionality.</td>
+</tr>
+<tr>
+<td align="center">QtBluetooth</td>
+<td align="center">The QtBluetooth module contains classes to scan for devices and connect and interact with them.</td>
+</tr>
+<tr>
+<td align="center">QtNetwork</td>
+<td align="center">The QtNetwork module contains the classes for network programming. These classes facilitate the coding of TCP/IP and UDP clients and servers by making the network programming easier and more portable.</td>
+</tr>
+<tr>
+<td align="center">QtPositioning</td>
+<td align="center">The QtPositioning contains classes to determine a position by using a variety of possible sources, including satellite, Wi-Fi, or a text file.</td>
+</tr>
+<tr>
+<td align="center">Enginio</td>
+<td align="center">The Enginio module implements the client-side library for accessing the Qt Cloud Services Managed Application Runtime.</td>
+</tr>
+<tr>
+<td align="center">QtWebSockets</td>
+<td align="center">The QtWebSockets module contains classes that implement the WebSocket protocol.</td>
+</tr>
+<tr>
+<td align="center">QtWebKit</td>
+<td align="center">The QtWebKit contains classes for a web browser implementation based on the WebKit2 library.</td>
+</tr>
+<tr>
+<td align="center">QtWebKitWidgets</td>
+<td align="center">The QtWebKitWidgets contains classes for a WebKit1 based implementation of a web browser for use in QtWidgets based applications.</td>
+</tr>
+<tr>
+<td align="center">QtXml</td>
+<td align="center">The QtXml contains classes for working with XML files. This module provides implementation for both SAX and DOM APIs.</td>
+</tr>
+<tr>
+<td align="center">QtSvg</td>
+<td align="center">The QtSvg module provides classes for displaying the contents of SVG files. Scalable Vector Graphics (SVG) is a language for describing two-dimensional graphics and graphical applications in XML.</td>
+</tr>
+<tr>
+<td align="center">QtSql</td>
+<td align="center">The QtSql module provides classes for working with databases.</td>
+</tr>
+<tr>
+<td align="center">QtTest</td>
+<td align="center">The QtTest contains functions that enable unit testing of PyQt5 applications.</td>
+</tr>
+</tbody>
+</table>
+<h1>PyQt4 and PyQt5 differences</h1>
+<ul>
+<li>Python modules have been reorganized. Some modules have been dropped (QtScript), others have been split into submodules (QtGui, QtWebKit).</li>
+<li>New modules have been introduced, including QtBluetooth, QtPositioning, or Enginio.</li>
+<li>PyQt5 supports only the new-style signal and slots handlig. The calls to SIGNAL() or SLOT() are no longer supported.</li>
+<li>PyQt5 does not support any parts of the Qt API that are marked as deprecated or obsolete in Qt v5.0.</li>
+</ul></div>
+	
+        <hr>
+
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2017</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

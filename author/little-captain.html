@@ -58,8 +58,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://littlecaptain.net/lean-pythonchapter-11.html"><h1>Lean Python(Chapter 11)</h1></a>
-Sun 24 September 2017
+            <a href="http://littlecaptain.net/pyqt5-tutorialthe-tetris-game.html"><h1>PyQt5 tutorial(The Tetris game)</h1></a>
+Sat 14 October 2017
 
 by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
  
@@ -69,87 +69,563 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
         </div>
         
         <div><blockquote>
-<p>Databases</p>
+<p>Creating a computer game is a good way for enhancing programming skills.</p>
 </blockquote>
-<h1>SQLite</h1>
-<h2>数据库函数</h2>
-<div class="highlight"><pre><span></span><span class="c1"># 打开连接数据库</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="c1"># 执行 SQL</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
-<span class="c1"># 返回游标</span>
-<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-<span class="c1"># 执行查询操作, 返回数据</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
-<span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-</pre></div>
+<h1>The development</h1>
+<blockquote>
+<p>We do not have images for our Tetris game, we draw the tetrominoes using the drawing API available in the PyQt5 programming toolkit. Behind every computer game, there is a mathematical model. So it is in Tetris.</p>
+</blockquote>
+<ul>
+<li>Some ideas behind the game</li>
+<li>We use a QtCore.QBasicTimer() to create a game cycle.</li>
+<li>The tetrominoes are drawn.</li>
+<li>The shapes move on a square by square basis (not pixel by pixel).</li>
+<li>
+<p>Mathematically a board is a simple list of numbers.</p>
+</li>
+<li>
+<p>The code consists of four classes: <code>Tetris</code>, <code>Board</code>, <code>Tetrominoe</code> and <code>Shape</code></p>
+</li>
+<li>The <code>Tetris</code> class sets up the game. </li>
+<li>The <code>Board</code> is where the game logic is written. </li>
+<li>The <code>Tetrominoe</code> class contains names for all <code>tetris</code> pieces and the <code>Shape</code> class contains the code for a <code>tetris</code> piece.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QFrame</span><span class="p">,</span> <span class="n">QDesktopWidget</span><span class="p">,</span> <span class="n">QApplication</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">Qt</span><span class="p">,</span> <span class="n">QBasicTimer</span><span class="p">,</span> <span class="n">pyqtSignal</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QPainter</span><span class="p">,</span> <span class="n">QColor</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">random</span>
 
 
-<h2>连接和导入数据 (SQLite)</h2>
-<div class="highlight"><pre><span></span><span class="c1"># insert</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="k">class</span> <span class="nc">Tetris</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-<span class="n">db_filename</span><span class="o">=</span><span class="s1">&#39;mydatabase.db&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
 
-<span class="n">exists</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">exists</span><span class="p">:</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;initiates application UI&#39;&#39;&#39;</span>
 
-<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
+        <span class="c1"># An instance of the Board class is created</span>
+        <span class="c1"># and set to be the central widget of the application.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tboard</span> <span class="o">=</span> <span class="n">Board</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setCentralWidget</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tboard</span><span class="p">)</span>
 
-<span class="n">schema</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;create table person (</span>
-<span class="s2">  id integer primary key autoincrement not null,</span>
-<span class="s2">  name text not null,</span>
-<span class="s2">  dob date,</span>
-<span class="s2">  nationality text,</span>
-<span class="s2">  gender text)</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
+        <span class="c1"># We create a statusbar where we will display messages.</span>
+        <span class="c1"># We will display three possible messages:</span>
+        <span class="c1"># the number of lines already removed, the paused message,</span>
+        <span class="c1"># or the game over message.</span>
+        <span class="c1"># The msg2Statusbar is a custom signal that is implemented in the Board class.</span>
+        <span class="c1"># The showMessage() is a built-in method that displays a message on a statusbar.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">statusbar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">statusBar</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tboard</span><span class="o">.</span><span class="n">msg2Statusbar</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">statusbar</span><span class="o">.</span><span class="n">showMessage</span><span class="p">)</span>
 
-<span class="n">people</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;insert into person (name, dob, nationality, gender)</span>
-<span class="s2">values (&#39;Fred Bloggs&#39;, &#39;1965-12-25&#39;,&#39;British&#39;,&#39;Male&#39;);</span>
-<span class="s2">insert into person (name, dob,nationality,gender)</span>
-<span class="s2">values (&#39;Santa Claus&#39;, &#39;968-01-01&#39;,&#39;Lap&#39;,&#39;Male&#39;);</span>
-<span class="s2">insert into person (name, dob,nationality,gender)</span>
-<span class="s2">values (&#39;Tooth Fairy&#39;, &#39;1931-03-31&#39;,&#39;American&#39;,&#39;Female&#39;);</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">people</span><span class="p">)</span>
+        <span class="c1"># This line initiates the game.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tboard</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 
-<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select id, name, dob, nationality, gender from person&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span> <span class="o">=</span> <span class="n">row</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%3d</span><span class="s2"> </span><span class="si">%15s</span><span class="s2"> </span><span class="si">%12s</span><span class="s2"> </span><span class="si">%10s</span><span class="s2"> </span><span class="si">%6s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">380</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">center</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s1">&#39;Tetris&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c1"># 省略了 name 字段, 使其抛出一个异常</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">dupe</span><span class="o">=</span><span class="s2">&quot;insert into person (id, dob,nationality,gender) </span><span class="se">\</span>
-<span class="s2">    values (1,&#39;1931-03-31&#39;,&#39;American&#39;,&#39;Female&#39;);&quot;</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">dupe</span><span class="p">)</span>
-<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Cannot insert record&#39;</span><span class="p">,</span><span class="n">e</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-</pre></div>
+    <span class="k">def</span> <span class="nf">center</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;centers the window on the screen&#39;&#39;&#39;</span>
+
+        <span class="n">screen</span> <span class="o">=</span> <span class="n">QDesktopWidget</span><span class="p">()</span><span class="o">.</span><span class="n">screenGeometry</span><span class="p">()</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">move</span><span class="p">((</span><span class="n">screen</span><span class="o">.</span><span class="n">width</span><span class="p">()</span> <span class="o">-</span> <span class="n">size</span><span class="o">.</span><span class="n">width</span><span class="p">())</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+                  <span class="p">(</span><span class="n">screen</span><span class="o">.</span><span class="n">height</span><span class="p">()</span> <span class="o">-</span> <span class="n">size</span><span class="o">.</span><span class="n">height</span><span class="p">())</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 
 
-<div class="highlight"><pre><span></span><span class="c1"># update</span>
-<span class="kn">import</span> <span class="nn">sqlite3</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">class</span> <span class="nc">Board</span><span class="p">(</span><span class="n">QFrame</span><span class="p">):</span>
+    <span class="c1"># A custom signal is created with pyqtSignal.</span>
+    <span class="c1"># The msg2Statusbar is a signal that is emitted</span>
+    <span class="c1"># when we want to write a message or the score to the statusbar.</span>
+    <span class="n">msg2Statusbar</span> <span class="o">=</span> <span class="n">pyqtSignal</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 
-<span class="n">db_filename</span> <span class="o">=</span> <span class="s1">&#39;mydatabase.db&#39;</span>
-<span class="n">inid</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">innat</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="c1"># These are Board&#39;s class variables.</span>
+    <span class="c1"># The BoardWidth and the BoardHeight</span>
+    <span class="c1"># define the size of the board in blocks.</span>
+    <span class="c1"># The Speed defines the speed of the game.</span>
+    <span class="c1"># Each 450 ms a new game cycle will start.</span>
+    <span class="n">BoardWidth</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># 水平 block 的个数</span>
+    <span class="n">BoardHeight</span> <span class="o">=</span> <span class="mi">22</span> <span class="c1"># 垂直 block 的个数</span>
+    <span class="n">Speed</span> <span class="o">=</span> <span class="mi">450</span> <span class="c1"># 最多 450 ms, 一个新的游戏循环将开始</span>
 
-<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_filename</span><span class="p">)</span>
-<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
 
-<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;update person set nationality = :nat where id = :id&quot;</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="n">inid</span><span class="p">,</span> <span class="s1">&#39;nat&#39;</span><span class="p">:</span><span class="n">innat</span><span class="p">})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initBoard</span><span class="p">()</span>
 
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;select id, name, dob,nationality,gender from person&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">():</span>
-    <span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span> <span class="o">=</span> <span class="n">row</span>
-    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%3d</span><span class="s2"> </span><span class="si">%15s</span><span class="s2"> </span><span class="si">%12s</span><span class="s2"> </span><span class="si">%10s</span><span class="s2"> </span><span class="si">%6s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">dob</span><span class="p">,</span> <span class="n">nationality</span><span class="p">,</span> <span class="n">gender</span><span class="p">))</span>
+    <span class="k">def</span> <span class="nf">initBoard</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;initiates board&#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span> <span class="o">=</span> <span class="n">QBasicTimer</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">isWaitingAfterLine</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="c1"># The self.board variable is a list of numbers from 0 to 7.</span>
+        <span class="c1"># It represents the position of various shapes</span>
+        <span class="c1"># and remains of the shapes on the board.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curX</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curY</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numLinesRemoved</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setFocusPolicy</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">StrongFocus</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">isStarted</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">isPaused</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clearBoard</span><span class="p">()</span>
+
+    <span class="c1"># The shapeAt() method determines the type of a shape at a given block.</span>
+    <span class="k">def</span> <span class="nf">shapeAt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;determines shape at the board position&#39;&#39;&#39;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[(</span><span class="n">y</span> <span class="o">*</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardWidth</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">setShapeAt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;sets a shape at the board&#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="p">[(</span><span class="n">y</span> <span class="o">*</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardWidth</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">shape</span>
+
+    <span class="c1"># The board can be dynamically resized.</span>
+    <span class="c1"># As a consequence, the size of a block may change.</span>
+    <span class="c1"># The squareWidth() calculates the width of the single square in pixels and returns it.</span>
+    <span class="c1"># The Board.BoardWidth is the size of the board in blocks.</span>
+    <span class="k">def</span> <span class="nf">squareWidth</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;returns the width of one square&#39;&#39;&#39;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">contentsRect</span><span class="p">()</span><span class="o">.</span><span class="n">width</span><span class="p">()</span> <span class="o">//</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardWidth</span>
+
+    <span class="k">def</span> <span class="nf">squareHeight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;returns the height of one square&#39;&#39;&#39;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">contentsRect</span><span class="p">()</span><span class="o">.</span><span class="n">height</span><span class="p">()</span> <span class="o">//</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardHeight</span>
+
+    <span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;starts game&#39;&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isPaused</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">isStarted</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">isWaitingAfterLine</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numLinesRemoved</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clearBoard</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">msg2Statusbar</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numLinesRemoved</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">newPiece</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">Board</span><span class="o">.</span><span class="n">Speed</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
+    <span class="c1"># The pause() method pauses the game.</span>
+    <span class="c1"># It stops the timer and displays a message on the statusbar.</span>
+    <span class="k">def</span> <span class="nf">pause</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;pauses game&#39;&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">isStarted</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">isPaused</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">isPaused</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isPaused</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">msg2Statusbar</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;paused&quot;</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">Board</span><span class="o">.</span><span class="n">Speed</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">msg2Statusbar</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numLinesRemoved</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+    <span class="c1"># The painting happens in the paintEvent() method.</span>
+    <span class="c1"># The QPainter is responsible for all low-level painting in PyQt5.</span>
+    <span class="k">def</span> <span class="nf">paintEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;paints all shapes of the game&#39;&#39;&#39;</span>
+
+        <span class="n">painter</span> <span class="o">=</span> <span class="n">QPainter</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">rect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">contentsRect</span><span class="p">()</span>
+
+        <span class="n">boardTop</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">bottom</span><span class="p">()</span> <span class="o">-</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardHeight</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareHeight</span><span class="p">()</span>
+
+        <span class="c1"># The painting of the game is divided into two steps.</span>
+        <span class="c1"># In the first step, we draw all the shapes,</span>
+        <span class="c1"># or remains of the shapes that have been dropped to the bottom of the board.</span>
+        <span class="c1"># All the squares are remembered in the self.board list variable.</span>
+        <span class="c1"># The variable is accessed using the shapeAt() method.</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Board</span><span class="o">.</span><span class="n">BoardHeight</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Board</span><span class="o">.</span><span class="n">BoardWidth</span><span class="p">):</span>
+                <span class="n">shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapeAt</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardHeight</span> <span class="o">-</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">shape</span> <span class="o">!=</span> <span class="n">Tetrominoe</span><span class="o">.</span><span class="n">NoShape</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">drawSquare</span><span class="p">(</span><span class="n">painter</span><span class="p">,</span>
+                                    <span class="n">rect</span><span class="o">.</span><span class="n">left</span><span class="p">()</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareWidth</span><span class="p">(),</span>
+                                    <span class="n">boardTop</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareHeight</span><span class="p">(),</span> <span class="n">shape</span><span class="p">)</span>
+
+        <span class="c1"># The next step is the drawing of the actual piece that is falling down.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">shape</span><span class="p">()</span> <span class="o">!=</span> <span class="n">Tetrominoe</span><span class="o">.</span><span class="n">NoShape</span><span class="p">:</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curX</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curY</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">drawSquare</span><span class="p">(</span><span class="n">painter</span><span class="p">,</span> <span class="n">rect</span><span class="o">.</span><span class="n">left</span><span class="p">()</span> <span class="o">+</span> <span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareWidth</span><span class="p">(),</span>
+                                <span class="n">boardTop</span> <span class="o">+</span> <span class="p">(</span><span class="n">Board</span><span class="o">.</span><span class="n">BoardHeight</span> <span class="o">-</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareHeight</span><span class="p">(),</span>
+                                <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">shape</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">keyPressEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;processes key press events&#39;&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">isStarted</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">shape</span><span class="p">()</span> <span class="o">==</span> <span class="n">Tetrominoe</span><span class="o">.</span><span class="n">NoShape</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">(</span><span class="n">Board</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">keyPressEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">key</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="n">Qt</span><span class="o">.</span><span class="n">Key_P</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pause</span><span class="p">()</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isPaused</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">Qt</span><span class="o">.</span><span class="n">Key_Left</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tryMove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">curX</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">curY</span><span class="p">)</span>
+
+        <span class="c1"># In the keyPressEvent() method we check for pressed keys.</span>
+        <span class="c1"># If we press the right arrow key, we try to move the piece to the right.</span>
+        <span class="c1"># We say try because the piece might not be able to move.</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">Qt</span><span class="o">.</span><span class="n">Key_Right</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tryMove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">curX</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">curY</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">Qt</span><span class="o">.</span><span class="n">Key_Down</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tryMove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">rotateRight</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">curX</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">curY</span><span class="p">)</span>
+
+        <span class="c1"># The Up arrow key will rotate the falling piece to the left.</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">Qt</span><span class="o">.</span><span class="n">Key_Up</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tryMove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">rotateLeft</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">curX</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">curY</span><span class="p">)</span>
+
+        <span class="c1"># The Space key will drop the falling piece instantly to the bottom.</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">Qt</span><span class="o">.</span><span class="n">Key_Space</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dropDown</span><span class="p">()</span>
+
+        <span class="c1"># Pressing the d key, the piece will go one block down.</span>
+        <span class="c1"># It can be used to accellerate the falling of a piece a bit.</span>
+        <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="n">Qt</span><span class="o">.</span><span class="n">Key_D</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">oneLineDown</span><span class="p">()</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">(</span><span class="n">Board</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">keyPressEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+    <span class="c1"># In the timer event, we either create a new piece</span>
+    <span class="c1"># after the previous one was dropped to the bottom</span>
+    <span class="c1"># or we move a falling piece one line down.</span>
+    <span class="k">def</span> <span class="nf">timerEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;handles timer event&#39;&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">timerId</span><span class="p">()</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">timerId</span><span class="p">():</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isWaitingAfterLine</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">isWaitingAfterLine</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">newPiece</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">oneLineDown</span><span class="p">()</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">(</span><span class="n">Board</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">timerEvent</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+    <span class="c1"># The clearBoard() method clears the board by setting</span>
+    <span class="c1"># Tetrominoe.NoShape at each block of the board.</span>
+    <span class="k">def</span> <span class="nf">clearBoard</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;clears shapes from the board&#39;&#39;&#39;</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Board</span><span class="o">.</span><span class="n">BoardHeight</span> <span class="o">*</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardWidth</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">board</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Tetrominoe</span><span class="o">.</span><span class="n">NoShape</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">dropDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;drops down a shape&#39;&#39;&#39;</span>
+
+        <span class="n">newY</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curY</span>
+
+        <span class="k">while</span> <span class="n">newY</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">tryMove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">curX</span><span class="p">,</span> <span class="n">newY</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">break</span>
+
+            <span class="n">newY</span> <span class="o">-=</span> <span class="mi">1</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">pieceDropped</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">oneLineDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;goes one line down with a shape&#39;&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">tryMove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">curX</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">curY</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pieceDropped</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">pieceDropped</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;after dropping shape, remove full lines and create new shape&#39;&#39;&#39;</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curX</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curY</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">setShapeAt</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">shape</span><span class="p">())</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">removeFullLines</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">isWaitingAfterLine</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">newPiece</span><span class="p">()</span>
+
+    <span class="c1"># If the piece hits the bottom, we call the removeFullLines() method.</span>
+    <span class="c1"># We find out all full lines and remove them.</span>
+    <span class="c1"># We do it by moving all lines above the current full line</span>
+    <span class="c1"># to be removed one line down.</span>
+    <span class="c1"># Notice that we reverse the order of the lines to be removed.</span>
+    <span class="c1"># Otherwise, it would not work correctly. In our case we use a naive gravity.</span>
+    <span class="c1"># This means that the pieces may be floating above empty gaps.</span>
+    <span class="k">def</span> <span class="nf">removeFullLines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;removes all full lines from the board&#39;&#39;&#39;</span>
+
+        <span class="n">numFullLines</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">rowsToRemove</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Board</span><span class="o">.</span><span class="n">BoardHeight</span><span class="p">):</span>
+
+            <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Board</span><span class="o">.</span><span class="n">BoardWidth</span><span class="p">):</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapeAt</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="n">Tetrominoe</span><span class="o">.</span><span class="n">NoShape</span><span class="p">:</span>
+                    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+
+            <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="n">rowsToRemove</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+        <span class="n">rowsToRemove</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">rowsToRemove</span><span class="p">:</span>
+
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardHeight</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Board</span><span class="o">.</span><span class="n">BoardWidth</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">setShapeAt</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapeAt</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+        <span class="n">numFullLines</span> <span class="o">=</span> <span class="n">numFullLines</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">rowsToRemove</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">numFullLines</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">numLinesRemoved</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numLinesRemoved</span> <span class="o">+</span> <span class="n">numFullLines</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">msg2Statusbar</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">numLinesRemoved</span><span class="p">))</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">isWaitingAfterLine</span> <span class="o">=</span> <span class="bp">True</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">setShape</span><span class="p">(</span><span class="n">Tetrominoe</span><span class="o">.</span><span class="n">NoShape</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+    <span class="c1"># The newPiece() method creates randomly a new tetris piece.</span>
+    <span class="c1"># If the piece cannot go into its initial position, the game is over.</span>
+    <span class="k">def</span> <span class="nf">newPiece</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;creates a new shape&#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span> <span class="o">=</span> <span class="n">Shape</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">setRandomShape</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curX</span> <span class="o">=</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardWidth</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curY</span> <span class="o">=</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardHeight</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">minY</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">tryMove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">curX</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">curY</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span><span class="o">.</span><span class="n">setShape</span><span class="p">(</span><span class="n">Tetrominoe</span><span class="o">.</span><span class="n">NoShape</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">isStarted</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">msg2Statusbar</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">&quot;Game over&quot;</span><span class="p">)</span>
+
+    <span class="c1"># In the tryMove() method we try to move our shapes.</span>
+    <span class="c1"># If the shape is at the edge of the board or</span>
+    <span class="c1"># is adjacent to some other piece, we return False.</span>
+    <span class="c1"># Otherwise we place the current falling piece to a new position.</span>
+    <span class="k">def</span> <span class="nf">tryMove</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">newPiece</span><span class="p">,</span> <span class="n">newX</span><span class="p">,</span> <span class="n">newY</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;tries to move a shape&#39;&#39;&#39;</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+
+            <span class="n">x</span> <span class="o">=</span> <span class="n">newX</span> <span class="o">+</span> <span class="n">newPiece</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">newY</span> <span class="o">-</span> <span class="n">newPiece</span><span class="o">.</span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardWidth</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="n">Board</span><span class="o">.</span><span class="n">BoardHeight</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">False</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">shapeAt</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">!=</span> <span class="n">Tetrominoe</span><span class="o">.</span><span class="n">NoShape</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">curPiece</span> <span class="o">=</span> <span class="n">newPiece</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curX</span> <span class="o">=</span> <span class="n">newX</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curY</span> <span class="o">=</span> <span class="n">newY</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">drawSquare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">painter</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;draws a square of a shape&#39;&#39;&#39;</span>
+
+        <span class="n">colorTable</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x000000</span><span class="p">,</span> <span class="mh">0xCC6666</span><span class="p">,</span> <span class="mh">0x66CC66</span><span class="p">,</span> <span class="mh">0x6666CC</span><span class="p">,</span>
+                      <span class="mh">0xCCCC66</span><span class="p">,</span> <span class="mh">0xCC66CC</span><span class="p">,</span> <span class="mh">0x66CCCC</span><span class="p">,</span> <span class="mh">0xDAAA00</span><span class="p">]</span>
+
+        <span class="n">color</span> <span class="o">=</span> <span class="n">QColor</span><span class="p">(</span><span class="n">colorTable</span><span class="p">[</span><span class="n">shape</span><span class="p">])</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">fillRect</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareWidth</span><span class="p">()</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span>
+                         <span class="bp">self</span><span class="o">.</span><span class="n">squareHeight</span><span class="p">()</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+
+        <span class="n">painter</span><span class="o">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">color</span><span class="o">.</span><span class="n">lighter</span><span class="p">())</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareHeight</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareWidth</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+        <span class="n">painter</span><span class="o">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">color</span><span class="o">.</span><span class="n">darker</span><span class="p">())</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareHeight</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                         <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareWidth</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareHeight</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">painter</span><span class="o">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareWidth</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                         <span class="n">y</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareHeight</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">squareWidth</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># The Tetrominoe class holds names of all possible shapes.</span>
+<span class="c1"># We have also a NoShape for an empty space.</span>
+<span class="k">class</span> <span class="nc">Tetrominoe</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">NoShape</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ZShape</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">SShape</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">LineShape</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="n">TShape</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="n">SquareShape</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">LShape</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">MirroredLShape</span> <span class="o">=</span> <span class="mi">7</span>
+
+<span class="c1"># The Shape class saves information about a tetris piece.</span>
+<span class="k">class</span> <span class="nc">Shape</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="c1"># The coordsTable tuple holds all possible coordinate values of our tetris pieces.</span>
+    <span class="c1"># This is a template from which all pieces take their coordinate values.</span>
+    <span class="n">coordsTable</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span>
+        <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="c1">#  represent a Z-shape</span>
+        <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+        <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>
+        <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+        <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+        <span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+        <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Upon creation we create an empty coordinates list.</span>
+        <span class="c1"># The list will save the coordinates of the tetris piece.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coords</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pieceShape</span> <span class="o">=</span> <span class="n">Tetrominoe</span><span class="o">.</span><span class="n">NoShape</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setShape</span><span class="p">(</span><span class="n">Tetrominoe</span><span class="o">.</span><span class="n">NoShape</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;returns shape&#39;&#39;&#39;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">pieceShape</span>
+
+    <span class="k">def</span> <span class="nf">setShape</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;sets a shape&#39;&#39;&#39;</span>
+
+        <span class="n">table</span> <span class="o">=</span> <span class="n">Shape</span><span class="o">.</span><span class="n">coordsTable</span><span class="p">[</span><span class="n">shape</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">pieceShape</span> <span class="o">=</span> <span class="n">shape</span>
+
+    <span class="k">def</span> <span class="nf">setRandomShape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;chooses a random shape&#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">setShape</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;returns x coordinate&#39;&#39;&#39;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;returns y coordinate&#39;&#39;&#39;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">setX</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;sets x coordinate&#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+
+    <span class="k">def</span> <span class="nf">setY</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;sets y coordinate&#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">index</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="k">def</span> <span class="nf">minX</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;returns min x value&#39;&#39;&#39;</span>
+
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">m</span>
+
+    <span class="k">def</span> <span class="nf">maxX</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;returns max x value&#39;&#39;&#39;</span>
+
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">m</span>
+
+    <span class="k">def</span> <span class="nf">minY</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;returns min y value&#39;&#39;&#39;</span>
+
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">m</span>
+
+    <span class="k">def</span> <span class="nf">maxY</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;returns max y value&#39;&#39;&#39;</span>
+
+        <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">m</span>
+
+    <span class="c1"># The rotateLeft() method rotates a piece to the left. </span>
+    <span class="c1"># The square does not have to be rotated. </span>
+    <span class="c1"># That is why we simply return the reference to the current object. </span>
+    <span class="c1"># A new piece is created and its coordinates </span>
+    <span class="c1"># are set to the ones of the rotated piece.</span>
+    <span class="k">def</span> <span class="nf">rotateLeft</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;rotates shape to the left&#39;&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pieceShape</span> <span class="o">==</span> <span class="n">Tetrominoe</span><span class="o">.</span><span class="n">SquareShape</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">Shape</span><span class="p">()</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">pieceShape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pieceShape</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">setX</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">setY</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="nf">rotateRight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;rotates shape to the right&#39;&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pieceShape</span> <span class="o">==</span> <span class="n">Tetrominoe</span><span class="o">.</span><span class="n">SquareShape</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">Shape</span><span class="p">()</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">pieceShape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pieceShape</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">setX</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">setY</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">([])</span>
+    <span class="n">tetris</span> <span class="o">=</span> <span class="n">Tetris</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </pre></div></div>
         <hr />
     </div>
@@ -161,43 +637,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
 
     <div class='article'>
-        <a href="http://littlecaptain.net/lean-pythonchapter-10.html"><h2>Lean Python(Chapter 10)</h2></a>
-        <div class= "well small"> Sat 23 September 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><h1>字符串搜索</h1>
-<ul>
-<li>find 返回字符串出现的字符位置, 如果没有找到就返回 -1</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">txt</span><span class="o">=</span><span class="s2">&quot;The quick brown fox jumps over the lazy dog&quot;</span>
-<span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;jump&#39;</span><span class="p">)</span>
-<span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
-<span class="n">txt</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<h1>正则表达式</h1>
-<div class="highlight"><pre><span></span><span class="c1"># 匹配邮箱</span>
-<span class="kn">import</span> <span class="nn">re</span>
-
-<span class="n">regex</span> <span class="o">=</span> <span class="s1">&#39;\s[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}[\s]&#39;</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;This is some text with x@y.z embedded e-mails</span>
-<span class="s2">that we …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-10.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/lean-pythonchapter-09.html"><h2>Lean Python(Chapter 09)</h2></a>
-        <div class= "well small"> Sat 23 September 2017
+        <a href="http://littlecaptain.net/pyqt5-tutorialcustom-widgets.html"><h2>PyQt5 tutorial(Custom widgets)</h2></a>
+        <div class= "well small"> Sat 14 October 2017
 
 by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
  
@@ -205,70 +646,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
  </div>
         <div class="summary"><blockquote>
-<p>Accessing the Web</p>
+<p>Custom widgets are created by using the drawing tools provided by the toolkit. There are two basic possibilities: a programmer can modify or enhance an existing widget or he can create a custom widget from scratch.</p>
 </blockquote>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Web url to fetch:&#39;</span><span class="p">)</span>
-<span class="n">urlparts</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">urlparts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s1">&#39;http://&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">))</span>
-
-<span class="n">qstring</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter query string:&#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">qstring</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;?&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">url</span><span class="p">,</span> <span class="n">qstring</span><span class="p">))</span>
-
-<span class="n">save</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Save downloaded page to disk [y/n]?&#39;</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Requesting …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-09.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/lean-pythonchapter-08.html"><h2>Lean Python(Chapter 08)</h2></a>
-        <div class= "well small"> Sat 23 September 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><blockquote>
-<p>Testing Your Code</p>
-</blockquote>
-<h1>模块化编程与代码测试</h1>
-<ul>
-<li>模块化编程是测试更为容易</li>
-</ul>
-<h1>测试驱动的开发(TDD)</h1>
+<h1>Burning widget</h1>
 <blockquote>
-<ol>
-<li>开发代码前先写测试</li>
-<li>运行测试, 观察失败, 然后添加和修正代码, 使测试通过</li>
-<li>当测试通过后, 寻求改进代码设计的机会</li>
-</ol>
-</blockquote>
-<ul>
-<li>对于大型项目, TDD 能够最好的模块化你的代码</li>
-</ul>
-<h1>单元测试框架 : unittest</h1>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">op</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s1">&#39;+-/*&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">&#39;Operator must be +-/*&#39;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
-        <span class="k">elif</span> <span class="n">op</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
-        <span class="k">else …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-08.html">read more</a></div>
+<p>This is a widget that we can see in Nero, K3B, or …</p></blockquote> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-tutorialcustom-widgets.html">read more</a></div>
     </div>	
 				
 
@@ -278,8 +660,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
 
     <div class='article'>
-        <a href="http://littlecaptain.net/lean-pythonchapter-07.html"><h2>Lean Python(Chapter 07)</h2></a>
-        <div class= "well small"> Sat 23 September 2017
+        <a href="http://littlecaptain.net/pyqt5-tutorialpainting.html"><h2>PyQt5 tutorial(Painting)</h2></a>
+        <div class= "well small"> Sat 14 October 2017
 
 by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
  
@@ -287,22 +669,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
  </div>
         <div class="summary"><blockquote>
-<p>Exception and Error Handling</p>
-</blockquote>
-<h1>异常和错误的处理</h1>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Input two numbers. the first will be divided by the second&#39;</span><span class="p">)</span>
-
-<span class="n">afirst</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;first number:&#39;</span><span class="p">)</span>
-<span class="n">first</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">afirst</span><span class="p">)</span>
-<span class="n">asecond</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;second number:&#39;</span><span class="p">)</span>
-<span class="n">second</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">asecond</span><span class="p">)</span>
-
-<span class="n">quotient</span> <span class="o">=</span> <span class="n">first</span> <span class="o">/</span> <span class="n">second</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Quotient first/second = &#39;</span><span class="p">,</span><span class="n">quotient</span><span class="p">)</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;Input two numbers. the first will be divided by the …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-07.html">read more</a></div>
+<p>PyQt5 painting system is able to render vector graphics, images, and outline font-based text. Painting is needed in applications when we want to change or enhance an existing widget, or if we are creating a custom widget from scratch. To do the drawing, we use the painting API provided by …</p></blockquote> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-tutorialpainting.html">read more</a></div>
     </div>	
 				
 
@@ -312,8 +679,8 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
 
     <div class='article'>
-        <a href="http://littlecaptain.net/lean-pythonchapter-06.html"><h2>Lean Python(Chapter 06)</h2></a>
-        <div class= "well small"> Sat 23 September 2017
+        <a href="http://littlecaptain.net/pyqt5-tutorialdrag-drop.html"><h2>PyQt5 tutorial(Drag & drop)</h2></a>
+        <div class= "well small"> Fri 13 October 2017
 
 by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
  
@@ -321,27 +688,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
  </div>
         <div class="summary"><blockquote>
-<p>Object Orientation</p>
-</blockquote>
-<h1>创建对象</h1>
-<h2>类的定义</h2>
-<ul>
-<li>类是对象的模板</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-
-<span class="k">class</span> <span class="nc">person</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="s2">&quot;Person Class&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">parent</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span><span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">created</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">children</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Created&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">setName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-06.html">read more</a></div>
+<p>In computer graphical user interfaces, drag-and-drop is the action of (or support for the action of) clicking on a virtual object and dragging it to a different location or onto another virtual object. In general, it can be used to invoke many kinds of actions, or create various types of …</p></blockquote> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-tutorialdrag-drop.html">read more</a></div>
     </div>	
 				
 
@@ -351,8 +698,101 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
 
     <div class='article'>
-        <a href="http://littlecaptain.net/lean-pythonchapter-05.html"><h2>Lean Python(Chapter 05)</h2></a>
-        <div class= "well small"> Fri 22 September 2017
+        <a href="http://littlecaptain.net/pyqt5-tutorialwidgets-ii.html"><h2>PyQt5 tutorial(Widgets II)</h2></a>
+        <div class= "well small"> Fri 13 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>QPixmap</h1>
+<ul>
+<li>A <code>QPixmap</code> is one of the widgets used to work with images. It is optimized for showing images on screen.</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QWidget</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span>
+                             <span class="n">QLabel</span><span class="p">,</span> <span class="n">QApplication</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QPixmap</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+
+<span class="k">class</span> <span class="nc">Example</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">initUI</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">hbox …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-tutorialwidgets-ii.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqt5-tutorialwidgets.html"><h2>PyQt5 tutorial(Widgets)</h2></a>
+        <div class= "well small"> Fri 13 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><ul>
+<li>Widgets are basic building blocks of an application. PyQt5 has a wide range of various widgets, including buttons, check boxes, sliders, or list boxes. In this section of the tutorial, we will describe several useful widgets: a QCheckBox, a QPushButton in tooggle mode, a QSlider, a QProgressBar, and a QCalendarWidget …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-tutorialwidgets.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqt5-tutorialdialogs.html"><h2>PyQt5 tutorial(Dialogs)</h2></a>
+        <div class= "well small"> Fri 13 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><ul>
+<li>Dialog windows or dialogs are an <code>indispensable</code> part of most modern GUI applications. A dialog is defined as a conversation between two or more persons. In a computer application a dialog is a window which is used to "talk" to the application. A <code>dialog</code> is used to <code>input data</code>, <code>modify …</code></li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-tutorialdialogs.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqt5-tutorialevents-and-signals.html"><h2>PyQt5 tutorial(Events and signals)</h2></a>
+        <div class= "well small"> Fri 13 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>Events</h1>
+<blockquote>
+<p>GUI applications are <code>event-driven</code>. Events are generated mainly by the user of an application. But they can be generated by other means as well; e.g. an Internet connection, a window manager, or a timer. When we call the application's <code>exec_()</code> method, the <code>application enters</code> the <code>main loop</code>. The …</p></blockquote> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-tutorialevents-and-signals.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqt5-tutoriallayout-management.html"><h2>PyQt5 tutorial(Layout management)</h2></a>
+        <div class= "well small"> Fri 13 October 2017
 
 by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
  
@@ -360,178 +800,42 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
  </div>
         <div class="summary"><blockquote>
-<p>Module</p>
+<p>Layout management is the way how we place the widgets on the application window. We can place our widgets using <code>absolute positioning</code> or with <code>layout classes</code>. Managing the layout with <code>layout managers</code> is the <code>preferred</code> way of organizing our widgets.</p>
 </blockquote>
-<h1>导入模块</h1>
+<h1>Absolute positioning</h1>
 <ul>
-<li>一个<code>文件</code>就是一个<code>模块</code>, <code>模块名</code>就是<code>文件名</code></li>
-</ul>
-<div class="highlight"><pre><span></span><span class="c1"># as 使用自定义的名字引用这个模块</span>
-<span class="kn">import</span> <span class="nn">modulename</span> <span class="p">[</span><span class="k">as</span> <span class="n">name</span><span class="p">]</span>
-<span class="c1"># 从模块中引入指定的函数、类、变量等</span>
-<span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="n">function1</span><span class="p">,</span> <span class="n">function2</span><span class="o">...</span>
-<span class="c1"># 从模块中引入所有的内容, 这时直接使用, 而不需要使用 . 引用</span>
-<span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="o">*</span>
-</pre></div>
+<li>The programmer specifies the position and the size …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-tutoriallayout-management.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqt5-tutorialmenus-and-toolbars.html"><h2>PyQt5 tutorial(Menus and toolbars)</h2></a>
+        <div class= "well small"> Fri 13 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
 
 
-<ul>
-<li>注意 : 通常, 导入模块的需要内容和功能, 而要避免使用 <code>import *</code></li>
-</ul>
-<h2>Python 自带模块</h2>
-<ul>
-<li>查看 Python 环境 Path</li>
-</ul>
+ </div>
+        <div class="summary"><h1>QMainWindow</h1>
+<blockquote>
+<p>The <code>QMainWindow</code> class provides a main application window. This enables to create a classic application skeleton with a statusbar, toolbars, and a menubar.</p>
+</blockquote>
+<h1>Statusbar</h1>
+<blockquote>
+<p>A statusbar is a widget that is used for displaying status information.</p>
+</blockquote>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span>
-</pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-05.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/lean-pythonchapter-04.html"><h2>Lean Python(Chapter 04)</h2></a>
-        <div class= "well small"> Thu 21 September 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QApplication</span>
 
 
- </div>
-        <div class="summary"><blockquote>
-<p>Input and Output</p>
-</blockquote>
-<h1>显示输出</h1>
-<div class="highlight"><pre><span></span><span class="c1"># 格式</span>
-<span class="k">print</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="n">arg2</span><span class="p">,</span><span class="n">arg3</span><span class="o">...</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<ul>
-<li>使用格式输出</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> plus </span><span class="si">%d</span><span class="s1"> makes </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-</pre></div>
-
-
-<ul>
-<li>抑制最后的空行输出</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;one...&#39;</span><span class="p">,</span><span class="s1">&#39;two...&#39;</span><span class="p">,</span><span class="s1">&#39;three&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<h1>获取用户输入</h1>
-<div class="highlight"><pre><span></span><span class="n">yourName</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter your name: &#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<ul>
-<li>接收的输入都是字符串, 所以要用户输入数字等需要自行解析</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter a number: &#39;</span><span class="p">)</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">count</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
-        <span class="n">count</span> <span class="o">=</span> <span class="nb">int …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-04.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/lean-pythonchapter-03.html"><h2>Lean Python(Chapter 03)</h2></a>
-        <div class= "well small"> Thu 21 September 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><blockquote>
-<p>Program Structure</p>
-</blockquote>
-<h1>做决定</h1>
-<h2>if 语句</h2>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">test</span><span class="p">:</span>
-    <span class="n">statement1</span> <span class="c1"># 如果条件为真, 这三条语句都将执行</span>
-    <span class="n">statement2</span>
-    <span class="n">statement3</span>
-<span class="c1"># if else</span>
-<span class="k">if</span> <span class="n">test</span><span class="p">:</span>
-    <span class="n">DoThis</span><span class="p">()</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">DoThat</span><span class="p">()</span>
-<span class="c1"># if elif else</span>
-<span class="k">if</span> <span class="n">test1</span><span class="p">:</span>
-    <span class="n">DoThis</span><span class="p">()</span>
-<span class="k">elif</span> <span class="n">test2</span><span class="p">:</span>
-    <span class="n">DoThat</span><span class="p">()</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">DoOther</span><span class="p">()</span>
-</pre></div>
-
-
-<ul>
-<li>同一语句中的 <code>if</code> <code>elif</code> <code>else</code> 的缩进必须保持一致</li>
-</ul>
-<h2>pass 语句</h2>
-<ul>
-<li>pass 语句就是什么都不做</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">test1</span><span class="p">:</span>
-    <span class="n">DoThis</span><span class="p">()</span>
-<span class="k">elif</span> <span class="n">test2</span><span class="p">:</span>
-    <span class="n">DoThat</span><span class="p">()</span>
-<span class="c1"># else 不是严格必须, 但是加上, 通过使用 pass …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-03.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/lean-pythonchapter-02.html"><h2>Lean Python(Chapter 02)</h2></a>
-        <div class= "well small"> Tue 19 September 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><blockquote>
-<p>Everything is Object</p>
-</blockquote>
-<h1>对象类型</h1>
-<div class="highlight"><pre><span></span><span class="c1"># 使用 type 查看对象类型</span>
-<span class="nb">type</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
-</pre></div>
-
-
-<blockquote>
-<p>类型有 : int str list class function file bool(True、False) NoneType(None) long</p>
-</blockquote>
-<h1>工厂方法</h1>
-<div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>
-<span class="nb">str</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="nb">tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="nb">dict</span><span class="p">(</span><span class="n">one</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-
-
-<h1>数</h1>
-<div class="highlight"><pre><span></span><span class="mi">12345678901234567890</span>
-<span class="mi">1</span> <span class="o">/</span> <span class="mf">7.0</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mf">1E20 …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-02.html">read more</a></div>
+<span class="k">class</span> <span class="nc">Example</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__ …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-tutorialmenus-and-toolbars.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
@@ -540,6 +844,11 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
     <li class="active"><a href="http://littlecaptain.net/author/little-captain.html">1</a></li>
     <li class=""><a href="http://littlecaptain.net/author/little-captain2.html">2</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain3.html">3</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain4.html">4</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain5.html">5</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain6.html">6</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain7.html">7</a></li>
 
     <li class="next"><a href="http://littlecaptain.net/author/little-captain2.html">Next &rarr;</a></li>
 
@@ -574,6 +883,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
                 </li>
                 
                 <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
                 <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
                 <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
                    

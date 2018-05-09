@@ -58,8 +58,94 @@
  
 
     <div class='article'>
-        <a href="http://littlecaptain.net/lean-pythonchapter-01.html"><h2>Lean Python(Chapter 01)</h2></a>
-        <div class= "well small"> Tue 19 September 2017
+        <a href="http://littlecaptain.net/pyqt5-tutorialfirst-programs.html"><h2>PyQt5 tutorial(First programs)</h2></a>
+        <div class= "well small"> Thu 12 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>Simple example</h1>
+<ul>
+<li>用于理解程序的基本原理</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span> <span class="c1"># The basic widgets are located in PyQt5.QtWidgets module</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># Every PyQt5 application must create an application object.</span>
+    <span class="c1"># The sys.argv parameter is a list of arguments from a command line.</span>
+    <span class="c1"># Python scripts can be run from …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-tutorialfirst-programs.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqt5-tutorialdate-and-time.html"><h2>PyQt5 tutorial(Date and time)</h2></a>
+        <div class= "well small"> Thu 12 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>QDate, QTime, QDateTime</h1>
+<ul>
+<li>PyQt5 has <code>QDate</code>, <code>QDateTime</code>, <code>QTime</code> classes to work with date and time.</li>
+<li>The <code>QDate</code> is a class for working with a calendar date in the Gregorian calendar. It has methods for determining the date, comparing, or manipulating dates.</li>
+<li>The <code>QTime</code> class works with a clock time. It …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-tutorialdate-and-time.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqt5-tutorialintroduction.html"><h2>PyQt5 tutorial(Introduction)</h2></a>
+        <div class= "well small"> Thu 12 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>PyQt5 modules</h1>
+<ul>
+<li>PyQt5's classes are divided into several modules</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">module</th>
+<th align="center">function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">QtCore</td>
+<td align="center">The QtCore module contains the core non-GUI functionality. This module is used for working with time, files and directories, various data types, streams, URLs, mime types, threads or processes.</td>
+</tr>
+<tr>
+<td align="center">QtGui</td>
+<td align="center">The QtGui contains classes for windowing system integration …</td></tr></tbody></table> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-tutorialintroduction.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqt5-qboxlayout.html"><h2>PyQt5 QBoxLayout</h2></a>
+        <div class= "well small"> Thu 12 October 2017
 
 by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
  
@@ -67,51 +153,39 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
  </div>
         <div class="summary"><blockquote>
-<p>Foundation</p>
+<p>QBoxLayout</p>
+<p>An instance of the QBoxLayout divides the given space into boxes, where each box is totally filled with one exact widget. It can add widgets in vertical or horizontal direction, where the choice of vertical or horizontal depends on type of class the object is instanced from.</p>
+<p>The class …</p></blockquote> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-qboxlayout.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqt5-form-layout.html"><h2>PyQt5 Form Layout</h2></a>
+        <div class= "well small"> Thu 12 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>Form Layout</p>
+<p>A form can be created using the class QFormLayout. This is the easiest way to create a form where widgets (input) have descriptions (labels)</p>
 </blockquote>
-<h1>解释器</h1>
-<h2>交互模式</h2>
-<ul>
-<li>dir : 列出一个对象的所有属性</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
-</pre></div>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QApplication</span><span class="p">,</span> <span class="n">QComboBox</span><span class="p">,</span> <span class="n">QDialog</span><span class="p">,</span>
+                             <span class="n">QDialogButtonBox</span><span class="p">,</span> <span class="n">QFormLayout</span><span class="p">,</span> <span class="n">QGridLayout</span><span class="p">,</span> <span class="n">QGroupBox</span><span class="p">,</span> <span class="n">QHBoxLayout</span><span class="p">,</span>
+                             <span class="n">QLabel</span><span class="p">,</span> <span class="n">QLineEdit</span><span class="p">,</span> <span class="n">QMenu</span><span class="p">,</span> <span class="n">QMenuBar</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QSpinBox</span><span class="p">,</span> <span class="n">QTextEdit</span><span class="p">,</span>
+                             <span class="n">QVBoxLayout</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
 
 
-<ul>
-<li>help : 查看内建关键字和方法的帮助文档</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">open</span><span class="p">)</span>
-</pre></div>
-
-
-<h2>命令行模式</h2>
-<ul>
-<li>通过在命令行中加载 python 程序执行</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">myprogram</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
-
-
-<h1>注释、代码块、缩进</h1>
-<ul>
-<li>使用 <code>#</code> 进行注释</li>
-<li>使用相同的<code>缩进</code>区分代码块</li>
-<li><code>:</code> 用在 if、elif、else、while、for、函数定义中, 区分首行和下面的具体代码块, 具体代码块需要缩进</li>
-<li>使用 <code>\</code> 连接多行代码</li>
-</ul>
-<h1>变量</h1>
-<ul>
-<li>赋值</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="n">expression</span>
-<span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">var3</span> <span class="o">=</span> <span class="n">expression</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-
-
-<ul>
-<li>关键字 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-01.html">read more</a></div>
+<span class="k">class</span> <span class="nc">Dialog …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-form-layout.html">read more</a></div>
     </div>	
 				
 
@@ -121,57 +195,18 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
 
     <div class='article'>
-        <a href="http://littlecaptain.net/shell-kong-zhi-yu-ju.html"><h2>shell 控制语句</h2></a>
-        <div class= "well small"> Sun 13 August 2017
+        <a href="http://littlecaptain.net/pyqt5-directory-view.html"><h2>PyQt5 Directory View</h2></a>
+        <div class= "well small"> Thu 12 October 2017
 
 by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
  
 
 
  </div>
-        <div class="summary"><h1>if-then语句</h1>
-<ul>
-<li>bash 的 if 语句会运行 if 行定义的那个命令. 如果命令的退出状态码是0, 位于 then 部分的命令会被执行</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">command</span>
-<span class="k">then</span>
-   commands
-<span class="k">fi</span>
-</pre></div>
-
-
-<div class="highlight"><pre><span></span><span class="k">if</span> command<span class="p">;</span> <span class="k">then</span>
-   commands
-<span class="k">fi</span>
-</pre></div>
-
-
-<h1>if-then-else语句</h1>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">command</span>
-<span class="k">then</span>
-   commands
-<span class="k">else</span>
-   commands
-<span class="k">fi</span>
-</pre></div>
-
-
-<h1>嵌套 if</h1>
-<div class="highlight"><pre><span></span><span class="k">if</span> command1
-<span class="k">then</span>
-   commands
-<span class="k">elif</span> command2
-<span class="k">then</span>
-   commands
-<span class="k">fi</span>
-</pre></div>
-
-
-<h1>test 命令</h1>
-<ul>
-<li>如果 test 命令中列出的条件成立, test 命令就会退出并返回状态码 0</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="nb">test</span> condition …</pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/shell-kong-zhi-yu-ju.html">read more</a></div>
+        <div class="summary"><blockquote>
+<p>Directory View</p>
+<p>PyQt can show a directory structure using a QTreeView. For the treeview to show as a directory tree, we need to set its model to a QFileSystemModel instance. <code>QTreeView</code> combined with <code>QFileSystemModel</code>. That is achieved by calling the setModel method for the tree instance.</p>
+<p>We can set additional …</p></blockquote> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-directory-view.html">read more</a></div>
     </div>	
 				
 
@@ -181,48 +216,25 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
 
     <div class='article'>
-        <a href="http://littlecaptain.net/shell-shu-xue-yun-suan.html"><h2>shell 数学运算</h2></a>
-        <div class= "well small"> Sat 12 August 2017
+        <a href="http://littlecaptain.net/pyqt5-treeview.html"><h2>PyQt5 Treeview</h2></a>
+        <div class= "well small"> Thu 12 October 2017
 
 by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
  
 
 
  </div>
-        <div class="summary"><h1>expr 命令</h1>
-<ul>
-<li>expr 命令允许在命令行上处理数学表达式</li>
-</ul>
-<div class="highlight"><pre><span></span>expr <span class="m">1</span> + <span class="m">5</span>
-</pre></div>
+        <div class="summary"><blockquote>
+<p>Treeview</p>
+<p>PyQt5 (python with qt5 bindings) supports a tree view widget (class <code>QTreeView</code>). In this article we will show how to use the widget.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
 
-
-<p><strong>expr命令操作符</strong></p>
-<p><img src="../assets/images/Linux/expr命令操作符1.png" width = 100% align=center /></p>
-<p><img src="../assets/images/Linux/expr命令操作符2.png" width = 100% align=center /></p>
-<ul>
-<li>尽管标准操作符在 expr 命令中工作得很好, 但在脚本或命令行上使用它们时就会有问题, 因为许多 expr 命令操作符在 shell 中有其他意思. 可以进行转义</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="c1"># 操作数和运算符之间必须要有空格</span>
-expr <span class="m">5</span> <span class="se">\*</span> <span class="m">2</span>
-</pre></div>
-
-
-<h1>使用方括号</h1>
-<ul>
-<li>在 bash 中, 在将一个数学运算结果赋给某个变量时, 可以用美元符合方括号( $[ operation ] )将数学表达式圈起来</li>
-<li>这比使用 expr 命令方便很多, 方括号里面的字符不会认为是 shell 中的特殊字符</li>
-<li>bash 只支持整数运算. zsh 提供了完整的浮点运算</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="nv">var1</span><span class="o">=</span>$<span class="o">[</span><span class="m">1</span> + <span class="m">5</span><span class="o">]</span>
-</pre></div>
-
-
-<h1>浮点解决方案</h1>
-<h2>bc</h2>
-<ul>
-<li>bash 计算器允许你在命令行输入浮点表达式、解释表达式、计算并返回结果的一种编程语言.</li>
-<li>bash …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/shell-shu-xue-yun-suan.html">read more</a></div>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="p">(</span><span class="n">QDate</span><span class="p">,</span> <span class="n">QDateTime</span><span class="p">,</span> <span class="n">QRegExp</span><span class="p">,</span> <span class="n">QSortFilterProxyModel</span><span class="p">,</span> <span class="n">Qt</span><span class="p">,</span>
+                          <span class="n">QTime</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QStandardItemModel</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-treeview.html">read more</a></div>
     </div>	
 				
 
@@ -232,39 +244,21 @@ expr <span class="m">5</span> <span class="se">\*</span> <span class="m">2</span
  
 
     <div class='article'>
-        <a href="http://littlecaptain.net/shell-jiao-ben-bian-cheng-ji-chu.html"><h2>shell 脚本编程基础</h2></a>
-        <div class= "well small"> Sat 12 August 2017
+        <a href="http://littlecaptain.net/pyqt5-browser.html"><h2>PyQt5 browser</h2></a>
+        <div class= "well small"> Thu 12 October 2017
 
 by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
  
 
 
  </div>
-        <div class="summary"><h1>基础</h1>
-<ul>
-<li>同<code>一行多个命令</code>顺序执行, 使用<code>;</code></li>
-</ul>
-<div class="highlight"><pre><span></span>data<span class="p">;</span>who
-</pre></div>
-
-
-<ul>
-<li>创建shell脚本文件</li>
-<li>在文件的<code>第一行指定</code>要使用的<code>shell</code></li>
-</ul>
-<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-</pre></div>
-
-
-<ul>
-<li>显示消息</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="nb">echo</span> This is a <span class="nb">test</span>
-<span class="nb">echo</span> Let<span class="se">\&#39;</span>s see <span class="k">if</span> <span class="s2">&quot;this&#39;ll&quot;</span> work
-<span class="nb">echo</span> <span class="s2">&quot;Let&#39;s see if this&#39;ll work&quot;</span>
-<span class="nb">echo</span> <span class="s1">&#39;Rich says &quot;scripting is easy&quot;.&#39;</span>
-<span class="c1"># -n : 不输出末尾的 newline 字符</span>
-<span class="nb">echo</span> -n <span class="s2">&quot;The time …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/shell-jiao-ben-bian-cheng-ji-chu.html">read more</a></div>
+        <div class="summary"><blockquote>
+<p>browser</p>
+<p>PyQt5 supports a widget that displays websites named QWebView.</p>
+<p>QWebView uses the Webkit rendering engine
+The web browser engine is used by Safari, App Store and many OS X applications.</p>
+<p>The load() method opens the url (QUrl) in the argument. You can create a QUrl using: QUrl(url).</p>
+<p>The …</p></blockquote> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-browser.html">read more</a></div>
     </div>	
 				
 
@@ -274,27 +268,64 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
 
     <div class='article'>
-        <a href="http://littlecaptain.net/hello-blog.html"><h2>Hello Blog</h2></a>
-        <div class= "well small"> Sat 06 May 2017
+        <a href="http://littlecaptain.net/pyqt5-matplotlib.html"><h2>PyQt5 Matplotlib</h2></a>
+        <div class= "well small"> Thu 12 October 2017
 
 by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
  
 
 
  </div>
-        <div class="summary"><h1>拿来说说</h1>
-<p>在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。</p>
-<h1>用到了什么</h1>
-<ul>
-<li><code>Pelican</code><ul>
-<li>简单易用</li>
-</ul>
-</li>
-<li><code>github page</code><ul>
-<li>方便, github 仓库直接管理</li>
-</ul>
-</li>
-</ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/hello-blog.html">read more</a></div>
+        <div class="summary"><blockquote>
+<p>Matplotlib</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QMainWindow</span><span class="p">,</span> <span class="n">QMenu</span><span class="p">,</span> <span class="n">QVBoxLayout</span><span class="p">,</span> <span class="n">QSizePolicy</span><span class="p">,</span> <span class="n">QMessageBox</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> \
+    <span class="n">QPushButton</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_qt5agg</span> <span class="kn">import</span> <span class="n">FigureCanvasQTAgg</span> <span class="k">as</span> <span class="n">FigureCanvas</span>
+<span class="kn">from</span> <span class="nn">matplotlib.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">random</span>
+
+
+<span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QMainWindow</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">left …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-matplotlib.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqt5-font-dialog.html"><h2>PyQt5 font dialog</h2></a>
+        <div class= "well small"> Thu 12 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>font dialog</p>
+<p>PyQt5 comes with a font dialog that you may have seen in a text editor.
+To open this dialog import QFontDialog call</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QFontDialog</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtSlot</span>
+
+
+<span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-font-dialog.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
@@ -303,8 +334,13 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
     <li class=""><a href="http://littlecaptain.net/author/little-captain.html">1</a></li>
     <li class="active"><a href="http://littlecaptain.net/author/little-captain2.html">2</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain3.html">3</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain4.html">4</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain5.html">5</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain6.html">6</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain7.html">7</a></li>
 
-    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+    <li class="next"><a href="http://littlecaptain.net/author/little-captain3.html">Next &rarr;</a></li>
 
 </ul>
 </div>
@@ -337,6 +373,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
                 </li>
                 
                 <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
                 <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
                 <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
                    
