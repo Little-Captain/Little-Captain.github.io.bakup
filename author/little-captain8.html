@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - Little Captain</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/zai-windows-ping-tai-da-jian-gogs-fu-wu.html"><h2>在 Windows 平台搭建 gogs 服务</h2></a>
+        <div class= "well small"> Sun 11 June 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>准备</h1>
+<h2>Git 安装包</h2>
+<p><a href="https://git-for-windows.github.io">官网</a></p>
+<h2>nssm Windows Windows 服务包装软件</h2>
+<p><a href="http://nssm.cc">官网</a></p>
+<h2>gogs 二进制包</h2>
+<p><a href="https://gogs.io">官网</a></p>
+<h1>安装</h1>
+<h2>Git</h2>
+<p>一直下一步就可以了</p>
+<h2>nssm</h2>
+<p>这个不用安装, 解压后, 根据系统使用不同的程序. 要能够在命令行中使用, 必须要将它的路径加入环境变量中</p>
+<h2>gogs</h2>
+<p>将压缩包解压, 然后启动 nssm 程序来包装 gogs, 包装流程<a href="https://gogs.io/docs/installation/run_as_windows_service">参见</a>. </p>
+<h3>防火墙配置</h3>
+<ul>
+<li>不配置好防火墙, 本机外是没法访问的.</li>
+</ul>
+<p><strong> 启动或关闭 Windows 防火墙 </strong></p>
+<p>![](../assets/images/git/启动或关闭 Windows 防火墙.png)</p>
+<p><strong> 高级设置 </strong></p>
+<p><img alt="" src="../assets/images/git/高级设置.png"></p>
+<p>剩下的就是打开浏览器, 访问 gogs 服务了!</p>
+<h1>注意</h1>
+<p>我们在 clone …</p> <a class="btn btn-info xsmall" href="http://littlecaptain.net/zai-windows-ping-tai-da-jian-gogs-fu-wu.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/xcode-chang-jian-she-zhi-ji-jin.html"><h2>Xcode 常见设置集锦</h2></a>
+        <div class= "well small"> Wed 24 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>消除 Xcode 警告</h1>
+<p>![](../assets/images/Xcode/消除 Xcode 警告.png)</p> <a class="btn btn-info xsmall" href="http://littlecaptain.net/xcode-chang-jian-she-zhi-ji-jin.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/svn-ji-ben-cao-zuo.html"><h2>SVN 基本操作</h2></a>
+        <div class= "well small"> Tue 16 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><em>基本操作原理图</em></p>
+<p><img alt="" src="../assets/images/SVN/基本操作.png"></p>
+<p><em>SVN版本管理架构模式</em></p>
+<p><img alt="" src="../assets/images/SVN/SVN架构示意图.png"></p>
+<h1>SVN客户端常用命令</h1>
+<div class="highlight"><pre><span></span><span class="c1"># 下载服务器的代码到本地 （简写svn co）</span>
+svn checkout
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 将改动的文件提交到服务器（简写svn ci）</span>
+svn commit
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 更新服务器的代码到本地 （简写svn up）</span>
+svn update
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 向本地的版本控制库中添加新文件</span>
+svn add
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 从本地的版本控制库中删除文件（简写svn del、svn rm）</span>
+svn delete
+svn remove
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 移动文件或者目录或文件更名</span>
+svn move
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 创建纳入版本控制下的新目录</span>
+svn mkdir
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 撤销之前的一切修改</span>
+svn revert
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 将两个版本之间的差异合并到当前文件</span>
+svn merge
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 查看文件的详细信息</span>
+svn info
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 查看不同版本的区别</span>
+svn diff
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># 查看日志信息</span>
+svn …</pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/svn-ji-ben-cao-zuo.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/ios-shu-ju-de-cun-chu-fang-shi.html"><h2>iOS 数据的存储方式</h2></a>
+        <div class= "well small"> Fri 12 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>沙盒(磁盘)</h1>
+<h2>沙盒简介</h2>
+<ul>
+<li>每个iOS应用程序都有自己的应用沙盒</li>
+<li>应用沙盒就是文件系统目录,  与其它文件系统隔离</li>
+<li>应用必须待在自己的沙盒里, 其它应用不能访问该沙盒</li>
+</ul>
+<h2>沙盒的访问</h2>
+<ul>
+<li>NSHomeDirectory() : 沙盒的根目录</li>
+<li>Documents<ul>
+<li>保存应用运行时生成的需要持久化的数据</li>
+<li>iTunes同步设备时会备份该目录</li>
+<li>不允许放缓存大数据</li>
+</ul>
+</li>
+<li>Library/Caches<ul>
+<li>保存应用运行时生成的需要持久化的数据</li>
+<li>iTunes同步设备时不会备份该目录</li>
+<li>一般存储体积大、不需要备份的缓存数据</li>
+</ul>
+</li>
+<li>Library/Preference<ul>
+<li>保存应用的所有偏好设置</li>
+<li>iOS的Settings(设置)应用会在该目录中查找应用的设置信息</li>
+<li>iTunes同步设备时会备份该目录</li>
+</ul>
+</li>
+<li>tmp<ul>
+<li>保存应用运行时所需的临时数据</li>
+<li>使用完毕后再将相应的文件从该目录删除</li>
+<li>应用没有运行时，系统也可能会清除该目录下的文件</li>
+<li>iTunes同步设备时不会备份该目录</li>
+</ul>
+</li>
+</ul>
+<h2>应用程序包</h2>
+<ul>
+<li>包含了所有的资源文件和可执行文件</li>
+<li>[NSBundle mainBundle]<ul>
+<li>获取应用程序包路径</li>
+<li>代表 App 本身</li>
+</ul>
+</li>
+<li>注意和沙盒做区分</li>
+</ul>
+<h1>偏好设置</h1>
+<ul>
+<li>小数据</li>
+<li>保存用户名、密码(MD5)、是否自动登录、字体大小等设置 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ios-shu-ju-de-cun-chu-fang-shi.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/ios-wen-jian-shang-chuan.html"><h2>iOS 文件上传</h2></a>
+        <div class= "well small"> Thu 11 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>步骤</h1>
+<h2>设置请求头</h2>
+<div class="highlight"><pre><span></span><span class="p">[</span><span class="n">request</span> <span class="nl">setValue</span><span class="p">:</span><span class="s">@&quot;multipart/form-data; boundary=分割线&quot;</span> <span class="nl">forHTTPHeaderField</span><span class="p">:</span><span class="s">@&quot;Content-Type&quot;</span><span class="p">];</span>
+</pre></div>
+
+
+<h2>设置请求体</h2>
+<ul>
+<li>非文件参数</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nt">--分割线</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
+<span class="nt">Content-Disposition</span><span class="o">:</span> <span class="nt">form-data</span><span class="o">;</span> <span class="nt">name</span><span class="o">=</span><span class="s2">&quot;参数名&quot;</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
+<span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
+<span class="nt">参数值</span>
+<span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
+</pre></div>
+
+
+<ul>
+<li>文件参数</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nt">--分割线</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
+<span class="nt">Content-Disposition</span><span class="o">:</span> <span class="nt">form-data</span><span class="o">;</span> <span class="nt">name</span><span class="o">=</span><span class="s2">&quot;参数名&quot;</span><span class="o">;</span> <span class="nt">filename</span><span class="o">=</span><span class="s2">&quot;文件名&quot;</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
+<span class="nt">Content-Type</span><span class="o">:</span> <span class="nt">文件的MIMEType</span><span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
+<span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
+<span class="nt">文件数据</span>
+<span class="err">\</span><span class="nt">r</span><span class="err">\</span><span class="nt">n</span>
+</pre></div>
+
+
+<ul>
+<li>结束的标记</li>
+</ul>
+<div class="highlight"><pre><span></span>--分割线--\r …</pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ios-wen-jian-shang-chuan.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/ios-jian-ce-wang-luo-zhuang-tai.html"><h2>iOS 监测网络状态</h2></a>
+        <div class= "well small"> Thu 11 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>为什么要监听</h1>
+<ul>
+<li>让用户了解自己的网络状态，防止一些误会, 怪应用无能</li>
+<li>根据用户的网络状态进行智能处理，节省用户流量，提高用户体验<ul>
+<li>WIFI\3G网络：自动下载高清图片</li>
+<li>低速网络：只下载缩略图</li>
+<li>没有网络：只显示离线的缓存数据</li>
+</ul>
+</li>
+</ul>
+<h1>监测网络状态</h1>
+<ul>
+<li>在网络应用中，需要对用户设备的网络状态进行实时监控</li>
+<li>苹果官方提供了一个叫Reachability的示例程序，便于开发者检测网络状态</li>
+</ul>
+<p><a href="https://developer.apple.com/library/ios/samplecode/Reachability/Reachability.zip">地址</a></p>
+<ul>
+<li>使用步骤<ul>
+<li>添加框架SystemConfiguration.framework</li>
+<li>添加源代码(Reachability.h 和 Reachability.m)</li>
+<li>包含头文件(Reachability.h)</li>
+</ul>
+</li>
+<li>实际开发中一般都使用AFNetworking监测</li>
+</ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ios-jian-ce-wang-luo-zhuang-tai.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/ios-wang-luo-http.html"><h2>iOS 网络-HTTP</h2></a>
+        <div class= "well small"> Thu 11 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>基本概念</h1>
+<h2>如何找到服务器?</h2>
+<ul>
+<li>客户端通过URL找到想要连接的服务器</li>
+</ul>
+<h2>URL</h2>
+<ul>
+<li>Uniform Resource Locator : 统一资源定位符</li>
+<li>通过1个URL，能找到互联网上唯一的1个资源</li>
+<li>互联网上的每个资源都有一个唯一的URL</li>
+<li>URL就是资源的地址、位置</li>
+</ul>
+<h3>URL的基本格式</h3>
+<ul>
+<li>协议://主机地址/路径</li>
+<li>协议 : 不同的协议，代表着不同的资源查找方式、资源传输方式</li>
+<li>主机地址 : 存放资源的主机（服务器）的IP地址（域名）</li>
+<li>路径 : 资源在主机（服务器）中的具体位置</li>
+</ul>
+<h3>URL中常见的协议</h3>
+<h4>HTTP</h4>
+<ul>
+<li>超文本传输协议</li>
+<li>访问的是远程的网络资源</li>
+<li>http://</li>
+<li>http协议是在网络开发中最常用的协议</li>
+</ul>
+<h4>file</h4>
+<ul>
+<li>访问的是本地计算机上的资源</li>
+<li>file://</li>
+<li>不用加主机地址</li>
+</ul>
+<h4>mailto</h4>
+<ul>
+<li>访问的是电子邮件地址</li>
+<li>mailto:</li>
+</ul>
+<h4>FTP</h4>
+<ul>
+<li>访问的是共享主机的文件资源</li>
+<li>ftp://</li>
+</ul>
+<h2>TCP/IP协议簇</h2>
+<ul>
+<li>通常意义上，我们使用的网络是在TCP …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ios-wang-luo-http.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/ios-wen-jian-xia-zai.html"><h2>iOS 文件下载</h2></a>
+        <div class= "well small"> Thu 11 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>小文件</h1>
+<ul>
+<li>利用NSURLConnection发送一个HTTP请求下载</li>
+<li>直接用NSData的 +dataWithContentsOfURL</li>
+<li>下载图片, 可以利用SDWebImage框架</li>
+</ul>
+<h1>大文件</h1>
+<ul>
+<li>建议使用 NSURLSession 或者第三方框架</li>
+</ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ios-wen-jian-xia-zai.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/ios-jie-ya-suo.html"><h2>iOS 解压缩</h2></a>
+        <div class= "well small"> Thu 11 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>使用第三方框架</h1>
+<p><a href="https://github.com/ZipArchive/ZipArchive">框架地址</a></p>
+<ul>
+<li>ZipArchive</li>
+<li>需要引入libz.dylib框架</li>
+</ul>
+<h1>创建压缩文件</h1>
+<ul>
+<li>createZipFileAtPath:withFilesAtPaths:</li>
+<li>createZipFileAtPath:withContentsOfDirectory:</li>
+</ul>
+<h1>解压</h1>
+<ul>
+<li>unzipFileAtPath:toDestination:</li>
+</ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ios-jie-ya-suo.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/ios-wang-luo-nsurlsession.html"><h2>iOS 网络-NSURLSession</h2></a>
+        <div class= "well small"> Thu 11 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>Task的类型</h1>
+<p><img alt="" src="../assets/images/网络/Task类型.png"></p>
+<h1>使用步骤</h1>
+<ul>
+<li>使用NSURLSession对象创建Task</li>
+<li>执行Task</li>
+</ul>
+<h1>常用方法</h1>
+<ul>
+<li>sharedSession : 获得共享的Session</li>
+<li>sessionWithConfiguration : 自定义Session</li>
+</ul>
+<h1>NSURLSessionTask</h1>
+<h2>常见方法</h2>
+<ul>
+<li>suspend, 暂停</li>
+<li>resume, 恢复</li>
+<li>cancel, 取消</li>
+</ul>
+<h2>常用属性</h2>
+<ul>
+<li>error, 错误</li>
+<li>response, 响应</li>
+</ul>
+<h1>NSURLSessionDownloadTask</h1>
+<h2>常见方法</h2>
+<ul>
+<li>cancelByProducingResumeData</li>
+</ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ios-wang-luo-nsurlsession.html">read more</a></div>
+    </div>	
+				
+<div class="pagination">
+<ul>
+    <li class="prev"><a href="http://littlecaptain.net/author/little-captain7.html">&larr; Previous</a></li>
+
+    <li class=""><a href="http://littlecaptain.net/author/little-captain.html">1</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain2.html">2</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain3.html">3</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain4.html">4</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain5.html">5</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain6.html">6</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain7.html">7</a></li>
+    <li class="active"><a href="http://littlecaptain.net/author/little-captain8.html">8</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain9.html">9</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain10.html">10</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain11.html">11</a></li>
+
+    <li class="next"><a href="http://littlecaptain.net/author/little-captain9.html">Next &rarr;</a></li>
+
+</ul>
+</div>
+ 
+  
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2018</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

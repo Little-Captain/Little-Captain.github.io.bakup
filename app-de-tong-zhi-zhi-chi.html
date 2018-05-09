@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - App 的通知支持</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>App 的通知支持</h1>
+Wed 13 September 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+        </div>
+	
+        <div><h1>请求用户授权</h1>
+<div class="highlight"><pre><span></span><span class="n">UNUserNotificationCenter</span><span class="o">*</span> <span class="n">center</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNUserNotificationCenter</span> <span class="n">currentNotificationCenter</span><span class="p">];</span>
+<span class="p">[</span><span class="n">center</span> <span class="nl">requestAuthorizationWithOptions</span><span class="p">:(</span><span class="n">UNAuthorizationOptionAlert</span> <span class="o">+</span> <span class="n">UNAuthorizationOptionSound</span><span class="p">)</span>
+   <span class="nl">completionHandler</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">granted</span><span class="p">,</span> <span class="bp">NSError</span> <span class="o">*</span> <span class="n">_Nullable</span> <span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 通过授权结果完成进一步操作</span>
+<span class="p">}];</span>
+</pre></div>
+
+
+<ul>
+<li>获取准确的用户授权信息使用 <code>UNUserNotificationCenter</code> 对象的 <code>getNotificationSettingsWithCompletionHandler:</code> 方法</li>
+</ul>
+<h1>配置类别和可操作的通知</h1>
+<h2>针对 App 注册通知类别</h2>
+<div class="highlight"><pre><span></span><span class="n">UNNotificationCategory</span><span class="o">*</span> <span class="n">generalCategory</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationCategory</span>
+     <span class="nl">categoryWithIdentifier</span><span class="p">:</span><span class="s">@&quot;GENERAL&quot;</span>
+     <span class="nl">actions</span><span class="p">:</span><span class="l">@[]</span>
+     <span class="nl">intentIdentifiers</span><span class="p">:</span><span class="l">@[]</span>
+     <span class="nl">options</span><span class="p">:</span><span class="n">UNNotificationCategoryOptionCustomDismissAction</span><span class="p">];</span>
+
+<span class="c1">// 注册通知类别</span>
+<span class="n">UNUserNotificationCenter</span><span class="o">*</span> <span class="n">center</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNUserNotificationCenter</span> <span class="n">currentNotificationCenter</span><span class="p">];</span>
+<span class="p">[</span><span class="n">center</span> <span class="nl">setNotificationCategories</span><span class="p">:[</span><span class="bp">NSSet</span> <span class="nl">setWithObjects</span><span class="p">:</span><span class="n">generalCategory</span><span class="p">,</span> <span class="nb">nil</span><span class="p">]];</span>
+</pre></div>
+
+
+<h2>将自定义操作添加到类别中</h2>
+<div class="highlight"><pre><span></span><span class="n">UNNotificationCategory</span><span class="o">*</span> <span class="n">generalCategory</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationCategory</span>
+      <span class="nl">categoryWithIdentifier</span><span class="p">:</span><span class="s">@&quot;GENERAL&quot;</span>
+      <span class="nl">actions</span><span class="p">:</span><span class="l">@[]</span>
+      <span class="nl">intentIdentifiers</span><span class="p">:</span><span class="l">@[]</span>
+      <span class="nl">options</span><span class="p">:</span><span class="n">UNNotificationCategoryOptionCustomDismissAction</span><span class="p">];</span>
+
+<span class="c1">// 创建自定义操作</span>
+<span class="n">UNNotificationAction</span><span class="o">*</span> <span class="n">snoozeAction</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationAction</span>
+      <span class="nl">actionWithIdentifier</span><span class="p">:</span><span class="s">@&quot;SNOOZE_ACTION&quot;</span>
+      <span class="nl">title</span><span class="p">:</span><span class="s">@&quot;Snooze&quot;</span>
+      <span class="nl">options</span><span class="p">:</span><span class="n">UNNotificationActionOptionNone</span><span class="p">];</span>
+
+<span class="n">UNNotificationAction</span><span class="o">*</span> <span class="n">stopAction</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationAction</span>
+      <span class="nl">actionWithIdentifier</span><span class="p">:</span><span class="s">@&quot;STOP_ACTION&quot;</span>
+      <span class="nl">title</span><span class="p">:</span><span class="s">@&quot;Stop&quot;</span>
+      <span class="nl">options</span><span class="p">:</span><span class="n">UNNotificationActionOptionForeground</span><span class="p">];</span>
+
+<span class="c1">// 创建带有自定义操作的通知类别</span>
+<span class="n">UNNotificationCategory</span><span class="o">*</span> <span class="n">expiredCategory</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNNotificationCategory</span>
+      <span class="nl">categoryWithIdentifier</span><span class="p">:</span><span class="s">@&quot;TIMER_EXPIRED&quot;</span>
+      <span class="nl">actions</span><span class="p">:</span><span class="l">@[</span><span class="n">snoozeAction</span><span class="p">,</span> <span class="n">stopAction</span><span class="l">]</span>
+      <span class="nl">intentIdentifiers</span><span class="p">:</span><span class="l">@[]</span>
+      <span class="nl">options</span><span class="p">:</span><span class="n">UNNotificationCategoryOptionNone</span><span class="p">];</span>
+
+<span class="c1">// 注册通知类别</span>
+<span class="n">UNUserNotificationCenter</span><span class="o">*</span> <span class="n">center</span> <span class="o">=</span> <span class="p">[</span><span class="n">UNUserNotificationCenter</span> <span class="n">currentNotificationCenter</span><span class="p">];</span>
+<span class="p">[</span><span class="n">center</span> <span class="nl">setNotificationCategories</span><span class="p">:[</span><span class="bp">NSSet</span> <span class="nl">setWithObjects</span><span class="p">:</span><span class="n">generalCategory</span><span class="p">,</span> <span class="n">expiredCategory</span><span class="p">,</span>
+      <span class="nb">nil</span><span class="p">]];</span>
+</pre></div>
+
+
+<h2>获取 App 的通知设置</h2>
+<ul>
+<li>用户可以随时在系统设置中改变应用的通知设置</li>
+<li>通过使用 <code>UNUserNotificationCenter</code> 对象的 <code>getNotificationSettingsWithCompletionHandler:</code> 方法获取包含当前<code>授权状态</code>和<code>通知环境</code>的 <code>UNNotificationSettings</code> 对象</li>
+</ul>
+<h1>管理已被递送的通知</h1>
+<ul>
+<li>已被递送的通知没有被 App 或用户及时处理, 它们会一直显示在通知中心.</li>
+<li>使用 <code>UNUserNotificationCenter</code> 对象的 <code>getDeliveredNotificationsWithCompletionHandler:</code> 方法<code>获取</code>在通知中心显示的<code>通知列表</code></li>
+<li>如果发现通知中心的通知已经过时, 可以使用 <code>removeDeliveredNotificationsWithIdentifiers:</code> 方法移除它们</li>
+</ul></div>
+	
+        <hr>
+
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2018</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

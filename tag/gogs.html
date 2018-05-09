@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - gogs</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+
+        
+
+
+    <div class='article'>
+        <div class="content-title">
+            <a href="http://littlecaptain.net/zai-windows-ping-tai-da-jian-gogs-fu-wu.html"><h1>在 Windows 平台搭建 gogs 服务</h1></a>
+Sun 11 June 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ 
+        </div>
+        
+        <div><h1>准备</h1>
+<h2>Git 安装包</h2>
+<p><a href="https://git-for-windows.github.io">官网</a></p>
+<h2>nssm Windows Windows 服务包装软件</h2>
+<p><a href="http://nssm.cc">官网</a></p>
+<h2>gogs 二进制包</h2>
+<p><a href="https://gogs.io">官网</a></p>
+<h1>安装</h1>
+<h2>Git</h2>
+<p>一直下一步就可以了</p>
+<h2>nssm</h2>
+<p>这个不用安装, 解压后, 根据系统使用不同的程序. 要能够在命令行中使用, 必须要将它的路径加入环境变量中</p>
+<h2>gogs</h2>
+<p>将压缩包解压, 然后启动 nssm 程序来包装 gogs, 包装流程<a href="https://gogs.io/docs/installation/run_as_windows_service">参见</a>. </p>
+<h3>防火墙配置</h3>
+<ul>
+<li>不配置好防火墙, 本机外是没法访问的.</li>
+</ul>
+<p><strong> 启动或关闭 Windows 防火墙 </strong></p>
+<p>![](../assets/images/git/启动或关闭 Windows 防火墙.png)</p>
+<p><strong> 高级设置 </strong></p>
+<p><img alt="" src="../assets/images/git/高级设置.png"></p>
+<p>剩下的就是打开浏览器, 访问 gogs 服务了!</p>
+<h1>注意</h1>
+<p>我们在 clone 时, 需要输入密码, 以后可能还要输入, 解决方案有两个, 这两个其实就是一个</p>
+<h2>方案1</h2>
+<div class="highlight"><pre><span></span><span class="c1"># 这样以后任何时候都不会再叫你输入账号密码了</span>
+git clone http://用户名:密码@仓库地址
+</pre></div>
+
+
+<h2>方案2</h2>
+<p>这个方案是在没有采用方案1的情况下的不就方案. 
+打开.git目录下config文件, 将url替换为方案1采用的形式即可</p></div>
+        <hr />
+    </div>
+		
+<div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+
+    <li class="active"><a href="http://littlecaptain.net/tag/gogs.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>
+ 
+  
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2017</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

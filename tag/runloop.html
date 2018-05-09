@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - RunLoop</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+
+        
+
+
+    <div class='article'>
+        <div class="content-title">
+            <a href="http://littlecaptain.net/runloop-jiu-zhe-yi-pian.html"><h1>RunLoop 就这一篇</h1></a>
+Wed 10 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ 
+        </div>
+        
+        <div><h1>概念</h1>
+<ul>
+<li>字面意思 : 运行循环</li>
+</ul>
+<p><em>示意图</em></p>
+<p>![](../assets/images/多线程/runloop mode.png)</p>
+<h1>基本作用</h1>
+<ul>
+<li>保持程序的持续运行</li>
+<li>处理App中的各种事件<ul>
+<li>触摸事件</li>
+<li>定时器事件</li>
+<li>Selector事件</li>
+<li>…</li>
+</ul>
+</li>
+<li>节省CPU资源</li>
+<li>提高程序性能, 该做事时做事，该休息时休息</li>
+<li>...</li>
+</ul>
+<h2>如果没有 runloop</h2>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;execute main function&quot;</span><span class="p">);</span> <span class="c1">// 程序开始</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 程序结束</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2>如果有了 runloop</h2>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">BOOL</span> <span class="n">running</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span> <span class="c1">// 程序开始</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="c1">// 执行各种任务，处理各种事件</span>
+             <span class="c1">// ......</span>
+    <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">running</span><span class="p">);</span> <span class="c1">// 持续运行</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<ul>
+<li>main 函数里面启动了 RunLoop ，程序并不会马上退出，保持持续运行状态</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">@autoreleasepool</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">UIApplicationMain</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">,</span> <span class="nb">nil</span><span class="p">,</span> <span class="n">NSStringFromClass</span><span class="p">([</span><span class="n">AppDelegate</span> <span class="k">class</span><span class="p">]));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>解释</p>
+<ul>
+<li>第3行代码的UIApplicationMain函数内部就启动了一个 runloop</li>
+<li>UIApplicationMain函数一直不会返回，保持了程序的持续运行</li>
+<li>这个默认启动的runloop是跟主线程相关联的</li>
+</ul>
+<h1>RunLoop对象</h1>
+<h3>iOS中有2套API来访问和使用RunLoop</h3>
+<ul>
+<li>NSRunLoop<ul>
+<li>Foundation</li>
+<li>NSRunLoop 是基于 CFRunLoopRef 的一层 OC 包装</li>
+</ul>
+</li>
+<li>CFRunLoopRef<ul>
+<li>Core Foundation</li>
+<li>要了解RunLoop内部结构，需要多研究CFRunLoopRef层面的API</li>
+<li>CFRunLoopRef是开源的</li>
+</ul>
+</li>
+<li>NSRunLoop和CFRunLoopRef都代表着RunLoop对象, 可以相互转换</li>
+</ul>
+<h3>获得RunLoop对象</h3>
+<ul>
+<li>Foundation<ul>
+<li>currentRunLoop, 获得当前线程的RunLoop对象</li>
+<li>mainRunLoop, 获得主线程的RunLoop对象</li>
+</ul>
+</li>
+<li>Core Foundation<ul>
+<li>CFRunLoopGetCurrent, 获得当前线程的RunLoop对象</li>
+<li>CFRunLoopGetMain, 获得主线程的RunLoop对象</li>
+</ul>
+</li>
+</ul>
+<h1>RunLoop与线程</h1>
+<ul>
+<li>每条线程都有唯一的一个与之对应的RunLoop对象</li>
+<li>主线程的RunLoop已经自动创建好了</li>
+<li>子线程的RunLoop需要主动创建</li>
+<li>RunLoop在第一次获取时创建，在线程结束时销毁</li>
+</ul>
+<h1>RunLoop相关类</h1>
+<h2>CFRunLoopModeRef</h2>
+<ul>
+<li>RunLoop的运行模式</li>
+<li>一个 RunLoop 包含若干个 Mode</li>
+<li>每个Mode又包含若干个Source/Timer/Observer</li>
+<li>每次RunLoop启动时，只能指定其中一个 Mode，这个Mode被称作 CurrentMode. 这样做主要是为了分隔开不同组的Source/Timer/Observer，让其互不影响</li>
+<li>系统默认注册了5个Mode<ul>
+<li>kCFRunLoopDefaultMode, App的默认Mode，通常主线程是在这个Mode下运行</li>
+<li>UITrackingRunLoopMode, 界面跟踪 Mode，用于 ScrollView 追踪触摸滑动，保证界面滑动时不受其他 Mode 影响</li>
+<li>UIInitializationRunLoopMode, 在刚启动 App 时进入的第一个 Mode，启动完成后就不再使用</li>
+<li>GSEventReceiveRunLoopMode, 接受系统事件的内部 Mode，通常用不到</li>
+<li>kCFRunLoopCommonModes, 这是一个占位用的Mode，不是一种真正的Mode</li>
+</ul>
+</li>
+</ul>
+<h2>CFRunLoopSourceRef</h2>
+<ul>
+<li>事件源（输入源）</li>
+<li>以前的分法<ul>
+<li>Port-Based Sources</li>
+<li>Custom Input Sources</li>
+<li>Cocoa Perform Selector Sources</li>
+</ul>
+</li>
+<li>现在的分法<ul>
+<li>Source0：非基于Port的</li>
+<li>Source1：基于Port的</li>
+</ul>
+</li>
+</ul>
+<h2>CFRunLoopRef</h2>
+<ul>
+<li>代表的是 RunLoop 本身</li>
+</ul>
+<h2>CFRunLoopTimerRef</h2>
+<ul>
+<li>基于时间的触发器</li>
+<li>基本上说的就是NSTimer</li>
+</ul>
+<h2>CFRunLoopObserverRef</h2>
+<ul>
+<li>观察者</li>
+<li>能够监听RunLoop的状态改变</li>
+<li>可以监听的时间点<ul>
+<li>kCFRunLoopEntry, 即将进入Loop</li>
+<li>kCFRunLoopBeforeSources, 即将处理Source</li>
+<li>kCFRunLoopBeforeTimers, 即将处理Timer</li>
+<li>kCFRunLoopBeforeWaiting, 即将进入休眠</li>
+<li>kCFRunLoopAfterWaiting, 刚从休眠中唤醒</li>
+<li>kCFRunLoopExit, 即将退出Loop</li>
+<li>kCFRunLoopAllActivities</li>
+</ul>
+</li>
+</ul>
+<h1>RunLoop处理逻辑</h1>
+<p><em>苹果官方版</em></p>
+<p><img alt="" src="../assets/images/多线程/RunLoop处理逻辑1.png"></p>
+<p><em>网友翻译版</em></p>
+<p><img alt="" src="../assets/images/多线程/RunLoop处理逻辑2.png"></p>
+<p><em>网友整理版</em></p>
+<p><img alt="" src="../assets/images/多线程/RunLoop处理逻辑3.png"></p>
+<h1>RunLoop应用</h1>
+<ul>
+<li>NSTimer</li>
+<li>PerformSelector</li>
+<li>自动释放池</li>
+<li>常驻线程</li>
+</ul>
+<h1>RunLoop问题集锦</h1>
+<h2>什么是RunLoop</h2>
+<ul>
+<li>运行循环</li>
+<li>它内部就是do-while循环，在这个循环内部不断地处理各种任务(Source、Timer)</li>
+<li>一个线程对应一个RunLoop<ul>
+<li>主线程的RunLoop默认已经启动</li>
+<li>子线程的RunLoop得手动启动, 调用run方法</li>
+</ul>
+</li>
+<li>RunLoop只能选择一个Mode启动，如果当前Mode中没有任何Source(Sources0、Sources1)、Timer，那么就直接退出RunLoop</li>
+<li>通过Observer监听RunLoop的状态</li>
+</ul>
+<h2>自动释放池什么时候释放</h2>
+<ul>
+<li>通过Observer监听RunLoop的状态, 一旦监听到RunLoop即将进入睡眠等待状态, 就释放自动释放池(kCFRunLoopBeforeWaiting)释放内部对象, 然后马上创建一个空的新的自动释放池, 便于下次恢复运行直接使用</li>
+<li>kCFRunLoopEntry<ul>
+<li>创建一个自动释放池</li>
+<li>第一次进入runloop的时候, 需要创建自动释放池</li>
+</ul>
+</li>
+<li>kCFRunLoopBeforeWaiting, 销毁自动释放池, 创建一个新的自动释放池</li>
+<li>kCFRunLoopExit, 退出runloop的时候, 需要销毁自动释放池</li>
+</ul>
+<h2>如何使用RunLoop？有哪些应用场景？</h2>
+<ul>
+<li>开启一个常驻线程, 让一个子线程不进入消亡状态，等待其他线程发来消息，处理其他事件</li>
+<li>在子线程中开启一个定时器</li>
+<li>在子线程中进行一些长期监控</li>
+<li>可以控制定时器在特定模式下执行</li>
+<li>可以让某些事件（行为、任务）在特定模式下执行</li>
+<li>可以添加 Observer 监听 RunLoop 的状态, 比如监听点击事件的处理（在所有点击事件之前做一些事情）</li>
+</ul>
+<h1>参考</h1>
+<p><a href="http://blog.ibireme.com/2015/05/18/runloop/">深入理解RunLoop</a></p></div>
+        <hr />
+    </div>
+		
+<div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+
+    <li class="active"><a href="http://littlecaptain.net/tag/runloop.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>
+ 
+  
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2017</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/ios-wang-luo-nsurlconnection.html"><h2>iOS 网络-NSURLConnection</h2></a>
+        <div class= "well small"> Thu 11 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>作用</h1>
+<ul>
+<li>负责发送请求，建立客户端和服务器的连接</li>
+<li>发送数据给服务器，并收集来自服务器的响应数据</li>
+</ul>
+<h1>常用相关类</h1>
+<h2>NSURL</h2>
+<ul>
+<li>请求地址</li>
+<li>有时必须进行百分号转码, 使用方法stringByAddingPercentEscapesUsingEncoding</li>
+</ul>
+<h2>NSURLRequest</h2>
+<ul>
+<li>一个NSURLRequest对象就代表一个请求</li>
+<li>包含的信息<ul>
+<li>请求方法</li>
+<li>请求头</li>
+<li>请求体</li>
+<li>NSURL对象</li>
+<li>请求超时</li>
+<li>...</li>
+</ul>
+</li>
+</ul>
+<h2>NSMutableURLRequest</h2>
+<ul>
+<li>setTimeoutInterval<ul>
+<li>超过这个时间就算超时，请求失败</li>
+<li>设置请求超时等待时间</li>
+</ul>
+</li>
+<li>setHTTPMethod<ul>
+<li>设置请求方法</li>
+<li>GET或POST</li>
+</ul>
+</li>
+<li>setHTTPBody<ul>
+<li>设置请求体</li>
+</ul>
+</li>
+<li>setValue:forHTTPHeaderField:<ul>
+<li>设置请求头</li>
+</ul>
+</li>
+</ul>
+<h1>使用步骤</h1>
+<h2>1. 创建一个NSURL对象</h2>
+<ul>
+<li>设置请求路径</li>
+</ul>
+<h2>2. 创建一个NSURLRequest对象</h2>
+<ul>
+<li>设置<ul>
+<li>NSURL对象</li>
+<li>请求头</li>
+<li>请求体</li>
+</ul>
+</li>
+</ul>
+<h2>3. 发送请求</h2>
+<p>NSURLConnection常见的发送请求方法</p>
+<h2>同步请求</h2>
+<ul>
+<li>sendSynchronousRequest</li>
+</ul>
+<h2>异步请求</h2>
+<h3>根据对服务器返回数据的处理方式的不同，又可以分为2种</h3>
+<h4>block回调 …</h4> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ios-wang-luo-nsurlconnection.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/ios-wang-luo-ji-chu.html"><h2>iOS 网络-基础</h2></a>
+        <div class= "well small"> Thu 11 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>学习网络编程的意义</h1>
+<ul>
+<li>在移动互联网时代，移动应用的特征<ul>
+<li>几乎所有应用都需要用到网络</li>
+<li>只有通过网络跟外界进行数据交互、数据更新，应用才能保持新鲜、活力</li>
+<li>如果没有了网络，也就缺少了数据变化，无论外观多么华丽，终将变成一潭死水</li>
+</ul>
+</li>
+<li>网络编程是一种实时更新应用数据的常用手段</li>
+<li>网络编程是开发优秀网络应用的前提和基础</li>
+</ul>
+<h1>优秀移动应用的标准</h1>
+<ul>
+<li>良好的UI</li>
+<li>良好的用户体验</li>
+<li>实时更新的数据</li>
+</ul>
+<h1>App 分类</h1>
+<ul>
+<li>新闻</li>
+<li>视频</li>
+<li>音乐</li>
+<li>LBS</li>
+<li>电商</li>
+<li>社交</li>
+</ul>
+<h1>网络基本概念</h1>
+<h2>Client</h2>
+<ul>
+<li>客户端</li>
+<li>移动应用</li>
+</ul>
+<h2>Server</h2>
+<ul>
+<li>服务器</li>
+<li>为客户端提供服务、提供数据、提供资源的机器</li>
+</ul>
+<h3>按照软件开发阶段来分，服务器可以大致分为2种</h3>
+<h4>远程服务器</h4>
+<ul>
+<li>别名<ul>
+<li>外网服务器</li>
+<li>正式服务器</li>
+</ul>
+</li>
+<li>使用阶段, 应用上线后使用的服务器</li>
+<li>使用人群, 供全体用户使用</li>
+<li>速度, 取决于服务器的性能、用户的网速</li>
+</ul>
+<h4>本地服务器</h4>
+<ul>
+<li>别名 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ios-wang-luo-ji-chu.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/linux-ren-wu-guan-li.html"><h2>Linux 任务管理</h2></a>
+        <div class= "well small"> Thu 11 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>&amp;</h1>
+<ul>
+<li>加在命令后, 把这个任务放入到后台执行</li>
+</ul>
+<h1>ctrl + z</h1>
+<ul>
+<li>可以将正在前台执行的命令放入后台, 并处于暂停状态</li>
+</ul>
+<h1>ctrl + c</h1>
+<ul>
+<li>终止前台进程</li>
+</ul>
+<h1>jobs</h1>
+<ul>
+<li>查看当前有多少在后台运行的任务</li>
+<li>jobs -l选项可显示所有任务的PID，jobs的状态可以是running, stopped, Terminated。但是如果任务被终止了（kill），shell 从当前的shell环境已知的列表中删除任务的进程标识。</li>
+</ul>
+<h1>fg</h1>
+<ul>
+<li>将后台中的命令调至前台继续运行。如果后台中有多个命令，可以用fg %jobnumber（是命令编号，不是进程号）将选中的命令调出</li>
+</ul>
+<h1>bg</h1>
+<ul>
+<li>将一个在后台暂停的命令，变成在后台继续执行。如果后台中有多个命令，可以用bg %jobnumber将选中的命令调出</li>
+</ul>
+<h1>kill</h1>
+<ul>
+<li>通过jobs命令查看job号（假设为num），然后执行kill %num</li>
+<li>通过ps命令查看job的进程号（PID，假设为pid），然后执行kill pid</li>
+</ul>
+<h1>nohup</h1>
+<ul>
+<li>如果让程序始终在后台执行，即使关闭当前的终端也执行（之前的&amp;做不到），这时候需要nohup …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/linux-ren-wu-guan-li.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/nodejs-gai-shu.html"><h2>Node.js 概述</h2></a>
+        <div class= "well small"> Thu 11 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>V8引擎</h1>
+<ul>
+<li>用于Chrome浏览器的 JS 解释部分</li>
+<li>没有历史包袱，没有同步I/O。不会出现一个同步I/O导致事件循环性能急剧降低的情况。</li>
+<li>V8性能足够好，远远比Python、Ruby等其他脚本语言的引擎快。</li>
+<li>JavaScript语言的闭包特性非常方便，比C中的回调函数好用。</li>
+</ul>
+<h1>总览</h1>
+<ul>
+<li>Node.js是一个让JavaScript运行在服务器端的开发平台</li>
+<li>Node就是一个js的执行环境</li>
+<li>Node.js不是一种独立的语言，与PHP、JSP、Python、Perl、Ruby的“既是语言，也是平台”不同，Node.js使用JavaScript进行编程，运行在JavaScript引擎上（V8）</li>
+<li>与PHP、JSP等相比，Node.js跳过了Apache、Naginx、IIS等HTTP服务器，它自己不用建设在任何服务器软件之上。Node.js的许多设计理念与经典架构（LAMP）有着很大的不同，可以提供强大的伸缩能力。</li>
+<li>Node.js哲学，花最小的硬件成本，追求更高的并发，更高的处理性能。</li>
+<li>Node …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/nodejs-gai-shu.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/runloop-jiu-zhe-yi-pian.html"><h2>RunLoop 就这一篇</h2></a>
+        <div class= "well small"> Wed 10 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>概念</h1>
+<ul>
+<li>字面意思 : 运行循环</li>
+</ul>
+<p><em>示意图</em></p>
+<p>![](../assets/images/多线程/runloop mode.png)</p>
+<h1>基本作用</h1>
+<ul>
+<li>保持程序的持续运行</li>
+<li>处理App中的各种事件<ul>
+<li>触摸事件</li>
+<li>定时器事件</li>
+<li>Selector事件</li>
+<li>…</li>
+</ul>
+</li>
+<li>节省CPU资源</li>
+<li>提高程序性能, 该做事时做事，该休息时休息</li>
+<li>...</li>
+</ul>
+<h2>如果没有 runloop</h2>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;execute main function&quot;</span><span class="p">);</span> <span class="c1">// 程序开始</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// 程序结束</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2>如果有了 runloop</h2>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="kt">BOOL</span> <span class="n">running</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span> <span class="c1">// 程序开始</span>
+    <span class="k">do</span> <span class="p">{</span>
+        <span class="c1">// 执行各种任务 …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/runloop-jiu-zhe-yi-pian.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/duo-xian-cheng-nsoperationzong-jie.html"><h2>多线程-NSOperation总结</h2></a>
+        <div class= "well small"> Wed 10 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>概述</h1>
+<ul>
+<li>配合使用 NSOperation 和 NSOperationQueue 也能实现多线程编程</li>
+</ul>
+<h2>NSOperation 是个抽象类</h2>
+<ul>
+<li>不具备封装操作的能力，必须使用它的子类</li>
+<li>使用 NSOperation 子类的方式有3种<ul>
+<li>NSInvocationOperation</li>
+<li>NSBlockOperation</li>
+<li>自定义子类继承 NSOperation<br>将任务封装到内部的 main 方法中</li>
+</ul>
+</li>
+</ul>
+<h1>实现多线程的具体步骤</h1>
+<ul>
+<li>将需要执行的操作封装到一个 NSOperation 对象中</li>
+<li>将 NSOperation 对象添加到 NSOperationQueue 中</li>
+<li>系统会自动将 NSOperationQueue 中的 NSOperation 取出来</li>
+<li>将取出的 NSOperation 封装的操作放到一条新线程中执行</li>
+</ul>
+<h1>具体使用</h1>
+<h2>NSInvocationOperation</h2>
+<ul>
+<li>创建NSInvocationOperation对象<ul>
+<li>alloc</li>
+<li>initWithTarget</li>
+</ul>
+</li>
+<li>调用start方法开始执行操作<ul>
+<li>start</li>
+<li>一旦执行操作，就会调用target的sel方法</li>
+</ul>
+</li>
+<li>注意<ul>
+<li>默认情况下，调用了start方法后并不会开一条新线程去执行操作，而是在当前线程同步执行操作 …</li></ul></li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-nsoperationzong-jie.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/duo-xian-cheng-gcdzong-jie.html"><h2>多线程-GCD总结</h2></a>
+        <div class= "well small"> Wed 10 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>简介</h1>
+<ul>
+<li>全称是Grand Central Dispatch，可译为“宏大的中枢调度器”</li>
+<li>纯C语言，提供了非常多强大的函数</li>
+</ul>
+<h2>GCD的优势</h2>
+<ul>
+<li>苹果公司为多核的并行运算提出的解决方案</li>
+<li>自动利用更多的CPU内核</li>
+<li>自动管理线程的生命周期<ul>
+<li>创建线程</li>
+<li>调度任务</li>
+<li>销毁线程</li>
+</ul>
+</li>
+<li>使用方便 : 程序员只需要告诉GCD想要执行什么任务，不需要编写任何线程管理代码</li>
+</ul>
+<h1>核心概念</h1>
+<h2>任务</h2>
+<ul>
+<li>执行什么操作</li>
+</ul>
+<h2>队列</h2>
+<ul>
+<li>用来存放任务</li>
+</ul>
+<h3>类型</h3>
+<ul>
+<li>并发队列<ul>
+<li>Concurrent Dispatch Queue</li>
+<li>可以让多个任务并发（同时）执行</li>
+<li>自动开启多个线程同时执行任务</li>
+<li>并发功能只有在异步（dispatch_async）函数下才有效</li>
+</ul>
+</li>
+<li>串行队列<ul>
+<li>Serial Dispatch Queue</li>
+<li>让任务一个接着一个地执行</li>
+<li>一个任务执行完毕后，再执行下一个任务</li>
+</ul>
+</li>
+</ul>
+<h2>同步和异步</h2>
+<ul>
+<li>同步<ul>
+<li>只能在当前线程中执行任务</li>
+<li>不具备开启新线程的能力</li>
+</ul>
+</li>
+<li>异步<ul>
+<li>可以在新的线程中执行任务</li>
+<li>具备开启新线程的能力</li>
+</ul>
+</li>
+</ul>
+<h1>容易混淆的术语 …</h1> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-gcdzong-jie.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/duo-xian-cheng-nsthreadde-shi-yong.html"><h2>多线程-NSThread的使用</h2></a>
+        <div class= "well small"> Wed 10 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>一个NSThread对象就代表一条线程</p>
+<h1>使用步骤</h1>
+<h2>1. 创建线程</h2>
+<ul>
+<li>init<ul>
+<li>具体使用: 自定义线程类继承自NSThread, 重写 main 方法(自定义任务、start 方法中会调用 main 方法)</li>
+</ul>
+</li>
+<li>initWithTarget</li>
+</ul>
+<h2>2. 启动线程</h2>
+<ul>
+<li>start<ul>
+<li>必须要启动, 不然任务不会执行</li>
+</ul>
+</li>
+</ul>
+<h1>相关方法</h1>
+<h2>主线程相关</h2>
+<ul>
+<li>mainThread : 获取主线程</li>
+<li>isMainThread : 类方法</li>
+<li>isMainThread : 对象方法</li>
+</ul>
+<h2>其他方法</h2>
+<ul>
+<li>currentThread : 获取当前所在线程</li>
+<li>setName : 设置线程名</li>
+<li>name : 获取线程名</li>
+</ul>
+<h2>其他创建线程方式</h2>
+<ul>
+<li>
+<p>detachNewThreadSelector</p>
+<ul>
+<li>创建线程后自动启动线程</li>
+<li>分离出子线程</li>
+</ul>
+</li>
+<li>
+<p>performSelectorInBackground</p>
+<ul>
+<li>隐式创建并启动线程</li>
+<li>后台线程</li>
+</ul>
+</li>
+<li>
+<p>2种创建线程方式的优缺点</p>
+<ul>
+<li>优点 : 简单快捷</li>
+<li>缺点 : 无法拿到线程对象, 无法对线程进行更详细的设置</li>
+</ul>
+</li>
+</ul>
+<h1>控制线程状态 …</h1> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-nsthreadde-shi-yong.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/duo-xian-cheng-xian-cheng-jian-tong-xin.html"><h2>多线程-线程间通信</h2></a>
+        <div class= "well small"> Wed 10 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>概念</h1>
+<p>在1个进程中，线程往往不是孤立存在的，多个线程之间需要经常进行通信</p>
+<h1>具体应用</h1>
+<ul>
+<li>1个线程传递数据给另1个线程</li>
+<li>在1个线程中执行完特定任务后，转到另1个线程继续执行任务</li>
+</ul>
+<h1>线程间通信常用方法</h1>
+<ul>
+<li>performSelectorOnMainThread</li>
+<li>performSelector: onThread:</li>
+<li>GCD 中直接通过线程嵌套来实现</li>
+</ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-xian-cheng-jian-tong-xin.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/duo-xian-cheng-an-quan-yin-huan.html"><h2>多线程-安全隐患</h2></a>
+        <div class= "well small"> Tue 09 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>资源共享问题</h1>
+<ul>
+<li>1块资源可能会被多个线程共享，也就是多个线程可能会访问同一块资源</li>
+<li>比如: 多个线程访问同一个对象、同一个变量、同一个文件</li>
+<li>当多个线程访问同一块资源时，很容易引发数据错乱和数据安全问题</li>
+</ul>
+<h1>问题分析与解决</h1>
+<h2>不加锁</h2>
+<p><img alt="" src="../assets/images/多线程/不加锁.png"></p>
+<h2>安全隐患解决</h2>
+<h3>加互斥锁</h3>
+<p><img alt="" src="../assets/images/多线程/加互斥锁.png"></p>
+<h3>互斥锁使用</h3>
+<ul>
+<li>@synchronized(锁对象) {// 需要锁定的代码}</li>
+<li>锁定1份代码只用1把锁，用多把锁是无效的</li>
+<li>使用注意点<ul>
+<li>注意加锁的位置</li>
+<li>注意加锁的前提条件 : 多条线程共享同一块资源</li>
+<li>注意加锁是需要代价的 : 需要耗费性能</li>
+<li>加锁的结果 : 线程同步了</li>
+</ul>
+</li>
+</ul>
+<h3>互斥锁的优缺点</h3>
+<ul>
+<li>优点 : 能有效防止因多线程抢夺资源造成的数据安全问题</li>
+<li>缺点 : 需要消耗大量的CPU资源</li>
+</ul>
+<h3>什么时候使用互斥锁</h3>
+<ul>
+<li>多条线程抢夺同一块资源</li>
+</ul>
+<h3>线程同步</h3>
+<ul>
+<li>多条线程在同一条线上执行（按顺序地执行任务）</li>
+<li>互斥锁，就是使用了线程同步技术</li>
+</ul>
+<h1>原子和非原子属性</h1>
+<h2>atomic</h2>
+<ul>
+<li>原子属性</li>
+<li>为setter方法加锁（默认就是atomic）</li>
+</ul>
+<h2>nonatomic</h2>
+<ul>
+<li>非原子属性</li>
+<li>不会为setter方法加锁</li>
+</ul>
+<h2>原子和非原子属性的选择</h2>
+<h3>nonatomic和atomic对比</h3>
+<ul>
+<li>atomic …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-an-quan-yin-huan.html">read more</a></div>
+    </div>	
+				
+<div class="pagination">
+<ul>
+    <li class="prev"><a href="http://littlecaptain.net/index8.html">&larr; Previous</a></li>
+
+    <li class=""><a href="http://littlecaptain.net/index.html">1</a></li>
+    <li class=""><a href="http://littlecaptain.net/index2.html">2</a></li>
+    <li class=""><a href="http://littlecaptain.net/index3.html">3</a></li>
+    <li class=""><a href="http://littlecaptain.net/index4.html">4</a></li>
+    <li class=""><a href="http://littlecaptain.net/index5.html">5</a></li>
+    <li class=""><a href="http://littlecaptain.net/index6.html">6</a></li>
+    <li class=""><a href="http://littlecaptain.net/index7.html">7</a></li>
+    <li class=""><a href="http://littlecaptain.net/index8.html">8</a></li>
+    <li class="active"><a href="http://littlecaptain.net/index9.html">9</a></li>
+    <li class=""><a href="http://littlecaptain.net/index10.html">10</a></li>
+    <li class=""><a href="http://littlecaptain.net/index11.html">11</a></li>
+
+    <li class="next"><a href="http://littlecaptain.net/index10.html">Next &rarr;</a></li>
+
+</ul>
+</div>
+ 
+  
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2018</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

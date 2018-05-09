@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/php-kai-fa-app-jie-kou.html"><h2>PHP 开发 App 接口</h2></a>
+        <div class= "well small"> Mon 08 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>App接口简介</h1>
+<h2>App接口介绍</h2>
+<ul>
+<li>App(通信)接口定义</li>
+<li>接口地址: url</li>
+<li>接口文件: 服务器php文件(处理一些业务逻辑) </li>
+<li>接口数据: 服务器返回的json、xml</li>
+</ul>
+<h2>App如何进行通信</h2>
+<p><img alt="" src="../assets/images/php/CS交互.png"></p>
+<h2>通信格式区别(json、xml对比)</h2>
+<ul>
+<li>可读性方面: xml有更清晰的结构</li>
+<li>生成数据方面: json更简单易用</li>
+<li>传输速度方面: json更节省流量</li>
+</ul>
+<h2>App接口做的哪些事儿</h2>
+<ul>
+<li>获取数据: 从数据库中或缓存中获取数据, 然后通过接口数据返回给客户端</li>
+<li>提交数据: 通过接口提交数据给服务器, 然后服务器入库处理, 或其他处理</li>
+</ul>
+<h1>封装通信接口方法</h1>
+<h2>JSON方式封装接口数据方法</h2>
+<ul>
+<li>PHP生成JSON数据: json_encode(只接受 uft-8 编码)</li>
+<li>通信数据标准格式的必要字段<ul>
+<li>code: 状态码</li>
+<li>message: 提示信息(数据返回成功、 邮箱格式不正确等等) </li>
+<li>data: 具体数据</li>
+</ul>
+</li>
+</ul>
+<h2>XML方式封装接口数据方法</h2>
+<ul>
+<li>PHP生成XML数据<ul>
+<li>方式1 …</li></ul></li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/php-kai-fa-app-jie-kou.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/wang-luo-mo-xing.html"><h2>网络模型</h2></a>
+        <div class= "well small"> Sun 07 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>OSI七层模型</h1>
+<h2>1. 应用层</h2>
+<ul>
+<li>数据单位: APDU</li>
+<li>作用: 针对用户(应用程序)</li>
+</ul>
+<h2>2. 表示层</h2>
+<ul>
+<li>数据单位: PPDU</li>
+<li>作用: 数据的编码、加密和解压缩等</li>
+</ul>
+<h2>3. 会话层</h2>
+<ul>
+<li>数据单位: SPDU</li>
+<li>作用: 确定数据是否向下传递</li>
+</ul>
+<h2>4. 传输层</h2>
+<ul>
+<li>数据单位: TPDU</li>
+<li>作用: 确定数据是否可靠; 确定网络端口是否可靠; 查错、校验; 流量控制等等</li>
+</ul>
+<h2>5. 网络层</h2>
+<ul>
+<li>数据单位: 报文, 报文中有 IP 地址</li>
+<li>作用: 确定IP地址编码</li>
+</ul>
+<h2>6. 数据链路层</h2>
+<ul>
+<li>数据单位: 帧, 帧中最重要的数据就是MAC地址</li>
+<li>作用: MAC地址编码</li>
+</ul>
+<h2>7. 物理层</h2>
+<ul>
+<li>数据单位 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/wang-luo-mo-xing.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/wang-luo-ji-ben-gai-nian.html"><h2>网络基本概念</h2></a>
+        <div class= "well small"> Sun 07 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h2>物理地址</h2>
+<ul>
+<li>又名: MAC地址, 网卡硬件地址</li>
+<li>作用: 用于局域网内的通信</li>
+<li>48位</li>
+</ul>
+<h2>IP地址</h2>
+<ul>
+<li>IP 协议: Internet Protocol</li>
+<li>IP 协议版本: IPv4(不定长包头、解析耗时); IPv6(定长包头)</li>
+<li>32位: 8位一组共4组(X1.X2.X3.X4, 0.0.0.0-&gt;255.255.255.255)</li>
+<li>分类<ul>
+<li>用 IP 的第一位对网络进行分类</li>
+<li>每个网段的主机数用子网掩码确定</li>
+<li>每个网络的第一个地址代表网络本身</li>
+<li>每个网络的最后一个地址代表网络的广播地址(广播地址是专门用于同时向网络中所有工作站进行发送的一个地址)</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="../assets/images/网络/IP地址分类.png"></p>
+<ul>
+<li>子网掩码</li>
+</ul>
+<p><img alt="" src="../assets/images/网络/子网掩码的使用.png"></p>
+<p><img alt="" src="../assets/images/网络/变长子网掩码及子网规划.png"></p>
+<h2>端口</h2>
+<ul>
+<li>属于传输层: 在传输层包头中(TCP头, UDP头)</li>
+<li>
+<p>端口号</p>
+<ul>
+<li>IP全球唯一类似于门牌号: 确定服务器位置 …</li></ul></li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/wang-luo-ji-ben-gai-nian.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/ios-kai-fa-zhong-de-ge-chong-chi-cun.html"><h2>iOS 开发中的各种尺寸</h2></a>
+        <div class= "well small"> Sun 07 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><em>iPhone系列屏幕大小</em></p>
+<table>
+<thead>
+<tr>
+<th align="center">2G, 3G, 3GS</th>
+<th align="center">4, 4s</th>
+<th align="center">5, 5s</th>
+<th align="center">6, 6s</th>
+<th align="center">6 Plus 6s Plus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">320 x 480</td>
+<td align="center">320 x 480</td>
+<td align="center">320 x 568</td>
+<td align="center">375 x 667</td>
+<td align="center">414x736</td>
+</tr>
+<tr>
+<td align="center">1x</td>
+<td align="center">2x</td>
+<td align="center">2x</td>
+<td align="center">2x</td>
+<td align="center">3x</td>
+</tr>
+</tbody>
+</table>
+<p><em>App Icon</em></p>
+<p>| Device or context |   Icon size |
+| :-: | :-: | :-: |
+| iPhone 6s Plus, iPhone 6 Plus | 180px by 180px |
+| iPhone 6s …</p> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ios-kai-fa-zhong-de-ge-chong-chi-cun.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/da-jian-git-fu-wu-qi.html"><h2>搭建 git 服务器</h2></a>
+        <div class= "well small"> Sun 07 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h2>准备篇</h2>
+<h3>服务器</h3>
+<ul>
+<li>创建git专用账户git</li>
+</ul>
+<div class="highlight"><pre><span></span>sudo adduser --system --shell /bin/bash --user-group git <span class="c1"># CentOS</span>
+sudo adduser git ssh
+sudo passwd git  
+</pre></div>
+
+
+<ul>
+<li>修改git账户的home目录(有需求才改)</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># 当然可以直接修改/etc/passwd文件</span>
+usermod -d /tmp git
+</pre></div>
+
+
+<ul>
+<li>安装相关软件(在任何账户都可)</li>
+</ul>
+<div class="highlight"><pre><span></span>sudo apt-get update
+sudo apt-get install git-core openssh-server openssh-client
+sudo apt-get install python-setuptools
+</pre></div>
+
+
+<ul>
+<li>
+<p>进入<code>git账户</code>, 安装gitosis</p>
+</li>
+<li>
+<p>1.获取</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span>git clone …</pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/da-jian-git-fu-wu-qi.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/fen-bu-shi-git-gong-zuo-liu-cheng.html"><h2>分布式 git - 工作流程</h2></a>
+        <div class= "well small"> Sun 07 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h3>集中式工作流</h3>
+<ul>
+<li>
+<p>集中式系统中通常使用的是单点协作模型 - 集中式工作流。 一个中心集线器，或者说仓库，可以接受代码，所有人将自己的工作与之同步。 若干个开发者则作为节点 - 也就是中心仓库的消费者 - 并且与其进行同步。</p>
+</li>
+<li>
+<p>如果两个开发者从中心仓库克隆代码下来，同时作了一些修改，那么只有第一个开发者可以顺利地把数据推送回共享服务器。 第二个开发者在推送修改之前，必须先将第一个人的工作合并进来，这样才不会覆盖第一个人的修改。 这和 Subversion (或任何 CVCS)中的概念一样，而且这个模式也可以很好地运用到 Git 中。</p>
+</li>
+</ul>
+<p><img alt="" src="../assets/images/git/git常用命令-09.png"></p>
+<h3>集成管理者工作流</h3>
+<ul>
+<li>每个开发者拥有自己仓库的写权限和其他所有人仓库的读权限。 这种情形下通常会有个代表“官方”项目的权威的仓库。 要为这个项目做贡献，你需要从该项目克隆出一个自己的公开仓库，然后将自己的修改推送上去。 接着你可以请求官方仓库的维护者拉取更新合并到主项目。 维护者可以将你的仓库作为远程仓库添加进来，在本地测试你的变更，将其合并入他们的分支并推送回官方仓库。 整个流程看起来是这样的: </li>
+<li>项目维护者推送到主仓库。</li>
+<li>贡献者克隆此仓库，做出修改。</li>
+<li>贡献者将数据推送到自己的公开仓库。</li>
+<li>贡献者给维护者发送邮件，请求拉取自己的更新。</li>
+<li>维护者在自己本地的仓库中，将贡献者的仓库加为远程仓库并合并修改。</li>
+<li>维护者将合并后的修改推送到主仓库。</li>
+</ul>
+<blockquote>
+<p>这是 GitHub 和 GitLab …</p></blockquote> <a class="btn btn-info xsmall" href="http://littlecaptain.net/fen-bu-shi-git-gong-zuo-liu-cheng.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/git-chang-yong-ming-ling.html"><h2>git 常用命令</h2></a>
+        <div class= "well small"> Sun 07 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><em>git核心命令工作示意图</em></p>
+<p><img alt="" src="../assets/images/git/git常用命令-01.png"></p>
+<p><img alt="" src="../assets/images/git/git常用命令-02.png"></p>
+<p><img alt="" src="../assets/images/git/git常用命令-03.png"></p>
+<ul>
+<li>git帮助</li>
+</ul>
+<div class="highlight"><pre><span></span>git <span class="nb">help</span> &lt;verb&gt;
+git &lt;verb&gt; --help
+man git-&lt;verb&gt;
+git <span class="nb">help</span>
+git <span class="nb">help</span> 其他指令
+</pre></div>
+
+
+<ul>
+<li>初始化一个本地仓库，生成一个.git目录，用于维护版本信息</li>
+</ul>
+<div class="highlight"><pre><span></span># 初始化可以在一个空文件执行, 也可以在一个非空文件执行
+git init
+git init 仓库路径
+# 初始化共享仓库, 共享仓库不能直接操作, 必须clone到本地
+git init --bare
+# Git 会自动修改该仓库目录的组权限为可写
+git init --bare --shared
+</pre></div>
+
+
+<ul>
+<li>克隆远程仓库到本地</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># 下载远程仓库到当前路径</span>
+git clone 仓库的URL
+<span class="c1"># 下载远程仓库到特定路径</span>
+git clone 仓库的URL 存放仓库的路径
+<span class="c1"># 克隆时 …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/git-chang-yong-ming-ling.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/block-zong-jie.html"><h2>Block 总结</h2></a>
+        <div class= "well small"> Sat 06 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h2>基本概念</h2>
+<ul>
+<li>Block 即<code>带有</code>自动变量(<code>局部变量</code>)的<code>匿名函数</code></li>
+<li>Block <code>提供</code>了类似由 C++ 和 Objective-C 类生成实例或对象来<code>保持变量值的能力</code></li>
+<li>Block 其实就是一个<code>代码块</code>，把你想要执行的代码封装在这个代码块里，等到需要的时候再去调用</li>
+<li>Block 是 <code>OC 对象</code>. OC 对象? 好像不对? Block 不是函数指针吗? 如果 Block 是函数指针, 那么还有必要把 Block 从栈区拷贝到堆区吗? 还能使用 copy 关键字修饰 Block 属性吗? 用事实说话好吧!</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1">// 通过使用 OC 运行时机制, 打印出 全局 Block 的继承链</span>
+<span class="p">-</span> <span class="p">(</span><span class="kt">void …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/block-zong-jie.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/hello-blog.html"><h2>Hello Blog</h2></a>
+        <div class= "well small"> Sat 06 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>拿来说说</h1>
+<p>在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。</p>
+<h1>用到了什么</h1>
+<ul>
+<li><code>Pelican</code><ul>
+<li>简单易用</li>
+</ul>
+</li>
+<li><code>github page</code><ul>
+<li>方便, github 仓库直接管理</li>
+</ul>
+</li>
+</ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/hello-blog.html">read more</a></div>
+    </div>	
+				
+<div class="pagination">
+<ul>
+    <li class="prev"><a href="http://littlecaptain.net/index10.html">&larr; Previous</a></li>
+
+    <li class=""><a href="http://littlecaptain.net/index.html">1</a></li>
+    <li class=""><a href="http://littlecaptain.net/index2.html">2</a></li>
+    <li class=""><a href="http://littlecaptain.net/index3.html">3</a></li>
+    <li class=""><a href="http://littlecaptain.net/index4.html">4</a></li>
+    <li class=""><a href="http://littlecaptain.net/index5.html">5</a></li>
+    <li class=""><a href="http://littlecaptain.net/index6.html">6</a></li>
+    <li class=""><a href="http://littlecaptain.net/index7.html">7</a></li>
+    <li class=""><a href="http://littlecaptain.net/index8.html">8</a></li>
+    <li class=""><a href="http://littlecaptain.net/index9.html">9</a></li>
+    <li class=""><a href="http://littlecaptain.net/index10.html">10</a></li>
+    <li class="active"><a href="http://littlecaptain.net/index11.html">11</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>
+ 
+  
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2018</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

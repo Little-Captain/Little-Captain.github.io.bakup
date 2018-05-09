@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - 多线程-NSOperation总结</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>多线程-NSOperation总结</h1>
+Wed 10 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+        </div>
+	
+        <div><h1>概述</h1>
+<ul>
+<li>配合使用 NSOperation 和 NSOperationQueue 也能实现多线程编程</li>
+</ul>
+<h2>NSOperation 是个抽象类</h2>
+<ul>
+<li>不具备封装操作的能力，必须使用它的子类</li>
+<li>使用 NSOperation 子类的方式有3种<ul>
+<li>NSInvocationOperation</li>
+<li>NSBlockOperation</li>
+<li>自定义子类继承 NSOperation<br>将任务封装到内部的 main 方法中</li>
+</ul>
+</li>
+</ul>
+<h1>实现多线程的具体步骤</h1>
+<ul>
+<li>将需要执行的操作封装到一个 NSOperation 对象中</li>
+<li>将 NSOperation 对象添加到 NSOperationQueue 中</li>
+<li>系统会自动将 NSOperationQueue 中的 NSOperation 取出来</li>
+<li>将取出的 NSOperation 封装的操作放到一条新线程中执行</li>
+</ul>
+<h1>具体使用</h1>
+<h2>NSInvocationOperation</h2>
+<ul>
+<li>创建NSInvocationOperation对象<ul>
+<li>alloc</li>
+<li>initWithTarget</li>
+</ul>
+</li>
+<li>调用start方法开始执行操作<ul>
+<li>start</li>
+<li>一旦执行操作，就会调用target的sel方法</li>
+</ul>
+</li>
+<li>注意<ul>
+<li>默认情况下，调用了start方法后并不会开一条新线程去执行操作，而是在当前线程同步执行操作</li>
+<li>只有将NSOperation放到一个NSOperationQueue中，才会异步执行操作</li>
+</ul>
+</li>
+</ul>
+<h2>NSBlockOperation</h2>
+<ul>
+<li>创建NSBlockOperation对象, blockOperationWithBlock</li>
+<li>通过addExecutionBlock:方法添加更多的操作, addExecutionBlock</li>
+<li>注意 : 只要一个NSBlockOperation对象封装的操作数 &gt; 1，就会异步执行操作</li>
+</ul>
+<h2>NSOperationQueue</h2>
+<ul>
+<li>作用<ul>
+<li>NSOperation可以调用start方法来执行任务，但默认是同步执行的</li>
+<li>如果将NSOperation添加到NSOperationQueue（操作队列）中，系统会自动异步执行NSOperation中的操作</li>
+</ul>
+</li>
+<li>添加操作到NSOperationQueue中<ul>
+<li>addOperation, 内部调用 start 方法, start 方法内部会去调用 main 方法</li>
+<li>addOperationWithBlock</li>
+</ul>
+</li>
+</ul>
+<h2>最大并发数</h2>
+<ul>
+<li>同时执行的最大任务数, 同时开3个线程执行3个任务，并发数就是3</li>
+<li>相关方法<ul>
+<li>maxConcurrentOperationCount</li>
+<li>setMaxConcurrentOperationCount</li>
+</ul>
+</li>
+</ul>
+<h2>操作的取消、暂停、恢复</h2>
+<ul>
+<li>cancelAllOperations, 取消队列的所有操作</li>
+<li>也可以调用NSOperation的cancel方法取消单个操作</li>
+<li>setSuspended<ul>
+<li>YES代表暂停队列</li>
+<li>NO代表恢复队列</li>
+</ul>
+</li>
+<li>isSuspended, 测试是否暂停</li>
+</ul>
+<h1>其他使用</h1>
+<h2>操作依赖</h2>
+<ul>
+<li>NSOperation之间可以设置依赖来保证执行顺序<ul>
+<li>addDependency, 调用者依赖于参数</li>
+<li>可以在不同queue的NSOperation之间创建依赖关系</li>
+<li>不能相互依赖, 比如A依赖B，B依赖A</li>
+</ul>
+</li>
+</ul>
+<h2>操作的监听</h2>
+<ul>
+<li>监听一个操作的执行完毕</li>
+<li>操作的属性, completionBlock</li>
+</ul>
+<h2>自定义NSOperation</h2>
+<ul>
+<li>继承NSOperation创建自己的类</li>
+<li>重写main方法, 将任务封装到这个main方法中</li>
+<li>重写注意点<ul>
+<li>自己创建自动释放池, 因为如果是异步操作，无法访问主线程的自动释放池</li>
+<li>通过isCancelled方法检测操作是否被取消，对取消做出响应</li>
+</ul>
+</li>
+</ul>
+<h1>例子 : 自定义NSOperation下载图片</h1>
+<p><em>无沙盒缓存</em></p>
+<p><img alt="" src="../assets/images/多线程/无沙盒缓存.png"></p>
+<p><em>有沙盒缓存</em></p>
+<p><img alt="" src="../assets/images/多线程/有沙盒缓存.png"></p></div>
+	
+        <hr>
+
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2018</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

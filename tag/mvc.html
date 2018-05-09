@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - MVC</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+
+        
+
+
+    <div class='article'>
+        <div class="content-title">
+            <a href="http://littlecaptain.net/liao-liao-ios-de-mvc-jia-gou.html"><h1>聊聊 iOS 的 MVC 架构</h1></a>
+Tue 09 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ 
+        </div>
+        
+        <div><h1>内容提要</h1>
+<p>这篇博文, 聊的是软件架构, 主要是 iOS 中的 MVC 架构.</p>
+<h1>架构基础</h1>
+<h2>架构的目的</h2>
+<ul>
+<li>解耦.</li>
+<li>类之间, 模块之间, 要交互, 就会有耦合. 我们的目标就是将耦合降到最低</li>
+<li>问题来了, 为什么要解耦呢? 解耦后的好处是什么? 个人总结两点: 1. 方便类和模块的重用; 2. 清晰化类之间、模块之间的逻辑关系, 便于维护、扩展</li>
+</ul>
+<h2>一些基本设计模式</h2>
+<p>在理解 MVC 这个复合设计模式之前, 有必要对下面的这些基本设计模式有一定的理解.</p>
+<ul>
+<li>代理(Delegate)</li>
+<li>通知(Notification)</li>
+<li>键值观察(KVO)</li>
+<li>目标动作(Target-Action)</li>
+<li>...</li>
+</ul>
+<h1>MVC</h1>
+<p>M : Model, 模型. 存放数据
+V : View, 视图. 用户所见, 能给与用户进行交互
+C : Controller, 控制器. 处理用户的交互逻辑、处理网络相关逻辑、处理 Model 和 View 的通信逻辑...</p>
+<p>下面针对苹果推荐使用的 MVC 设计模式, 给出三张示意图, 这三张图的侧重点不同, 有助于深刻理解 MVC 设计模式.</p>
+<p><em>典型 MVC</em></p>
+<p><img alt="" src="../assets/images/架构/典型MVC.png"></p>
+<p>实线表示持有, 有强指针引用.
+虚线表示未持有, 没有强指针引用.</p>
+<p>解释:</p>
+<ul>
+<li>Controller 直接强引用 Model 和 View<ul>
+<li>能对它们进行修改</li>
+<li>协调二者之间的通信</li>
+</ul>
+</li>
+<li>Model 改变时, Controller 通过 KVO 监听这种改变</li>
+<li>View 与用户发生交互时, 通过 Target-Action, 在 Controller 中处理用户的交互</li>
+</ul>
+<p><em>苹果官方 MVC</em></p>
+<p><img alt="" src="../assets/images/架构/苹果MVC.png"></p>
+<p>苹果官方的 MVC 架构图, 能理解这幅图, 苹果提供框架的基本使用绝对不是问题, 因为苹果是严格遵守这幅图里面的所有内容的</p>
+<p>解释:</p>
+<ul>
+<li>看到中间的三角叉了吧. <ul>
+<li>它对三者间的通信有一个基本的限制. </li>
+<li>白色虚线和白色实线表示虚线方可以引用非虚线方, 反之则不行. </li>
+<li>黄色双实线表示禁止双方进行任何引用和通信</li>
+</ul>
+</li>
+<li>Controller 和 Model 间的通信. <ul>
+<li>Notification</li>
+<li>KVO</li>
+</ul>
+</li>
+<li>Controller 和 View 间的通信. <ul>
+<li>Controller 通过 delegate 获取 View 上的事件</li>
+<li>Controller 通过 data source 为 View 提供数据</li>
+<li>Target-Action: 目标是 Controller, 动作发生在 View 上. 也就是用户交互行为发生在 View 上, 但处理这个交互行为的是控制器.</li>
+</ul>
+</li>
+</ul>
+<p><em>iOS 开发者常用 MVC</em></p>
+<p><img alt="" src="../assets/images/架构/iOS开发者MVC.png"></p>
+<p>为什么说这是 iOS 开发者常用 MVC 模式? 因为它方便、快速, 各个模块逻辑还算清晰, 也基本满足软件的单一职责原则, 如果真安苹果的 MVC 设置软件, 软件的重用性不用说, 但是软件的前期工作量也会大大增大. 
+  在理解了上面两幅图后, 这幅肯定不在话下, 在此不做解释了.</p></div>
+        <hr />
+    </div>
+		
+<div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+
+    <li class="active"><a href="http://littlecaptain.net/tag/mvc.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>
+ 
+  
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2017</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

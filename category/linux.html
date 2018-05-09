@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - Linux</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+
+        
+
+
+    <div class='article'>
+        <div class="content-title">
+            <a href="http://littlecaptain.net/linux-ren-wu-guan-li.html"><h1>Linux 任务管理</h1></a>
+Thu 11 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ 
+        </div>
+        
+        <div><h1>&amp;</h1>
+<ul>
+<li>加在命令后, 把这个任务放入到后台执行</li>
+</ul>
+<h1>ctrl + z</h1>
+<ul>
+<li>可以将正在前台执行的命令放入后台, 并处于暂停状态</li>
+</ul>
+<h1>ctrl + c</h1>
+<ul>
+<li>终止前台进程</li>
+</ul>
+<h1>jobs</h1>
+<ul>
+<li>查看当前有多少在后台运行的任务</li>
+<li>jobs -l选项可显示所有任务的PID，jobs的状态可以是running, stopped, Terminated。但是如果任务被终止了（kill），shell 从当前的shell环境已知的列表中删除任务的进程标识。</li>
+</ul>
+<h1>fg</h1>
+<ul>
+<li>将后台中的命令调至前台继续运行。如果后台中有多个命令，可以用fg %jobnumber（是命令编号，不是进程号）将选中的命令调出</li>
+</ul>
+<h1>bg</h1>
+<ul>
+<li>将一个在后台暂停的命令，变成在后台继续执行。如果后台中有多个命令，可以用bg %jobnumber将选中的命令调出</li>
+</ul>
+<h1>kill</h1>
+<ul>
+<li>通过jobs命令查看job号（假设为num），然后执行kill %num</li>
+<li>通过ps命令查看job的进程号（PID，假设为pid），然后执行kill pid</li>
+</ul>
+<h1>nohup</h1>
+<ul>
+<li>如果让程序始终在后台执行，即使关闭当前的终端也执行（之前的&amp;做不到），这时候需要nohup。该命令可以在你退出帐户/关闭终端之后继续运行相应的进程。关闭中断后，在另一个终端jobs已经无法看到后台跑得程序了，此时利用ps（进程查看命令）</li>
+</ul></div>
+        <hr />
+    </div>
+		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/nodejs-gai-shu.html"><h2>Node.js 概述</h2></a>
+        <div class= "well small"> Thu 11 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>V8引擎</h1>
+<ul>
+<li>用于Chrome浏览器的 JS 解释部分</li>
+<li>没有历史包袱，没有同步I/O。不会出现一个同步I/O导致事件循环性能急剧降低的情况。</li>
+<li>V8性能足够好，远远比Python、Ruby等其他脚本语言的引擎快。</li>
+<li>JavaScript语言的闭包特性非常方便，比C中的回调函数好用。</li>
+</ul>
+<h1>总览</h1>
+<ul>
+<li>Node.js是一个让JavaScript运行在服务器端的开发平台</li>
+<li>Node就是一个js的执行环境</li>
+<li>Node.js不是一种独立的语言，与PHP、JSP、Python、Perl、Ruby的“既是语言，也是平台”不同，Node.js使用JavaScript进行编程，运行在JavaScript引擎上（V8）</li>
+<li>与PHP、JSP等相比，Node.js跳过了Apache、Naginx、IIS等HTTP服务器，它自己不用建设在任何服务器软件之上。Node.js的许多设计理念与经典架构（LAMP）有着很大的不同，可以提供强大的伸缩能力。</li>
+<li>Node.js哲学，花最小的硬件成本，追求更高的并发，更高的处理性能。</li>
+<li>Node …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/nodejs-gai-shu.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/ming-ling-ti-shi-fu-de-ge-shi.html"><h2>命令提示符的格式</h2></a>
+        <div class= "well small"> Tue 09 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>相关环境变量</h1>
+<p>有两个环境变量来控制命令提示符的格式</p>
+<ul>
+<li>PS1 : 控制默认命令提示符的格式</li>
+<li>PS2 : 控制后续命令提示符的格式</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="nv">$PS1</span>
+<span class="nb">echo</span> <span class="nv">$PS2</span>
+</pre></div>
+
+
+<p><strong>bash shell 提示符字符</strong></p>
+<p><img src="../assets/images/Linux/bash shell 提示符字符.png" width = 100% align=center /></p>
+<p>配置</p>
+<div class="highlight"><pre><span></span><span class="c1"># 这个配置只会在当前会话有效</span>
+<span class="nv">PS1</span><span class="o">=</span><span class="s2">&quot;[\t][\u]\$&quot;</span>
+</pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ming-ling-ti-shi-fu-de-ge-shi.html">read more</a></div>
+    </div>	
+				
+<div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+
+    <li class="active"><a href="http://littlecaptain.net/category/linux.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>
+ 
+  
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2017</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

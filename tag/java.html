@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - Java</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+
+        
+
+
+    <div class='article'>
+        <div class="content-title">
+            <a href="http://littlecaptain.net/java-de-shu-ju-lei-xing.html"><h1>Java 的数据类型</h1></a>
+Wed 12 July 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ 
+        </div>
+        
+        <div><h1>分类</h1>
+<h2>基本数据类型</h2>
+<h3>byte</h3>
+<ul>
+<li>字节型是一种 8 位有正负的二进制整数</li>
+<li>最小值是 -128(-2^7)</li>
+<li>最大值是 127(2^7-1)</li>
+<li>默认值为 0</li>
+<li>字节型数据类型主要是为了在大型数组内节省空间，主要是替代整数由于字节型比整数小 4 倍。</li>
+<li>例如：byte a = 100 , byte b = -50</li>
+</ul>
+<h3>short</h3>
+<ul>
+<li>短整数是一种 16 位有正负的二进制整数</li>
+<li>最小值是 -32768(-2^15)</li>
+<li>最大值是 32767(2^15-1)</li>
+<li>短整数类型的数据也可以像字节型一样用于节省空间。短整数比整数小两倍</li>
+<li>默认值为 0</li>
+<li>例如：short s = 10000, short r = -20000</li>
+</ul>
+<h3>int</h3>
+<ul>
+<li>整数型是一种 32 位有正负的二进制整数</li>
+<li>最小值是 - 2,147,483,648(-2^31)</li>
+<li>最大值是 2,147,483,647(2^31 -1)</li>
+<li>整数型一般默认被应用于整数值除非担心内存不够用。</li>
+<li>默认值为 0</li>
+<li>例如：int a = 100000, int b = -200000</li>
+</ul>
+<h3>long</h3>
+<ul>
+<li>长整型是一种 64 位有正负的二进制整数</li>
+<li>最小值是 -9,223,372,036,854,775,808(-2^63)</li>
+<li>最大值是 9,223,372,036,854,775,807 (2^63 -1)</li>
+<li>这种数据类型一般是在需要比整数型范围更大时应用。</li>
+<li>默认值为 0L</li>
+<li>例如：long a = 100000L, int b = -200000L</li>
+</ul>
+<h3>float</h3>
+<ul>
+<li>浮点型数据是一种单精度的 32 位 IEEE 754 标准下的浮点数据。</li>
+<li>浮点型数据主要是为了在大型浮点数字数组中节约内存。</li>
+<li>默认值是 0.0f。</li>
+<li>浮点型数据不能用于如货币这样的精确数据。</li>
+<li>例如：float f1 = 234.5f</li>
+</ul>
+<h3>double</h3>
+<ul>
+<li>双精度型数据是一种双精度的 64 位 IEEE 754 标准下的浮点数据。</li>
+<li>这种数据类型主要是默认被用于表示小数的值，一般是默认的选择。</li>
+<li>双精度型数据不能用于如货币这样的精确数据。</li>
+<li>默认值是 0.0d</li>
+<li>例如：double d1 = 123.4</li>
+</ul>
+<h3>boolean</h3>
+<ul>
+<li>布尔型数据代表一个信息比特。</li>
+<li>它只有两个可能的值：真（true）和假（false）</li>
+<li>这种数据类型用于真假条件下的简单标记。</li>
+<li>默认值是假（false）</li>
+<li>例如：boolean one = true</li>
+</ul>
+<h3>char</h3>
+<ul>
+<li>字符型数据是简单的 16 位 Unicode 标准下的字符。</li>
+<li>最小值是： '\u0000' (或 0)。</li>
+<li>最大值是： '\uffff' (或 65,535 )。</li>
+<li>字符型数据可以用来储存任意字母。</li>
+<li>例如： char letter A（字符型的字母A） ='A'</li>
+</ul>
+<h2>引用数据类型</h2>
+<ul>
+<li>引用数据类型是由类的编辑器定义的。他们是用于访问对象的。这些变量被定义为不可更改的特定类型。例如：Employee， Puppy 等等。</li>
+<li>类对象和数组变量就是这种引用数据类型。</li>
+<li>任何引用数据类型的默认值都为空。</li>
+<li>一个引用数据类型可以被用于任何声明类型和兼容类型的对象。</li>
+<li>例如：Animal animal = new Animal("giraffe")；</li>
+</ul></div>
+        <hr />
+    </div>
+		
+<div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+
+    <li class="active"><a href="http://littlecaptain.net/tag/java.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>
+ 
+  
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2017</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

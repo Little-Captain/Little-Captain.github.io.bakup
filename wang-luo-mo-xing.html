@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - 网络模型</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>网络模型</h1>
+Sun 07 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+        </div>
+	
+        <div><h1>OSI七层模型</h1>
+<h2>1. 应用层</h2>
+<ul>
+<li>数据单位: APDU</li>
+<li>作用: 针对用户(应用程序)</li>
+</ul>
+<h2>2. 表示层</h2>
+<ul>
+<li>数据单位: PPDU</li>
+<li>作用: 数据的编码、加密和解压缩等</li>
+</ul>
+<h2>3. 会话层</h2>
+<ul>
+<li>数据单位: SPDU</li>
+<li>作用: 确定数据是否向下传递</li>
+</ul>
+<h2>4. 传输层</h2>
+<ul>
+<li>数据单位: TPDU</li>
+<li>作用: 确定数据是否可靠; 确定网络端口是否可靠; 查错、校验; 流量控制等等</li>
+</ul>
+<h2>5. 网络层</h2>
+<ul>
+<li>数据单位: 报文, 报文中有 IP 地址</li>
+<li>作用: 确定IP地址编码</li>
+</ul>
+<h2>6. 数据链路层</h2>
+<ul>
+<li>数据单位: 帧, 帧中最重要的数据就是MAC地址</li>
+<li>作用: MAC地址编码</li>
+</ul>
+<h2>7. 物理层</h2>
+<ul>
+<li>数据单位: 比特</li>
+<li>作用: 实际的数据传递     </li>
+</ul>
+<hr>
+<h2>说明</h2>
+<ul>
+<li>上3层给用户提供服务, 所有软件都会用(包括PPT这类不用联网就能用的软件)</li>
+<li>下4层为传送数据提供服务, 只有需要网络传输的软件才会用</li>
+</ul>
+<h1>TCP/IP 四层模型</h1>
+<h2>1. 应用层</h2>
+<ul>
+<li>对应七层模型: 应用层; 表示层; 会话层</li>
+<li>作用: 为用户提供各种具体服务(FTP, Telnet, DNS, SMTP)</li>
+</ul>
+<h2>2. 传输层</h2>
+<ul>
+<li>对应七层模型: 传输层</li>
+<li>作用:     <ul>
+<li>为应用层实体提供端到端的通信功能</li>
+<li>保证数据包的顺序传送及数据的完整性; 确定发送和接收端口号</li>
+<li>查错、校验、流量控制</li>
+<li>最重要的就是确定TCP包头和UDP包头</li>
+</ul>
+</li>
+<li>
+<p>主要协议:     </p>
+<ul>
+<li>
+<p>传输控制协议TCP</p>
+<ul>
+<li>3 次握手</li>
+</ul>
+<p>![](../assets/images/网络/TCP:IP 3 次握手.png)</p>
+<ul>
+<li>可靠的面向连接的协议</li>
+<li>类似: 打电话</li>
+<li>传输数据过程中始终有交流, 有错误就要求对方重发</li>
+<li>应用: 网页, 邮件...</li>
+<li>优点: 数据安全可靠</li>
+<li>缺点: 慢</li>
+</ul>
+</li>
+<li>
+<p>用户数据报协议UDP</p>
+<ul>
+<li>不可靠的面向无连接的协议</li>
+<li>类似: 发短信</li>
+<li>不管对方能否接受直接发送</li>
+<li>应用: QQ</li>
+<li>优点: 快</li>
+<li>缺点: 数据可能丢失</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>传输层头内容: 主要是<code>端口</code></p>
+<p><img alt="" src="../assets/images/网络/TCP包头.png"></p>
+<p><img alt="" src="../assets/images/网络/UDP包头.png"></p>
+</li>
+</ul>
+<h2>3. 网际互连层</h2>
+<ul>
+<li>对应七层模型: 网络层</li>
+<li>
+<p>作用: </p>
+<ul>
+<li>解决主机到主机的通信问题</li>
+<li>其协议设计数据包在整个网络上的逻辑传输</li>
+</ul>
+</li>
+<li>
+<p>主要协议</p>
+<ul>
+<li>网际协议IP: 源IP,目的IP; 确定数据在公网上如何发送</li>
+<li>互联网组管理协议IGMP</li>
+<li>互联网控制报文协议ICMP: ping命令利用了这个协议</li>
+</ul>
+</li>
+<li>
+<p>网际层头: 主要是<code>IP</code></p>
+<p><img alt="" src="../assets/images/网络/IP包头.png"></p>
+</li>
+</ul>
+<h2>4. 网络接口层</h2>
+<ul>
+<li>对应七层模型: 数据链路层; 物理层</li>
+<li>
+<p>作用:</p>
+<ul>
+<li>负责监视数据在主机和网络之间交换</li>
+<li>地址解析协议(ARP)工作在此层(七层中的数据链路层)</li>
+<li>arp指令: 将IP翻译成对应的MAC地址; 翻译的目的(外网通信用IP, 局域网通信用MAC, 交换机值识别MAC地址)</li>
+</ul>
+</li>
+<li>
+<p>网络层头: 主要是<code>MAC</code>, 又名<code>以太帧头</code></p>
+</li>
+</ul>
+<h1>七层模型与四层模型的比较</h1>
+<h2>共同点</h2>
+<ul>
+<li>都采用了层次结构的概念</li>
+<li>分层设计</li>
+<li>都能够提供面向连接和无连接两种通信服务机制</li>
+</ul>
+<h2>不同点</h2>
+<ul>
+<li>一个七层一个四层</li>
+<li>对可靠性要求不同</li>
+<li>七层模型具有通用性: 在协议开发前设计的</li>
+<li>四层模型是先有协议集后在建立模型: 不适用于非 TCP/IP 网络</li>
+<li>实际市场应用不同: 七层只是理论模型, 无成熟产品; TCP/IP已成为实际上的国际标准</li>
+</ul></div>
+	
+        <hr>
+
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2018</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

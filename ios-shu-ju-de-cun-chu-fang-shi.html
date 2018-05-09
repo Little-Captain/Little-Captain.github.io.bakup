@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - iOS 数据的存储方式</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>iOS 数据的存储方式</h1>
+Fri 12 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+        </div>
+	
+        <div><h1>沙盒(磁盘)</h1>
+<h2>沙盒简介</h2>
+<ul>
+<li>每个iOS应用程序都有自己的应用沙盒</li>
+<li>应用沙盒就是文件系统目录,  与其它文件系统隔离</li>
+<li>应用必须待在自己的沙盒里, 其它应用不能访问该沙盒</li>
+</ul>
+<h2>沙盒的访问</h2>
+<ul>
+<li>NSHomeDirectory() : 沙盒的根目录</li>
+<li>Documents<ul>
+<li>保存应用运行时生成的需要持久化的数据</li>
+<li>iTunes同步设备时会备份该目录</li>
+<li>不允许放缓存大数据</li>
+</ul>
+</li>
+<li>Library/Caches<ul>
+<li>保存应用运行时生成的需要持久化的数据</li>
+<li>iTunes同步设备时不会备份该目录</li>
+<li>一般存储体积大、不需要备份的缓存数据</li>
+</ul>
+</li>
+<li>Library/Preference<ul>
+<li>保存应用的所有偏好设置</li>
+<li>iOS的Settings(设置)应用会在该目录中查找应用的设置信息</li>
+<li>iTunes同步设备时会备份该目录</li>
+</ul>
+</li>
+<li>tmp<ul>
+<li>保存应用运行时所需的临时数据</li>
+<li>使用完毕后再将相应的文件从该目录删除</li>
+<li>应用没有运行时，系统也可能会清除该目录下的文件</li>
+<li>iTunes同步设备时不会备份该目录</li>
+</ul>
+</li>
+</ul>
+<h2>应用程序包</h2>
+<ul>
+<li>包含了所有的资源文件和可执行文件</li>
+<li>[NSBundle mainBundle]<ul>
+<li>获取应用程序包路径</li>
+<li>代表 App 本身</li>
+</ul>
+</li>
+<li>注意和沙盒做区分</li>
+</ul>
+<h1>偏好设置</h1>
+<ul>
+<li>小数据</li>
+<li>保存用户名、密码(MD5)、是否自动登录、字体大小等设置</li>
+<li>NSUserDefaults 实例，通过它来存取偏好设置</li>
+<li>实质上它是保存在 Library/Preference 中的 plist 文件</li>
+<li>注意 : UserDefaults 设置数据时，不是立即写入，而是根据时间戳定时地把缓存中的数据写入本地磁盘。所以调用了 set 方法之后数据有可能还没有写入磁盘应用程序就终止了。可以通过调用 synchornize 方法强制立即写入</li>
+</ul>
+<h1>归档</h1>
+<ul>
+<li>整存整取</li>
+<li>保存自定义对象</li>
+<li>Foundation框架中的基本数据类型遵守了NSCoding协议可以直接用NSKeyedArchiver进行归档和NSKeyedUnarchiver进行解档</li>
+</ul>
+<h2>NSCoding 协议</h2>
+<ul>
+<li>encodeWithCoder<ul>
+<li>每次归档对象时，都会调用这个方法</li>
+<li>使用encodeObject:forKey:方法归档实例变量</li>
+<li>注意调用父类的方法</li>
+</ul>
+</li>
+<li>initWithCoder<ul>
+<li>每次从文件中解档对象时，都会调用这个方法</li>
+<li>使用decodeObject:forKey方法解码实例变量</li>
+<li>注意调用父类的方法</li>
+</ul>
+</li>
+</ul>
+<h2>扩展</h2>
+<ul>
+<li>initWithCoder<ul>
+<li>初始化解析xib的时候调用</li>
+</ul>
+</li>
+<li>awakeFromNib<ul>
+<li>已经从xib中加载完毕时调用</li>
+</ul>
+</li>
+</ul>
+<h1>plist</h1>
+<ul>
+<li>小数据</li>
+<li>XML格式</li>
+<li>属性列表</li>
+<li>不能存储对象</li>
+</ul>
+<h1>json</h1>
+<ul>
+<li>json 文件的序列化和反序列化</li>
+</ul>
+<h1>数据库</h1>
+<h2>FMDB</h2>
+<ul>
+<li>大数据</li>
+<li>SQLite3 C代码的OC封装</li>
+</ul>
+<h2>CoreData</h2>
+<ul>
+<li>大数据</li>
+<li>封装SQLite3</li>
+<li>重量级框架</li>
+</ul>
+<h1>钥匙串访问</h1>
+<ul>
+<li>小数据</li>
+<li>自动加密</li>
+<li>存储在系统的钥匙串中, 不随应用的删除而删除</li>
+<li>第三方框架 : SSKeychain</li>
+</ul></div>
+	
+        <hr>
+
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2018</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

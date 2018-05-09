@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - 一款基于 AFNetworking 封装的网络框架</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>一款基于 AFNetworking 封装的网络框架</h1>
+Tue 09 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+        </div>
+	
+        <div><p><a href="https://github.com/Little-Captain/LCNetworking">框架地址</a></p>
+<h1>AFNetworking 存在的问题</h1>
+<p>如果你的项目中使用了 AFNetworking, 就一定会出现内存泄漏的问题. 这个是我在用做测试的时候发现的.</p>
+<h2>问题重现</h2>
+<ul>
+<li>安装 AFNetworking, 使用 AFNetworking 做网络请求</li>
+<li>使用 Debug Memory Graph 查看内存引用关系</li>
+</ul>
+<p><em>Debug Memory Graph(Xcode 8.0+)</em></p>
+<p>![](../assets/images/LCNetworking/Debug Memory Graph.png)</p>
+<p><em>AFNetworing 的一些对象被 Xcode 标记</em></p>
+<p><img alt="" src="../assets/images/LCNetworking/AFN的内存泄漏.png"></p>
+<p>图上结果表示: 这些对象无法被释放, 即内存泄漏.</p>
+<ul>
+<li>使用 Instrument 测试得到类似结果</li>
+</ul>
+<h1>解决问题</h1>
+<p>失败的解决办法</p>
+<ul>
+<li>控制器退出时, 取消所有任务</li>
+<li>使用 weak strong dance</li>
+<li>...</li>
+</ul>
+<p>成功的解决办法</p>
+<ul>
+<li>使用单例封装 AFNetworking, 实现自己的网络工具类.</li>
+</ul>
+<p><em>效果图</em></p>
+<p><img alt="" src="../assets/images/LCNetworking/内存泄漏解决.png"></p>
+<h1>LCNetworking</h1>
+<h2>特性</h2>
+<ul>
+<li>一款基于 AFNetworking 的框架</li>
+<li>使用单例模式解决了 AFNetworking 的内存泄漏问题</li>
+<li>与 AFNetworking 原有 API 完全兼容</li>
+</ul>
+<h2>增加 API</h2>
+<ul>
+<li>获取单例对象</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="p">+</span> <span class="p">(</span><span class="kt">instancetype</span><span class="p">)</span><span class="nf">sharedInstance</span><span class="p">;</span>
+</pre></div>
+
+
+<ul>
+<li>GET / POST</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="bp">NSURLSessionDataTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">request:</span><span class="p">...;</span>
+</pre></div>
+
+
+<ul>
+<li>上传文件方法</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="n">nullable</span> <span class="bp">NSURLSessionDataTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">upload:</span><span class="p">...;</span>
+</pre></div>
+
+
+<ul>
+<li>方法持续扩展维护中</li>
+</ul></div>
+	
+        <hr>
+
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2018</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

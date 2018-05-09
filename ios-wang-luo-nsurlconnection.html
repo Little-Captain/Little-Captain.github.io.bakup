@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - iOS 网络-NSURLConnection</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>iOS 网络-NSURLConnection</h1>
+Thu 11 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+        </div>
+	
+        <div><h1>作用</h1>
+<ul>
+<li>负责发送请求，建立客户端和服务器的连接</li>
+<li>发送数据给服务器，并收集来自服务器的响应数据</li>
+</ul>
+<h1>常用相关类</h1>
+<h2>NSURL</h2>
+<ul>
+<li>请求地址</li>
+<li>有时必须进行百分号转码, 使用方法stringByAddingPercentEscapesUsingEncoding</li>
+</ul>
+<h2>NSURLRequest</h2>
+<ul>
+<li>一个NSURLRequest对象就代表一个请求</li>
+<li>包含的信息<ul>
+<li>请求方法</li>
+<li>请求头</li>
+<li>请求体</li>
+<li>NSURL对象</li>
+<li>请求超时</li>
+<li>...</li>
+</ul>
+</li>
+</ul>
+<h2>NSMutableURLRequest</h2>
+<ul>
+<li>setTimeoutInterval<ul>
+<li>超过这个时间就算超时，请求失败</li>
+<li>设置请求超时等待时间</li>
+</ul>
+</li>
+<li>setHTTPMethod<ul>
+<li>设置请求方法</li>
+<li>GET或POST</li>
+</ul>
+</li>
+<li>setHTTPBody<ul>
+<li>设置请求体</li>
+</ul>
+</li>
+<li>setValue:forHTTPHeaderField:<ul>
+<li>设置请求头</li>
+</ul>
+</li>
+</ul>
+<h1>使用步骤</h1>
+<h2>1. 创建一个NSURL对象</h2>
+<ul>
+<li>设置请求路径</li>
+</ul>
+<h2>2. 创建一个NSURLRequest对象</h2>
+<ul>
+<li>设置<ul>
+<li>NSURL对象</li>
+<li>请求头</li>
+<li>请求体</li>
+</ul>
+</li>
+</ul>
+<h2>3. 发送请求</h2>
+<p>NSURLConnection常见的发送请求方法</p>
+<h2>同步请求</h2>
+<ul>
+<li>sendSynchronousRequest</li>
+</ul>
+<h2>异步请求</h2>
+<h3>根据对服务器返回数据的处理方式的不同，又可以分为2种</h3>
+<h4>block回调</h4>
+<ul>
+<li>sendAsynchronousRequest</li>
+</ul>
+<h4>代理</h4>
+<ul>
+<li>initWithRequest<ul>
+<li>在startImmediately = NO的情况下，需要调用start方法开始发送请求</li>
+</ul>
+</li>
+<li>connectionWithRequest</li>
+<li>遵守NSURLConnectionDataDelegate协议<ul>
+<li>才能成为代理</li>
+<li>而且这个代理是被强引用的</li>
+</ul>
+</li>
+<li>代理方法<ul>
+<li>didReceiveResponse : 开始接收到服务器的响应时调用</li>
+<li>didReceiveData : 接收到服务器返回的数据时调用, 服务器返回的数据比较大时会调用多次</li>
+<li>didFailWithError : 请求出错时调用, 比如请求超时</li>
+<li>connectionDidFinishLoading : 服务器返回的数据完全接收完毕后调用</li>
+</ul>
+</li>
+</ul></div>
+	
+        <hr>
+
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2018</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

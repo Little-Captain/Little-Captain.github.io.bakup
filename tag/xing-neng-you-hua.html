@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - 性能优化</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+
+        
+
+
+    <div class='article'>
+        <div class="content-title">
+            <a href="http://littlecaptain.net/uitableview-de-xing-neng-you-hua.html"><h1>UITableView 的性能优化</h1></a>
+Tue 09 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ 
+        </div>
+        
+        <div><h1>重要性</h1>
+<p>UITableView 是 iOS 开发中最常使用的控件之一, 在各类 App 中都充斥着各种表格. 表格展示的内容如果比较多, 比较复杂, 往往会影响界面的刷新帧率, 在用户的角度就是界面卡顿, 这时必须对 UITableView 进行性能优化.</p>
+<h1>表格为什么会卡?</h1>
+<p>iOS 设备的刷新帧率为 60Hz, 也就是一秒钟会有 60 帧图片绘制在屏幕上. 如果在下一帧图片绘制的时候, CPU正忙, 那么这一帧就会被跳过, 频繁出现这种情况, 界面就卡了.
+总结: 在两帧之间运算没有做完, 就会出现跳帧</p>
+<h1>优化方向</h1>
+<p>实施优化的准则: 测量(主要是使用Instrument看帧率), 而不是猜测</p>
+<h2>关于计算</h2>
+<ul>
+<li>尽量少计算, 所有需要的素材提前计算好!</li>
+</ul>
+<h2>关于圆角</h2>
+<ul>
+<li>控件上不要设置圆角半径, 所有图像渲染的属性, 都要注意!</li>
+</ul>
+<h2>关于创建控件</h2>
+<ul>
+<li>不要动态创建控件, 所有需要的控件, 都要提前创建好, 在显示的时候, 根据数据决定显示 / 隐藏</li>
+</ul>
+<h2>关于控件数量</h2>
+<ul>
+<li>cell 中控件的层次越少越好, 数量越少越好!</li>
+</ul>
+<h2>行高一定要缓存</h2>
+<ul>
+<li>表格性能优化中最重要的一环</li>
+<li>如果系统适配 iOS 8.0+, 推荐使用苹果的自动计算行高, 苹果本身的性能优化已经够好!</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1">// 设置估算高度, 这个值可以尽量大一点儿, 太大苹果也会通过实际需要进行估算</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">estimatedRowHeight</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+<span class="c1">// 设置自动尺寸</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">tableView</span><span class="p">.</span><span class="n">rowHeight</span> <span class="o">=</span> <span class="n">UITableViewAutomaticDimension</span><span class="p">;</span>
+</pre></div>
+
+
+<ul>
+<li>如何缓存行高, 一般通过在 Model 中增加一个 cellHeight 属性, 在给 Model 设置数据时, 就可以计算了(因为 Model 唯一确定行高), 而且要控制器只计算一次. 如果采用 MVVM 模式, 就在 VM 中计算行高并缓存</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nf">cellHeight</span> <span class="p">{</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">_cellHeight</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// 行高还没有计算的</span>
+        <span class="c1">// 计算行高</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">_cellHeight</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2>高级优化</h2>
+<ul>
+<li>离屏渲染, 启用异步绘制, 让视图在显示前尽量绘制好</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nb">self</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">drawsAsynchronously</span> <span class="o">=</span> <span class="nb">true</span>
+</pre></div>
+
+
+<ul>
+<li>栅格化, 栅格化之后, 会生成一张独立的图像, cell在屏幕上滚动的时候, 本质上滚动的是这张图片</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1">// 启动栅格化</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">shouldRasterize</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="c1">// 设置栅格化的比例, 不然界面显示比较模糊</span>
+<span class="nb">self</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">rasterizationScale</span> <span class="o">=</span> <span class="bp">UIScreen</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="n">scale</span>
+</pre></div>
+
+
+<ul>
+<li>如果检测到cell的性能已经很好, 就不需要再离屏渲染了<ul>
+<li>离屏渲染需要在GPU / CPU 之间快速切换</li>
+<li>耗电厉害</li>
+</ul>
+</li>
+</ul></div>
+        <hr />
+    </div>
+		
+<div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+
+    <li class="active"><a href="http://littlecaptain.net/tag/xing-neng-you-hua.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>
+ 
+  
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2017</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>

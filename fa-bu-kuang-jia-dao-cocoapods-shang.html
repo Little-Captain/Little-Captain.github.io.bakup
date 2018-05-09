@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Little Captain's Blog - 发布框架到 CocoaPods 上</title>
+    <meta name="description" content="">
+    <meta name="author" content="Little Captain">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="http://littlecaptain.net/theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://littlecaptain.net/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/local.css" rel="stylesheet">
+    <link href="http://littlecaptain.net/theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href="http://littlecaptain.net">Little Captain's Blog</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>发布框架到 CocoaPods 上</h1>
+Mon 08 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+        </div>
+	
+        <div><h1>CocoaPods如何管理框架</h1>
+<h1><img alt="" src="../assets/images/CocoaPods/CocoaPods工作流.png"></h1>
+<h1>框架的发布与安装</h1>
+<h1><img alt="" src="../assets/images/CocoaPods/CocoaPods如何管理框架.png"></h1>
+<h1>发布流程</h1>
+<h2>1. 注册</h2>
+<div class="highlight"><pre><span></span>pod trunk register email地址 yourname
+</pre></div>
+
+
+<p>执行上面的命令后, 你将收到一封邮件, <code>必须验证</code>才能进行后续操作</p>
+<h2>2. 查询用户信息</h2>
+<div class="highlight"><pre><span></span>pod trunk me
+</pre></div>
+
+
+<p>这条命令将输出你的<code>个人相关信息</code></p>
+<div class="highlight"><pre><span></span>- Name:     XXX
+  - Email:    littlecaptain@foxmail.com
+  - Since:    January 26th, 22:49
+  - Pods:
+    - LCDemo
+    - LCCategories
+    - LCRuntimeTool
+    - JFVideoPlayView
+    - LCNetworking
+  - Sessions:
+    - January 26th, 22:49 -      June 17th, 06:08. IP: 119.129.112.135
+    - May 2nd, 06:50      - September 12th, 18:21. IP: 112.95.74.156
+</pre></div>
+
+
+<h2>3. 生成 spec 文件</h2>
+<div class="highlight"><pre><span></span>pod spec create gitHub框架地址
+</pre></div>
+
+
+<p>注意: 在生成文件前先创建框架,为框架取名, <code>不能</code>和已有框架<code>重名</code></p>
+<h2>4. 编辑 podspec 文件</h2>
+<p><em>podspec文件基本格式</em></p>
+<p><img alt="" src="../assets/images/CocoaPods/podspec文件基本格式.png"></p>
+<h2>5. 验证 podspec 文件</h2>
+<div class="highlight"><pre><span></span>pod spec lint
+<span class="c1"># 输出详细信息</span>
+pod spec lint —verbose
+</pre></div>
+
+
+<p>注意: 要使用Xcode正式版, 代码不能有警告</p>
+<h2>6. 推送到 CocoaPods 服务器</h2>
+<div class="highlight"><pre><span></span>pod trunk push
+</pre></div></div>
+	
+        <hr>
+
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="http://littlecaptain.net/archives.html">Archives</a>
+                <li><a href="http://littlecaptain.net/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="http://littlecaptain.net/category/c.html">C++</a></li>
+                <li><a href="http://littlecaptain.net/category/git.html">git</a></li>
+                <li><a href="http://littlecaptain.net/category/git-gogs.html">git gogs</a></li>
+                <li><a href="http://littlecaptain.net/category/ios.html">iOS</a></li>
+                <li><a href="http://littlecaptain.net/category/java.html">Java</a></li>
+                <li><a href="http://littlecaptain.net/category/ji-suan-ji-wang-luo.html">计算机网络</a></li>
+                <li><a href="http://littlecaptain.net/category/lean-python.html">Lean Python</a></li>
+                <li><a href="http://littlecaptain.net/category/linux.html">Linux</a></li>
+                <li><a href="http://littlecaptain.net/category/php.html">PHP</a></li>
+                <li><a href="http://littlecaptain.net/category/pyqt.html">PyQt</a></li>
+                <li><a href="http://littlecaptain.net/category/shell.html">shell</a></li>
+                <li><a href="http://littlecaptain.net/category/svn.html">SVN</a></li>
+                <li><a href="http://littlecaptain.net/category/tools.html">Tools</a></li>
+                <li><a href="http://littlecaptain.net/category/xcode.html">Xcode</a></li>
+                <li><a href="http://littlecaptain.net/category/za-tan.html">杂谈</a></li>
+                <li><a href="http://littlecaptain.net/category/zheng-ze-biao-da-shi.html">正则表达式</a></li>
+                   
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Links
+                </li>
+            
+                <li><a href="https://github.com/Little-Captain">Github</a></li>
+            </ul>
+            </div>
+
+
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2018</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://littlecaptain.net/theme/bootstrap-collapse.js"></script>
+ 
+</body>
+</html>
