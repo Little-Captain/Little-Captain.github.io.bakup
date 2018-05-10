@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Little Captain's Blog - Authors</title>
+    <title>Little Captain's Blog - git 储藏</title>
     <meta name="description" content="">
     <meta name="author" content="Little Captain">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,10 +51,43 @@
     <div class="row">
 
         <div class="span9">
-    <h1>Authors on Little Captain's Blog</h1>
+    <div class='article'>
+        <div class="content-title">
+            <h1>git 储藏</h1>
+Thu 10 May 2018
 
-    <ul>        <li><a href="http://littlecaptain.net/author/little-captain.html">Little Captain</a> (110)</li>
-    </ul>
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+        </div>
+	
+        <div><h1>what</h1>
+<ul>
+<li>“‘储藏”“可以获取你工作目录的中间状态——也就是你修改过的被追踪的文件和暂存的变更——并将它保存到一个未完结变更的堆栈中，随时可以重新应用</li>
+</ul>
+<h1>where</h1>
+<ul>
+<li>当你在一个分支上工作到一半, 需要切换到另一个分支, 又不想做这种无意义的提交, 这就是储藏的使用场景</li>
+</ul>
+<h1>how</h1>
+<div class="highlight"><pre><span></span><span class="c1"># 储藏</span>
+git stash
+<span class="c1"># 列出所有储藏</span>
+git stash list
+<span class="c1"># 应用最新储藏</span>
+git stash apply
+<span class="c1"># 同时应用储藏暂存在 index 中的信息</span>
+git stash apply --index
+<span class="c1"># 移除储藏</span>
+git stash drop
+<span class="c1"># 应用后, 移除</span>
+git stash pop
+</pre></div></div>
+	
+        <hr>
+
+    </div>
         </div>
         
         <div class="span3">

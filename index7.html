@@ -58,6 +58,69 @@
  
 
     <div class='article'>
+        <a href="http://littlecaptain.net/lean-pythonchapter-01.html"><h2>Lean Python(Chapter 01)</h2></a>
+        <div class= "well small"> Tue 19 September 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>Foundation</p>
+</blockquote>
+<h1>解释器</h1>
+<h2>交互模式</h2>
+<ul>
+<li>dir : 列出一个对象的所有属性</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="k">print</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>help : 查看内建关键字和方法的帮助文档</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">open</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>命令行模式</h2>
+<ul>
+<li>通过在命令行中加载 python 程序执行</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">myprogram</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+
+
+<h1>注释、代码块、缩进</h1>
+<ul>
+<li>使用 <code>#</code> 进行注释</li>
+<li>使用相同的<code>缩进</code>区分代码块</li>
+<li><code>:</code> 用在 if、elif、else、while、for、函数定义中, 区分首行和下面的具体代码块, 具体代码块需要缩进</li>
+<li>使用 <code>\</code> 连接多行代码</li>
+</ul>
+<h1>变量</h1>
+<ul>
+<li>赋值</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="n">expression</span>
+<span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">var3</span> <span class="o">=</span> <span class="n">expression</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+
+
+<ul>
+<li>关键字 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-01.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://littlecaptain.net/ben-di-tui-song-tong-zhi.html"><h2>本地推送通知</h2></a>
         <div class= "well small"> Wed 13 September 2017
 
@@ -391,54 +454,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="cp">#import &lt;Cocoa/Cocoa.h&gt;</span>
 
 <span class="cp">#define NSLog(FORMAT …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ipa-bao-zhong-de-png-wen-jian-de-zheng-chang-hua.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/objective-c-dai-ma-gui-fan.html"><h2>Objective-C 代码规范</h2></a>
-        <div class= "well small"> Tue 13 June 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><h1>排版</h1>
-<ul>
-<li>程序块要采用缩进风格编写，缩进的空格数为4个。对齐只使用空格键，不使用TAB键。</li>
-<li>相对独立的程序块之间、变量说明之后必须加空行。</li>
-<li>较长的语句要分成多行书写，长表达式要在低优先级操作符处划分新行，操作符放在新行之首，划分出的新行要进行适当的缩进，使排版整齐，语句可读。</li>
-<li>不允许把多个短语句写在一行中，即一行只写一条语句。</li>
-<li>大括号添加规则(if、for、函数、方法 ...)</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(...)</span> <span class="p">{</span>
-
-    <span class="c1">// 代码开始</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<ul>
-<li>在两个以上的关键字、变量、常量进行对等操作时，它们之间的操作符之前、 之后或者前后要加空格;进行非对等操作时，如果是关系密切的立即操作符(++、&amp;、! ...)，后不应加空格。</li>
-<li>一行程序以小于80字符为宜，不要写得过长。</li>
-<li>block 调用规范</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="o">!</span><span class="n">_block</span> <span class="o">?</span> <span class="o">:</span> <span class="n">_block</span><span class="p">(...);</span>
-</pre></div>
-
-
-<ul>
-<li>方法声明规则: 一个参数一行</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="p">-</span> <span class="p">(</span><span class="bp">NSURLSessionDataTask</span> <span class="o">*</span><span class="p">)</span><span class="nf">upload:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">URLString</span>
-                      <span class="nf">parameters:</span><span class="p">(</span><span class="n">nullable</span> <span class="kt">id</span><span class="p">)</span><span class="nv">parameters</span>
-                            <span class="nf">name:</span><span class="p">(</span><span class="bp">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span>
-                        <span class="nf">fileName …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/objective-c-dai-ma-gui-fan.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

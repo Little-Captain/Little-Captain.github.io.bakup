@@ -58,8 +58,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://littlecaptain.net/git-kuai-su-ru-men.html"><h1>git 快速入门</h1></a>
-Mon 07 May 2018
+            <a href="http://littlecaptain.net/git-chu-cang.html"><h1>git 储藏</h1></a>
+Thu 10 May 2018
 
 by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
  
@@ -68,7 +68,47 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
         </div>
         
-        <div><h1>Git vs SVN</h1>
+        <div><h1>what</h1>
+<ul>
+<li>“‘储藏”“可以获取你工作目录的中间状态——也就是你修改过的被追踪的文件和暂存的变更——并将它保存到一个未完结变更的堆栈中，随时可以重新应用</li>
+</ul>
+<h1>where</h1>
+<ul>
+<li>当你在一个分支上工作到一半, 需要切换到另一个分支, 又不想做这种无意义的提交, 这就是储藏的使用场景</li>
+</ul>
+<h1>how</h1>
+<div class="highlight"><pre><span></span><span class="c1"># 储藏</span>
+git stash
+<span class="c1"># 列出所有储藏</span>
+git stash list
+<span class="c1"># 应用最新储藏</span>
+git stash apply
+<span class="c1"># 同时应用储藏暂存在 index 中的信息</span>
+git stash apply --index
+<span class="c1"># 移除储藏</span>
+git stash drop
+<span class="c1"># 应用后, 移除</span>
+git stash pop
+</pre></div></div>
+        <hr />
+    </div>
+		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/git-kuai-su-ru-men.html"><h2>git 快速入门</h2></a>
+        <div class= "well small"> Mon 07 May 2018
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>Git vs SVN</h1>
 <h2>系统的架构</h2>
 <p><strong>SVN : 集中式</strong></p>
 <p><img src="../assets/images/git/SVN.png" width = 100% align=center /></p>
@@ -95,38 +135,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <p>使用管理员权限运行, 选择安装目录后, 一直下一步即可!!!</p>
 <p>安装成功后, 以后每次都使用 Git Bash 这个程序即可. 打开后界面如下:</p>
 <p><img src="../assets/images/git/Git bash.png" width = 100% align=center /></p>
-<h1>Git 的用户信息配置</h1>
-<ul>
-<li>这个用户信息是用于指示提交是谁做的, 必须配置</li>
-</ul>
-<div class="highlight"><pre><span></span>git config --global user.name <span class="s1">&#39;Little-Captain&#39;</span>
-git config --global user.email <span class="s1">&#39;littlecaptain@foxmail.com&#39;</span>
-</pre></div>
-
-
-<h1>Git 核心命令</h1>
-<ul>
-<li>Git 帮助命令</li>
-</ul>
-<div class="highlight"><pre><span></span>git &lt;verb&gt; --help
-git <span class="nb">help</span> &lt;verb&gt;
-man git-&lt;verb&gt;
-</pre></div>
-
-
-<ul>
-<li>Git 初始化命令</li>
-</ul>
-<div class="highlight"><pre><span></span>git init
-</pre></div>
-
-
-<p><img src="../assets/images/git/Git command.png" width = 100% align=center /></p>
-<h1>案例分析</h1>
-<p><img src="../assets/images/git/对已有的代码进行Git管理.png" width = 100% align=center /></p></div>
-        <hr />
-    </div>
-		
+<h1>Git …</h1> <a class="btn btn-info xsmall" href="http://littlecaptain.net/git-kuai-su-ru-men.html">read more</a></div>
+    </div>	
+				
 
  
         

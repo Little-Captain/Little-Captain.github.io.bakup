@@ -58,6 +58,76 @@
  
 
     <div class='article'>
+        <a href="http://littlecaptain.net/duo-xian-cheng-an-quan-yin-huan.html"><h2>多线程-安全隐患</h2></a>
+        <div class= "well small"> Tue 09 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>资源共享问题</h1>
+<ul>
+<li>1块资源可能会被多个线程共享，也就是多个线程可能会访问同一块资源</li>
+<li>比如: 多个线程访问同一个对象、同一个变量、同一个文件</li>
+<li>当多个线程访问同一块资源时，很容易引发数据错乱和数据安全问题</li>
+</ul>
+<h1>问题分析与解决</h1>
+<h2>不加锁</h2>
+<p><img alt="" src="../assets/images/多线程/不加锁.png"></p>
+<h2>安全隐患解决</h2>
+<h3>加互斥锁</h3>
+<p><img alt="" src="../assets/images/多线程/加互斥锁.png"></p>
+<h3>互斥锁使用</h3>
+<ul>
+<li>@synchronized(锁对象) {// 需要锁定的代码}</li>
+<li>锁定1份代码只用1把锁，用多把锁是无效的</li>
+<li>使用注意点<ul>
+<li>注意加锁的位置</li>
+<li>注意加锁的前提条件 : 多条线程共享同一块资源</li>
+<li>注意加锁是需要代价的 : 需要耗费性能</li>
+<li>加锁的结果 : 线程同步了</li>
+</ul>
+</li>
+</ul>
+<h3>互斥锁的优缺点</h3>
+<ul>
+<li>优点 : 能有效防止因多线程抢夺资源造成的数据安全问题</li>
+<li>缺点 : 需要消耗大量的CPU资源</li>
+</ul>
+<h3>什么时候使用互斥锁</h3>
+<ul>
+<li>多条线程抢夺同一块资源</li>
+</ul>
+<h3>线程同步</h3>
+<ul>
+<li>多条线程在同一条线上执行（按顺序地执行任务）</li>
+<li>互斥锁，就是使用了线程同步技术</li>
+</ul>
+<h1>原子和非原子属性</h1>
+<h2>atomic</h2>
+<ul>
+<li>原子属性</li>
+<li>为setter方法加锁（默认就是atomic）</li>
+</ul>
+<h2>nonatomic</h2>
+<ul>
+<li>非原子属性</li>
+<li>不会为setter方法加锁</li>
+</ul>
+<h2>原子和非原子属性的选择</h2>
+<h3>nonatomic和atomic对比</h3>
+<ul>
+<li>atomic …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-an-quan-yin-huan.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://littlecaptain.net/duo-xian-cheng-ioszhong-de-shi-xian-fang-an.html"><h2>多线程-iOS中的实现方案</h2></a>
         <div class= "well small"> Tue 09 May 2017
 
@@ -439,40 +509,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     - LCNetworking
   - Sessions:
     - January 26th, 22:49 -      June 17th, 06:08. IP: 119.129 …</pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/fa-bu-kuang-jia-dao-cocoapods-shang.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/git-ji-ben-cao-zuo.html"><h2>git 基本操作</h2></a>
-        <div class= "well small"> Mon 08 May 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><h1>常用单命令操作</h1>
-<ul>
-<li><code>git init</code>: 初始化本地仓库</li>
-<li><code>git status</code>: 查看文件状态</li>
-<li><code>git add .</code>: 添加文件到暂缓区</li>
-<li><code>git commit -m "注释"</code>: 从暂缓区提交文件到本地代码仓库</li>
-<li>
-<p><code>git tag -a '标签' -m "注释"</code>: 打标签</p>
-</li>
-<li>
-<p><code>git tag</code>: 查看标签</p>
-</li>
-<li><code>git tag -d '标签名称'</code>: 删除标签</li>
-<li><code>git remote add origin 远程仓库地址</code>: 给本地仓库添加远程仓库关联地址</li>
-<li><code>git push origin master</code>: 上传本地代码到远程仓库</li>
-<li><code>git push --tags</code>: 上传标签到远程仓库</li>
-<li><code>git push origin :标签</code>: 从远程仓库删除标签 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/git-ji-ben-cao-zuo.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
