@@ -76,7 +76,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <li>xcodebuild archive 命令</li>
 <li>xcodebuild build 命令. 但是要加入一些特殊编译参数</li>
 </ul>
-<div class="highlight"><pre><span></span>xcodebuild <span class="nv">BITCODE_GENERATION_MODE</span><span class="o">=</span>bitcode <span class="nv">OTHER_CFLAGS</span><span class="o">=</span><span class="s2">&quot;-fembed-bitcode&quot;</span> <span class="nv">ONLY_ACTIVE_ARCH</span><span class="o">=</span>NO -configuration <span class="s2">&quot;Release&quot;</span> -target <span class="s2">&quot;</span><span class="si">${</span><span class="nv">TARGET_NAME</span><span class="si">}</span><span class="s2">&quot;</span> -sdk iphoneos clean build
+<div class="highlight"><pre><span></span>xcodebuild <span class="nv">BITCODE_GENERATION_MODE</span><span class="o">=</span>bitcode <span class="nv">OTHER_CFLAGS</span><span class="o">=</span><span class="s2">&quot;-fembed-bitcode&quot;</span> -configuration <span class="s2">&quot;Release&quot;</span> -target <span class="s2">&quot;</span><span class="si">${</span><span class="nv">TARGET_NAME</span><span class="si">}</span><span class="s2">&quot;</span> -sdk iphoneos clean build
 xcodebuild <span class="nv">BITCODE_GENERATION_MODE</span><span class="o">=</span>bitcode <span class="nv">OTHER_CFLAGS</span><span class="o">=</span><span class="s2">&quot;-fembed-bitcode&quot;</span> -configuration <span class="s2">&quot;Release&quot;</span> -arch <span class="s2">&quot;x86_64&quot;</span> -target <span class="s2">&quot;</span><span class="si">${</span><span class="nv">TARGET_NAME</span><span class="si">}</span><span class="s2">&quot;</span> -sdk iphonesimulator clean build
 </pre></div>
 
