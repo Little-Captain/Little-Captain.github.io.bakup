@@ -58,6 +58,101 @@
  
 
     <div class='article'>
+        <a href="http://littlecaptain.net/lean-pythonchapter-03.html"><h2>Lean Python(Chapter 03)</h2></a>
+        <div class= "well small"> Thu 21 September 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>Program Structure</p>
+</blockquote>
+<h1>做决定</h1>
+<h2>if 语句</h2>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">test</span><span class="p">:</span>
+    <span class="n">statement1</span> <span class="c1"># 如果条件为真, 这三条语句都将执行</span>
+    <span class="n">statement2</span>
+    <span class="n">statement3</span>
+<span class="c1"># if else</span>
+<span class="k">if</span> <span class="n">test</span><span class="p">:</span>
+    <span class="n">DoThis</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">DoThat</span><span class="p">()</span>
+<span class="c1"># if elif else</span>
+<span class="k">if</span> <span class="n">test1</span><span class="p">:</span>
+    <span class="n">DoThis</span><span class="p">()</span>
+<span class="k">elif</span> <span class="n">test2</span><span class="p">:</span>
+    <span class="n">DoThat</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">DoOther</span><span class="p">()</span>
+</pre></div>
+
+
+<ul>
+<li>同一语句中的 <code>if</code> <code>elif</code> <code>else</code> 的缩进必须保持一致</li>
+</ul>
+<h2>pass 语句</h2>
+<ul>
+<li>pass 语句就是什么都不做</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">test1</span><span class="p">:</span>
+    <span class="n">DoThis</span><span class="p">()</span>
+<span class="k">elif</span> <span class="n">test2</span><span class="p">:</span>
+    <span class="n">DoThat</span><span class="p">()</span>
+<span class="c1"># else 不是严格必须, 但是加上, 通过使用 pass …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-03.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/lean-pythonchapter-02.html"><h2>Lean Python(Chapter 02)</h2></a>
+        <div class= "well small"> Tue 19 September 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>Everything is Object</p>
+</blockquote>
+<h1>对象类型</h1>
+<div class="highlight"><pre><span></span><span class="c1"># 使用 type 查看对象类型</span>
+<span class="nb">type</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
+</pre></div>
+
+
+<blockquote>
+<p>类型有 : int str list class function file bool(True、False) NoneType(None) long</p>
+</blockquote>
+<h1>工厂方法</h1>
+<div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>
+<span class="nb">str</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">dict</span><span class="p">(</span><span class="n">one</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">two</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+
+<h1>数</h1>
+<div class="highlight"><pre><span></span><span class="mi">12345678901234567890</span>
+<span class="mi">1</span> <span class="o">/</span> <span class="mf">7.0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">1E20 …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-02.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://littlecaptain.net/lean-pythonchapter-01.html"><h2>Lean Python(Chapter 01)</h2></a>
         <div class= "well small"> Tue 19 September 2017
 
@@ -389,73 +484,6 @@ git config --global core.editor <span class="s2">&quot;subl -w&quot;</span>
 </pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/git-shi-yong-jing-yan-ji-jin.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/java-de-shu-ju-lei-xing.html"><h2>Java 的数据类型</h2></a>
-        <div class= "well small"> Wed 12 July 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><h1>分类</h1>
-<h2>基本数据类型</h2>
-<h3>byte</h3>
-<ul>
-<li>字节型是一种 8 位有正负的二进制整数</li>
-<li>最小值是 -128(-2^7)</li>
-<li>最大值是 127(2^7-1)</li>
-<li>默认值为 0</li>
-<li>字节型数据类型主要是为了在大型数组内节省空间，主要是替代整数由于字节型比整数小 4 倍。</li>
-<li>例如：byte a = 100 , byte b = -50</li>
-</ul>
-<h3>short</h3>
-<ul>
-<li>短整数是一种 16 位有正负的二进制整数</li>
-<li>最小值是 -32768(-2^15)</li>
-<li>最大值是 32767(2^15-1)</li>
-<li>短整数类型的数据也可以像字节型一样用于节省空间。短整数比整数小两倍</li>
-<li>默认值为 0</li>
-<li>例如：short s = 10000, short r = -20000 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/java-de-shu-ju-lei-xing.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/ipa-bao-zhong-de-png-wen-jian-de-zheng-chang-hua.html"><h2>ipa 包中的 PNG 文件的正常化</h2></a>
-        <div class= "well small"> Thu 29 June 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><h1>问题描述</h1>
-<ul>
-<li>将<code>图片</code>拖入 <code>iOS 工程</code>后, <code>Xcode</code> 会对其进行<code>特殊处理</code>, 导致图片能在 Apple 相关系统上正常显示, 其他系统都不能正常显示. </li>
-<li>之所以能在 Apple 相关系统上正常显示是因为苹果的底层方法实现就做了相应处理.</li>
-</ul>
-<h1>问题解决</h1>
-<ul>
-<li><code>通过苹果的方法把这些特殊图片读入系统, 然后重新保存为 PNG 图片即可</code>.</li>
-</ul>
-<p>将这段代码加入你的 <code>Mac 控制台工程</code>, 生成一个可执行程序(如 ipaPNGnormalizer), 在命令行中使用即可, <code>第一个参数</code>为需要正常化处理的 <code>PNG 文件夹路径</code>. 处理后会在这个目录下创建一个 decode 文件夹, 这个文件夹下存放所有的正常化后的 PNG 图片</p>
-<div class="highlight"><pre><span></span><span class="cp">#import &lt;Foundation/Foundation.h&gt;</span>
-<span class="cp">#import &lt;Cocoa/Cocoa.h&gt;</span>
-
-<span class="cp">#define NSLog(FORMAT …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ipa-bao-zhong-de-png-wen-jian-de-zheng-chang-hua.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev"><a href="http://littlecaptain.net/index6.html">&larr; Previous</a></li>
@@ -471,6 +499,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <li class=""><a href="http://littlecaptain.net/index9.html">9</a></li>
     <li class=""><a href="http://littlecaptain.net/index10.html">10</a></li>
     <li class=""><a href="http://littlecaptain.net/index11.html">11</a></li>
+    <li class=""><a href="http://littlecaptain.net/index12.html">12</a></li>
 
     <li class="next"><a href="http://littlecaptain.net/index8.html">Next &rarr;</a></li>
 

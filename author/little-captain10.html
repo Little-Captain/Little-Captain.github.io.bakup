@@ -58,6 +58,108 @@
  
 
     <div class='article'>
+        <a href="http://littlecaptain.net/duo-xian-cheng-nsthreadde-shi-yong.html"><h2>多线程-NSThread的使用</h2></a>
+        <div class= "well small"> Wed 10 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><p>一个NSThread对象就代表一条线程</p>
+<h1>使用步骤</h1>
+<h2>1. 创建线程</h2>
+<ul>
+<li>init<ul>
+<li>具体使用: 自定义线程类继承自NSThread, 重写 main 方法(自定义任务、start 方法中会调用 main 方法)</li>
+</ul>
+</li>
+<li>initWithTarget</li>
+</ul>
+<h2>2. 启动线程</h2>
+<ul>
+<li>start<ul>
+<li>必须要启动, 不然任务不会执行</li>
+</ul>
+</li>
+</ul>
+<h1>相关方法</h1>
+<h2>主线程相关</h2>
+<ul>
+<li>mainThread : 获取主线程</li>
+<li>isMainThread : 类方法</li>
+<li>isMainThread : 对象方法</li>
+</ul>
+<h2>其他方法</h2>
+<ul>
+<li>currentThread : 获取当前所在线程</li>
+<li>setName : 设置线程名</li>
+<li>name : 获取线程名</li>
+</ul>
+<h2>其他创建线程方式</h2>
+<ul>
+<li>
+<p>detachNewThreadSelector</p>
+<ul>
+<li>创建线程后自动启动线程</li>
+<li>分离出子线程</li>
+</ul>
+</li>
+<li>
+<p>performSelectorInBackground</p>
+<ul>
+<li>隐式创建并启动线程</li>
+<li>后台线程</li>
+</ul>
+</li>
+<li>
+<p>2种创建线程方式的优缺点</p>
+<ul>
+<li>优点 : 简单快捷</li>
+<li>缺点 : 无法拿到线程对象, 无法对线程进行更详细的设置</li>
+</ul>
+</li>
+</ul>
+<h1>控制线程状态 …</h1> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-nsthreadde-shi-yong.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/duo-xian-cheng-xian-cheng-jian-tong-xin.html"><h2>多线程-线程间通信</h2></a>
+        <div class= "well small"> Wed 10 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>概念</h1>
+<p>在1个进程中，线程往往不是孤立存在的，多个线程之间需要经常进行通信</p>
+<h1>具体应用</h1>
+<ul>
+<li>1个线程传递数据给另1个线程</li>
+<li>在1个线程中执行完特定任务后，转到另1个线程继续执行任务</li>
+</ul>
+<h1>线程间通信常用方法</h1>
+<ul>
+<li>performSelectorOnMainThread</li>
+<li>performSelector: onThread:</li>
+<li>GCD 中直接通过线程嵌套来实现</li>
+</ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/duo-xian-cheng-xian-cheng-jian-tong-xin.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://littlecaptain.net/duo-xian-cheng-an-quan-yin-huan.html"><h2>多线程-安全隐患</h2></a>
         <div class= "well small"> Tue 09 May 2017
 
@@ -432,85 +534,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ming-ling-ti-shi-fu-de-ge-shi.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/nullablenonnull.html"><h2>nullable&nonnull</h2></a>
-        <div class= "well small"> Mon 08 May 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><h1>直面问题</h1>
-<p>Swift 中有 optional 和 non-optional. 在 Objective-C 中没有这一概念.
-那么在 Swift 和 Objective-C 混合编程的时候, 编译器会统一使用 non-optional 处理, 这样处理往往并不是我们想要的结果.</p>
-<h1>苹果的解决方案</h1>
-<h2>引入三对关键字</h2>
-<ul>
-<li>__nullable 和 __nonnull</li>
-<li>_Nonnull 和 _Nullable</li>
-<li>nonnull 和 nullable</li>
-<li>nonnull: 对象不应该为空</li>
-<li>nullable: 对象可以是 NULL 或 nil</li>
-<li>三种写法本质上都是互通的，只是放的位置不同</li>
-</ul>
-<h2>使用总结</h2>
-<ul>
-<li>nonnull 和 nullable: 属性、方法返回值、方法参数</li>
-<li>_Nonnull 和 _Nullable:  C 函数的参数 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/nullablenonnull.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/fa-bu-kuang-jia-dao-cocoapods-shang.html"><h2>发布框架到 CocoaPods 上</h2></a>
-        <div class= "well small"> Mon 08 May 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><h1>CocoaPods如何管理框架</h1>
-<h1><img alt="" src="../assets/images/CocoaPods/CocoaPods工作流.png"></h1>
-<h1>框架的发布与安装</h1>
-<h1><img alt="" src="../assets/images/CocoaPods/CocoaPods如何管理框架.png"></h1>
-<h1>发布流程</h1>
-<h2>1. 注册</h2>
-<div class="highlight"><pre><span></span>pod trunk register email地址 yourname
-</pre></div>
-
-
-<p>执行上面的命令后, 你将收到一封邮件, <code>必须验证</code>才能进行后续操作</p>
-<h2>2. 查询用户信息</h2>
-<div class="highlight"><pre><span></span>pod trunk me
-</pre></div>
-
-
-<p>这条命令将输出你的<code>个人相关信息</code></p>
-<div class="highlight"><pre><span></span>- Name:     XXX
-  - Email:    littlecaptain@foxmail.com
-  - Since:    January 26th, 22:49
-  - Pods:
-    - LCDemo
-    - LCCategories
-    - LCRuntimeTool
-    - JFVideoPlayView
-    - LCNetworking
-  - Sessions:
-    - January 26th, 22:49 -      June 17th, 06:08. IP: 119.129 …</pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/fa-bu-kuang-jia-dao-cocoapods-shang.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev"><a href="http://littlecaptain.net/author/little-captain9.html">&larr; Previous</a></li>
@@ -526,6 +549,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <li class=""><a href="http://littlecaptain.net/author/little-captain9.html">9</a></li>
     <li class="active"><a href="http://littlecaptain.net/author/little-captain10.html">10</a></li>
     <li class=""><a href="http://littlecaptain.net/author/little-captain11.html">11</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain12.html">12</a></li>
 
     <li class="next"><a href="http://littlecaptain.net/author/little-captain11.html">Next &rarr;</a></li>
 

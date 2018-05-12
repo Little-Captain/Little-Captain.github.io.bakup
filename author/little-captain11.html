@@ -58,6 +58,85 @@
  
 
     <div class='article'>
+        <a href="http://littlecaptain.net/nullablenonnull.html"><h2>nullable&nonnull</h2></a>
+        <div class= "well small"> Mon 08 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>直面问题</h1>
+<p>Swift 中有 optional 和 non-optional. 在 Objective-C 中没有这一概念.
+那么在 Swift 和 Objective-C 混合编程的时候, 编译器会统一使用 non-optional 处理, 这样处理往往并不是我们想要的结果.</p>
+<h1>苹果的解决方案</h1>
+<h2>引入三对关键字</h2>
+<ul>
+<li>__nullable 和 __nonnull</li>
+<li>_Nonnull 和 _Nullable</li>
+<li>nonnull 和 nullable</li>
+<li>nonnull: 对象不应该为空</li>
+<li>nullable: 对象可以是 NULL 或 nil</li>
+<li>三种写法本质上都是互通的，只是放的位置不同</li>
+</ul>
+<h2>使用总结</h2>
+<ul>
+<li>nonnull 和 nullable: 属性、方法返回值、方法参数</li>
+<li>_Nonnull 和 _Nullable:  C 函数的参数 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/nullablenonnull.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/fa-bu-kuang-jia-dao-cocoapods-shang.html"><h2>发布框架到 CocoaPods 上</h2></a>
+        <div class= "well small"> Mon 08 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>CocoaPods如何管理框架</h1>
+<h1><img alt="" src="../assets/images/CocoaPods/CocoaPods工作流.png"></h1>
+<h1>框架的发布与安装</h1>
+<h1><img alt="" src="../assets/images/CocoaPods/CocoaPods如何管理框架.png"></h1>
+<h1>发布流程</h1>
+<h2>1. 注册</h2>
+<div class="highlight"><pre><span></span>pod trunk register email地址 yourname
+</pre></div>
+
+
+<p>执行上面的命令后, 你将收到一封邮件, <code>必须验证</code>才能进行后续操作</p>
+<h2>2. 查询用户信息</h2>
+<div class="highlight"><pre><span></span>pod trunk me
+</pre></div>
+
+
+<p>这条命令将输出你的<code>个人相关信息</code></p>
+<div class="highlight"><pre><span></span>- Name:     XXX
+  - Email:    littlecaptain@foxmail.com
+  - Since:    January 26th, 22:49
+  - Pods:
+    - LCDemo
+    - LCCategories
+    - LCRuntimeTool
+    - JFVideoPlayView
+    - LCNetworking
+  - Sessions:
+    - January 26th, 22:49 -      June 17th, 06:08. IP: 119.129 …</pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/fa-bu-kuang-jia-dao-cocoapods-shang.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://littlecaptain.net/git-ji-ben-cao-zuo.html"><h2>git 基本操作</h2></a>
         <div class= "well small"> Mon 08 May 2017
 
@@ -397,9 +476,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
  </div>
         <div class="summary"><p><em>git核心命令工作示意图</em></p>
-<p><img alt="" src="../assets/images/git/git常用命令-01.png"></p>
-<p><img alt="" src="../assets/images/git/git常用命令-02.png"></p>
-<p><img alt="" src="../assets/images/git/git常用命令-03.png"></p>
+<p><img src="../assets/images/git/git常用命令-01.png" width = 100% align=center /></p>
+<p><img src="../assets/images/git/git常用命令-02.png" width = 100% align=center /></p>
+<p><img src="../assets/images/git/git常用命令-03.png" width = 100% align=center /></p>
 <ul>
 <li>git帮助</li>
 </ul>
@@ -434,62 +513,6 @@ git clone 仓库的URL 存放仓库的路径
 <span class="c1"># 克隆时 …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/git-chang-yong-ming-ling.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/block-zong-jie.html"><h2>Block 总结</h2></a>
-        <div class= "well small"> Sat 06 May 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><h2>基本概念</h2>
-<ul>
-<li>Block 即<code>带有</code>自动变量(<code>局部变量</code>)的<code>匿名函数</code></li>
-<li>Block <code>提供</code>了类似由 C++ 和 Objective-C 类生成实例或对象来<code>保持变量值的能力</code></li>
-<li>Block 其实就是一个<code>代码块</code>，把你想要执行的代码封装在这个代码块里，等到需要的时候再去调用</li>
-<li>Block 是 <code>OC 对象</code>. OC 对象? 好像不对? Block 不是函数指针吗? 如果 Block 是函数指针, 那么还有必要把 Block 从栈区拷贝到堆区吗? 还能使用 copy 关键字修饰 Block 属性吗? 用事实说话好吧!</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="c1">// 通过使用 OC 运行时机制, 打印出 全局 Block 的继承链</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/block-zong-jie.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/hello-blog.html"><h2>Hello Blog</h2></a>
-        <div class= "well small"> Sat 06 May 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><h1>拿来说说</h1>
-<p>在各路网络资料的帮助下，我的个人 Blog 终于搭建起来了。</p>
-<h1>用到了什么</h1>
-<ul>
-<li><code>Pelican</code><ul>
-<li>简单易用</li>
-</ul>
-</li>
-<li><code>github page</code><ul>
-<li>方便, github 仓库直接管理</li>
-</ul>
-</li>
-</ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/hello-blog.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev"><a href="http://littlecaptain.net/author/little-captain10.html">&larr; Previous</a></li>
@@ -505,8 +528,9 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <li class=""><a href="http://littlecaptain.net/author/little-captain9.html">9</a></li>
     <li class=""><a href="http://littlecaptain.net/author/little-captain10.html">10</a></li>
     <li class="active"><a href="http://littlecaptain.net/author/little-captain11.html">11</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain12.html">12</a></li>
 
-    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+    <li class="next"><a href="http://littlecaptain.net/author/little-captain12.html">Next &rarr;</a></li>
 
 </ul>
 </div>

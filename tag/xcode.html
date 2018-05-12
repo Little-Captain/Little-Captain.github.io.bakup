@@ -58,8 +58,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <a href="http://littlecaptain.net/xcode-chang-jian-she-zhi-ji-jin.html"><h1>Xcode 常见设置集锦</h1></a>
-Wed 24 May 2017
+            <a href="http://littlecaptain.net/bitcode-she-zhi.html"><h1>bitcode 设置</h1></a>
+Sat 12 May 2018
 
 by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
  
@@ -68,11 +68,106 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
  
         </div>
         
-        <div><h1>消除 Xcode 警告</h1>
-<p><img alt="" src="../assets/images/Xcode/消除Xcode警告.png"></p></div>
+        <div><h1>打包相关设置</h1>
+<ul>
+<li>Build Settings -&gt; Enable Bitcode 设置为 Yes</li>
+<li>Build Settings -&gt; Other C Flags 中添加 <code>-fembed-bitcode</code></li>
+<li>这个设置不止要在app中设置，同样你也必须在编译库的时候使用。而且需要注意的是该参数, Xcode只在archive模式下添加</li>
+<li>xcodebuild archive 命令</li>
+<li>xcodebuild build 命令. 但是要加入一些特殊编译参数</li>
+</ul>
+<div class="highlight"><pre><span></span>xcodebuild <span class="nv">BITCODE_GENERATION_MODE</span><span class="o">=</span>bitcode <span class="nv">OTHER_CFLAGS</span><span class="o">=</span><span class="s2">&quot;-fembed-bitcode&quot;</span> <span class="nv">ONLY_ACTIVE_ARCH</span><span class="o">=</span>NO -configuration <span class="s2">&quot;Release&quot;</span> -target <span class="s2">&quot;</span><span class="si">${</span><span class="nv">TARGET_NAME</span><span class="si">}</span><span class="s2">&quot;</span> -sdk iphoneos clean build
+xcodebuild <span class="nv">BITCODE_GENERATION_MODE</span><span class="o">=</span>bitcode <span class="nv">OTHER_CFLAGS</span><span class="o">=</span><span class="s2">&quot;-fembed-bitcode&quot;</span> -configuration <span class="s2">&quot;Release&quot;</span> -arch <span class="s2">&quot;x86_64&quot;</span> -target <span class="s2">&quot;</span><span class="si">${</span><span class="nv">TARGET_NAME</span><span class="si">}</span><span class="s2">&quot;</span> -sdk iphonesimulator clean build
+</pre></div>
+
+
+<h1>检测是否打开Bitcode</h1>
+<ul>
+<li>检查 bitcode 段</li>
+<li>.a (otool -arch armv7 -l xxxx.a | grep __bitcode | wc -l). 如果当前库支持.a文件则会输出一个数字</li>
+<li>app, framework (otool -l xxxx | grep __LLVM | wc -l). 当你的framework使用过lipo命令，进行拆解和合并之后，需要指定指令集进行检查才可以 (otool -arch armv7 -l xxxx | grep __LLVM | wc -l)</li>
+<li>这些方法只供参考, 以最终检查结果为准</li>
+</ul>
+<h1>最终检查</h1>
+<ul>
+<li>如果您是一个APP，可以直接进行Archive打包，如果是一个库，则建议建一个Demo工程进行打包，记得要打开bitcode设置。</li>
+<li>检查点1: 连接是否报错. 如果有任何一个库没有打开bitcode链接，将会出现类似下方的错误。只要链接过了，那么基本上OK了。</li>
+</ul>
+<p><img src="../assets/images/Xcode/bitcode01.jpg" width = 100% align=center /></p>
+<ul>
+<li>检查点2: 使用开发模式到处ipa. </li>
+</ul>
+<p><img src="../assets/images/Xcode/bitcode02.jpg" width = 50% align=center />
+<img src="../assets/images/Xcode/bitcode03.jpg" width = 100% align=center /></p>
+<p><em>选择出包方式(第二种)</em></p>
+<p><img src="../assets/images/Xcode/bitcode04.jpg" width = 100% align=center /></p>
+<p><em>Compiling Bitcode</em>
+<img src="../assets/images/Xcode/bitcode05.jpg" width = 100% align=center /></p>
+<p><em>最终输出 ipa 包</em>
+<img src="../assets/images/Xcode/bitcode06.jpg" width = 100% align=center /></p>
+<h1>To Do</h1>
+<ul>
+<li>下一步要做什么: 深入研究 App 的大小的优化. 主要从以下两方面考虑<ul>
+<li>资源文件</li>
+<li>二进制文件</li>
+</ul>
+</li>
+</ul></div>
         <hr />
     </div>
 		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/what-is-app-thinning-ios-tvos-watchos.html"><h2>What is app thinning? (iOS, tvOS, watchOS)</h2></a>
+        <div class= "well small"> Sat 12 May 2018
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>本文章是总结自 Xcode 帮助文档</p>
+</blockquote>
+<h1>概述</h1>
+<ul>
+<li>App Store 和操作系统优化 iOS, tvOS, watchOS 下的应用程序安装包. </li>
+<li>这种优化能让你的 App 使用几乎所有设备的特性, 并占用最小的磁盘空间.</li>
+<li>优化主要有三方面: Slicing(iOS, tvOS), Bitcode, On-Demand Resources (iOS, tvOS)</li>
+</ul>
+<h1>Slicing(iOS, tvOS) 二进制切片</h1>
+<ul>
+<li>Apple 的设备CPU架构不知一种, 一般有armv7、armv7s、arm64.</li>
+<li>上传至 App Store 的安装包包含armv7(兼容armv7s)和arm64两种架构. 这种安装包就是通用的安装包</li>
+<li>Apple 会根据, 设备的具体 CPU 架构切片生成对应的安装包</li>
+<li>通过这样的操作安装包会变为通用包的一般大小</li>
+<li>注意: 切片操作从 9.0 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/what-is-app-thinning-ios-tvos-watchos.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/xcode-chang-jian-she-zhi-ji-jin.html"><h2>Xcode 常见设置集锦</h2></a>
+        <div class= "well small"> Wed 24 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>消除 Xcode 警告</h1>
+<p><img alt="" src="../assets/images/Xcode/消除Xcode警告.png"></p> <a class="btn btn-info xsmall" href="http://littlecaptain.net/xcode-chang-jian-she-zhi-ji-jin.html">read more</a></div>
+    </div>	
+				
 <div class="pagination">
 <ul>
     <li class="prev disabled"><a href="#">&larr; Previous</a></li>
@@ -147,7 +242,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2017</p>
+<p><a href="http://littlecaptain.net">Little Captain's Blog</a> &copy; Little Captain 2018</p>
 </footer>
 
 </div> <!-- /container -->

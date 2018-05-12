@@ -58,6 +58,58 @@
  
 
     <div class='article'>
+        <a href="http://littlecaptain.net/pyqt5-messagebox.html"><h2>PyQt5 messagebox</h2></a>
+        <div class= "well small"> Thu 12 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>messagebox</p>
+<p>To show a messagebox we need to import <code>QMessageBox</code>. We use the method <code>QMessageBox.question()</code> to display the messagebox</p>
+</blockquote>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtWidgets</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QWidget</span><span class="p">,</span> <span class="n">QPushButton</span><span class="p">,</span> <span class="n">QMessageBox</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtGui</span> <span class="kn">import</span> <span class="n">QIcon</span>
+<span class="kn">from</span> <span class="nn">PyQt5.QtCore</span> <span class="kn">import</span> <span class="n">pyqtSlot</span>
+
+<span class="k">class</span> <span class="nc">App</span><span class="p">(</span><span class="n">QWidget</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-messagebox.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://littlecaptain.net/pyqt5-signals-and-slots.html"><h2>PyQt5 signals and slots</h2></a>
+        <div class= "well small"> Thu 12 October 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>signals and slots</p>
+<p>Graphical applications (GUI) are event-driven, unlike console or terminal applications. A users action like clicks a button or selecting an item in a list is called an event.</p>
+<p>If an event takes place, each PyQt5 widget can emit a signal. A signal does not execute any action …</p></blockquote> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqt5-signals-and-slots.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://littlecaptain.net/pyqt5-buttons.html"><h2>PyQt5 buttons</h2></a>
         <div class= "well small"> Thu 12 October 2017
 
@@ -376,108 +428,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span> <span class="c1"># [1, 2, 1 …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-03.html">read more</a></div>
     </div>	
 				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/pyqtchapter-02.html"><h2>PyQt(Chapter 02)</h2></a>
-        <div class= "well small"> Mon 25 September 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><blockquote>
-<p>Getting Wet in Python (深入巨蟒湿地)</p>
-</blockquote>
-<h1>算数操作符</h1>
-<div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="c1"># Addition</span>
-<span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="c1"># Subtraction</span>
-<span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="c1"># Multiplication</span>
-<span class="n">x</span> <span class="o">/</span> <span class="n">y</span> <span class="c1"># Division</span>
-<span class="n">x</span> <span class="o">//</span> <span class="n">y</span> <span class="c1"># Truncating division (floor division)</span>
-<span class="n">x</span> <span class="o">**</span> <span class="n">y</span> <span class="c1"># Exponentiation. Sets x to the power y</span>
-<span class="n">x</span> <span class="o">%</span> <span class="n">y</span> <span class="c1"># Modulo operator</span>
-<span class="err">–</span><span class="n">x</span> <span class="c1"># Unary minus</span>
-<span class="o">+</span><span class="n">x</span> <span class="c1"># Unary plus</span>
-</pre></div>
-
-
-<h2>除法操作符</h2>
-<ul>
-<li><code>/</code> : 结果总是不会被截断, 结果总是浮点数</li>
-<li><code>//</code> : 不管有没有浮点操作数, 都将结果截断为整数. 但是如果一个操作数为浮点数, 结果就为浮点数 …</li></ul> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-02.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/pyqtchapter-01.html"><h2>PyQt(Chapter 01)</h2></a>
-        <div class= "well small"> Sun 24 September 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><blockquote>
-<p>Python and Its Features</p>
-</blockquote>
-<h1>数据类型</h1>
-<h2>Integers</h2>
-<ul>
-<li>32 bits</li>
-<li>[-2<sup>32</sup> 2<sup>32</sup>-1]</li>
-</ul>
-<h2>Long Integers</h2>
-<ul>
-<li>无限精度, 受限于计算机内存</li>
-</ul>
-<h2>Floating Point Numbers</h2>
-<ul>
-<li>浮点总是双精度的, 64 bits</li>
-</ul>
-<h2>Boolean</h2>
-<ul>
-<li>仅取两个值: True、False</li>
-</ul>
-<h2>Complex Number(复数)</h2>
-<ul>
-<li>a + b * j</li>
-<li>a、b都是浮点数</li>
-</ul>
-<h2>Strings</h2>
-<ul>
-<li>Unicode 字符序列</li>
-</ul>
-<h2>Lists</h2>
-<ul>
-<li>一组值的有序序列</li>
-</ul>
-<h2>Tuples</h2>
-<ul>
-<li>不可变、一组值的有序序列</li>
-</ul>
-<h2>Sets</h2>
-<ul>
-<li>无序的值的集合</li>
-</ul>
-<h2>Dictionaries</h2>
-<ul>
-<li>无序的键值对集合</li>
-</ul>
-<blockquote>
-<p>0b、0B: 二进制 …</p></blockquote> <a class="btn btn-info xsmall" href="http://littlecaptain.net/pyqtchapter-01.html">read more</a></div>
-    </div>	
-				
 <div class="pagination">
 <ul>
     <li class="prev"><a href="http://littlecaptain.net/author/little-captain4.html">&larr; Previous</a></li>
@@ -493,6 +443,7 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
     <li class=""><a href="http://littlecaptain.net/author/little-captain9.html">9</a></li>
     <li class=""><a href="http://littlecaptain.net/author/little-captain10.html">10</a></li>
     <li class=""><a href="http://littlecaptain.net/author/little-captain11.html">11</a></li>
+    <li class=""><a href="http://littlecaptain.net/author/little-captain12.html">12</a></li>
 
     <li class="next"><a href="http://littlecaptain.net/author/little-captain6.html">Next &rarr;</a></li>
 
