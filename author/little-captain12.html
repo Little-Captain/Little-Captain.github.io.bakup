@@ -58,6 +58,59 @@
  
 
     <div class='article'>
+        <a href="http://littlecaptain.net/git-chang-yong-ming-ling.html"><h2>git 常用命令</h2></a>
+        <div class= "well small"> Sun 07 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><p><em>git核心命令工作示意图</em></p>
+<p><img src="../assets/images/git/git常用命令-01.png" width = 100% align=center /></p>
+<p><img src="../assets/images/git/git常用命令-02.png" width = 100% align=center /></p>
+<p><img src="../assets/images/git/git常用命令-03.png" width = 100% align=center /></p>
+<ul>
+<li>git帮助</li>
+</ul>
+<div class="highlight"><pre><span></span>git <span class="nb">help</span> &lt;verb&gt;
+git &lt;verb&gt; --help
+man git-&lt;verb&gt;
+git <span class="nb">help</span>
+git <span class="nb">help</span> 其他指令
+</pre></div>
+
+
+<ul>
+<li>初始化一个本地仓库，生成一个.git目录，用于维护版本信息</li>
+</ul>
+<div class="highlight"><pre><span></span># 初始化可以在一个空文件执行, 也可以在一个非空文件执行
+git init
+git init 仓库路径
+# 初始化共享仓库, 共享仓库不能直接操作, 必须clone到本地
+git init --bare
+# Git 会自动修改该仓库目录的组权限为可写
+git init --bare --shared
+</pre></div>
+
+
+<ul>
+<li>克隆远程仓库到本地</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="c1"># 下载远程仓库到当前路径</span>
+git clone 仓库的URL
+<span class="c1"># 下载远程仓库到特定路径</span>
+git clone 仓库的URL 存放仓库的路径
+<span class="c1"># 克隆时 …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/git-chang-yong-ming-ling.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://littlecaptain.net/block-zong-jie.html"><h2>Block 总结</h2></a>
         <div class= "well small"> Sat 06 May 2017
 

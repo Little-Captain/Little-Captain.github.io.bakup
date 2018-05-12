@@ -58,6 +58,40 @@
  
 
     <div class='article'>
+        <a href="http://littlecaptain.net/ming-ling-ti-shi-fu-de-ge-shi.html"><h2>命令提示符的格式</h2></a>
+        <div class= "well small"> Tue 09 May 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><h1>相关环境变量</h1>
+<p>有两个环境变量来控制命令提示符的格式</p>
+<ul>
+<li>PS1 : 控制默认命令提示符的格式</li>
+<li>PS2 : 控制后续命令提示符的格式</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="nv">$PS1</span>
+<span class="nb">echo</span> <span class="nv">$PS2</span>
+</pre></div>
+
+
+<p><strong>bash shell 提示符字符</strong></p>
+<p><img src="../assets/images/Linux/bash shell 提示符字符.png" width = 100% align=center /></p>
+<p>配置</p>
+<div class="highlight"><pre><span></span><span class="c1"># 这个配置只会在当前会话有效</span>
+<span class="nv">PS1</span><span class="o">=</span><span class="s2">&quot;[\t][\u]\$&quot;</span>
+</pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/ming-ling-ti-shi-fu-de-ge-shi.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://littlecaptain.net/nullablenonnull.html"><h2>nullable&nonnull</h2></a>
         <div class= "well small"> Mon 08 May 2017
 
@@ -458,59 +492,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 </ul>
 <blockquote>
 <p>这是 GitHub 和 GitLab …</p></blockquote> <a class="btn btn-info xsmall" href="http://littlecaptain.net/fen-bu-shi-git-gong-zuo-liu-cheng.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/git-chang-yong-ming-ling.html"><h2>git 常用命令</h2></a>
-        <div class= "well small"> Sun 07 May 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><p><em>git核心命令工作示意图</em></p>
-<p><img src="../assets/images/git/git常用命令-01.png" width = 100% align=center /></p>
-<p><img src="../assets/images/git/git常用命令-02.png" width = 100% align=center /></p>
-<p><img src="../assets/images/git/git常用命令-03.png" width = 100% align=center /></p>
-<ul>
-<li>git帮助</li>
-</ul>
-<div class="highlight"><pre><span></span>git <span class="nb">help</span> &lt;verb&gt;
-git &lt;verb&gt; --help
-man git-&lt;verb&gt;
-git <span class="nb">help</span>
-git <span class="nb">help</span> 其他指令
-</pre></div>
-
-
-<ul>
-<li>初始化一个本地仓库，生成一个.git目录，用于维护版本信息</li>
-</ul>
-<div class="highlight"><pre><span></span># 初始化可以在一个空文件执行, 也可以在一个非空文件执行
-git init
-git init 仓库路径
-# 初始化共享仓库, 共享仓库不能直接操作, 必须clone到本地
-git init --bare
-# Git 会自动修改该仓库目录的组权限为可写
-git init --bare --shared
-</pre></div>
-
-
-<ul>
-<li>克隆远程仓库到本地</li>
-</ul>
-<div class="highlight"><pre><span></span><span class="c1"># 下载远程仓库到当前路径</span>
-git clone 仓库的URL
-<span class="c1"># 下载远程仓库到特定路径</span>
-git clone 仓库的URL 存放仓库的路径
-<span class="c1"># 克隆时 …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/git-chang-yong-ming-ling.html">read more</a></div>
     </div>	
 				
 <div class="pagination">

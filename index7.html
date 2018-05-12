@@ -58,6 +58,58 @@
  
 
     <div class='article'>
+        <a href="http://littlecaptain.net/lean-pythonchapter-04.html"><h2>Lean Python(Chapter 04)</h2></a>
+        <div class= "well small"> Thu 21 September 2017
+
+by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
+ 
+
+
+ </div>
+        <div class="summary"><blockquote>
+<p>Input and Output</p>
+</blockquote>
+<h1>显示输出</h1>
+<div class="highlight"><pre><span></span><span class="c1"># 格式</span>
+<span class="k">print</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="n">arg2</span><span class="p">,</span><span class="n">arg3</span><span class="o">...</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>使用格式输出</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> plus </span><span class="si">%d</span><span class="s1"> makes </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+
+<ul>
+<li>抑制最后的空行输出</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s1">&#39;one...&#39;</span><span class="p">,</span><span class="s1">&#39;two...&#39;</span><span class="p">,</span><span class="s1">&#39;three&#39;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h1>获取用户输入</h1>
+<div class="highlight"><pre><span></span><span class="n">yourName</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter your name: &#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>接收的输入都是字符串, 所以要用户输入数字等需要自行解析</li>
+</ul>
+<div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter a number: &#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">count</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="nb">int …</span></pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/lean-pythonchapter-04.html">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
         <a href="http://littlecaptain.net/lean-pythonchapter-03.html"><h2>Lean Python(Chapter 03)</h2></a>
         <div class= "well small"> Thu 21 September 2017
 
@@ -460,28 +512,6 @@ by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">
 
  </div>
         <div class="summary"><p><img src="../assets/images/正则表达式/正则表达式.png" width = 100% align=center /></p> <a class="btn btn-info xsmall" href="http://littlecaptain.net/zheng-ze-biao-da-shi-ji-chu.html">read more</a></div>
-    </div>	
-				
-
- 
-        
-
- 
-
-    <div class='article'>
-        <a href="http://littlecaptain.net/git-shi-yong-jing-yan-ji-jin.html"><h2>git 使用经验集锦</h2></a>
-        <div class= "well small"> Mon 31 July 2017
-
-by <a class="url fn" href="http://littlecaptain.net/author/little-captain.html">Little Captain</a>
- 
-
-
- </div>
-        <div class="summary"><h2>修改 Git 的默认编辑器</h2>
-<div class="highlight"><pre><span></span><span class="c1"># 1. subl 是可以在终端中直接启动的一个文本编辑器</span>
-<span class="c1"># 2. -w 的意思是: 让 git 等待文本编辑结束. 当用户编辑完成后, 关闭文本就表示结束</span>
-git config --global core.editor <span class="s2">&quot;subl -w&quot;</span>
-</pre></div> <a class="btn btn-info xsmall" href="http://littlecaptain.net/git-shi-yong-jing-yan-ji-jin.html">read more</a></div>
     </div>	
 				
 <div class="pagination">
